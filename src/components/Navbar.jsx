@@ -19,8 +19,11 @@ export const Navbar = (props) => {
     setIsMobile(!isMobile);
   };
   return (
-    <Box sx={{ flexGrow: 1 }} >
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar
+        position="static"
+        style={{ backgroundColor: "#2f5d8c", color: "#F9F9F9" }}
+      >
         <Toolbar style={{ backgroundColor: "#2f5d8c", color: "#F9F9F9" }}>
           <img
             style={{ width: "45px", height: "45px", marginRight: 7 }}
