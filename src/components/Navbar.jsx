@@ -12,95 +12,149 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import SortIcon from "@mui/icons-material/Sort";
 import Collapse from "@mui/material/Collapse";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+import Grid from "@mui/material/Grid";
+import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
+import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
+import StorageRoundedIcon from "@mui/icons-material/StorageRounded";
+import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#1b5e20",
+    },
+    secondary: {
+      main: "#fbc02d",
+    },
+  },
+});
 export const Navbar = (props) => {
   const [isMobile, setIsMobile] = useState(false);
   const handleMenuMobile = () => {
     setIsMobile(!isMobile);
   };
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        style={{ backgroundColor: "#2f5d8c", color: "#F9F9F9" }}
+    <ThemeProvider theme={theme}>
+      <Box
+        sx={{
+          flexGrow: 1,
+          display: {
+            xs: "none",
+            sm: "block",
+            md: "block",
+            lg: "block",
+            xl: "block",
+          },
+        }}
       >
-        <Toolbar style={{ backgroundColor: "#2f5d8c", color: "#F9F9F9" }}>
-          <img
-            style={{ width: "45px", height: "45px", marginRight: 7 }}
-            src={Lightlogo}
-            alt="logo"
-          />
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1 }}
-            style={{ fontSize: 20 }}
-          >
-            COVID-19
-          </Typography>
-          <Box
-            sx={{
-              display: {
-                xs: "none",
-                sm: "none",
-                md: "block",
-                lg: "block",
-                xl: "block",
-              },
-            }}
-          >
-            <Button color="inherit">Home</Button>
-            <Button color="inherit">Model</Button>
-            <Button color="inherit">Data</Button>
-            <Button color="inherit">Contact</Button>
-          </Box>
-          <IconButton
-            sx={{
-              display: {
-                xs: "block",
-                sm: "block",
-                md: "none",
-                lg: "none",
-                xl: "none",
-              },
-              mr: 2,
-            }}
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={handleMenuMobile}
-          >
-            {isMobile ? <SortIcon /> : <MenuIcon />}
-          </IconButton>
-        </Toolbar>
+        <AppBar
+          position="static"
+          style={{ backgroundColor: "#1B8821", color: "#F9F9F9" }}
+        >
+          <Toolbar style={{ backgroundColor: "#1B8821", color: "#F9F9F9" }}>
+            <img
+              style={{ width: "45px", height: "45px", marginRight: 7 }}
+              src={Lightlogo}
+              alt="logo"
+            />
+            <Box sx={{ flexGrow: 1 }}>
+              <Typography variant="h6" component="div" style={{ fontSize: 20 }}>
+                COVID-19
+              </Typography>
+            </Box>
 
-        <Collapse in={isMobile}>
-          <Container
-            maxWidth="xs"
-            style={{
-              backgroundColor: "#2f5d8c",
-              paddingLeft: 20,
-              paddingBottom: 10,
-            }}
-            sx={{
-              display: {
-                xs: "block",
-                sm: "blocknone",
-                md: "none",
-                lg: "none",
-                xl: "none",
-              },
-            }}
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "block",
+                  md: "block",
+                  lg: "block",
+                  xl: "block",
+                },
+              }}
+            >
+              <Grid
+                container
+                direction="row"
+                justifyContent="start"
+                alignItems="center"
+              >
+                <Button
+                  style={{ marginLeft: "20", alignItems: "center" }}
+                  color="inherit"
+                  startIcon={<AutoGraphRoundedIcon />}
+                >
+                  Graph
+                </Button>
+                <Button
+                  style={{ marginLeft: "20", alignItems: "center" }}
+                  color="inherit"
+                  startIcon={<DescriptionRoundedIcon />}
+                >
+                  Model
+                </Button>
+                <Button
+                  style={{ marginLeft: "20" }}
+                  color="inherit"
+                  startIcon={<StorageRoundedIcon />}
+                >
+                  Data
+                </Button>
+                <Button
+                  style={{ marginLeft: "20" }}
+                  color="inherit"
+                  startIcon={<PeopleAltRoundedIcon />}
+                >
+                  Contact
+                </Button>
+              </Grid>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </Box>
+
+      <AppBar
+        position="fixed"
+        color="primary"
+        sx={{
+          top: "auto",
+          bottom: 0,
+          display: {
+            xs: "block",
+            sm: "none",
+            md: "none",
+            lg: "none",
+            xl: "none",
+          },
+        }}
+        style={{ backgroundColor: "#1B8821", color: "#F9F9F9" }}
+      >
+        <Toolbar style={{ backgroundColor: "#1B8821", color: "#F9F9F9" }}>
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
           >
-            <Container style={{ padding: 10 }}>Home</Container>
-            <Container style={{ padding: 10 }}>Model</Container>
-            <Container style={{ padding: 10 }}>Data</Container>
-            <Container style={{ padding: 10 }}>Contact</Container>
-          </Container>
-        </Collapse>
+            <IconButton aria-label="Graph" color="inherit" fontSize="large">
+              <AutoGraphRoundedIcon />
+            </IconButton>
+            <IconButton aria-label="Model" color="inherit">
+              <DescriptionRoundedIcon />
+            </IconButton>
+            <IconButton aria-label="Data" color="inherit">
+              <StorageRoundedIcon />
+            </IconButton>
+            <IconButton aria-label="Contact" color="inherit">
+              <PeopleAltRoundedIcon />
+            </IconButton>
+          </Grid>
+        </Toolbar>
       </AppBar>
-    </Box>
+    </ThemeProvider>
   );
 };
 

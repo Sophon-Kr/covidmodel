@@ -99,8 +99,8 @@ export default class MainGraph extends PureComponent {
           >
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#2F5D8C" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#2F5D8C" stopOpacity={0} />
+                <stop offset="5%" stopColor="#1B8821" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#1B8821" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#D55E2D" stopOpacity={0.8} />
@@ -114,7 +114,7 @@ export default class MainGraph extends PureComponent {
             <Area
               type="monotone"
               dataKey="uv"
-              stroke="#2F5D8C"
+              stroke="#1B8821"
               fillOpacity={1}
               fill="url(#colorUv)"
             />

@@ -16,7 +16,7 @@ import configureStore from "./middleware/store";
 function App() {
   const [store, setStore] = useState(configureStore());
   return (
-    <Provider store={store} >
+    <Provider store={store}>
       <BrowserRouter>
         <Navbar />
         <Switch>
@@ -26,7 +26,6 @@ function App() {
           <Route exact path="/" component={Homepage} />
           <Route component={Homepage} />
         </Switch>
-       
       </BrowserRouter>
     </Provider>
   );
