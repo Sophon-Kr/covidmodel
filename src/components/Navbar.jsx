@@ -51,9 +51,9 @@ export const Navbar = (props) => {
       >
         <AppBar
           position="static"
-          style={{ backgroundColor: "#1B8821", color: "#F9F9F9" }}
+          style={{ backgroundColor: "#AED6F1", color: "#000000" }}
         >
-          <Toolbar style={{ backgroundColor: "#1B8821", color: "#F9F9F9" }}>
+          <Toolbar style={{ backgroundColor: "#AED6F1", color: "#000000" }}>
             <img
               style={{ width: "45px", height: "45px", marginRight: 7 }}
               src={Lightlogo}
@@ -82,34 +82,49 @@ export const Navbar = (props) => {
                 justifyContent="start"
                 alignItems="center"
               >
-                <Button
-                  style={{ marginLeft: "20", alignItems: "center" }}
-                  color="inherit"
-                  startIcon={<AutoGraphRoundedIcon />}
-                >
-                  Graph
-                </Button>
-                <Button
-                  style={{ marginLeft: "20", alignItems: "center" }}
-                  color="inherit"
-                  startIcon={<DescriptionRoundedIcon />}
-                >
-                  Model
-                </Button>
-                <Button
-                  style={{ marginLeft: "20" }}
-                  color="inherit"
-                  startIcon={<StorageRoundedIcon />}
-                >
-                  Data
-                </Button>
-                <Button
-                  style={{ marginLeft: "20" }}
-                  color="inherit"
-                  startIcon={<PeopleAltRoundedIcon />}
-                >
-                  Contact
-                </Button>
+                <Grid item md={3} lg={3} xl={3}>
+                  <Button
+                    style={{ marginLeft: "20", alignItems: "center" }}
+                    color="inherit"
+                    startIcon={<AutoGraphRoundedIcon />}
+                    maxWidth
+                  >
+                    Graph
+                  </Button>
+                </Grid>
+
+                <Grid item md={3} lg={3} xl={3}>
+                  <Button
+                    style={{ marginLeft: "20" }}
+                    color="inherit"
+                    startIcon={<StorageRoundedIcon />}
+                    maxWidth
+                  >
+                    Data
+                  </Button>
+                </Grid>
+
+                <Grid item md={3} lg={3} xl={3}>
+                  <Button
+                    style={{ marginLeft: "20", alignItems: "center" }}
+                    color="inherit"
+                    startIcon={<DescriptionRoundedIcon />}
+                    maxWidth
+                  >
+                    Model
+                  </Button>
+                </Grid>
+
+                <Grid item md={3} lg={3} xl={3}>
+                  <Button
+                    style={{ marginLeft: "20" }}
+                    color="inherit"
+                    startIcon={<PeopleAltRoundedIcon />}
+                    maxWidth
+                  >
+                    Contact
+                  </Button>
+                </Grid>
               </Grid>
             </Box>
           </Toolbar>
@@ -130,9 +145,9 @@ export const Navbar = (props) => {
             xl: "none",
           },
         }}
-        style={{ backgroundColor: "#1B8821", color: "#F9F9F9" }}
+        style={{ backgroundColor: "#AED6F1", color: "#F9F9F9" }}
       >
-        <Toolbar style={{ backgroundColor: "#1B8821", color: "#F9F9F9" }}>
+        <Toolbar style={{ backgroundColor: "#AED6F1", color: "#F9F9F9" }}>
           <Grid
             container
             direction="row"
