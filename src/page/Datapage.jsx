@@ -13,7 +13,7 @@ export const Datapage = (props) => {
       <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Paper
           style={{
-            minHeight: 300,
+            minHeight: 100,
             padding: 30,
           }}
           variant="outlined"

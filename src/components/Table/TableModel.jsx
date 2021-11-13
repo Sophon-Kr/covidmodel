@@ -15,12 +15,105 @@ function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
 
+// const rows = [
+//   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+//   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+//   createData("Eclair", 262, 16.0, 24, 6.0),
+//   createData("Cupcake", 305, 3.7, 67, 4.3),
+//   createData("Gingerbread", 356, 16.0, 49, 3.9),
+// ];
+
 const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
+  {
+    name: "Jan",
+    Susceptible: 66162931,
+    Vaccines1: 0,
+    Vaccines2: 0,
+    Infected: 11898,
+    Recovery: 7375,
+    Hospital: 4507,
+    Death: 16,
+  },
+  {
+    name: "Feb",
+    Susceptible: 66172389,
+    Vaccines1: 0,
+    Vaccines2: 0,
+    Infected: 7169,
+    Recovery: 13513,
+    Hospital: -6350,
+    Death: 6,
+  },
+  {
+    name: "Mar",
+    Susceptible: 66022406,
+    Vaccines1: 158497,
+    Vaccines2: 33248,
+    Infected: 2912,
+    Recovery: 2298,
+    Hospital: 603,
+    Death: 11,
+  },
+  {
+    name: "Apr",
+    Susceptible: 65177414,
+    Vaccines1: 936733,
+    Vaccines2: 348600,
+    Infected: 36290,
+    Recovery: 8828,
+    Hospital: 27353,
+    Death: 109,
+  },
+  {
+    name: "May",
+    Susceptible: 64553188,
+    Vaccines1: 1444261,
+    Vaccines2: 743520,
+    Infected: 94639,
+    Recovery: 72091,
+    Hospital: 21720,
+    Death: 828,
+  },
+  {
+    name: "Jun",
+    Susceptible: 61416343,
+    Vaccines1: 4571363,
+    Vaccines2: 1691476,
+    Infected: 99509,
+    Recovery: 99134,
+    Hospital: -614,
+    Death: 992,
+  },
+  {
+    name: "Jul",
+    Susceptible: 58818693,
+    Vaccines1: 6692062,
+    Vaccines2: 1066214,
+    Infected: 337986,
+    Recovery: 184441,
+    Hospital: 150711,
+    Death: 2834,
+  },
+  {
+    name: "Aug",
+    Susceptible: 0,
+    Vaccines1: 0,
+    Vaccines2: 0,
+    Infected: 607442,
+    Recovery: 630071,
+    Hospital: -29142,
+    Death: 6732,
+  },
+  {
+    name: "Sep",
+    Susceptible: 0,
+    Vaccines1: 0,
+    Vaccines2: 0,
+    Infected: 398746,
+    Recovery: 448682,
+    Hospital: -55293,
+    Death: 513,
+  },
 ];
 
 export const TableModel = (props) => {
@@ -35,16 +128,18 @@ export const TableModel = (props) => {
           variant="outlined"
           square
         >
-          TableModel
+          {/* <Typography variant="h6" color="initial">Data From Model</Typography> */}
           <TableContainer>
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Dessert (100g serving)</TableCell>
-                  <TableCell align="right">Calories</TableCell>
-                  <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                  <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                  <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                  <TableCell align="left">Susceptible</TableCell>
+                  <TableCell align="left">Vaccines1 </TableCell>
+                  <TableCell align="left">Vaccines2 </TableCell>
+                  <TableCell align="left">Infected </TableCell>
+                  <TableCell align="left">Recovery</TableCell>
+                  <TableCell align="left">Hospital </TableCell>
+                  <TableCell align="left">Death </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -53,13 +148,13 @@ export const TableModel = (props) => {
                     key={row.name}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell component="th" scope="row">
-                      {row.name}
-                    </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
+                    <TableCell align="left">{row.Susceptible}</TableCell>
+                    <TableCell align="left">{row.Vaccines1}</TableCell>
+                    <TableCell align="left">{row.Vaccines2}</TableCell>
+                    <TableCell align="left">{row.Infected}</TableCell>
+                    <TableCell align="left">{row.Recovery}</TableCell>
+                    <TableCell align="left">{row.Hospital}</TableCell>
+                    <TableCell align="left">{row.Death}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

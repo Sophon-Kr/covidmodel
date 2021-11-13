@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as actions from "../middleware/action";
 import { connect } from "react-redux";
 import Container from "@mui/material/Container";
@@ -28,31 +28,9 @@ import FullscreenRoundedIcon from "@mui/icons-material/FullscreenRounded";
 import Slide from "@mui/material/Slide";
 import MainGraphFull from "../components/Graph/MainGraphFull";
 import TextField from "@mui/material/TextField";
+import { getdailyData } from "../services/dailyData.service";
 
 // const { store } = useContext(ReactReduxContext);
-
-const dailyData = [
-  {
-    id: 1,
-    data: " Daily Confirmed Cases ",
-    color: "red",
-  },
-  {
-    id: 2,
-    data: " Daily Dathes Cases",
-    color: "grey",
-  },
-  {
-    id: 3,
-    data: " Daily Recovered Cases",
-    color: "green",
-  },
-  {
-    id: 4,
-    data: " Hospital Cases",
-    color: "#ffd600",
-  },
-];
 
 //
 
@@ -142,6 +120,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export const Homepage = (props) => {
+  const [dailyDataAPI, setdailyDataAPI] = useState([]);
   const [dialogStatus, setDialogStatus] = useState(false);
   const [fullGraph, setFullGraph] = useState(false);
   const [period, setPeriod] = React.useState(props.mainperiod);
@@ -153,6 +132,33 @@ export const Homepage = (props) => {
   const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
+
+  const setdailyDataTemplate = [
+    {
+      id: 1,
+      data: " Daily Confirmed Cases ",
+      color: "red",
+      dataAPI: dailyDataAPI,
+    },
+    {
+      id: 2,
+      data: " Daily Dathes Cases",
+      color: "grey",
+      dataAPI: dailyDataAPI,
+    },
+    {
+      id: 3,
+      data: " Daily Recovered Cases",
+      color: "green",
+      dataAPI: dailyDataAPI,
+    },
+    {
+      id: 4,
+      data: " Hospital Cases",
+      color: "#ffd600",
+      dataAPI: dailyDataAPI,
+    },
+  ];
 
   const listData = [
     {
@@ -250,6 +256,16 @@ export const Homepage = (props) => {
     // console.log("DStatus :", DStatus);
   };
 
+  useEffect(() => {
+    async function fetchData() {
+      let _getDailydata = await getdailyData();
+      setdailyDataAPI(_getDailydata);
+      console.log("_getDailydata ==", _getDailydata);
+    }
+    fetchData();
+    // console.log("dailyDataAPI", dailyDataAPI);
+  }, []);
+
   // const tt = props.getTest;
   // const ndt = props.testEditstate;
   // const handledata = () => {
@@ -265,7 +281,7 @@ export const Homepage = (props) => {
     <Container maxWidth="xxl">
       <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Grid container justifyContent="center" spacing={3}>
-          {dailyData.map((data) => (
+          {setdailyDataTemplate.map((data) => (
             <Grid key={data.id} item xs={12} sm={6} md={3} lg={3} xl={3}>
               <Paper
                 style={{
@@ -277,6 +293,7 @@ export const Homepage = (props) => {
                 square
               >
                 {data.data}
+                {data.dataAPI}
               </Paper>
               <Divider style={{ backgroundColor: data.color, padding: 2 }} />
             </Grid>
