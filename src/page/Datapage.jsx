@@ -10,19 +10,20 @@ import TableSource from "../components/Table/TableSource";
 export const Datapage = (props) => {
   return (
     <Container maxWidth="xxl">
-      <Container maxWidth="xl" style={{ paddingTop: 30 }}>
+      <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Paper
           style={{
-            minHeight: 100,
+            minHeight: 300,
             padding: 30,
           }}
-          elevation={5}
+          variant="outlined"
+          square
         >
           Datapage
         </Paper>
       </Container>
       <TableModel />
-      <TableSource />
+      {/* <TableSource /> */}
     </Container>
   );
 };

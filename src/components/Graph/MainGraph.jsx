@@ -1,4 +1,6 @@
 import React, { PureComponent } from "react";
+import * as actions from "../../middleware/action";
+import { connect } from "react-redux";
 import {
   LineChart,
   Line,
@@ -15,55 +17,88 @@ import {
 const data = [
   {
     name: "Jan",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    Susceptible: 4000,
+    Vaccines1: 2400,
+    Vaccines2: 2400,
+    Infected: 100,
+    Recovery: 1,
+    Hospital: 1,
+    Death: 1,
   },
   {
     name: "Feb",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    Susceptible: 3000,
+    Vaccines1: 1398,
+    Vaccines2: 2210,
+    Infected: 200,
+    Recovery: 1,
+    Hospital: 1,
+    Death: 1,
   },
   {
     name: "Mar",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    Susceptible: 2000,
+    Vaccines1: 9800,
+    Vaccines2: 2290,
+    Infected: 400,
+    Recovery: 1,
+    Hospital: 1,
+    Death: 12,
   },
   {
     name: "Apr",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    Susceptible: 2780,
+    Vaccines1: 3908,
+    Vaccines2: 2000,
+    Infected: 600,
+    Recovery: 1,
+    Hospital: 1,
+    Death: 19,
   },
   {
     name: "May",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    Susceptible: 1890,
+    Vaccines1: 4800,
+    Vaccines2: 2181,
+    Infected: 900,
+    Recovery: 1,
+    Hospital: 1,
+    Death: 15,
   },
   {
     name: "Jun",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    Susceptible: 2390,
+    Vaccines1: 3800,
+    Vaccines2: 2500,
+    Infected: 350,
+    Recovery: 1,
+    Hospital: 1,
+    Death: 10,
   },
   {
     name: "Jul",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    Susceptible: 3490,
+    Vaccines1: 4300,
+    Vaccines2: 2100,
+    Infected: 700,
+    Recovery: 1,
+    Hospital: 1,
+    Death: 1,
   },
 ];
 
-export default class MainGraph extends PureComponent {
-  // static demoUrl = "https://codesandbox.io/s/customized-legend-event-l19fo";
+class MainGraph extends PureComponent {
+  // static demoUrl = "https://codesandbox.io/Susceptible/customized-legend-event-l19fo";
 
   state = {
     opacity: {
-      uv: 1,
-      pv: 1,
+      Susceptible: 1,
+      Vaccines1: 1,
+      Vaccines2: 1,
+      Infected: 1,
+      Recovery: 1,
+      Hospital: 1,
+      Death: 1,
     },
   };
 
@@ -90,7 +125,7 @@ export default class MainGraph extends PureComponent {
 
     return (
       <div style={{ width: "100%" }}>
-        <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="100%" height={445}>
           <LineChart
             width={500}
             height={300}
@@ -107,64 +142,97 @@ export default class MainGraph extends PureComponent {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line
-              type="monotone"
-              dataKey="pv"
-              stroke="green"
-              strokeWidth={3}
-              activeDot={{ r: 8 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="uv"
-              stroke="red"
-              strokeWidth={3}
-              activeDot={{ r: 8 }}
-            />
+            {this.props.mainSStatus ? (
+              <Line
+                type="monotone"
+                dataKey="Susceptible"
+                stroke="#039be5"
+                strokeWidth={3}
+                activeDot={{ r: 8 }}
+              />
+            ) : null}
+            {this.props.mainV1Status ? (
+              <Line
+                type="monotone"
+                dataKey="Vaccines1"
+                stroke="#ffd600"
+                strokeWidth={3}
+                activeDot={{ r: 8 }}
+              />
+            ) : null}
+            {this.props.mainV2Status ? (
+              <Line
+                type="monotone"
+                dataKey="Vaccines2"
+                stroke="orange"
+                strokeWidth={3}
+                activeDot={{ r: 8 }}
+              />
+            ) : null}
+            {this.props.mainIStatus ? (
+              <Line
+                type="monotone"
+                dataKey="Infected"
+                stroke="#f44336
+              "
+                strokeWidth={3}
+                activeDot={{ r: 8 }}
+              />
+            ) : null}
+            {this.props.mainRStatus ? (
+              <Line
+                type="monotone"
+                dataKey="Recovery"
+                stroke="green"
+                strokeWidth={3}
+                activeDot={{ r: 8 }}
+              />
+            ) : null}
+            {this.props.mainHStatus ? (
+              <Line
+                type="monotone"
+                dataKey="Hospital"
+                stroke="purple"
+                strokeWidth={3}
+                activeDot={{ r: 8 }}
+              />
+            ) : null}
+            {this.props.mainDStatus ? (
+              <Line
+                type="monotone"
+                dataKey="Death"
+                stroke="black"
+                strokeWidth={3}
+                activeDot={{ r: 8 }}
+              />
+            ) : null}
           </LineChart>
         </ResponsiveContainer>
       </div>
     );
-    // return (
-    //   <div style={{ width: "100%" }}>
-    //     <ResponsiveContainer width="100%" height={400}>
-    //       <AreaChart
-    //         width={730}
-    //         height={250}
-    //         data={data}
-    //         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-    //       >
-    //         <defs>
-    //           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-    //             <stop offset="5%" stopColor="#1B8821" stopOpacity={0.8} />
-    //             <stop offset="95%" stopColor="#1B8821" stopOpacity={0} />
-    //           </linearGradient>
-    //           <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-    //             <stop offset="5%" stopColor="#D55E2D" stopOpacity={0.8} />
-    //             <stop offset="95%" stopColor="#D55E2D" stopOpacity={0} />
-    //           </linearGradient>
-    //         </defs>
-    //         <XAxis dataKey="name" />
-    //         <YAxis />
-    //         <CartesianGrid strokeDasharray="3 3" />
-    //         <Tooltip />
-    //         <Area
-    //           type="monotone"
-    //           dataKey="uv"
-    //           stroke="#1B8821"
-    //           fillOpacity={1}
-    //           fill="url(#colorUv)"
-    //         />
-    //         <Area
-    //           type="monotone"
-    //           dataKey="pv"
-    //           stroke="#D55E2D"
-    //           fillOpacity={1}
-    //           fill="url(#colorPv)"
-    //         />
-    //       </AreaChart>
-    //     </ResponsiveContainer>
-    //   </div>
-    // );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    mainperiod: state.reducer.period,
+    maintypeData: state.reducer.typeData,
+    mainSStatus: state.reducer.SStatus,
+    mainV1Status: state.reducer.V1Status,
+    mainV2Status: state.reducer.V2Status,
+    mainIStatus: state.reducer.IStatus,
+    mainRStatus: state.reducer.RStatus,
+    mainHStatus: state.reducer.HStatus,
+    mainDStatus: state.reducer.DStatus,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    testEditstate: (d) => {
+      return dispatch(actions.testGet(d));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainGraph);

@@ -13,7 +13,7 @@ import Container from "@mui/material/Container";
 import SortIcon from "@mui/icons-material/Sort";
 import Collapse from "@mui/material/Collapse";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import { NavLink } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
 import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
@@ -83,47 +83,67 @@ export const Navbar = (props) => {
                 alignItems="center"
               >
                 <Grid item md={3} lg={3} xl={3}>
-                  <Button
-                    style={{ marginLeft: "20", alignItems: "center" }}
-                    color="inherit"
-                    startIcon={<AutoGraphRoundedIcon />}
-                    maxWidth
+                  <NavLink
+                    to="/"
+                    style={{ textDecoration: "none", color: "black" }}
                   >
-                    Graph
-                  </Button>
+                    <Button
+                      style={{ marginLeft: "20", alignItems: "center" }}
+                      color="inherit"
+                      startIcon={<AutoGraphRoundedIcon />}
+                      maxWidth
+                    >
+                      Graph
+                    </Button>
+                  </NavLink>
                 </Grid>
 
                 <Grid item md={3} lg={3} xl={3}>
-                  <Button
-                    style={{ marginLeft: "20" }}
-                    color="inherit"
-                    startIcon={<StorageRoundedIcon />}
-                    maxWidth
+                  <NavLink
+                    to="/datapage"
+                    style={{ textDecoration: "none", color: "black" }}
                   >
-                    Data
-                  </Button>
+                    <Button
+                      style={{ marginLeft: "20" }}
+                      color="inherit"
+                      startIcon={<StorageRoundedIcon />}
+                      maxWidth
+                    >
+                      Data
+                    </Button>
+                  </NavLink>
                 </Grid>
 
                 <Grid item md={3} lg={3} xl={3}>
-                  <Button
-                    style={{ marginLeft: "20", alignItems: "center" }}
-                    color="inherit"
-                    startIcon={<DescriptionRoundedIcon />}
-                    maxWidth
+                  <NavLink
+                    to="/modelpage"
+                    style={{ textDecoration: "none", color: "black" }}
                   >
-                    Model
-                  </Button>
+                    <Button
+                      style={{ marginLeft: "20", alignItems: "center" }}
+                      color="inherit"
+                      startIcon={<DescriptionRoundedIcon />}
+                      maxWidth
+                    >
+                      Model
+                    </Button>
+                  </NavLink>
                 </Grid>
 
                 <Grid item md={3} lg={3} xl={3}>
-                  <Button
-                    style={{ marginLeft: "20" }}
-                    color="inherit"
-                    startIcon={<PeopleAltRoundedIcon />}
-                    maxWidth
+                  <NavLink
+                    to="/contactpage"
+                    style={{ textDecoration: "none", color: "black" }}
                   >
-                    Contact
-                  </Button>
+                    <Button
+                      style={{ marginLeft: "20" }}
+                      color="inherit"
+                      startIcon={<PeopleAltRoundedIcon />}
+                      maxWidth
+                    >
+                      Contact
+                    </Button>
+                  </NavLink>
                 </Grid>
               </Grid>
             </Box>

@@ -27,16 +27,17 @@ const rows = [
 export const TableSource = (props) => {
   return (
     <Container maxWidth="xxl">
-      <Container maxWidth="xl" style={{ paddingTop: 30 }}>
+      <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Paper
           style={{
             minHeight: 100,
             padding: 30,
           }}
-          elevation={5}
+          variant="outlined"
+          square
         >
           TableSource
-          <TableContainer component={Paper}>
+          <TableContainer>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>

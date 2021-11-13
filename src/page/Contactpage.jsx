@@ -9,13 +9,14 @@ import Grid from "@mui/material/Grid";
 export const Contactpage = (props) => {
   return (
     <Container maxWidth="xxl">
-      <Container maxWidth="xl" style={{ paddingTop: 30 }}>
+      <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
           style={{
-            minHeight: 100,
+            minHeight: 700,
             padding: 30,
           }}
-          elevation={5}
+          variant="outlined"
+          square
         >
           Contact page
         </Paper>

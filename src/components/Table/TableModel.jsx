@@ -26,17 +26,18 @@ const rows = [
 export const TableModel = (props) => {
   return (
     <Container maxWidth="xxl">
-      <Container maxWidth="xl" style={{ paddingTop: 30 }}>
+      <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
           style={{
             minHeight: 100,
             padding: 30,
           }}
-          elevation={5}
+          variant="outlined"
+          square
         >
           TableModel
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableContainer>
+            <Table>
               <TableHead>
                 <TableRow>
                   <TableCell>Dessert (100g serving)</TableCell>
