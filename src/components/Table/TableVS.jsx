@@ -116,7 +116,7 @@ const rows = [
   },
 ];
 
-export const TableModel = (props) => {
+export const TableVS = (props) => {
   return (
     <Container maxWidth="xxl" style={{ paddingBottom: 30 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
@@ -140,22 +140,37 @@ f44336
 green
 purple
 black */}
-                  <TableCell align="left" style={{ backgroundColor: "grey" }}>
+                  <TableCell
+                    align="left"
+                    style={{ backgroundColor: "#0d47a1" }}
+                  >
                     Date
                   </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "#039be5" }}>
-                    Susceptible
+                  <TableCell
+                    align="left"
+                    style={{ backgroundColor: "#1565c0" }}
+                  >
+                    Susceptible(Real Data)
                   </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "#ffd600" }}>
-                    Vaccines1{" "}
+                  <TableCell
+                    align="left"
+                    style={{ backgroundColor: "#2196f3" }}
+                  >
+                    Susceptible(Model Data)
                   </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "orange" }}>
-                    Vaccines2{" "}
+                  <TableCell
+                    align="left"
+                    style={{ backgroundColor: "#90caf9" }}
+                  >
+                    Different
                   </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "#f44336" }}>
-                    Infected{" "}
+                  <TableCell
+                    align="left"
+                    style={{ backgroundColor: "#bbdefb" }}
+                  >
+                    Percent Difference
                   </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "green" }}>
+                  {/* <TableCell align="left" style={{ backgroundColor: "green" }}>
                     Recovery
                   </TableCell>
                   <TableCell align="left" style={{ backgroundColor: "purple" }}>
@@ -163,7 +178,7 @@ black */}
                   </TableCell>
                   <TableCell align="left" style={{ backgroundColor: "black" }}>
                     Death{" "}
-                  </TableCell>
+                  </TableCell> */}
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -177,9 +192,9 @@ black */}
                     <TableCell align="left">{row.Vaccines1}</TableCell>
                     <TableCell align="left">{row.Vaccines2}</TableCell>
                     <TableCell align="left">{row.Infected}</TableCell>
-                    <TableCell align="left">{row.Recovery}</TableCell>
+                    {/* <TableCell align="left">{row.Recovery}</TableCell>
                     <TableCell align="left">{row.Hospital}</TableCell>
-                    <TableCell align="left">{row.Death}</TableCell>
+                    <TableCell align="left">{row.Death}</TableCell> */}
                   </TableRow>
                 ))}
               </TableBody>
@@ -195,4 +210,4 @@ const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(TableModel);
+export default connect(mapStateToProps, mapDispatchToProps)(TableVS);

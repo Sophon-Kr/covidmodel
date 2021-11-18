@@ -79,10 +79,10 @@ export const Navbar = (props) => {
               <Grid
                 container
                 direction="row"
-                justifyContent="start"
+                justifyContent="end"
                 alignItems="center"
               >
-                <Grid item md={3} lg={3} xl={3}>
+                <Grid item>
                   <NavLink
                     to="/"
                     style={{ textDecoration: "none", color: "black" }}
@@ -98,9 +98,9 @@ export const Navbar = (props) => {
                   </NavLink>
                 </Grid>
 
-                <Grid item md={3} lg={3} xl={3}>
+                <Grid item>
                   <NavLink
-                    to="/datapage"
+                    to="/vsgraphpage"
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     <Button
@@ -109,12 +109,12 @@ export const Navbar = (props) => {
                       startIcon={<StorageRoundedIcon />}
                       maxWidth
                     >
-                      Data
+                      Comparasion
                     </Button>
                   </NavLink>
                 </Grid>
 
-                <Grid item md={3} lg={3} xl={3}>
+                <Grid item>
                   <NavLink
                     to="/modelpage"
                     style={{ textDecoration: "none", color: "black" }}
@@ -130,7 +130,7 @@ export const Navbar = (props) => {
                   </NavLink>
                 </Grid>
 
-                <Grid item md={3} lg={3} xl={3}>
+                <Grid item>
                   <NavLink
                     to="/contactpage"
                     style={{ textDecoration: "none", color: "black" }}

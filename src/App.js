@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Homepage from "./page/Homepage";
 import Contactpage from "./page/Contactpage";
 import Modelpage from "./page/Modelpage";
-import Datapage from "./page/Datapage";
+import VSGraphPage from "./page/VSGraphPage";
 import Navbar from "./components/Navbar";
 
 // import reducer from "./middleware/reducer";
@@ -22,7 +22,7 @@ function App() {
         <Switch>
           <Route exact path="/modelpage" component={Modelpage} />
           <Route exact path="/contactpage" component={Contactpage} />
-          <Route exact path="/datapage" component={Datapage} />
+          <Route exact path="/vsgraphpage" component={VSGraphPage} />
           <Route exact path="/" component={Homepage} />
           <Route component={Homepage} />
         </Switch>

@@ -11,11 +11,8 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
-// import IconButton from "@mui/material/IconButton";
-// import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
-// import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
@@ -24,15 +21,13 @@ import DateRangeIcon from "@mui/icons-material/DateRange";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FullscreenRoundedIcon from "@mui/icons-material/FullscreenRounded";
-// import { bindActionCreators } from "redux";
 import Slide from "@mui/material/Slide";
 import MainGraphFull from "../components/Graph/MainGraphFull";
 import TextField from "@mui/material/TextField";
-import { getdailyData } from "../services/dailyData.service";
-
-// const { store } = useContext(ReactReduxContext);
-
-//
+import TableModel from "../components/Table/TableModel";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 
 // const dataconfig = {
 //   zeta: 0.015,
@@ -124,6 +119,7 @@ export const Homepage = (props) => {
   const [dialogStatus, setDialogStatus] = useState(false);
   const [fullGraph, setFullGraph] = useState(false);
   const [period, setPeriod] = React.useState(props.mainperiod);
+  const [VS, setVS] = React.useState(props.mainVS);
   const [typeData, setTypeData] = React.useState(props.maintypeData);
   const [SStatus, setSStatus] = React.useState(props.mainSStatus);
   const [V1Status, setV1Status] = React.useState(props.mainV1Status);
@@ -132,6 +128,10 @@ export const Homepage = (props) => {
   const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
+  const [dateStart, setDateStart] = React.useState(
+    new Date("2021-01-01T00:00:00")
+  );
+  const [dateEnd, setDateEnd] = React.useState(new Date("2021-05-21T00:00:00"));
 
   const setdailyDataTemplate = [
     {
@@ -229,9 +229,20 @@ export const Homepage = (props) => {
   const handlePeriod = (event, newPeriod) => {
     setPeriod(newPeriod);
   };
+  const handleVS = (event, newVS) => {
+    setVS(newVS);
+  };
+  const handleDateStart = (newDate) => {
+    setDateStart(newDate);
+  };
+  const handleDateEnd = (newDate) => {
+    setDateEnd(newDate);
+  };
 
-  const handleTypeData = (event, newPeriod) => {
-    setTypeData(newPeriod);
+  const handleTypeData = async (event, newTypedata) => {
+    // console.log(newTypedata);
+    setTypeData(newTypedata);
+    handleDataType(newTypedata);
   };
 
   const handleCheck = () => {
@@ -256,15 +267,40 @@ export const Homepage = (props) => {
     // console.log("DStatus :", DStatus);
   };
 
+  const handleDataType = (newTypedata) => {
+    // const newDataType = "";
+    // setTypeData();
+    console.log("newTypedata", newTypedata);
+    props.configDataTypeGraph(newTypedata);
+  };
+
   useEffect(() => {
-    async function fetchData() {
-      let _getDailydata = await getdailyData();
-      setdailyDataAPI(_getDailydata);
-      console.log("_getDailydata ==", _getDailydata);
+    async function fetchDataMonth() {
+      await props.getAllDataModelMount();
     }
-    fetchData();
+    fetchDataMonth();
+    console.log("temp", props.mainDataModelMonth);
     // console.log("dailyDataAPI", dailyDataAPI);
-  }, []);
+  }, [typeData, period]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     let getDailydataAPI = await getdailyData();
+  //     setdailyDataAPI(getDailydataAPI);
+  //     console.log("_getDailydata ==", getDailydataAPI);
+  //   }
+  //   fetchData();
+  //   // console.log("dailyDataAPI", dailyDataAPI);
+  // }, []);
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     let _getRawDataMonth = await getRawDataMonth();
+  //     // setdailyDataAPI(_getRawDataMonth);
+  //     console.log("_getDailydata ==", _getRawDataMonth);
+  //   }
+  //   fetchData();
+  //   // console.log("dailyDataAPI", dailyDataAPI);
+  // }, []);
 
   // const tt = props.getTest;
   // const ndt = props.testEditstate;
@@ -282,7 +318,7 @@ export const Homepage = (props) => {
       <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Grid container justifyContent="center" spacing={3}>
           {setdailyDataTemplate.map((data) => (
-            <Grid key={data.id} item xs={12} sm={6} md={3} lg={3} xl={3}>
+            <Grid item xs={12} sm={6} md={3} lg={3} xl={3}>
               <Paper
                 style={{
                   minHeight: 100,
@@ -300,6 +336,7 @@ export const Homepage = (props) => {
           ))}
         </Grid>
       </Container>
+      {/* =================Main Graph Arear============= */}
       <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Paper variant="outlined" square style={{ padding: 35 }}>
           {/* <Button variant="contained" onClick={handledata}>
@@ -333,6 +370,7 @@ export const Homepage = (props) => {
                   COVID-19 Graph
                 </Typography>
               </Grid>
+
               <Grid item>
                 <ToggleButtonGroup
                   size="small"
@@ -344,16 +382,42 @@ export const Homepage = (props) => {
                   <ToggleButton value="day">
                     <CalendarTodayIcon /> &nbsp; Day &nbsp;
                   </ToggleButton>
-                  <ToggleButton value="week">
+                  {/* <ToggleButton value="week">
                     <DateRangeIcon />
                     &nbsp;Week&nbsp;
-                  </ToggleButton>
+                  </ToggleButton> */}
                   <ToggleButton value="month">
                     <EventNoteIcon />
                     &nbsp;Month&nbsp;
                   </ToggleButton>
                 </ToggleButtonGroup>
               </Grid>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <Grid item>
+                  <DesktopDatePicker
+                    label="Start Date"
+                    inputFormat="MM/dd/yyyy"
+                    value={dateStart}
+                    onChange={handleDateStart}
+                    renderInput={(params) => (
+                      <TextField size="small" {...params} />
+                    )}
+                  />
+                </Grid>
+
+                <Grid item>
+                  <DesktopDatePicker
+                    size="small"
+                    label="End Date"
+                    inputFormat="MM/dd/yyyy"
+                    value={dateEnd}
+                    onChange={handleDateEnd}
+                    renderInput={(params) => (
+                      <TextField size="small" {...params} />
+                    )}
+                  />
+                </Grid>
+              </LocalizationProvider>
 
               <Grid item>
                 <ToggleButtonGroup
@@ -396,6 +460,78 @@ export const Homepage = (props) => {
           <MainGraph />
         </Paper>
       </Container>
+      <TableModel />
+
+      {/* =================VS Graph Arear============= */}
+      {/* <Container maxWidth="xxl" style={{ marginTop: 30, paddingBottom: 30 }}>
+        <Paper variant="outlined" square style={{ padding: 35 }}>
+          <Grid
+            container
+            style={{
+              padding: 10,
+              marginBottom: 35,
+            }}
+          >
+            <Grid container spacing={3}>
+              <Grid item style={{ flexGrow: 1, paddingLeft: 35 }}>
+                <Typography variant="h5" color="initial">
+                  COVID-19 Comparison Graph
+                </Typography>
+              </Grid>
+              <Grid item>
+                <ToggleButtonGroup
+                  size="small"
+                  color="primary"
+                  value={period}
+                  exclusive
+                  onChange={handlePeriod}
+                >
+                  <ToggleButton value="day">
+                    <CalendarTodayIcon /> &nbsp; Day &nbsp;
+                  </ToggleButton>
+                  <ToggleButton value="week">
+                    <DateRangeIcon />
+                    &nbsp;Week&nbsp;
+                  </ToggleButton>
+                  <ToggleButton value="month">
+                    <EventNoteIcon />
+                    &nbsp;Month&nbsp;
+                  </ToggleButton>
+                </ToggleButtonGroup>
+              </Grid>
+
+              <Grid item>
+                <ToggleButtonGroup
+                  size="small"
+                  color="error"
+                  value={VS}
+                  exclusive
+                  onChange={handleVS}
+                >
+                  <ToggleButton value="S">&nbsp;Susceptible&nbsp;</ToggleButton>
+                  <ToggleButton value="V1">&nbsp;Vaccines1&nbsp;</ToggleButton>
+                  <ToggleButton value="V2">&nbsp;Vaccines2&nbsp;</ToggleButton>
+                  <ToggleButton value="I">&nbsp;Infected&nbsp;</ToggleButton>
+                  <ToggleButton value="R">&nbsp;Recovery&nbsp;</ToggleButton>
+                  <ToggleButton value="H">&nbsp;Hospital&nbsp;</ToggleButton>
+                  <ToggleButton value="D">&nbsp;Death&nbsp;</ToggleButton>
+                </ToggleButtonGroup>
+              </Grid>
+
+              <Grid item>
+                <Button
+                  variant="contained"
+                  style={{ backgroundColor: "#AED6F1", color: "black" }}
+                  onClick={handleFullGraphOpen}
+                >
+                  <FullscreenRoundedIcon />
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+          <VSGraph />
+        </Paper>
+      </Container> */}
       {/* ==================== dialog setting =========================== */}
       <Dialog maxWidth="md" onClose={handleDialogClose} open={dialogStatus}>
         <DialogTitle onClose={handleDialogClose}>
@@ -502,7 +638,6 @@ export const Homepage = (props) => {
           </Button>
         </DialogActions>
       </Dialog>
-
       {/* =========== Full screen graph================= */}
       <Dialog
         fullScreen
@@ -543,6 +678,7 @@ const mapStateToProps = (state) => {
     getTest: state.reducer.testdata,
     getMydata: state.reducer.mydata,
     mainperiod: state.reducer.period,
+    mainVS: state.reducer.VS,
     maintypeData: state.reducer.typeData,
     mainSStatus: state.reducer.SStatus,
     mainV1Status: state.reducer.V1Status,
@@ -551,6 +687,7 @@ const mapStateToProps = (state) => {
     mainRStatus: state.reducer.RStatus,
     mainHStatus: state.reducer.HStatus,
     mainDStatus: state.reducer.DStatus,
+    mainDataModelMonth: state.reducer.dataModelMonth,
   };
 };
 
@@ -562,6 +699,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     configGraphDisplay: (newStatus) => {
       return dispatch(actions.configGraphLine(newStatus));
+    },
+    configDataTypeGraph: (datatype) => {
+      return dispatch(actions.configDatatype(datatype));
+    },
+    getAllDataModelMount: () => {
+      return dispatch(actions.getDataModelMount());
     },
   };
 };
