@@ -129,30 +129,32 @@ export const TableModel = (props) => {
           square
         >
           {/* <Typography variant="h6" color="initial">Data From Model</Typography> */}
-          <TableContainer>
+          <TableContainer style={{ maxHeight: 900 }}>
             <Table>
               <TableHead>
                 <TableRow>
-                  {/* 039be5
-ffd600
-orange
-f44336
-green
-purple
-black */}
                   <TableCell align="left" style={{ backgroundColor: "grey" }}>
                     Date
                   </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "#039be5" }}>
+                  <TableCell
+                    align="left"
+                    style={{ backgroundColor: "#039be5" }}
+                  >
                     Susceptible
                   </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "#ffd600" }}>
+                  <TableCell
+                    align="left"
+                    style={{ backgroundColor: "#ffd600" }}
+                  >
                     Vaccines1{" "}
                   </TableCell>
                   <TableCell align="left" style={{ backgroundColor: "orange" }}>
                     Vaccines2{" "}
                   </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "#f44336" }}>
+                  <TableCell
+                    align="left"
+                    style={{ backgroundColor: "#f44336" }}
+                  >
                     Infected{" "}
                   </TableCell>
                   <TableCell align="left" style={{ backgroundColor: "green" }}>
@@ -167,7 +169,7 @@ black */}
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map((row) => (
+                {props.mainRealDataDay.map((row) => (
                   <TableRow
                     key={row.name}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -191,7 +193,25 @@ black */}
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => {
+  return {
+    mainperiod: state.reducer.periodMain,
+    // mainVS: state.reducer.VS,
+    maintypeData: state.reducer.typeData,
+    mainSStatus: state.reducer.SStatus,
+    mainV1Status: state.reducer.V1Status,
+    mainV2Status: state.reducer.V2Status,
+    mainIStatus: state.reducer.IStatus,
+    mainRStatus: state.reducer.RStatus,
+    mainHStatus: state.reducer.HStatus,
+    mainDStatus: state.reducer.DStatus,
+    maindateStartMain: state.reducer.dateStartMain,
+    maindateEndMain: state.reducer.dateEndMain,
+
+    mainRealDataMonth: state.reducer.realDataMonth,
+    mainRealDataDay: state.reducer.realDataDay,
+  };
+};
 
 const mapDispatchToProps = {};
 

@@ -50,7 +50,7 @@ export const Navbar = (props) => {
         }}
       >
         <AppBar
-          position="static"
+          position="fixed"
           style={{ backgroundColor: "#AED6F1", color: "#000000" }}
         >
           <Toolbar style={{ backgroundColor: "#AED6F1", color: "#000000" }}>

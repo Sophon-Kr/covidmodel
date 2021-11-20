@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import * as actions from "../../middleware/action";
 import { connect } from "react-redux";
 import {
   LineChart,
@@ -9,92 +8,90 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  AreaChart,
-  Area,
   ResponsiveContainer,
 } from "recharts";
 
-const modelData = [
-  {
-    name: "Jan",
-    Susceptible: 4000,
-    Vaccine1: 2400,
-    Vaccine2: 2400,
-    Infected: 100,
-    Recovery: 1,
-    Hospital: 1,
-    Deaths: 1,
-  },
-  {
-    name: "Feb",
-    Susceptible: 3000,
-    Vaccine1: 1398,
-    Vaccine2: 2210,
-    Infected: 200,
-    Recovery: 1,
-    Hospital: 1,
-    Deaths: 1,
-  },
-  {
-    name: "Mar",
-    Susceptible: 2000,
-    Vaccine1: 9800,
-    Vaccine2: 2290,
-    Infected: 400,
-    Recovery: 1,
-    Hospital: 1,
-    Deaths: 12,
-  },
-  {
-    name: "Apr",
-    Susceptible: 2780,
-    Vaccine1: 3908,
-    Vaccine2: 2000,
-    Infected: 600,
-    Recovery: 1,
-    Hospital: 1,
-    Deaths: 19,
-  },
-  {
-    name: "May",
-    Susceptible: 1890,
-    Vaccine1: 4800,
-    Vaccine2: 2181,
-    Infected: 900,
-    Recovery: 1,
-    Hospital: 1,
-    Deaths: 15,
-  },
-  {
-    name: "Jun",
-    Susceptible: 2390,
-    Vaccine1: 3800,
-    Vaccine2: 2500,
-    Infected: 350,
-    Recovery: 1,
-    Hospital: 1,
-    Deaths: 10,
-  },
-  {
-    name: "Jul",
-    Susceptible: 3490,
-    Vaccine1: 4300,
-    Vaccine2: 2100,
-    Infected: 700,
-    Recovery: 1,
-    Hospital: 1,
-    Deaths: 1,
-  },
-];
+// const modelData = [
+//   {
+//     name: "Jan",
+//     Susceptible: 4000,
+//     Vaccine1: 2400,
+//     Vaccine2: 2400,
+//     Infected: 100,
+//     Recovery: 1,
+//     Hospital: 1,
+//     Deaths: 1,
+//   },
+//   {
+//     name: "Feb",
+//     Susceptible: 3000,
+//     Vaccine1: 1398,
+//     Vaccine2: 2210,
+//     Infected: 200,
+//     Recovery: 1,
+//     Hospital: 1,
+//     Deaths: 1,
+//   },
+//   {
+//     name: "Mar",
+//     Susceptible: 2000,
+//     Vaccine1: 9800,
+//     Vaccine2: 2290,
+//     Infected: 400,
+//     Recovery: 1,
+//     Hospital: 1,
+//     Deaths: 12,
+//   },
+//   {
+//     name: "Apr",
+//     Susceptible: 2780,
+//     Vaccine1: 3908,
+//     Vaccine2: 2000,
+//     Infected: 600,
+//     Recovery: 1,
+//     Hospital: 1,
+//     Deaths: 19,
+//   },
+//   {
+//     name: "May",
+//     Susceptible: 1890,
+//     Vaccine1: 4800,
+//     Vaccine2: 2181,
+//     Infected: 900,
+//     Recovery: 1,
+//     Hospital: 1,
+//     Deaths: 15,
+//   },
+//   {
+//     name: "Jun",
+//     Susceptible: 2390,
+//     Vaccine1: 3800,
+//     Vaccine2: 2500,
+//     Infected: 350,
+//     Recovery: 1,
+//     Hospital: 1,
+//     Deaths: 10,
+//   },
+//   {
+//     name: "Jul",
+//     Susceptible: 3490,
+//     Vaccine1: 4300,
+//     Vaccine2: 2100,
+//     Infected: 700,
+//     Recovery: 1,
+//     Hospital: 1,
+//     Deaths: 1,
+//   },
+// ];
 
 class MainGraph extends PureComponent {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   data: props.mainDataModelMonth,
-    // };
+    this.state = {
+      data: [],
+      dataFilterd: [],
+    };
   }
-  // static demoUrl = "https://codesandbox.io/Susceptible/customized-legend-event-l19fo";
 
   state = {
     opacity: {
@@ -126,6 +123,82 @@ class MainGraph extends PureComponent {
     });
   };
 
+  filterRangeByDate = (data) => {
+    // var startDate = new Date("2021-02-01");
+    // var endDate = new Date("2021-02-15");
+    // maindateStartMain
+    // maindateEndMain
+
+    var dateAfterFilter = data.filter((a) => {
+      var date = new Date(a.name);
+      return (
+        date >= this.props.maindateStartMain &&
+        date <= this.props.maindateEndMain
+      );
+    });
+    console.log("dateAfterFilter", dateAfterFilter);
+    return dateAfterFilter;
+    // this.setState({ dataFilterd: dateAfterFilter });
+  };
+
+  fetchData = () => {
+    if (
+      this.props.mainperiod === "month" &&
+      this.props.maintypeData === "real"
+    ) {
+      this.setState({ data: this.props.mainRealDataMonth });
+      // await props.getAllRealDataMount();
+      console.log("month real ::: ");
+    } else if (
+      this.props.mainperiod === "day" &&
+      this.props.maintypeData === "real"
+    ) {
+      this.setState({ data: this.props.mainRealDataDay });
+      // await props.getAllRealDataDay();
+      console.log("day real :::");
+    } else if (
+      this.props.mainperiod === "month" &&
+      this.props.maintypeData === "model"
+    ) {
+      this.setState({ data: this.props.mainModelDataMonth });
+      // await props.getAllModelDataMount();
+      console.log("month model :::");
+    } else if (
+      this.props.mainperiod === "day" &&
+      this.props.maintypeData === "model"
+    ) {
+      this.setState({ data: this.props.mainModelDataDay });
+      // await props.getAllModelDataDay();
+      console.log("day model :::");
+    }
+  };
+  async componentDidMount(prevState) {
+    await this.fetchData();
+    // let getfilter = await this.filterRangeByDate(this.state.data);
+    // if (this.state.dataFilterd !== this.prevState.dataFilterd) {
+    //   this.setState({ dataFilterd: getfilter });
+    // }
+
+    // await this.filterRangeByDate(this.state.data);
+    // let getfilter = await this.filterRangeByDate(this.state.data);
+    // console.log("getfilter", getfilter);
+    // this.setState({ dataFilterd: getfilter });
+  }
+
+  async componentDidUpdate(prevState) {
+    await this.fetchData();
+    // let getfilter = await this.filterRangeByDate(this.state.data);
+    // if (getfilter !== this.state.dataFilterd) {
+    //   this.setState({ dataFilterd: getfilter });
+    // }
+    // await this.filterRangeByDate(this.state.data);
+    // let getfilter = await this.filterRangeByDate(this.state.data);
+    // if (this.props.userID !== prevProps.userID) {
+    //   this.fetchData(this.props.userID);
+    // }
+    // this.setState({ dataFilterd: getfilter });
+  }
+
   render() {
     const { opacity } = this.state;
 
@@ -135,11 +208,8 @@ class MainGraph extends PureComponent {
           <LineChart
             width={500}
             height={300}
-            data={
-              this.props.maintypeData === "model"
-                ? modelData
-                : this.props.mainDataModelMonth
-            }
+            data={this.state.data}
+            // data={this.filterRangeByDate(this.state.data)}
             margin={{
               top: 5,
               right: 30,
@@ -225,7 +295,7 @@ class MainGraph extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    mainperiod: state.reducer.period,
+    mainperiod: state.reducer.periodMain,
     maintypeData: state.reducer.typeData,
     mainSStatus: state.reducer.SStatus,
     mainV1Status: state.reducer.V1Status,
@@ -234,16 +304,16 @@ const mapStateToProps = (state) => {
     mainRStatus: state.reducer.RStatus,
     mainHStatus: state.reducer.HStatus,
     mainDStatus: state.reducer.DStatus,
-    mainDataModelMonth: state.reducer.dataModelMonth,
+    maindateStartMain: state.reducer.dateStartMain,
+    maindateEndMain: state.reducer.dateEndMain,
+
+    mainRealDataMonth: state.reducer.realDataMonth,
+    mainRealDataDay: state.reducer.realDataDay,
+    mainModelDataMonth: state.reducer.modelDataMonth,
+    mainModelDataDay: state.reducer.modelDataDay,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    testEditstate: (d) => {
-      return dispatch(actions.testGet(d));
-    },
-  };
-};
+const mapDispatchToProps = (dispatch) => {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainGraph);

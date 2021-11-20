@@ -17,7 +17,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import DateRangeIcon from "@mui/icons-material/DateRange";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FullscreenRoundedIcon from "@mui/icons-material/FullscreenRounded";
@@ -29,18 +28,6 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 
-// const dataconfig = {
-//   zeta: 0.015,
-//   eta: 0.09,
-//   omega1: 0.04,
-//   omega2: 0.001,
-//   epsilon1: 0.641,
-//   epsilon2: 0.704,
-//   mu: 3.6529e-5,
-//   alpha: 0.2,
-//   lambda: 0.1,
-//   beta: 0.5,
-// };
 const dataconfig = [
   {
     name: "rho",
@@ -119,7 +106,6 @@ export const Homepage = (props) => {
   const [dialogStatus, setDialogStatus] = useState(false);
   const [fullGraph, setFullGraph] = useState(false);
   const [period, setPeriod] = React.useState(props.mainperiod);
-  const [VS, setVS] = React.useState(props.mainVS);
   const [typeData, setTypeData] = React.useState(props.maintypeData);
   const [SStatus, setSStatus] = React.useState(props.mainSStatus);
   const [V1Status, setV1Status] = React.useState(props.mainV1Status);
@@ -133,30 +119,41 @@ export const Homepage = (props) => {
   );
   const [dateEnd, setDateEnd] = React.useState(new Date("2021-05-21T00:00:00"));
 
+  // new_case: 6855
+  // new_case_excludeabroad: 6843
+  // new_death: 51
+  // new_recovered: 7655
+  // total_case: 2050980
+  // total_case_excludeabroad: 2044301
+  // total_death: 20305
+  // total_recovered: 1941073
+  // txn_date: "2021-11-19"
+  // update_date: "2021-11-19
+
   const setdailyDataTemplate = [
     {
       id: 1,
       data: " Daily Confirmed Cases ",
       color: "red",
-      dataAPI: dailyDataAPI,
+      dataAPI: props.mainDailyData.total_case,
     },
     {
       id: 2,
       data: " Daily Dathes Cases",
       color: "grey",
-      dataAPI: dailyDataAPI,
+      // dataAPI: props.mainDailyData,
     },
     {
       id: 3,
       data: " Daily Recovered Cases",
       color: "green",
-      dataAPI: dailyDataAPI,
+      // dataAPI: props.mainDailyData,
     },
     {
       id: 4,
       data: " Hospital Cases",
       color: "#ffd600",
-      dataAPI: dailyDataAPI,
+      // dataAPI: props.mainDailyData,
     },
   ];
 
@@ -170,14 +167,14 @@ export const Homepage = (props) => {
     },
     {
       id: 2,
-      data: "Vaccines1",
+      data: "Vaccine1",
       color: "#ffd600",
       status: props.mainV1Status,
       handle: (e) => setV1Status(e.target.checked),
     },
     {
       id: 3,
-      data: "Vaccines2",
+      data: "Vaccine2",
       color: "orange",
       status: props.mainV2Status,
       handle: (e) => setV2Status(e.target.checked),
@@ -226,23 +223,23 @@ export const Homepage = (props) => {
     setFullGraph(false);
   };
 
-  const handlePeriod = (event, newPeriod) => {
-    setPeriod(newPeriod);
+  const handlePeriod = async (event, newPeriod) => {
+    await setPeriod(newPeriod);
+    await props.configPeriodMainData(newPeriod);
   };
-  const handleVS = (event, newVS) => {
-    setVS(newVS);
-  };
+
   const handleDateStart = (newDate) => {
     setDateStart(newDate);
+    props.configDateStartMain(newDate.toISOString());
   };
   const handleDateEnd = (newDate) => {
     setDateEnd(newDate);
+    props.configDateEndMain(newDate.toISOString());
   };
 
   const handleTypeData = async (event, newTypedata) => {
-    // console.log(newTypedata);
     setTypeData(newTypedata);
-    handleDataType(newTypedata);
+    props.configDataTypeGraph(newTypedata);
   };
 
   const handleCheck = () => {
@@ -258,39 +255,39 @@ export const Homepage = (props) => {
     console.log(newStatus);
     props.configGraphDisplay(newStatus);
     handleDialogClose();
-    // console.log("SStatus :", SStatus);
-    // console.log("V1Status :", V1Status);
-    // console.log("V2Status :", V2Status);
-    // console.log("IStatus :", IStatus);
-    // console.log("RStatus :", RStatus);
-    // console.log("HStatus :", HStatus);
-    // console.log("DStatus :", DStatus);
-  };
-
-  const handleDataType = (newTypedata) => {
-    // const newDataType = "";
-    // setTypeData();
-    console.log("newTypedata", newTypedata);
-    props.configDataTypeGraph(newTypedata);
   };
 
   useEffect(() => {
     async function fetchDataMonth() {
-      await props.getAllDataModelMount();
+      if (props.mainperiod === "month" && props.maintypeData === "real") {
+        await props.getAllRealDataMount();
+        console.log("month real");
+      } else if (props.mainperiod === "day" && props.maintypeData === "real") {
+        await props.getAllRealDataDay();
+        console.log("day real");
+      } else if (
+        props.mainperiod === "month" &&
+        props.maintypeData === "model"
+      ) {
+        await props.getAllModelDataMount();
+        console.log("month model");
+      } else if (props.mainperiod === "day" && props.maintypeData === "model") {
+        await props.getAllModelDataDay();
+        console.log("day model");
+      }
     }
+
     fetchDataMonth();
-    console.log("temp", props.mainDataModelMonth);
-    // console.log("dailyDataAPI", dailyDataAPI);
-  }, [typeData, period]);
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     let getDailydataAPI = await getdailyData();
-  //     setdailyDataAPI(getDailydataAPI);
-  //     console.log("_getDailydata ==", getDailydataAPI);
-  //   }
-  //   fetchData();
-  //   // console.log("dailyDataAPI", dailyDataAPI);
-  // }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.maintypeData, props.mainperiod]);
+
+  useEffect(() => {
+    async function fetchDailyData() {
+      await props.getAllDailyData();
+    }
+    fetchDailyData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // useEffect(() => {
   //   async function fetchData() {
@@ -302,23 +299,26 @@ export const Homepage = (props) => {
   //   // console.log("dailyDataAPI", dailyDataAPI);
   // }, []);
 
-  // const tt = props.getTest;
-  // const ndt = props.testEditstate;
-  // const handledata = () => {
-  //   console.log("tt ==== ", props);
-  // };
-
-  // const setredux = (dispatch) => {
-  //   let d = "Change new data";
-  //   props.testEditstate(d);
+  // const filterRangeByDate = (data) => {
+  //   var startDate = new Date("2021-02-01");
+  //   var endDate = new Date("2021-02-15");
+  //   var dateAfterFilter = data.filter((a) => {
+  //     var date = new Date(a.name);
+  //     return date >= startDate && date <= endDate;
+  //   });
+  //   console.log("dateAfterFilter", dateAfterFilter);
+  //   return dateAfterFilter;
   // };
 
   return (
-    <Container maxWidth="xxl">
+    <Container maxWidth="xxl" style={{ marginTop: 75 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Grid container justifyContent="center" spacing={3}>
+          {/* <Button onClick={() => filterRangeByDate(props.mainModelDataDay)}>
+            Test data filter
+          </Button> */}
           {setdailyDataTemplate.map((data) => (
-            <Grid item xs={12} sm={6} md={3} lg={3} xl={3}>
+            <Grid key={data.id} item xs={12} sm={6} md={3} lg={3} xl={3}>
               <Paper
                 style={{
                   minHeight: 100,
@@ -339,31 +339,13 @@ export const Homepage = (props) => {
       {/* =================Main Graph Arear============= */}
       <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Paper variant="outlined" square style={{ padding: 35 }}>
-          {/* <Button variant="contained" onClick={handledata}>
-            test console-log
-          </Button>
-          <Button variant="contained" onClick={setredux}>
-            test dispath
-          </Button> */}
-          {/* <Grid
-            container
-            style={{
-              backgroundColor: "#AED6F1",
-              padding: 20,
-              marginBottom: 20,
-            }}
-          >
-            real data เอาทุกตัวแปร
-          </Grid> */}
           <Grid
             container
             style={{
-              // backgroundColor: "#AED6F1",
               padding: 10,
               marginBottom: 35,
             }}
           >
-            {/* real data model data{" "} */}
             <Grid container spacing={3}>
               <Grid item style={{ flexGrow: 1, paddingLeft: 35 }}>
                 <Typography variant="h5" color="initial">
@@ -382,10 +364,6 @@ export const Homepage = (props) => {
                   <ToggleButton value="day">
                     <CalendarTodayIcon /> &nbsp; Day &nbsp;
                   </ToggleButton>
-                  {/* <ToggleButton value="week">
-                    <DateRangeIcon />
-                    &nbsp;Week&nbsp;
-                  </ToggleButton> */}
                   <ToggleButton value="month">
                     <EventNoteIcon />
                     &nbsp;Month&nbsp;
@@ -675,10 +653,7 @@ export const Homepage = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    getTest: state.reducer.testdata,
-    getMydata: state.reducer.mydata,
-    mainperiod: state.reducer.period,
-    mainVS: state.reducer.VS,
+    mainperiod: state.reducer.periodMain,
     maintypeData: state.reducer.typeData,
     mainSStatus: state.reducer.SStatus,
     mainV1Status: state.reducer.V1Status,
@@ -687,24 +662,52 @@ const mapStateToProps = (state) => {
     mainRStatus: state.reducer.RStatus,
     mainHStatus: state.reducer.HStatus,
     mainDStatus: state.reducer.DStatus,
-    mainDataModelMonth: state.reducer.dataModelMonth,
+    maindateStartMain: state.reducer.dateStartMain,
+    maindateEndMain: state.reducer.dateEndMain,
+
+    mainRealDataMonth: state.reducer.realDataMonth,
+    mainRealDataDay: state.reducer.realDataDay,
+    mainModelDataMonth: state.reducer.modelDataMonth,
+    mainModelDataDay: state.reducer.modelDataDay,
+    mainDailyData: state.reducer.dailyData,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  // return bindActionCreators(actions, dispatch);
   return {
-    testEditstate: (d) => {
-      return dispatch(actions.testGet(d));
-    },
     configGraphDisplay: (newStatus) => {
       return dispatch(actions.configGraphLine(newStatus));
     },
+
     configDataTypeGraph: (datatype) => {
       return dispatch(actions.configDatatype(datatype));
     },
-    getAllDataModelMount: () => {
-      return dispatch(actions.getDataModelMount());
+    configPeriodMainData: (datatype) => {
+      return dispatch(actions.configPeriodMain(datatype));
+    },
+
+    getAllRealDataMount: () => {
+      return dispatch(actions.getRealDataMount());
+    },
+    getAllRealDataDay: () => {
+      return dispatch(actions.getRealDataDay());
+    },
+    getAllModelDataMount: () => {
+      return dispatch(actions.getModelDataMount());
+    },
+    getAllModelDataDay: () => {
+      return dispatch(actions.getModelDataDay());
+    },
+    getAllDailyData: () => {
+      return dispatch(actions.getDailyData());
+    },
+
+    configDateStartMain: (datatype) => {
+      return dispatch(actions.dateStartMain(datatype));
+    },
+
+    configDateEndMain: (datatype) => {
+      return dispatch(actions.dateEndMain(datatype));
     },
   };
 };

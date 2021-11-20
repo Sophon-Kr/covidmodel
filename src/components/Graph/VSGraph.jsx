@@ -328,9 +328,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    testEditstate: (d) => {
-      return dispatch(actions.testGet(d));
-    },
+    // testEditstate: (d) => {
+    //   return dispatch(actions.testGet(d));
+    // },
   };
 };
 

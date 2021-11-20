@@ -8,7 +8,7 @@ import Grid from "@mui/material/Grid";
 
 export const Modelpage = (props) => {
   return (
-    <Container maxWidth="xxl">
+    <Container maxWidth="xxl" style={{ marginTop: 75 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
           style={{

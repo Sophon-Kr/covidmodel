@@ -29,9 +29,12 @@ import Slide from "@mui/material/Slide";
 import MainGraphFull from "../components/Graph/MainGraphFull";
 // import VSGraph from "../components/Graph/VSGraph";
 import TextField from "@mui/material/TextField";
-import TableModel from "../components/Table/TableModel";
+// import TableModel from "../components/Table/TableModel";
 import TableVS from "../components/Table/TableVS";
 import VSGraph from "../components/Graph/VSGraph";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 // import { getdailyData } from "../services/dailyData.service";
 // import {
 //   getRawDataMonth,
@@ -141,6 +144,10 @@ export const VSGraphPage = (props) => {
   const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
+  const [dateStart, setDateStart] = React.useState(
+    new Date("2021-01-01T00:00:00")
+  );
+  const [dateEnd, setDateEnd] = React.useState(new Date("2021-05-21T00:00:00"));
 
   const setdailyDataTemplate = [
     {
@@ -270,6 +277,21 @@ export const VSGraphPage = (props) => {
     // console.log("DStatus :", DStatus);
   };
 
+  // const handleFullGraphOpen = () => {
+  //   setFullGraph(true);
+  // };
+  // const handleFullGraphClose = () => {
+  //   setFullGraph(false);
+  // };
+  const handleDateStart = (newDate) => {
+    setDateStart(newDate);
+    props.configDateStartMain(newDate.toISOString());
+  };
+  const handleDateEnd = (newDate) => {
+    setDateEnd(newDate);
+    props.configDateEndMain(newDate.toISOString());
+  };
+
   const handleDataType = (newTypedata) => {
     // const newDataType = "";
     // setTypeData();
@@ -278,7 +300,7 @@ export const VSGraphPage = (props) => {
   };
 
   return (
-    <Container maxWidth="xxl">
+    <Container maxWidth="xxl" style={{ marginTop: 105 }}>
       {/* <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
       
       </Container> */}
@@ -318,6 +340,33 @@ export const VSGraphPage = (props) => {
                   </ToggleButton>
                 </ToggleButtonGroup>
               </Grid>
+
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <Grid item>
+                  <DesktopDatePicker
+                    label="Start Date"
+                    inputFormat="MM/dd/yyyy"
+                    value={dateStart}
+                    onChange={handleDateStart}
+                    renderInput={(params) => (
+                      <TextField size="small" {...params} />
+                    )}
+                  />
+                </Grid>
+
+                <Grid item>
+                  <DesktopDatePicker
+                    size="small"
+                    label="End Date"
+                    inputFormat="MM/dd/yyyy"
+                    value={dateEnd}
+                    onChange={handleDateEnd}
+                    renderInput={(params) => (
+                      <TextField size="small" {...params} />
+                    )}
+                  />
+                </Grid>
+              </LocalizationProvider>
 
               <Grid item>
                 <ToggleButtonGroup

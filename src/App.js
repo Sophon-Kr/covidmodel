@@ -5,12 +5,8 @@ import Contactpage from "./page/Contactpage";
 import Modelpage from "./page/Modelpage";
 import VSGraphPage from "./page/VSGraphPage";
 import Navbar from "./components/Navbar";
-
-// import reducer from "./middleware/reducer";
-import { createStore, applyMiddleware } from "redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
-// import thunk from "redux-thunk";
 import configureStore from "./middleware/store";
 
 function App() {
