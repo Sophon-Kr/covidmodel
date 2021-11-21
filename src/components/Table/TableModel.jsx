@@ -301,7 +301,14 @@ export const TableModel = (props) => {
                     key={row.name}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell align="left">{row.name}</TableCell>
+                    {props.mainperiod === "month" ? (
+                      <TableCell align="left">
+                        {row.name} {row.Year}
+                      </TableCell>
+                    ) : (
+                      <TableCell align="left">{row.name}</TableCell>
+                    )}
+
                     <TableCell align="left">{row.Susceptible}</TableCell>
                     <TableCell align="left">{row.Vaccine1}</TableCell>
                     <TableCell align="left">{row.Vaccine2}</TableCell>

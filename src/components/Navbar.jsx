@@ -174,18 +174,38 @@ export const Navbar = (props) => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <IconButton aria-label="Graph" color="inherit" fontSize="large">
-              <AutoGraphRoundedIcon />
-            </IconButton>
-            <IconButton aria-label="Model" color="inherit">
-              <DescriptionRoundedIcon />
-            </IconButton>
-            <IconButton aria-label="Data" color="inherit">
-              <StorageRoundedIcon />
-            </IconButton>
-            <IconButton aria-label="Contact" color="inherit">
-              <PeopleAltRoundedIcon />
-            </IconButton>
+            <NavLink to="/" style={{ textDecoration: "none", color: "black" }}>
+              {" "}
+              <IconButton aria-label="Graph" color="inherit" fontSize="large">
+                <AutoGraphRoundedIcon />
+              </IconButton>
+            </NavLink>
+            <NavLink
+              to="/vsgraphpage"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              {" "}
+              <IconButton aria-label="Comparasion" color="inherit">
+                <StorageRoundedIcon />
+              </IconButton>
+            </NavLink>
+            <NavLink
+              to="/modelpage"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <IconButton aria-label="Model" color="inherit">
+                <DescriptionRoundedIcon />
+              </IconButton>
+            </NavLink>
+            <NavLink
+              to="/contactpage"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              {" "}
+              <IconButton aria-label="Contact" color="inherit">
+                <PeopleAltRoundedIcon />
+              </IconButton>
+            </NavLink>
           </Grid>
         </Toolbar>
       </AppBar>
