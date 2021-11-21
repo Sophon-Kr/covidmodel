@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
@@ -117,6 +117,49 @@ const rows = [
 ];
 
 export const TableModel = (props) => {
+  const [data, setData] = useState([props.mainTempData]);
+
+  const filterRangeByDate = (data) => {
+    var startDate = new Date(props.maindateStartMain);
+    var endDate = new Date(props.maindateEndMain);
+    // maindateStartMain
+    // maindateEndMain
+    // this.props.maindateStartMain
+    var dateAfterFilter = data.filter((a) => {
+      var date = new Date(a.name);
+      return date >= startDate && date <= endDate;
+    });
+    console.log("dateAfterFilter", dateAfterFilter);
+    return dateAfterFilter;
+    // this.setState({ dataFilterd: dateAfterFilter });
+  };
+
+  useEffect(() => {
+    async function fetchData() {
+      await setData([]);
+      if (props.mainperiod == "day") {
+        await setData(filterRangeByDate(props.mainTempData));
+      } else {
+        await setData(props.mainTempData);
+      }
+    }
+    fetchData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    props.maintypeData,
+    props.mainperiod,
+    props.mainTempData,
+    props.maindateStartMain,
+    props.maindateEndMain,
+  ]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     await setData(props.mainTempData);
+  //   }
+  //   fetchData();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
   return (
     <Container maxWidth="xxl" style={{ paddingBottom: 30 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
@@ -133,55 +176,139 @@ export const TableModel = (props) => {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell align="left" style={{ backgroundColor: "grey" }}>
+                  <TableCell
+                    align="left"
+                    style={{ backgroundColor: "#e0e0e0" }}
+                  >
                     Date
                   </TableCell>
-                  <TableCell
-                    align="left"
-                    style={{ backgroundColor: "#039be5" }}
-                  >
-                    Susceptible
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    style={{ backgroundColor: "#ffd600" }}
-                  >
-                    Vaccines1{" "}
-                  </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "orange" }}>
-                    Vaccines2{" "}
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    style={{ backgroundColor: "#f44336" }}
-                  >
-                    Infected{" "}
-                  </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "green" }}>
-                    Recovery
-                  </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "purple" }}>
-                    Hospital{" "}
-                  </TableCell>
-                  <TableCell align="left" style={{ backgroundColor: "black" }}>
-                    Death{" "}
-                  </TableCell>
+                  {props.mainSStatus ? (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#81d4fa" }}
+                    >
+                      Susceptible
+                    </TableCell>
+                  ) : (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#e0e0e0" }}
+                    >
+                      Susceptible
+                    </TableCell>
+                  )}
+
+                  {props.mainV1Status ? (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#fff59d" }}
+                    >
+                      Vaccines1{" "}
+                    </TableCell>
+                  ) : (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#e0e0e0" }}
+                    >
+                      Vaccines1
+                    </TableCell>
+                  )}
+
+                  {props.mainV2Status ? (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#ffcc80" }}
+                    >
+                      Vaccines2{" "}
+                    </TableCell>
+                  ) : (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#e0e0e0" }}
+                    >
+                      Vaccines2
+                    </TableCell>
+                  )}
+
+                  {props.mainIStatus ? (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#ef9a9a" }}
+                    >
+                      Infected{" "}
+                    </TableCell>
+                  ) : (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#e0e0e0" }}
+                    >
+                      Infected
+                    </TableCell>
+                  )}
+
+                  {props.mainRStatus ? (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#c5e1a5" }}
+                    >
+                      Recovery
+                    </TableCell>
+                  ) : (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#e0e0e0" }}
+                    >
+                      Recovery
+                    </TableCell>
+                  )}
+
+                  {props.mainHStatus ? (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#b39ddb" }}
+                    >
+                      Hospital{" "}
+                    </TableCell>
+                  ) : (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#e0e0e0" }}
+                    >
+                      Hospital
+                    </TableCell>
+                  )}
+
+                  {props.mainDStatus ? (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#9e9e9e" }}
+                    >
+                      Death
+                    </TableCell>
+                  ) : (
+                    <TableCell
+                      align="left"
+                      style={{ backgroundColor: "#e0e0e0" }}
+                    >
+                      Death
+                    </TableCell>
+                  )}
                 </TableRow>
               </TableHead>
               <TableBody>
-                {props.mainRealDataDay.map((row) => (
+                {data.map((row) => (
                   <TableRow
                     key={row.name}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell align="left">{row.name}</TableCell>
                     <TableCell align="left">{row.Susceptible}</TableCell>
-                    <TableCell align="left">{row.Vaccines1}</TableCell>
-                    <TableCell align="left">{row.Vaccines2}</TableCell>
+                    <TableCell align="left">{row.Vaccine1}</TableCell>
+                    <TableCell align="left">{row.Vaccine2}</TableCell>
                     <TableCell align="left">{row.Infected}</TableCell>
                     <TableCell align="left">{row.Recovery}</TableCell>
                     <TableCell align="left">{row.Hospital}</TableCell>
-                    <TableCell align="left">{row.Death}</TableCell>
+                    <TableCell align="left">{row.Deaths}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -196,7 +323,6 @@ export const TableModel = (props) => {
 const mapStateToProps = (state) => {
   return {
     mainperiod: state.reducer.periodMain,
-    // mainVS: state.reducer.VS,
     maintypeData: state.reducer.typeData,
     mainSStatus: state.reducer.SStatus,
     mainV1Status: state.reducer.V1Status,
@@ -208,8 +334,11 @@ const mapStateToProps = (state) => {
     maindateStartMain: state.reducer.dateStartMain,
     maindateEndMain: state.reducer.dateEndMain,
 
+    mainTempData: state.reducer.tempData,
     mainRealDataMonth: state.reducer.realDataMonth,
     mainRealDataDay: state.reducer.realDataDay,
+    mainModelDataMonth: state.reducer.modelDataMonth,
+    mainModelDataDay: state.reducer.modelDataDay,
   };
 };
 

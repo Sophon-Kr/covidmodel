@@ -31,6 +31,7 @@ const initialState = {
   dateStartVS: new Date("2021-01-01T00:00:00"),
   dateEndVS: new Date("2021-05-21T00:00:00"),
 
+  tempData: [],
   realDataMonth: [],
   realDataDay: [],
   modelDataMonth: [],
@@ -65,6 +66,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         realDataMonth: payload,
+        tempData: payload,
       };
 
     case GET_DATA_REAL_DAY:
@@ -72,12 +74,14 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         realDataDay: payload,
+        tempData: payload,
       };
     case GET_DATA_MODEL_MONTH:
       console.log(type, payload);
       return {
         ...state,
         modelDataMonth: payload,
+        tempData: payload,
       };
 
     case GET_DATA_MODEL_DAY:
@@ -85,6 +89,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         modelDataDay: payload,
+        tempData: payload,
       };
     case GET_DATA_DAILY:
       console.log(type, payload);

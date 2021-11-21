@@ -190,8 +190,8 @@ black */}
                     <TableCell align="left">{row.name}</TableCell>
                     <TableCell align="left">{row.Susceptible}</TableCell>
                     <TableCell align="left">{row.Vaccines1}</TableCell>
-                    <TableCell align="left">{row.Vaccines2}</TableCell>
-                    <TableCell align="left">{row.Infected}</TableCell>
+                    <TableCell align="left">{}</TableCell>
+                    <TableCell align="left">{}</TableCell>
                     {/* <TableCell align="left">{row.Recovery}</TableCell>
                     <TableCell align="left">{row.Hospital}</TableCell>
                     <TableCell align="left">{row.Death}</TableCell> */}

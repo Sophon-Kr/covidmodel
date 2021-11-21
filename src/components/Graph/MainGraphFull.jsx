@@ -286,69 +286,84 @@ class MainGraphFull extends PureComponent {
     });
   };
 
-  componentDidMount() {
-    if (
-      this.props.mainperiod === "month" &&
-      this.props.maintypeData === "real"
-    ) {
-      this.setState({ data: this.props.mainRealDataMonth });
-      // await props.getAllRealDataMount();
-      console.log("month real ::: ");
-    } else if (
-      this.props.mainperiod === "day" &&
-      this.props.maintypeData === "real"
-    ) {
-      this.setState({ data: this.props.mainRealDataDay });
-      // await props.getAllRealDataDay();
-      console.log("day real :::");
-    } else if (
-      this.props.mainperiod === "month" &&
-      this.props.maintypeData === "model"
-    ) {
-      this.setState({ data: this.props.mainModelDataMonth });
-      // await props.getAllModelDataMount();
-      console.log("month model :::");
-    } else if (
-      this.props.mainperiod === "day" &&
-      this.props.maintypeData === "model"
-    ) {
-      this.setState({ data: this.props.mainModelDataDay });
-      // await props.getAllModelDataDay();
-      console.log("day model :::");
-    }
-  }
+  filterRangeByDate = (data) => {
+    var startDate = new Date(this.props.maindateStartMain);
+    var endDate = new Date(this.props.maindateEndMain);
+    // maindateStartMain
+    // maindateEndMain
+    // this.props.maindateStartMain
+    var dateAfterFilter = data.filter((a) => {
+      var date = new Date(a.name);
+      return date >= startDate && date <= endDate;
+    });
+    console.log("dateAfterFilter", dateAfterFilter);
+    return dateAfterFilter;
+    // this.setState({ dataFilterd: dateAfterFilter });
+  };
 
-  componentDidUpdate() {
-    if (
-      this.props.mainperiod === "month" &&
-      this.props.maintypeData === "real"
-    ) {
-      this.setState({ data: this.props.mainRealDataMonth });
-      // await props.getAllRealDataMount();
-      console.log("month real :::");
-    } else if (
-      this.props.mainperiod === "day" &&
-      this.props.maintypeData === "real"
-    ) {
-      this.setState({ data: this.props.mainRealDataDay });
-      // await props.getAllRealDataDay();
-      console.log("day real :::");
-    } else if (
-      this.props.mainperiod === "month" &&
-      this.props.maintypeData === "model"
-    ) {
-      this.setState({ data: this.props.mainModelDataMonth });
-      // await props.getAllModelDataMount();
-      console.log("month model :::");
-    } else if (
-      this.props.mainperiod === "day" &&
-      this.props.maintypeData === "model"
-    ) {
-      this.setState({ data: this.props.mainModelDataDay });
-      // await props.getAllModelDataDay();
-      console.log("day model::: ");
-    }
-  }
+  // componentDidMount() {
+  //   if (
+  //     this.props.mainperiod === "month" &&
+  //     this.props.maintypeData === "real"
+  //   ) {
+  //     this.setState({ data: this.props.mainRealDataMonth });
+  //     // await props.getAllRealDataMount();
+  //     console.log("month real ::: ");
+  //   } else if (
+  //     this.props.mainperiod === "day" &&
+  //     this.props.maintypeData === "real"
+  //   ) {
+  //     this.setState({ data: this.props.mainRealDataDay });
+  //     // await props.getAllRealDataDay();
+  //     console.log("day real :::");
+  //   } else if (
+  //     this.props.mainperiod === "month" &&
+  //     this.props.maintypeData === "model"
+  //   ) {
+  //     this.setState({ data: this.props.mainModelDataMonth });
+  //     // await props.getAllModelDataMount();
+  //     console.log("month model :::");
+  //   } else if (
+  //     this.props.mainperiod === "day" &&
+  //     this.props.maintypeData === "model"
+  //   ) {
+  //     this.setState({ data: this.props.mainModelDataDay });
+  //     // await props.getAllModelDataDay();
+  //     console.log("day model :::");
+  //   }
+  // }
+
+  // componentDidUpdate() {
+  //   if (
+  //     this.props.mainperiod === "month" &&
+  //     this.props.maintypeData === "real"
+  //   ) {
+  //     this.setState({ data: this.props.mainRealDataMonth });
+  //     // await props.getAllRealDataMount();
+  //     console.log("month real :::");
+  //   } else if (
+  //     this.props.mainperiod === "day" &&
+  //     this.props.maintypeData === "real"
+  //   ) {
+  //     this.setState({ data: this.props.mainRealDataDay });
+  //     // await props.getAllRealDataDay();
+  //     console.log("day real :::");
+  //   } else if (
+  //     this.props.mainperiod === "month" &&
+  //     this.props.maintypeData === "model"
+  //   ) {
+  //     this.setState({ data: this.props.mainModelDataMonth });
+  //     // await props.getAllModelDataMount();
+  //     console.log("month model :::");
+  //   } else if (
+  //     this.props.mainperiod === "day" &&
+  //     this.props.maintypeData === "model"
+  //   ) {
+  //     this.setState({ data: this.props.mainModelDataDay });
+  //     // await props.getAllModelDataDay();
+  //     console.log("day model::: ");
+  //   }
+  // }
 
   render() {
     const { opacity } = this.state;
@@ -359,7 +374,11 @@ class MainGraphFull extends PureComponent {
           <LineChart
             width={500}
             height={300}
-            data={this.state.data}
+            data={
+              this.props.mainperiod == "day"
+                ? this.filterRangeByDate(this.props.mainTempData)
+                : this.props.mainTempData
+            }
             margin={{
               top: 5,
               right: 30,
@@ -457,6 +476,7 @@ const mapStateToProps = (state) => {
     maindateStartMain: state.reducer.dateStartMain,
     maindateEndMain: state.reducer.dateEndMain,
 
+    mainTempData: state.reducer.tempData,
     mainRealDataMonth: state.reducer.realDataMonth,
     mainRealDataDay: state.reducer.realDataDay,
     mainModelDataMonth: state.reducer.modelDataMonth,

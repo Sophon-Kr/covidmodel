@@ -313,12 +313,13 @@ export const VSGraphPage = (props) => {
               marginBottom: 35,
             }}
           >
-            <Grid container spacing={3}>
+            <Grid container justifyContent="end" spacing={3}>
               <Grid item style={{ flexGrow: 1, paddingLeft: 35 }}>
                 <Typography variant="h5" color="initial">
-                  COVID-19 Comparison Graph
+                  Comparison Graph
                 </Typography>
               </Grid>
+
               <Grid item>
                 <ToggleButtonGroup
                   size="small"

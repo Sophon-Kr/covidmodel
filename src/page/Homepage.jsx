@@ -27,6 +27,10 @@ import TableModel from "../components/Table/TableModel";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
+import covid from "../assets/icons8-covid-19-64.png";
+import lung from "../assets/icons8-infected-lungs-64.png";
+import flight from "../assets/icons8-no-flight-64.png";
+import vaccine from "../assets/icons8-vaccine-64.png";
 
 const dataconfig = [
   {
@@ -133,27 +137,40 @@ export const Homepage = (props) => {
   const setdailyDataTemplate = [
     {
       id: 1,
-      data: " Daily Confirmed Cases ",
+      data: "Confirmed Cases ",
       color: "red",
-      dataAPI: props.mainDailyData.total_case,
+      total: props.mainDailyData.total_case,
+      new: props.mainDailyData.new_case,
+      icon: covid,
     },
+
     {
       id: 2,
-      data: " Daily Dathes Cases",
-      color: "grey",
-      // dataAPI: props.mainDailyData,
+      data: "Recovered Cases",
+      color: "green",
+      total: props.mainDailyData.total_recovered,
+      new: props.mainDailyData.new_recovered,
+      icon: vaccine,
     },
     {
       id: 3,
-      data: " Daily Recovered Cases",
-      color: "green",
-      // dataAPI: props.mainDailyData,
+      data: "Dathes Cases",
+      color: "black",
+      total: props.mainDailyData.total_death,
+      new: props.mainDailyData.new_death,
+      icon: lung,
     },
     {
       id: 4,
-      data: " Hospital Cases",
-      color: "#ffd600",
-      // dataAPI: props.mainDailyData,
+      data: "Abroad Cases",
+      color: "blue",
+      total:
+        props.mainDailyData.total_case -
+        props.mainDailyData.total_case_excludeabroad,
+      new:
+        props.mainDailyData.new_case -
+        props.mainDailyData.new_case_excludeabroad,
+      icon: flight,
     },
   ];
 
@@ -228,13 +245,24 @@ export const Homepage = (props) => {
     await props.configPeriodMainData(newPeriod);
   };
 
+  const handleDateTime = (date) => {
+    let dateWithoutTime = date.toISOString();
+    let _dateWithoutTime = dateWithoutTime.split("T");
+    return _dateWithoutTime[0];
+  };
+
   const handleDateStart = (newDate) => {
+    // bug day -1
     setDateStart(newDate);
-    props.configDateStartMain(newDate.toISOString());
+    let newTypeDate = handleDateTime(newDate);
+    console.log("newTypeDate", newDate, newTypeDate);
+    props.configDateStartMain(newTypeDate);
   };
   const handleDateEnd = (newDate) => {
     setDateEnd(newDate);
-    props.configDateEndMain(newDate.toISOString());
+    let newTypeDate = handleDateTime(newDate);
+    console.log("newTypeDate", newDate, newTypeDate);
+    props.configDateEndMain(newTypeDate);
   };
 
   const handleTypeData = async (event, newTypedata) => {
@@ -323,13 +351,59 @@ export const Homepage = (props) => {
                 style={{
                   minHeight: 100,
                   padding: 30,
-                  // borderColor: "red",
                 }}
                 variant="outlined"
                 square
               >
-                {data.data}
-                {data.dataAPI}
+                <Grid container>
+                  <Typography
+                    variant="h5"
+                    color="initial"
+                    style={{ marginBottom: 8, fontSize: 28, color: data.color }}
+                  >
+                    {data.data}
+                  </Typography>
+                  <Grid
+                    item
+                    xs={8}
+                    sm={8}
+                    md={8}
+                    lg={8}
+                    xl={8}
+                    style={{ flexGrow: 1 }}
+                  >
+                    <Typography
+                      variant="h5"
+                      color="initial"
+                      style={{ marginBottom: 5, fontSize: 20 }}
+                    >
+                      New Case : {data.new}
+                    </Typography>
+                    <Typography variant="subtitle1" color="initial">
+                      Total Case : {data.total}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      // color="initial"
+                      style={{ paddingTop: 8, color: "grey" }}
+                    >
+                      Date :{props.mainDailyData.txn_date}
+                    </Typography>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={4}
+                    sm={4}
+                    md={4}
+                    lg={4}
+                    xl={4}
+                    style={{ textAlign: "center" }}
+                  >
+                    <img width="75" height="75" src={data.icon} alt="icon" />
+                  </Grid>
+                </Grid>
+                {/* {data.data}
+                {data.dataAPI} */}
               </Paper>
               <Divider style={{ backgroundColor: data.color, padding: 2 }} />
             </Grid>
@@ -573,6 +647,20 @@ export const Homepage = (props) => {
                   />
                 </Grid>
               ))}
+              <Grid item>
+                <Button
+                  onClick={handleDialogClose}
+                  variant="contained"
+                  style={{
+                    color: "white",
+                    backgroundColor: "grey",
+                    marginLeft: 10,
+                    marginTop: 10,
+                  }}
+                >
+                  Reset Default Value
+                </Button>
+              </Grid>
             </Grid>
           ) : null}
           {typeData === "model" ? (
@@ -600,20 +688,36 @@ export const Homepage = (props) => {
           ) : null}
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={handleDialogClose}
-            variant="contained"
-            style={{ color: "white", backgroundColor: "#ef5350" }}
-          >
-            Cancel Config
-          </Button>
-          <Button
-            onClick={handleCheck}
-            variant="contained"
-            style={{ color: "white", backgroundColor: "#0091ea" }}
-          >
-            Save Config
-          </Button>
+          {/* <Grid item style={{ flexGrow: 1 }}>
+            {" "}
+            <Button
+              onClick={handleDialogClose}
+              variant="contained"
+              style={{ color: "white", backgroundColor: "grey" }}
+            >
+              Reset Default Value
+            </Button>
+          </Grid> */}
+          <Grid item>
+            <Button
+              onClick={handleDialogClose}
+              variant="contained"
+              style={{ color: "white", backgroundColor: "#ef5350" }}
+            >
+              Cancel Config
+            </Button>
+            <Button
+              onClick={handleCheck}
+              variant="contained"
+              style={{
+                color: "white",
+                backgroundColor: "#0091ea",
+                marginLeft: 10,
+              }}
+            >
+              Save Config
+            </Button>
+          </Grid>
         </DialogActions>
       </Dialog>
       {/* =========== Full screen graph================= */}
