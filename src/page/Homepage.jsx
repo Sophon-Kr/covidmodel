@@ -31,6 +31,7 @@ import covid from "../assets/icons8-covid-19-64.png";
 import lung from "../assets/icons8-infected-lungs-64.png";
 import flight from "../assets/icons8-no-flight-64.png";
 import vaccine from "../assets/icons8-vaccine-64.png";
+import DatePicker from "@mui/lab/DatePicker";
 
 const dataconfig = [
   {
@@ -122,17 +123,12 @@ export const Homepage = (props) => {
     new Date("2021-01-01T00:00:00")
   );
   const [dateEnd, setDateEnd] = React.useState(new Date("2021-05-21T00:00:00"));
-
-  // new_case: 6855
-  // new_case_excludeabroad: 6843
-  // new_death: 51
-  // new_recovered: 7655
-  // total_case: 2050980
-  // total_case_excludeabroad: 2044301
-  // total_death: 20305
-  // total_recovered: 1941073
-  // txn_date: "2021-11-19"
-  // update_date: "2021-11-19
+  const [monthStart, setMonthStart] = React.useState(
+    new Date("2021-01-01T00:00:00")
+  );
+  const [monthEnd, setMonthEnd] = React.useState(
+    new Date("2021-05-21T00:00:00")
+  );
 
   const setdailyDataTemplate = [
     {
@@ -263,6 +259,20 @@ export const Homepage = (props) => {
     let newTypeDate = handleDateTime(newDate);
     console.log("newTypeDate", newDate, newTypeDate);
     props.configDateEndMain(newTypeDate);
+  };
+  const handleMonthStart = (newMonth) => {
+    setMonthStart(newMonth);
+    console.log("newMonth Start", newMonth);
+    // let newTypeDate = handleDateTime(newMonth);
+    // console.log("newTypeDate", newMonth, newTypeDate);
+    // props.configDateStartMain(newTypeDate);
+  };
+  const handleMonthEnd = (newMonth) => {
+    setMonthEnd(newMonth);
+    console.log("newMonth End", newMonth);
+    // let newTypeDate = handleDateTime(newMonth);
+    // console.log("newTypeDate", newMonth, newTypeDate);
+    // props.configDateEndMain(newTypeDate);
   };
 
   const handleTypeData = async (event, newTypedata) => {
@@ -643,32 +653,75 @@ export const Homepage = (props) => {
                   </ToggleButton>
                 </ToggleButtonGroup>
               </Grid>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <Grid item>
-                  <DesktopDatePicker
-                    label="Start Date"
-                    inputFormat="MM/dd/yyyy"
-                    value={dateStart}
-                    onChange={handleDateStart}
-                    renderInput={(params) => (
-                      <TextField size="small" {...params} />
-                    )}
-                  />
-                </Grid>
+              {props.mainperiod === "day" ? (
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <Grid item>
+                    <DatePicker
+                      autoOk={true}
+                      openTo="year"
+                      views={["year", "month", "day"]}
+                      label="Start Date"
+                      inputFormat="MM/dd/yyyy"
+                      value={dateStart}
+                      // minDate={new Date("2012-03-01")}
+                      // maxDate={new Date("2023-06-01")}
+                      onChange={handleDateStart}
+                      renderInput={(params) => (
+                        <TextField size="small" {...params} />
+                      )}
+                    />
+                  </Grid>
 
-                <Grid item>
-                  <DesktopDatePicker
-                    size="small"
-                    label="End Date"
-                    inputFormat="MM/dd/yyyy"
-                    value={dateEnd}
-                    onChange={handleDateEnd}
-                    renderInput={(params) => (
-                      <TextField size="small" {...params} />
-                    )}
-                  />
-                </Grid>
-              </LocalizationProvider>
+                  <Grid item>
+                    <DatePicker
+                      autoOk={true}
+                      openTo="year"
+                      views={["year", "month", "day"]}
+                      // minDate={new Date("2012-03-01")}
+                      // maxDate={new Date("2023-06-01")}
+                      label="End Date"
+                      inputFormat="MM/dd/yyyy"
+                      value={dateEnd}
+                      onChange={handleDateEnd}
+                      renderInput={(params) => (
+                        <TextField size="small" {...params} />
+                      )}
+                    />
+                  </Grid>
+                </LocalizationProvider>
+              ) : props.mainperiod === "month" ? (
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <Grid item>
+                    <DatePicker
+                      autoOk={true}
+                      views={["year", "month"]}
+                      label="Start Month"
+                      minDate={new Date("2020-03-01")}
+                      maxDate={new Date("2022-06-01")}
+                      value={monthStart}
+                      onChange={handleMonthStart}
+                      renderInput={(params) => (
+                        <TextField size="small" {...params} helperText={null} />
+                      )}
+                    />
+                  </Grid>
+
+                  <Grid item>
+                    <DatePicker
+                      autoOk={true}
+                      views={["year", "month"]}
+                      label="End Month"
+                      minDate={new Date("2020-03-01")}
+                      maxDate={new Date("2022-06-01")}
+                      value={monthEnd}
+                      onChange={handleMonthEnd}
+                      renderInput={(params) => (
+                        <TextField size="small" {...params} helperText={null} />
+                      )}
+                    />
+                  </Grid>
+                </LocalizationProvider>
+              ) : null}
 
               <Grid item>
                 <ToggleButtonGroup
