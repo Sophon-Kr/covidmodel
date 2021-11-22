@@ -107,6 +107,189 @@ const data = [
   },
 ];
 
+const dataSV = [
+  {
+    name: "January-2021",
+    // year: "2021",
+    SusceptibleRealData: 66162931,
+    SusceptibleModelData: 0,
+    Vaccines1RealData: 0,
+    Vaccines1ModelData: 0,
+    Vaccines2RealData: 0,
+    Vaccines2ModelData: 0,
+    InfectionRealData: 11898,
+    InfectionModelData: 0,
+    RecoveryRealData: 7375,
+    RecoveryModelData: 0,
+    HospitalizeRealData: 4507,
+    HospitalizeModelData: 0,
+    DeathRealData: 16,
+    DeathModelData: 0,
+  },
+  {
+    name: "February-2021",
+    // year: "2021",
+    SusceptibleRealData: 66172389,
+    SusceptibleModelData: 0,
+    Vaccines1RealData: 0,
+    Vaccines1ModelData: 0,
+    Vaccines2RealData: 0,
+    Vaccines2ModelData: 0,
+    InfectionRealData: 7169,
+    InfectionModelData: 0,
+    RecoveryRealData: 13513,
+    RecoveryModelData: 0,
+    HospitalizeRealData: -6350,
+    HospitalizeModelData: 0,
+    DeathRealData: 6,
+    DeathModelData: 0,
+  },
+  {
+    name: "March-2021",
+    // year: "2021",
+    SusceptibleRealData: 66022406,
+    SusceptibleModelData: 0,
+    Vaccines1RealData: 158497,
+    Vaccines1ModelData: 0,
+    Vaccines2RealData: 33248,
+    Vaccines2ModelData: 0,
+    InfectionRealData: 2912,
+    InfectionModelData: 0,
+    RecoveryRealData: 2298,
+    RecoveryModelData: 0,
+    HospitalizeRealData: 603,
+    HospitalizeModelData: 0,
+    DeathRealData: 11,
+    DeathModelData: 0,
+  },
+  {
+    name: "April-2021",
+    // year: "2021",
+    SusceptibleRealData: 65177414,
+    SusceptibleModelData: 0,
+    Vaccines1RealData: 936733,
+    Vaccines1ModelData: 0,
+    Vaccines2RealData: 348600,
+    Vaccines2ModelData: 0,
+    InfectionRealData: 36290,
+    InfectionModelData: 0,
+    RecoveryRealData: 8828,
+    RecoveryModelData: 0,
+    HospitalizeRealData: 27353,
+    HospitalizeModelData: 0,
+    DeathRealData: 109,
+    DeathModelData: 0,
+  },
+  {
+    name: "May-2021",
+    // year: "2021",
+    SusceptibleRealData: 64553188,
+    SusceptibleModelData: 0,
+    Vaccines1RealData: 1444261,
+    Vaccines1ModelData: 0,
+    Vaccines2RealData: 743520,
+    Vaccines2ModelData: 0,
+    InfectionRealData: 94639,
+    InfectionModelData: 0,
+    RecoveryRealData: 72091,
+    RecoveryModelData: 0,
+    HospitalizeRealData: 21720,
+    HospitalizeModelData: 0,
+    DeathRealData: 828,
+    DeathModelData: 0,
+  },
+  {
+    name: "June-2021",
+    // year: "2021",
+    SusceptibleRealData: 61416343,
+    SusceptibleModelData: 0,
+    Vaccines1RealData: 4571363,
+    Vaccines1ModelData: 0,
+    Vaccines2RealData: 1691476,
+    Vaccines2ModelData: 0,
+    InfectionRealData: 99509,
+    InfectionModelData: 0,
+    RecoveryRealData: 99134,
+    RecoveryModelData: 0,
+    HospitalizeRealData: -614,
+    HospitalizeModelData: 0,
+    DeathRealData: 992,
+    DeathModelData: 0,
+  },
+  {
+    name: "July-2021",
+    // year: "2021",
+    SusceptibleRealData: 58818693,
+    SusceptibleModelData: 0,
+    Vaccines1RealData: 6692062,
+    Vaccines1ModelData: 0,
+    Vaccines2RealData: 1066214,
+    Vaccines2ModelData: 0,
+    InfectionRealData: 337986,
+    InfectionModelData: 0,
+    RecoveryRealData: 184441,
+    RecoveryModelData: 0,
+    HospitalizeRealData: 150711,
+    HospitalizeModelData: 0,
+    DeathRealData: 2834,
+    DeathModelData: 0,
+  },
+  {
+    name: "August-2021",
+    // year: "2021",
+    SusceptibleRealData: 54962377,
+    SusceptibleModelData: 0,
+    Vaccines1RealData: 10009247,
+    Vaccines1ModelData: 0,
+    Vaccines2RealData: 4326504,
+    Vaccines2ModelData: 0,
+    InfectionRealData: 607442,
+    InfectionModelData: 0,
+    RecoveryRealData: 630071,
+    RecoveryModelData: 0,
+    HospitalizeRealData: -29142,
+    HospitalizeModelData: 0,
+    DeathRealData: 6732,
+    DeathModelData: 0,
+  },
+  {
+    name: "September-2021",
+    // year: "2021",
+    SusceptibleRealData: 56578527,
+    SusceptibleModelData: 56168488.867,
+    Vaccines1RealData: 8810927,
+    Vaccines1ModelData: 9139212,
+    Vaccines2RealData: 11722126,
+    Vaccines2ModelData: 11937355,
+    InfectionRealData: 398746,
+    InfectionModelData: 405564.8,
+    RecoveryRealData: 448682,
+    RecoveryModelData: 475536.2,
+    HospitalizeRealData: -55293,
+    HospitalizeModelData: -54660.2,
+    DeathRealData: 5138,
+    DeathModelData: 52585.333,
+  },
+  {
+    name: "October-2021",
+    // year: "2021",
+    SusceptibleRealData: 55801205,
+    SusceptibleModelData: 55986031.291,
+    Vaccines1RealData: 9768424,
+    Vaccines1ModelData: 9625499,
+    Vaccines2RealData: 11045684,
+    Vaccines2ModelData: 10753419,
+    InfectionRealData: 308549,
+    InfectionModelData: 297205.9,
+    RecoveryRealData: 321455,
+    RecoveryModelData: 289291.7,
+    HospitalizeRealData: -15384,
+    HospitalizeModelData: -13898.9,
+    DeathRealData: 2478,
+    DeathModelData: 2598.009,
+  },
+];
+
 const modelData = [
   {
     name: "Jan",
@@ -228,7 +411,7 @@ class VSGraph extends PureComponent {
           <LineChart
             width={500}
             height={300}
-            data={this.props.maintypeData === "model" ? modelData : data}
+            data={this.props.maintypeData === "model" ? dataSV : dataSV}
             margin={{
               top: 5,
               right: 30,
@@ -244,7 +427,7 @@ class VSGraph extends PureComponent {
             {this.props.mainSStatus ? (
               <Line
                 type="monotone"
-                dataKey="Susceptible(Real-Data)"
+                dataKey="SusceptibleRealData"
                 stroke="#1565c0"
                 strokeWidth={3}
                 activeDot={{ r: 8 }}
@@ -253,7 +436,7 @@ class VSGraph extends PureComponent {
             {this.props.mainV1Status ? (
               <Line
                 type="monotone"
-                dataKey="Susceptible(Model-Data)"
+                dataKey="SusceptibleModelData"
                 stroke="#2196f3"
                 strokeWidth={3}
                 activeDot={{ r: 8 }}
