@@ -138,6 +138,21 @@ class MainGraph extends PureComponent {
     // this.setState({ dataFilterd: dateAfterFilter });
   };
 
+  monthFilter = (dataMonth) => {
+    let startMonth = this.props.dateStartMonthMain;
+    let endMonth = this.props.dateEndMonthMain;
+
+    console.log("startMonth M :", new Date(startMonth));
+    console.log("endMonth M :", new Date(endMonth));
+
+    var dateAfterFilter = dataMonth.filter((a) => {
+      var date = new Date(a.name);
+      return date >= startMonth && date <= endMonth;
+    });
+    console.log("dateAfterFilter M :", dateAfterFilter);
+    return dateAfterFilter;
+  };
+
   // fetchData = () => {
   //   if (
   //     this.props.mainperiod === "month" &&
@@ -313,6 +328,12 @@ const mapStateToProps = (state) => {
     mainRealDataDay: state.reducer.realDataDay,
     mainModelDataMonth: state.reducer.modelDataMonth,
     mainModelDataDay: state.reducer.modelDataDay,
+
+    minDateMonth: state.reducer.minDateMonth,
+    maxDateMonth: state.reducer.maxDateMonth,
+
+    dateStartMonthMain: state.reducer.dateStartMonthMain,
+    dateEndMonthMain: state.reducer.dateEndMonthMain,
   };
 };
 

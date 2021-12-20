@@ -13,6 +13,8 @@ export const CONFIG_DATE_END_MAIN = "CONFIG_DATE_END_MAIN";
 export const CONFIG_DATE_START_VS = "CONFIG_DATE_START_VS";
 export const CONFIG_DATE_END_VS = "CONFIG_DATE_END_VS";
 export const GET_DATA_DAILY = "GET_DATA_DAILY";
+export const CONFIG_DATE_START_MONTH__MAIN = "CONFIG_DATE_START_MONTH__MAIN";
+export const CONFIG_DATE_END_MONTH_MAIN = "CONFIG_DATE_END_MONTH_MAIN";
 
 export const configGraphLine = (payload) => ({
   type: "CONFIG_GRAPH_DISPLAY",
@@ -42,6 +44,16 @@ export const dateStartMain = (payload) => ({
 
 export const dateEndMain = (payload) => ({
   type: "CONFIG_DATE_END_MAIN",
+  payload,
+});
+
+export const dateStartMonthMain = (payload) => ({
+  type: "CONFIG_DATE_START_MONTH__MAIN",
+  payload,
+});
+
+export const dateEndMonthMain = (payload) => ({
+  type: "CONFIG_DATE_END_MONTH_MAIN",
   payload,
 });
 

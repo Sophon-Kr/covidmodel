@@ -120,15 +120,11 @@ export const Homepage = (props) => {
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
   const [dateStart, setDateStart] = React.useState(
-    new Date("2021-01-01T00:00:00")
+    new Date("2021-06-01T00:00:00")
   );
-  const [dateEnd, setDateEnd] = React.useState(new Date("2021-05-21T00:00:00"));
-  const [monthStart, setMonthStart] = React.useState(
-    new Date("2021-01-01T00:00:00")
-  );
-  const [monthEnd, setMonthEnd] = React.useState(
-    new Date("2021-05-21T00:00:00")
-  );
+  const [dateEnd, setDateEnd] = React.useState(new Date("2021-08-31T00:00:00"));
+  const [monthStart, setMonthStart] = React.useState(props.minDateMonth);
+  const [monthEnd, setMonthEnd] = React.useState(props.maxDateMonth);
 
   const setdailyDataTemplate = [
     {
@@ -150,7 +146,7 @@ export const Homepage = (props) => {
     },
     {
       id: 3,
-      data: "Dathes Cases",
+      data: "Death Cases",
       color: "black",
       total: props.mainDailyData.total_death,
       new: props.mainDailyData.new_death,
@@ -254,6 +250,7 @@ export const Homepage = (props) => {
     console.log("newTypeDate", newDate, newTypeDate);
     props.configDateStartMain(newTypeDate);
   };
+
   const handleDateEnd = (newDate) => {
     setDateEnd(newDate);
     let newTypeDate = handleDateTime(newDate);
@@ -263,6 +260,7 @@ export const Homepage = (props) => {
   const handleMonthStart = (newMonth) => {
     setMonthStart(newMonth);
     console.log("newMonth Start", newMonth);
+    props.configDateStartMonthMain(newMonth);
     // let newTypeDate = handleDateTime(newMonth);
     // console.log("newTypeDate", newMonth, newTypeDate);
     // props.configDateStartMain(newTypeDate);
@@ -270,6 +268,7 @@ export const Homepage = (props) => {
   const handleMonthEnd = (newMonth) => {
     setMonthEnd(newMonth);
     console.log("newMonth End", newMonth);
+    props.configDateEndMonthMain(newMonth);
     // let newTypeDate = handleDateTime(newMonth);
     // console.log("newTypeDate", newMonth, newTypeDate);
     // props.configDateEndMain(newTypeDate);
@@ -327,214 +326,23 @@ export const Homepage = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const monthFilter = (dataSV) => {
-    let startMonth = new Date("June-2021");
-    let endMonth = new Date("October-2021");
-    var dateAfterFilter = dataSV.filter((a) => {
-      var date = new Date(a.name);
-      return date >= startMonth && date <= endMonth;
-    });
-    console.log("dateAfterFilter", dateAfterFilter);
+  // const monthFilter = (dataMonth) => {
+  //   let startMonth = props.minDateMonth;
+  //   let endMonth = props.maxDateMonth;
+  //   var dateAfterFilter = dataMonth.filter((a) => {
+  //     var date = new Date(a.name);
+  //     return date >= startMonth && date <= endMonth;
+  //   });
+  //   console.log("dateAfterFilter M :", dateAfterFilter);
+  // };
 
-    // if (startMonth > endMonth) {
-    //   console.log("true Date ---");
-    //   console.log(startMonth);
-    //   return true;
-    // } else {
-    //   console.log("false Date --- ");
-    //   console.log(endMonth);
-    //   // console.log("dataSV", dataSV);
-    // }
-  };
+  // useEffect(() => {
+  //   // async function fetchData() {}
+  //   // fetchData();
+  //   // console.log("dailyDataAPI", dailyDataAPI);
 
-  useEffect(() => {
-    // async function fetchData() {}
-    // fetchData();
-    // console.log("dailyDataAPI", dailyDataAPI);
-    const dataSV = [
-      {
-        name: "January-2021",
-        // year: "2021",
-        SusceptibleRealData: 66162931,
-        SusceptibleModelData: 0,
-        Vaccines1RealData: 0,
-        Vaccines1ModelData: 0,
-        Vaccines2RealData: 0,
-        Vaccines2ModelData: 0,
-        InfectionRealData: 11898,
-        InfectionModelData: 0,
-        RecoveryRealData: 7375,
-        RecoveryModelData: 0,
-        HospitalizeRealData: 4507,
-        HospitalizeModelData: 0,
-        DeathRealData: 16,
-        DeathModelData: 0,
-      },
-      {
-        name: "February-2021",
-        // year: "2021",
-        SusceptibleRealData: 66172389,
-        SusceptibleModelData: 0,
-        Vaccines1RealData: 0,
-        Vaccines1ModelData: 0,
-        Vaccines2RealData: 0,
-        Vaccines2ModelData: 0,
-        InfectionRealData: 7169,
-        InfectionModelData: 0,
-        RecoveryRealData: 13513,
-        RecoveryModelData: 0,
-        HospitalizeRealData: -6350,
-        HospitalizeModelData: 0,
-        DeathRealData: 6,
-        DeathModelData: 0,
-      },
-      {
-        name: "March-2021",
-        // year: "2021",
-        SusceptibleRealData: 66022406,
-        SusceptibleModelData: 0,
-        Vaccines1RealData: 158497,
-        Vaccines1ModelData: 0,
-        Vaccines2RealData: 33248,
-        Vaccines2ModelData: 0,
-        InfectionRealData: 2912,
-        InfectionModelData: 0,
-        RecoveryRealData: 2298,
-        RecoveryModelData: 0,
-        HospitalizeRealData: 603,
-        HospitalizeModelData: 0,
-        DeathRealData: 11,
-        DeathModelData: 0,
-      },
-      {
-        name: "April-2021",
-        // year: "2021",
-        SusceptibleRealData: 65177414,
-        SusceptibleModelData: 0,
-        Vaccines1RealData: 936733,
-        Vaccines1ModelData: 0,
-        Vaccines2RealData: 348600,
-        Vaccines2ModelData: 0,
-        InfectionRealData: 36290,
-        InfectionModelData: 0,
-        RecoveryRealData: 8828,
-        RecoveryModelData: 0,
-        HospitalizeRealData: 27353,
-        HospitalizeModelData: 0,
-        DeathRealData: 109,
-        DeathModelData: 0,
-      },
-      {
-        name: "May-2021",
-        // year: "2021",
-        SusceptibleRealData: 64553188,
-        SusceptibleModelData: 0,
-        Vaccines1RealData: 1444261,
-        Vaccines1ModelData: 0,
-        Vaccines2RealData: 743520,
-        Vaccines2ModelData: 0,
-        InfectionRealData: 94639,
-        InfectionModelData: 0,
-        RecoveryRealData: 72091,
-        RecoveryModelData: 0,
-        HospitalizeRealData: 21720,
-        HospitalizeModelData: 0,
-        DeathRealData: 828,
-        DeathModelData: 0,
-      },
-      {
-        name: "June-2021",
-        // year: "2021",
-        SusceptibleRealData: 61416343,
-        SusceptibleModelData: 0,
-        Vaccines1RealData: 4571363,
-        Vaccines1ModelData: 0,
-        Vaccines2RealData: 1691476,
-        Vaccines2ModelData: 0,
-        InfectionRealData: 99509,
-        InfectionModelData: 0,
-        RecoveryRealData: 99134,
-        RecoveryModelData: 0,
-        HospitalizeRealData: -614,
-        HospitalizeModelData: 0,
-        DeathRealData: 992,
-        DeathModelData: 0,
-      },
-      {
-        name: "July-2021",
-        // year: "2021",
-        SusceptibleRealData: 58818693,
-        SusceptibleModelData: 0,
-        Vaccines1RealData: 6692062,
-        Vaccines1ModelData: 0,
-        Vaccines2RealData: 1066214,
-        Vaccines2ModelData: 0,
-        InfectionRealData: 337986,
-        InfectionModelData: 0,
-        RecoveryRealData: 184441,
-        RecoveryModelData: 0,
-        HospitalizeRealData: 150711,
-        HospitalizeModelData: 0,
-        DeathRealData: 2834,
-        DeathModelData: 0,
-      },
-      {
-        name: "August-2021",
-        // year: "2021",
-        SusceptibleRealData: 54962377,
-        SusceptibleModelData: 0,
-        Vaccines1RealData: 10009247,
-        Vaccines1ModelData: 0,
-        Vaccines2RealData: 4326504,
-        Vaccines2ModelData: 0,
-        InfectionRealData: 607442,
-        InfectionModelData: 0,
-        RecoveryRealData: 630071,
-        RecoveryModelData: 0,
-        HospitalizeRealData: -29142,
-        HospitalizeModelData: 0,
-        DeathRealData: 6732,
-        DeathModelData: 0,
-      },
-      {
-        name: "September-2021",
-        // year: "2021",
-        SusceptibleRealData: 56578527,
-        SusceptibleModelData: 56168488.867,
-        Vaccines1RealData: 8810927,
-        Vaccines1ModelData: 9139212,
-        Vaccines2RealData: 11722126,
-        Vaccines2ModelData: 11937355,
-        InfectionRealData: 398746,
-        InfectionModelData: 405564.8,
-        RecoveryRealData: 448682,
-        RecoveryModelData: 475536.2,
-        HospitalizeRealData: -55293,
-        HospitalizeModelData: -54660.2,
-        DeathRealData: 5138,
-        DeathModelData: 52585.333,
-      },
-      {
-        name: "October-2021",
-        // year: "2021",
-        SusceptibleRealData: 55801205,
-        SusceptibleModelData: 55986031.291,
-        Vaccines1RealData: 9768424,
-        Vaccines1ModelData: 9625499,
-        Vaccines2RealData: 11045684,
-        Vaccines2ModelData: 10753419,
-        InfectionRealData: 308549,
-        InfectionModelData: 297205.9,
-        RecoveryRealData: 321455,
-        RecoveryModelData: 289291.7,
-        HospitalizeRealData: -15384,
-        HospitalizeModelData: -13898.9,
-        DeathRealData: 2478,
-        DeathModelData: 2598.009,
-      },
-    ];
-    monthFilter(dataSV);
-  }, []);
+  //   monthFilter(dataSV);
+  // }, []);
 
   // const filterRangeByDate = (data) => {
   //   var startDate = new Date("2021-02-01");
@@ -658,8 +466,8 @@ export const Homepage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      openTo="year"
-                      views={["year", "month", "day"]}
+                      openTo="day"
+                      views={["day", "month", "year"]}
                       label="Start Date"
                       inputFormat="MM/dd/yyyy"
                       value={dateStart}
@@ -675,8 +483,8 @@ export const Homepage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      openTo="year"
-                      views={["year", "month", "day"]}
+                      openTo="day"
+                      views={["day", "month", "year"]}
                       // minDate={new Date("2012-03-01")}
                       // maxDate={new Date("2023-06-01")}
                       label="End Date"
@@ -694,10 +502,10 @@ export const Homepage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      views={["year", "month"]}
+                      views={["month", "year"]}
                       label="Start Month"
-                      minDate={new Date("2020-03-01")}
-                      maxDate={new Date("2022-06-01")}
+                      minDate={props.minDateMonth}
+                      maxDate={props.maxDateMonth}
                       value={monthStart}
                       onChange={handleMonthStart}
                       renderInput={(params) => (
@@ -709,10 +517,12 @@ export const Homepage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      views={["year", "month"]}
+                      views={["month", "year"]}
                       label="End Month"
-                      minDate={new Date("2020-03-01")}
-                      maxDate={new Date("2022-06-01")}
+                      minDate={props.minDateMonth}
+                      maxDate={props.maxDateMonth}
+                      // minDate={new Date("2020-03-01")}
+                      // maxDate={new Date("2022-06-01")}
                       value={monthEnd}
                       onChange={handleMonthEnd}
                       renderInput={(params) => (
@@ -1026,6 +836,9 @@ const mapStateToProps = (state) => {
     mainModelDataMonth: state.reducer.modelDataMonth,
     mainModelDataDay: state.reducer.modelDataDay,
     mainDailyData: state.reducer.dailyData,
+
+    minDateMonth: state.reducer.minDateMonth,
+    maxDateMonth: state.reducer.maxDateMonth,
   };
 };
 
@@ -1064,6 +877,13 @@ const mapDispatchToProps = (dispatch) => {
 
     configDateEndMain: (datatype) => {
       return dispatch(actions.dateEndMain(datatype));
+    },
+    configDateStartMonthMain: (datatype) => {
+      return dispatch(actions.dateStartMonthMain(datatype));
+    },
+
+    configDateEndMonthMain: (datatype) => {
+      return dispatch(actions.dateEndMonthMain(datatype));
     },
   };
 };

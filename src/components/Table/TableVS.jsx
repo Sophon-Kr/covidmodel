@@ -265,7 +265,7 @@ const dataSV = [
     name: "September-2021",
     // year: "2021",
     SusceptibleRealData: 56578527,
-    SusceptibleModelData: 56168488.867,
+    SusceptibleModelData: 0,
     Vaccines1RealData: 8810927,
     Vaccines1ModelData: 9139212,
     Vaccines2RealData: 11722126,
@@ -283,7 +283,7 @@ const dataSV = [
     name: "October-2021",
     // year: "2021",
     SusceptibleRealData: 55801205,
-    SusceptibleModelData: 55986031.291,
+    SusceptibleModelData: 0,
     Vaccines1RealData: 9768424,
     Vaccines1ModelData: 9625499,
     Vaccines2RealData: 11045684,
@@ -385,7 +385,8 @@ black */}
                     <TableCell align="left">
                       {((row.SusceptibleRealData - row.SusceptibleModelData) /
                         row.SusceptibleRealData) *
-                        100}
+                        100}{" "}
+                      %
                     </TableCell>
                     {/* <TableCell align="left">{row.Recovery}</TableCell>
                     <TableCell align="left">{row.Hospital}</TableCell>
