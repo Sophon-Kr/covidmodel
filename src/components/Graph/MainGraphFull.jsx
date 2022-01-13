@@ -376,8 +376,9 @@ class MainGraphFull extends PureComponent {
             height={300}
             data={
               this.props.mainperiod == "day"
-                ? this.filterRangeByDate(this.props.mainTempData)
-                : this.props.mainTempData
+                ? this.props.mainTempData
+                : // ? this.filterRangeByDate(this.props.mainTempData)
+                  this.props.mainTempData
             }
             margin={{
               top: 5,
