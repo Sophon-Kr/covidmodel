@@ -6,9 +6,15 @@ import Typography from "@mui/material/Typography";
 import MainGraph from "../components/Graph/MainGraph";
 import Grid from "@mui/material/Grid";
 
+import Why from "../components/Modelpage/Why";
+import Evolution from "../components/Modelpage/Evolution";
+import ModelPart from "../components/Modelpage/ModelPart";
+import DescriptionS from "../components/Modelpage/DescriptionS";
+import DescriptionV1 from "../components/Modelpage/DescriptionV1";
+
 export const Modelpage = (props) => {
   return (
-    <Container maxWidth="xxl" style={{ marginTop: 75 }}>
+    <Container maxWidth="xxl" style={{ marginTop: 75, marginBottom: 35 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
           style={{
@@ -18,7 +24,11 @@ export const Modelpage = (props) => {
           variant="outlined"
           square
         >
-          Model page
+          <Why />
+          <Evolution />
+          <ModelPart />
+          <DescriptionS />
+          <DescriptionV1 />
         </Paper>
       </Container>
     </Container>
