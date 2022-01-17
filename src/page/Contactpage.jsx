@@ -6,9 +6,14 @@ import Typography from "@mui/material/Typography";
 import MainGraph from "../components/Graph/MainGraph";
 import Grid from "@mui/material/Grid";
 
+import Adviser from "../components/ContactComponent/Adviser";
+import CoAdviser from "../components/ContactComponent/CoAdviser";
+import Student from "../components/ContactComponent/Student";
+import ContactForm from "../components/ContactComponent/ContactForm";
+
 export const Contactpage = (props) => {
   return (
-    <Container maxWidth="xxl" style={{ marginTop: 75 }}>
+    <Container maxWidth="xxl" style={{ marginTop: 75, marginBottom: 35 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
           style={{
@@ -18,7 +23,10 @@ export const Contactpage = (props) => {
           variant="outlined"
           square
         >
-          Contact page
+          <Adviser />
+          <CoAdviser />
+          <Student />
+          <ContactForm />
         </Paper>
       </Container>
     </Container>

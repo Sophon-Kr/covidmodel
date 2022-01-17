@@ -6,17 +6,17 @@ import Typography from "@mui/material/Typography";
 import MainGraph from "../components/Graph/MainGraph";
 import Grid from "@mui/material/Grid";
 
-import Why from "../components/Modelpage/Why";
-import Evolution from "../components/Modelpage/Evolution";
-import ModelPart from "../components/Modelpage/ModelPart";
-import DescriptionS from "../components/Modelpage/DescriptionS";
-import DescriptionV1 from "../components/Modelpage/DescriptionV1";
-import DescriptionV2 from "../components/Modelpage/DescriptionV2";
-import DescriptionVb from "../components/Modelpage/DescriptionVb";
-import DescriptionI from "../components/Modelpage/DescriptionI";
-import DescriptionR from "../components/Modelpage/DescriptionR";
-import DescriptionEquation from "../components/Modelpage/DescriptionEquation";
-import ExampleFlow from "../components/Modelpage/ExampleFlow";
+import Why from "../components/ModelComponent/Why";
+import Evolution from "../components/ModelComponent/Evolution";
+import ModelPart from "../components/ModelComponent/ModelPart";
+import DescriptionS from "../components/ModelComponent/DescriptionS";
+import DescriptionV1 from "../components/ModelComponent/DescriptionV1";
+import DescriptionV2 from "../components/ModelComponent/DescriptionV2";
+import DescriptionVb from "../components/ModelComponent/DescriptionVb";
+import DescriptionI from "../components/ModelComponent/DescriptionI";
+import DescriptionR from "../components/ModelComponent/DescriptionR";
+import DescriptionEquation from "../components/ModelComponent/DescriptionEquation";
+import ExampleFlow from "../components/ModelComponent/ExampleFlow";
 
 export const Modelpage = (props) => {
   return (
