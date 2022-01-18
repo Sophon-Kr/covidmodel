@@ -20,8 +20,13 @@ export const DescriptionVPicRight = (props) => {
           style={{
             backgroundColor: "lightgrey",
             minHeight: 350,
+            padding: 40,
+            textAlign: "left",
+            fontSize: 30,
           }}
-        ></Grid>
+        >
+          {props.name} คือ {props.text}
+        </Grid>
         <Grid
           item
           xs={3}
@@ -32,8 +37,14 @@ export const DescriptionVPicRight = (props) => {
             backgroundColor: "lightgreen",
             minHeight: 350,
             marginLeft: 50,
+            padding: 40,
+            textAlign: "center",
+            textJustify: "center",
+            fontSize: 200,
           }}
-        ></Grid>
+        >
+          {props.pic}
+        </Grid>
       </Grid>
     </Grid>
   );
