@@ -9,16 +9,13 @@ import Grid from "@mui/material/Grid";
 import Why from "../components/ModelComponent/Why";
 import Evolution from "../components/ModelComponent/Evolution";
 import ModelPart from "../components/ModelComponent/ModelPart";
-import DescriptionS from "../components/ModelComponent/DescriptionS";
-import DescriptionV1 from "../components/ModelComponent/DescriptionV1";
-import DescriptionV2 from "../components/ModelComponent/DescriptionV2";
-import DescriptionVb from "../components/ModelComponent/DescriptionVb";
-import DescriptionI from "../components/ModelComponent/DescriptionI";
-import DescriptionR from "../components/ModelComponent/DescriptionR";
+import DescriptionPicLeft from "../components/ModelComponent/DescriptionPicLeft";
+import DescriptionVPicRight from "../components/ModelComponent/DescriptionVPicRight";
 import DescriptionEquation from "../components/ModelComponent/DescriptionEquation";
 import ExampleFlow from "../components/ModelComponent/ExampleFlow";
 
 export const Modelpage = (props) => {
+  const modelDisplay = ["S", "V1", "V2", "M", "I", "R", "H", "D"];
   return (
     <Container maxWidth="xxl" style={{ marginTop: 75, marginBottom: 35 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
@@ -33,17 +30,10 @@ export const Modelpage = (props) => {
           <Why />
           <Evolution />
           <ModelPart />
-          <DescriptionS />
-          <DescriptionV1 />
-          <DescriptionV2 />
-          <DescriptionVb />
-          <DescriptionI />
-          <DescriptionR />
-          <DescriptionI />
-          {/* H */}
-          <DescriptionR />
+          {modelDisplay.map((DescriptionData, index) =>
+            index % 2 === 0 ? <DescriptionPicLeft /> : <DescriptionVPicRight />
+          )}
 
-          {/* D */}
           <DescriptionEquation />
           <ExampleFlow />
         </Paper>
