@@ -21,7 +21,8 @@ export const DescriptionVPicRight = (props) => {
             backgroundColor: "lightgrey",
             minHeight: 350,
             padding: 40,
-            textAlign: "left",
+            display: "flex",
+            alignItems: "center",
             fontSize: 30,
           }}
         >

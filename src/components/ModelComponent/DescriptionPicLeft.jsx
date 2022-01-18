@@ -39,10 +39,8 @@ export const DescriptionPicLeft = (props) => {
             minHeight: 350,
             marginLeft: 50,
             padding: 40,
-            textAlign: "left",
+            display: "flex",
             alignItems: "center",
-            alignContent: "center",
-
             fontSize: 30,
           }}
         >
