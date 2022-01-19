@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import contactPic from "../../assets/contactPic.png";
 
 export const ContactForm = (props) => {
   const [contact, setContact] = React.useState(0);
@@ -32,10 +32,11 @@ export const ContactForm = (props) => {
           xl={4}
           style={{
             minHeight: 600,
-            backgroundColor: "lightgrey",
+            // backgroundColor: "lightgrey",
           }}
         >
-          Picture Contact
+          {/* Picture Contact */}
+          <img src={contactPic} alt="contact" width="800" height="auto" />
         </Grid>
         <Grid
           item
@@ -48,9 +49,14 @@ export const ContactForm = (props) => {
             // backgroundColor: "lightgrey",
           }}
         >
-          {/* <Typography variant="h5" gutterBottom component="div">
-            Contact Us
-          </Typography> */}
+          <Typography
+            variant="h1"
+            gutterBottom
+            component="div"
+            style={{ color: "#AED6F1", fontWeight: "bold" }}
+          >
+            CONTACT US
+          </Typography>
           <Grid
             container
             justifyContent="space-between"
@@ -58,7 +64,12 @@ export const ContactForm = (props) => {
             style={{ marginTop: 20 }}
           >
             <Grid>
-              <Typography variant="h6" gutterBottom component="div">
+              <Typography
+                variant="subtitle1"
+                gutterBottom
+                component="div"
+                style={{ fontWeight: "bold" }}
+              >
                 Contact
               </Typography>
             </Grid>
@@ -91,7 +102,12 @@ export const ContactForm = (props) => {
             style={{ marginTop: 10 }}
           >
             <Grid>
-              <Typography variant="h6" gutterBottom component="div">
+              <Typography
+                variant="subtitle1"
+                gutterBottom
+                component="div"
+                style={{ fontWeight: "bold" }}
+              >
                 Your Email
               </Typography>
             </Grid>
@@ -112,7 +128,12 @@ export const ContactForm = (props) => {
             style={{ marginTop: 10 }}
           >
             <Grid>
-              <Typography variant="h6" gutterBottom component="div">
+              <Typography
+                variant="subtitle1"
+                gutterBottom
+                component="div"
+                style={{ fontWeight: "bold" }}
+              >
                 Subject
               </Typography>
             </Grid>
@@ -133,7 +154,12 @@ export const ContactForm = (props) => {
             style={{ marginTop: 10 }}
           >
             <Grid>
-              <Typography variant="h6" gutterBottom component="div">
+              <Typography
+                variant="subtitle1"
+                gutterBottom
+                component="div"
+                style={{ fontWeight: "bold" }}
+              >
                 Details
               </Typography>
             </Grid>
