@@ -16,7 +16,7 @@ export const Why = (props) => {
           marginLeft: 50,
         }}
       >
-        Why SV1V2VbIRHD Model ?
+        Why SV1V2MIRHD Model ?
       </Grid>
       <Grid
         container
