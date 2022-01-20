@@ -7,6 +7,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
+
+
 import contactPic from "../../assets/contactPic.png";
 
 export const ContactForm = (props) => {
@@ -36,7 +38,7 @@ export const ContactForm = (props) => {
           }}
         >
           {/* Picture Contact */}
-          <img src={contactPic} alt="contact" width="800" height="auto" />
+          <img src={contactPic} alt="contact" width="920" height="auto" />
         </Grid>
         <Grid
           item
@@ -187,14 +189,16 @@ export const ContactForm = (props) => {
                 <Button
                   variant="contained"
                   startIcon={<ClearRoundedIcon />}
-                  style={{ backgroundColor: "#ffd600", color: "black" }}
+                  size="large"
+                  style={{ backgroundColor: "#ADE2FD", color: "black" }}
                 >
                   Clear
                 </Button>
                 <Button
                   variant="contained"
                   startIcon={<SendRoundedIcon />}
-                  style={{ backgroundColor: "green" }}
+                  size="large"
+                  style={{ backgroundColor: "#0157A2" }}
                 >
                   Send
                 </Button>
