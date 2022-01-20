@@ -25,7 +25,7 @@ export const Contactpage = (props) => {
         >
           <Adviser />
           <CoAdviser />
-          <Student />
+          <Student  />
           <ContactForm />
         </Paper>
       </Container>

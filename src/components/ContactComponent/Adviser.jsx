@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
+import AdvisorProfile from "../../assets/user-computer-icons-anonymity-png-favpng-Ps1EmXsrUx17SLTQrTeDg1FN5.jpg";
 
 export const Adviser = (props) => {
   return (
@@ -14,9 +15,10 @@ export const Adviser = (props) => {
       >
         <Avatar
           alt="Remy Sharp"
-          src="/static/images/avatar/1.jpg"
-          width="350"
-          height="auto"
+          src={AdvisorProfile}
+          sx={{ width: 300, height: "auto" }}
+          // width="350"
+          // height="auto"
         />
         {/* <Grid
           container

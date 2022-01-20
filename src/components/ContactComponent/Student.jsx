@@ -1,17 +1,47 @@
 import React from "react";
 import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
+import Avatar from "@mui/material/Avatar";
+import AdvisorProfile from "../../assets/user-computer-icons-anonymity-png-favpng-Ps1EmXsrUx17SLTQrTeDg1FN5.jpg";
 
 export const Student = (props) => {
   return (
-    <Grid style={{ marginTop: 30 }}>
+    <Grid style={{ marginTop: 50 }}>
       <Grid
         container
         direction="row"
         justifyContent="space-around"
         alignItems="center"
       >
-        <Grid
+        <Avatar
+          alt="Remy Sharp"
+          src={AdvisorProfile}
+          sx={{ width: 200, height: "auto" }}
+          // width="350"
+          // height="auto"
+        />{" "}
+        <Avatar
+          alt="Remy Sharp"
+          src={AdvisorProfile}
+          sx={{ width: 200, height: "auto" }}
+          // width="350"
+          // height="auto"
+        />{" "}
+        <Avatar
+          alt="Remy Sharp"
+          src={AdvisorProfile}
+          sx={{ width: 200, height: "auto" }}
+          // width="350"
+          // height="auto"
+        />{" "}
+        <Avatar
+          alt="Remy Sharp"
+          src={AdvisorProfile}
+          sx={{ width: 200, height: "auto" }}
+          // width="350"
+          // height="auto"
+        />
+        {/* <Grid
           container
           xs={2}
           md={2}
@@ -42,7 +72,7 @@ export const Student = (props) => {
           lg={2}
           xl={2}
           style={{ backgroundColor: "lightgreen", minHeight: 250 }}
-        ></Grid>
+        ></Grid> */}
       </Grid>
     </Grid>
   );
