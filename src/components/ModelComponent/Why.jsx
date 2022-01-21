@@ -6,8 +6,12 @@ import Typography from "@mui/material/Typography";
 export const Why = (props) => {
   return (
     <Grid
+      container
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
 
-    // style={{ backgroundColor: "grey" }}
+      // style={{ backgroundColor: "grey" }}
     >
       <Grid
         style={{
@@ -25,20 +29,20 @@ export const Why = (props) => {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid
+        {/* <Grid
           item
           xs={3}
           md={3}
           lg={3}
           xl={3}
           style={{ backgroundColor: "lightgreen", minHeight: 350 }}
-        ></Grid>
+        ></Grid> */}
         <Grid
           item
-          xs={8}
-          md={8}
-          lg={8}
-          xl={8}
+          xs={10}
+          md={10}
+          lg={10}
+          xl={10}
           style={{
             // backgroundColor: "lightgrey",
             minHeight: 350,

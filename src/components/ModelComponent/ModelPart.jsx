@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 
 export const ModelPart = (props) => {
   return (
-    <Grid style={{ marginTop: 50 }}>
+    <Grid style={{ marginTop: 0, marginBottom: 70 }}>
       <Grid
         container
         direction="row"
@@ -21,8 +21,12 @@ export const ModelPart = (props) => {
             backgroundColor: "lightgreen",
             minHeight: 700,
             marginLeft: 50,
+            fontSize: 50,
+            textAlign: "center",
           }}
-        ></Grid>
+        >
+          Flows Model
+        </Grid>
       </Grid>
       <Grid
         style={{
@@ -30,10 +34,10 @@ export const ModelPart = (props) => {
           fontWeight: "bold",
           fontSize: 50,
           textAlign: "center",
-          marginTop: 20,
+          marginTop: 40,
         }}
       >
-        SV1V2VMRHD คือ
+        SV1V2VMRHD MODEL
       </Grid>
       <Grid
         container

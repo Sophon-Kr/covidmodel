@@ -143,7 +143,7 @@ export const Modelpage = (props) => {
           square
         >
           <Why />
-          <Evolution />
+          {/* <Evolution /> */}
           <ModelPart />
           {modelDisplay.map((DescriptionData, index) =>
             index % 2 === 0 ? (
