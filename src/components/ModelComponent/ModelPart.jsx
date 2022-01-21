@@ -37,7 +37,7 @@ export const ModelPart = (props) => {
           marginTop: 40,
         }}
       >
-        SV1V2VMRHD MODEL
+        SV1V2MIRHD MODEL
       </Grid>
       <Grid
         container

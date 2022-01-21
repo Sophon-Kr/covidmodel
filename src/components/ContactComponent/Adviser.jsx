@@ -3,15 +3,22 @@ import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import AdvisorProfile from "../../assets/user-computer-icons-anonymity-png-favpng-Ps1EmXsrUx17SLTQrTeDg1FN5.jpg";
-
+import Typography from "@mui/material/Typography";
 export const Adviser = (props) => {
   return (
-    <Grid>
+    <Grid
+      container
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      style={{ marginBottom: 50 }}
+    >
       <Grid
         container
         direction="row"
         justifyContent="center"
         alignItems="center"
+        style={{ marginBottom: 50 }}
       >
         <Avatar
           alt="Remy Sharp"
@@ -20,14 +27,36 @@ export const Adviser = (props) => {
           // width="350"
           // height="auto"
         />
-        {/* <Grid
-          container
-          xs={3}
-          md={3}
-          lg={3}
-          xl={3}
-          style={{ backgroundColor: "lightgreen", minHeight: 350 }}
-        ></Grid> */}
+      </Grid>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Typography
+          variant="h3"
+          gutterBottom
+          component="div"
+          style={{ fontSize: 40 }}
+        >
+          ผศ.ดร.วศิน สุทธิฉายา
+        </Typography>
+      </Grid>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Typography
+          variant="h3"
+          gutterBottom
+          component="div"
+          style={{ fontSize: 35 }}
+        >
+          อาจารย์ที่ปรึกษาหลัก
+        </Typography>
       </Grid>
     </Grid>
   );
