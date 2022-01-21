@@ -16,11 +16,11 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <Route exact path="/modelpage" component={Modelpage} />
-          <Route exact path="/contactpage" component={Contactpage} />
+          <Route exact path="/graphpage" component={Homepage} />
           <Route exact path="/vsgraphpage" component={VSGraphPage} />
-          <Route exact path="/" component={Homepage} />
-          <Route component={Homepage} />
+          <Route exact path="/contactpage" component={Contactpage} />
+          <Route exact path="/" component={Modelpage} />
+          <Route component={Modelpage} />
         </Switch>
       </BrowserRouter>
     </Provider>

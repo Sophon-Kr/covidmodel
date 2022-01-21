@@ -137,7 +137,7 @@ export const Modelpage = (props) => {
         <Paper
           style={{
             minHeight: 700,
-            padding: 30,
+            padding: 70,
           }}
           variant="outlined"
           square

@@ -33,7 +33,7 @@ export const ModelPart = (props) => {
           marginTop: 20,
         }}
       >
-        SV1V2VbIRHD คือ
+        SV1V2VMRHD คือ
       </Grid>
       <Grid
         container
@@ -48,11 +48,19 @@ export const ModelPart = (props) => {
           lg={8}
           xl={8}
           style={{
-            backgroundColor: "lightgrey",
+            // backgroundColor: "lightgrey",
             minHeight: 200,
             marginLeft: 50,
+            fontSize: 30,
           }}
-        ></Grid>
+        >
+          &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
+          and typesetting industry. Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s, when an unknown printer took a galley
+          of type and scrambled it to make a type specimen book.when an unknown
+          printer took a galley of type and scrambled it to make a type specimen
+          book.
+        </Grid>
       </Grid>
     </Grid>
   );

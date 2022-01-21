@@ -60,8 +60,12 @@ export const Navbar = (props) => {
               alt="logo"
             />
             <Box sx={{ flexGrow: 1 }}>
-              <Typography variant="h6" component="div" style={{ fontSize: 20 }}>
-                COVID-19
+              <Typography
+                variant="h6"
+                component="div"
+                style={{ fontSize: 20, color: "#212121", fontWeight: "bold" }}
+              >
+                COVID MODEL
               </Typography>
             </Box>
 
@@ -90,6 +94,21 @@ export const Navbar = (props) => {
                     <Button
                       style={{ marginLeft: "20", alignItems: "center" }}
                       color="inherit"
+                      startIcon={<DescriptionRoundedIcon />}
+                      maxWidth
+                    >
+                      Model
+                    </Button>
+                  </NavLink>
+                </Grid>
+                <Grid item>
+                  <NavLink
+                    to="/graphpage"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <Button
+                      style={{ marginLeft: "20", alignItems: "center" }}
+                      color="inherit"
                       startIcon={<AutoGraphRoundedIcon />}
                       maxWidth
                     >
@@ -110,22 +129,6 @@ export const Navbar = (props) => {
                       maxWidth
                     >
                       Comparasion
-                    </Button>
-                  </NavLink>
-                </Grid>
-
-                <Grid item>
-                  <NavLink
-                    to="/modelpage"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <Button
-                      style={{ marginLeft: "20", alignItems: "center" }}
-                      color="inherit"
-                      startIcon={<DescriptionRoundedIcon />}
-                      maxWidth
-                    >
-                      Model
                     </Button>
                   </NavLink>
                 </Grid>
@@ -176,7 +179,15 @@ export const Navbar = (props) => {
           >
             <NavLink to="/" style={{ textDecoration: "none", color: "black" }}>
               {" "}
-              <IconButton aria-label="Graph" color="inherit" fontSize="large">
+              <IconButton aria-label="Model" color="inherit" fontSize="large">
+                <DescriptionRoundedIcon />
+              </IconButton>
+            </NavLink>
+            <NavLink
+              to="/graphpage"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <IconButton aria-label="Graph" color="inherit">
                 <AutoGraphRoundedIcon />
               </IconButton>
             </NavLink>
@@ -189,14 +200,7 @@ export const Navbar = (props) => {
                 <StorageRoundedIcon />
               </IconButton>
             </NavLink>
-            <NavLink
-              to="/modelpage"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <IconButton aria-label="Model" color="inherit">
-                <DescriptionRoundedIcon />
-              </IconButton>
-            </NavLink>
+
             <NavLink
               to="/contactpage"
               style={{ textDecoration: "none", color: "black" }}
