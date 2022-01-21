@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
 export const DescriptionVPicRight = (props) => {
   return (
-    <Grid style={{ marginTop: 50 }}>
+    <Grid
+    // style={{ marginTop: 50 }}
+    >
       <Grid
         container
         direction="row"
@@ -18,7 +21,7 @@ export const DescriptionVPicRight = (props) => {
           lg={8}
           xl={8}
           style={{
-            backgroundColor: "lightgrey",
+            // backgroundColor: "lightgrey",
             minHeight: 350,
             padding: 40,
             display: "flex",
@@ -26,7 +29,18 @@ export const DescriptionVPicRight = (props) => {
             fontSize: 30,
           }}
         >
-          {props.name} คือ {props.text}
+          <Grid container>
+            <Typography
+              variant="h3"
+              gutterBottom
+              component="div"
+              style={{ color: props.color, fontWeight: "bold" }}
+            >
+              {props.name}
+            </Typography>
+
+            {props.text}
+          </Grid>
         </Grid>
         <Grid
           item
@@ -35,10 +49,10 @@ export const DescriptionVPicRight = (props) => {
           lg={3}
           xl={3}
           style={{
-            backgroundColor: "lightgreen",
-            minHeight: 350,
+            // backgroundColor: "lightgreen",
+            // minHeight: 350,
             marginLeft: 50,
-            padding: 40,
+            // padding: 40,
             textAlign: "center",
             textJustify: "center",
             fontSize: 200,

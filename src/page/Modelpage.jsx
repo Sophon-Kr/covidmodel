@@ -14,46 +14,119 @@ import DescriptionVPicRight from "../components/ModelComponent/DescriptionVPicRi
 import DescriptionEquation from "../components/ModelComponent/DescriptionEquation";
 import ExampleFlow from "../components/ModelComponent/ExampleFlow";
 
+import S from "../assets/S.png";
+import V1 from "../assets/V1.png";
+import V2 from "../assets/V2.png";
+import M from "../assets/M.png";
+import I from "../assets/I.png";
+import R from "../assets/R.png";
+import H from "../assets/H.png";
+import D from "../assets/D.png";
+
 const modelDisplay = [
   {
-    name: "S",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    pic: "S",
+    name: "Susceptible Class : S",
+    text: (
+      <div>
+        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s, when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book.
+      </div>
+    ),
+    pic: <img src={S} alt="Susceptible" width="400" height="auto" />,
+    color: "#039be5",
   },
   {
-    name: "V1",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    pic: "V1",
+    name: "Vaccines I Class : V1",
+    text: (
+      <div>
+        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s, when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book.
+      </div>
+    ),
+    pic: <img src={V1} alt="Vaccines1" width="400" height="auto" />,
+    color: "#FFD600",
   },
   {
-    name: "V2",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    pic: "V2",
+    name: "Vaccines I Class : V2",
+    text: (
+      <div>
+        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s, when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book.
+      </div>
+    ),
+    pic: <img src={V2} alt="Vaccines2" width="400" height="auto" />,
+    color: "#FFA500",
   },
   {
-    name: "M",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    pic: "M",
+    name: "Maintenance Shot Class : M",
+    text: (
+      <div>
+        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s, when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book.
+      </div>
+    ),
+    pic: <img src={M} alt="Maintenance Shot" width="400" height="auto" />,
+    color: "#3A2C97",
   },
   {
-    name: "I",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    pic: "I",
+    name: "Infection I Class : I ",
+    text: (
+      <div>
+        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s, when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book.
+      </div>
+    ),
+    pic: <img src={I} alt="Infection" width="400" height="auto" />,
+    color: "#f44336",
   },
   {
-    name: "R",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    pic: "R",
+    name: "Recovery Class : R",
+    text: (
+      <div>
+        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s, when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book.
+      </div>
+    ),
+    pic: <img src={R} alt="Recovery" width="400" height="auto" />,
+    color: "#008000",
   },
   {
-    name: "H",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    pic: "H",
+    name: "Hospital Class : H",
+    text: (
+      <div>
+        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s, when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book.
+      </div>
+    ),
+    pic: <img src={H} alt="Hospital" width="400" height="auto" />,
+    color: "#800080",
   },
   {
-    name: "D",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    pic: "D",
+    name: "Death Class : D",
+    text: (
+      <div>
+        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s, when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book.
+      </div>
+    ),
+    pic: <img src={D} alt="Death" width="400" height="auto" />,
+    color: "#000000",
   },
 ];
 
@@ -78,12 +151,14 @@ export const Modelpage = (props) => {
                 name={DescriptionData.name}
                 text={DescriptionData.text}
                 pic={DescriptionData.pic}
+                color={DescriptionData.color}
               />
             ) : (
               <DescriptionVPicRight
                 name={DescriptionData.name}
                 text={DescriptionData.text}
                 pic={DescriptionData.pic}
+                color={DescriptionData.color}
               />
             )
           )}
