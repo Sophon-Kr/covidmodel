@@ -8,7 +8,6 @@ import Button from "@mui/material/Button";
 import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
-
 import contactPic from "../../assets/contactPic.png";
 
 export const ContactForm = (props) => {
@@ -55,7 +54,7 @@ export const ContactForm = (props) => {
             variant="h1"
             gutterBottom
             component="div"
-            style={{ color: "#AED6F1", fontWeight: "bold" }}
+            style={{ color: "#AED6F1", fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "600" }}
           >
             CONTACT US
           </Typography>
@@ -70,7 +69,7 @@ export const ContactForm = (props) => {
                 variant="subtitle1"
                 gutterBottom
                 component="div"
-                style={{ fontWeight: "bold" }}
+                style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "600" }}
               >
                 Contact
               </Typography>
@@ -85,6 +84,7 @@ export const ContactForm = (props) => {
                 onChange={handleChange}
                 select
                 fullWidth
+                style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}
               >
                 <MenuItem value={0}>All</MenuItem>
                 <MenuItem value={1}>Advisor</MenuItem>
@@ -108,7 +108,7 @@ export const ContactForm = (props) => {
                 variant="subtitle1"
                 gutterBottom
                 component="div"
-                style={{ fontWeight: "bold" }}
+                style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "600" }}
               >
                 Your Email
               </Typography>
@@ -134,7 +134,7 @@ export const ContactForm = (props) => {
                 variant="subtitle1"
                 gutterBottom
                 component="div"
-                style={{ fontWeight: "bold" }}
+                style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "600" }}
               >
                 Subject
               </Typography>
@@ -160,7 +160,7 @@ export const ContactForm = (props) => {
                 variant="subtitle1"
                 gutterBottom
                 component="div"
-                style={{ fontWeight: "bold" }}
+                style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "600" }}
               >
                 Details
               </Typography>
@@ -190,7 +190,12 @@ export const ContactForm = (props) => {
                   variant="contained"
                   startIcon={<ClearRoundedIcon />}
                   size="large"
-                  style={{ backgroundColor: "#ADE2FD", color: "black" }}
+                  style={{
+                    backgroundColor: "#ADE2FD",
+                    color: "black",
+                    fontFamily: "IBM Plex Sans Thai Looped",
+                    fontWeight: "600",
+                  }}
                 >
                   Clear
                 </Button>
@@ -198,7 +203,11 @@ export const ContactForm = (props) => {
                   variant="contained"
                   startIcon={<SendRoundedIcon />}
                   size="large"
-                  style={{ backgroundColor: "#0157A2" }}
+                  style={{
+                    backgroundColor: "#0157A2",
+                    fontFamily: "IBM Plex Sans Thai Looped",
+                    fontWeight: "600",
+                  }}
                 >
                   Send
                 </Button>

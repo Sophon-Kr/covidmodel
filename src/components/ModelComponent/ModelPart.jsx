@@ -31,10 +31,11 @@ export const ModelPart = (props) => {
       <Grid
         style={{
           minHeight: 100,
-          fontWeight: "bold",
+          fontWeight: "600",
           fontSize: 50,
           textAlign: "center",
           marginTop: 40,
+          fontFamily: "IBM Plex Sans Thai Looped",
         }}
       >
         SV1V2MIRHD MODEL
@@ -56,6 +57,8 @@ export const ModelPart = (props) => {
             minHeight: 200,
             marginLeft: 50,
             fontSize: 30,
+            fontFamily: "IBM Plex Sans Thai Looped",
+            fontWeight: "400",
           }}
         >
           &emsp; &emsp; &emsp; SV1V2MIRHD MODEL คือ โมเดลที่เราได้ทำการปรับจาก

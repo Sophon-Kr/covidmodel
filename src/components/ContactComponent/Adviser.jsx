@@ -38,7 +38,7 @@ export const Adviser = (props) => {
           variant="h3"
           gutterBottom
           component="div"
-          style={{ fontSize: 40 }}
+          style={{ fontSize: 40, fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}
         >
           ผศ.ดร.วศิน สุทธิฉายา
         </Typography>
@@ -53,7 +53,7 @@ export const Adviser = (props) => {
           variant="h3"
           gutterBottom
           component="div"
-          style={{ fontSize: 35 }}
+          style={{ fontSize: 35, fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}
         >
           อาจารย์ที่ปรึกษาหลัก
         </Typography>

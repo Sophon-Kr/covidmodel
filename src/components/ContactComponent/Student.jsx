@@ -58,7 +58,7 @@ export const Student = (props) => {
               variant="h3"
               gutterBottom
               component="div"
-              style={{ fontSize: 35 }}
+              style={{ fontSize: 35, fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}
             >
               {CoAdvisorData.name}
             </Typography>
@@ -73,7 +73,7 @@ export const Student = (props) => {
               variant="h5"
               gutterBottom
               component="div"
-              style={{ fontSize: 30 }}
+              style={{ fontSize: 30, fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}
             >
               {CoAdvisorData.type}
             </Typography>

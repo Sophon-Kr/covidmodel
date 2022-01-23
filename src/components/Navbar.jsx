@@ -51,7 +51,10 @@ export const Navbar = (props) => {
       >
         <AppBar
           position="fixed"
-          style={{ backgroundColor: "#AED6F1", color: "#000000" }}
+          style={{
+            backgroundColor: "#AED6F1",
+            color: "#000000",
+          }}
         >
           <Toolbar style={{ backgroundColor: "#AED6F1", color: "#000000" }}>
             <img
@@ -63,7 +66,12 @@ export const Navbar = (props) => {
               <Typography
                 variant="h6"
                 component="div"
-                style={{ fontSize: 20, color: "#212121", fontWeight: "bold" }}
+                style={{
+                  fontSize: 20,
+                  color: "#212121",
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "600",
+                }}
               >
                 COVID MODEL
               </Typography>
@@ -89,10 +97,18 @@ export const Navbar = (props) => {
                 <Grid item>
                   <NavLink
                     to="/"
-                    style={{ textDecoration: "none", color: "black" }}
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                    }}
                   >
                     <Button
-                      style={{ marginLeft: "20", alignItems: "center" }}
+                      style={{
+                        marginLeft: "20",
+                        alignItems: "center",
+                        fontFamily: "IBM Plex Sans Thai Looped",
+                        fontWeight: "600",
+                      }}
                       color="inherit"
                       startIcon={<DescriptionRoundedIcon />}
                       maxWidth
@@ -107,7 +123,12 @@ export const Navbar = (props) => {
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     <Button
-                      style={{ marginLeft: "20", alignItems: "center" }}
+                      style={{
+                        marginLeft: "20",
+                        alignItems: "center",
+                        fontFamily: "IBM Plex Sans Thai Looped",
+                        fontWeight: "600",
+                      }}
                       color="inherit"
                       startIcon={<AutoGraphRoundedIcon />}
                       maxWidth
@@ -123,7 +144,11 @@ export const Navbar = (props) => {
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     <Button
-                      style={{ marginLeft: "20" }}
+                      style={{
+                        marginLeft: "20",
+                        fontFamily: "IBM Plex Sans Thai Looped",
+                        fontWeight: "600",
+                      }}
                       color="inherit"
                       startIcon={<StorageRoundedIcon />}
                       maxWidth
@@ -139,7 +164,11 @@ export const Navbar = (props) => {
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     <Button
-                      style={{ marginLeft: "20" }}
+                      style={{
+                        marginLeft: "20",
+                        fontFamily: "IBM Plex Sans Thai Looped",
+                        fontWeight: "600",
+                      }}
                       color="inherit"
                       startIcon={<PeopleAltRoundedIcon />}
                       maxWidth

@@ -9,9 +9,10 @@ export const Why = (props) => {
       <Grid
         style={{
           minHeight: 100,
-          fontWeight: "bold",
+          fontWeight: "600",
           fontSize: 50,
           marginLeft: 50,
+          fontFamily: "IBM Plex Sans Thai Looped",
         }}
       >
         ที่มาของโมเดล
@@ -37,10 +38,11 @@ export const Why = (props) => {
           lg={10}
           xl={10}
           style={{
-            // backgroundColor: "lightgrey",
             minHeight: 350,
             marginLeft: 50,
             fontSize: 30,
+            fontFamily: "IBM Plex Sans Thai Looped",
+            fontWeight: "400",
           }}
         >
           <div>

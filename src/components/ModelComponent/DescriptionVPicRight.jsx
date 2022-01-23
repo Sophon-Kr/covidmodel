@@ -29,12 +29,16 @@ export const DescriptionVPicRight = (props) => {
             fontSize: 30,
           }}
         >
-          <Grid container>
+          <Grid container style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}>
             <Typography
               variant="h3"
               gutterBottom
               component="div"
-              style={{ color: props.color, fontWeight: "bold" }}
+              style={{
+                color: props.color,
+                fontFamily: "IBM Plex Sans Thai Looped",
+                fontWeight: "600",
+              }}
             >
               {props.name}
             </Typography>
