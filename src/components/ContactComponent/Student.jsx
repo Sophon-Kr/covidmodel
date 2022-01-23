@@ -33,21 +33,6 @@ export const Student = (props) => {
       alignItems="center"
       style={{ marginBottom: 50 }}
     >
-      {/* <Avatar
-          alt="Remy Sharp"
-          src={AdvisorProfile}
-          sx={{ width: 250, height: "auto" }}
-          // width="350"
-          // height="auto"
-        />
-        <Avatar
-          alt="Remy Sharp"
-          src={AdvisorProfile}
-          sx={{ width: 250, height: "auto" }}
-          // width="350"
-          // height="auto"
-        /> */}
-
       {coAdviser.map((CoAdvisorData) => (
         <div>
           <Grid
@@ -61,8 +46,6 @@ export const Student = (props) => {
               alt="Remy Sharp"
               src={AdvisorProfile}
               sx={{ width: 200, height: "auto" }}
-              // width="350"
-              // height="auto"
             />
           </Grid>
           <Grid

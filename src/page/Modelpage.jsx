@@ -22,6 +22,7 @@ import I from "../assets/I.png";
 import R from "../assets/R.png";
 import H from "../assets/H.png";
 import D from "../assets/D.png";
+import ModelBackground from "../assets/ModelBackground.png";
 
 const modelDisplay = [
   {
@@ -138,10 +139,15 @@ export const Modelpage = (props) => {
           style={{
             minHeight: 700,
             padding: 70,
+            backgroundImage: `url(${ModelBackground})`,
+            backgroundPosition: "top",
+            backgroundSize: "80%",
+            backgroundRepeat: "no-repeat",
           }}
           variant="outlined"
           square
         >
+          {/* <img src={ModelBackground} alt="" /> */}
           <Why />
           {/* <Evolution /> */}
           <ModelPart />

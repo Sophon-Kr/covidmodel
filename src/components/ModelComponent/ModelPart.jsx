@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 
 export const ModelPart = (props) => {
   return (
-    <Grid style={{ marginTop: 0, marginBottom: 70 }}>
+    <Grid style={{ marginTop: 50, marginBottom: 70 }}>
       <Grid
         container
         direction="row"
@@ -58,12 +58,9 @@ export const ModelPart = (props) => {
             fontSize: 30,
           }}
         >
-          &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
-          and typesetting industry. Lorem Ipsum has been the industry's standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book.when an unknown
-          printer took a galley of type and scrambled it to make a type specimen
-          book.
+          &emsp; &emsp; &emsp; SV1V2MIRHD MODEL คือ โมเดลที่เราได้ทำการปรับจาก
+          โมเดลพื้นฐาน SEIR เป็นโมเดลที่สอดคล้องกับข้อมูลของเรามากขึ้น โดย
+          มีความหมายศัพท์ทางการแพทย์แต่ละตัวดังนี้
         </Grid>
       </Grid>
     </Grid>

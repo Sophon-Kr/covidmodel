@@ -10,6 +10,7 @@ import Adviser from "../components/ContactComponent/Adviser";
 import CoAdviser from "../components/ContactComponent/CoAdviser";
 import Student from "../components/ContactComponent/Student";
 import ContactForm from "../components/ContactComponent/ContactForm";
+import ContactBackground from "../assets/ContactBackground.png";
 
 export const Contactpage = (props) => {
   return (
@@ -19,13 +20,17 @@ export const Contactpage = (props) => {
           style={{
             minHeight: 700,
             padding: 30,
+            backgroundImage: `url(${ContactBackground})`,
+            backgroundPosition: "top",
+            backgroundSize: "100%",
+            backgroundRepeat: "no-repeat",
           }}
           variant="outlined"
           square
         >
           <Adviser />
           <CoAdviser />
-          <Student  />
+          <Student />
           <ContactForm />
         </Paper>
       </Container>
