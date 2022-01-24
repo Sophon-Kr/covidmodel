@@ -468,7 +468,7 @@ export const Homepage = (props) => {
                       openTo="day"
                       views={["day", "month", "year"]}
                       label="Start Date"
-                      inputFormat="MM/dd/yyyy"
+                      inputFormat="dd/MM/yyyy"
                       value={dateStart}
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}
@@ -488,7 +488,7 @@ export const Homepage = (props) => {
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}
                       label="End Date"
-                      inputFormat="MM/dd/yyyy"
+                      inputFormat="dd/MM/yyyy"
                       value={dateEnd}
                       onChange={handleDateEnd}
                       renderInput={(params) => (

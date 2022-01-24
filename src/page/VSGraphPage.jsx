@@ -58,7 +58,6 @@ import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 //   beta: 0.5,
 // };
 
-
 // const data = [
 //   {
 //     name: "January",
@@ -329,10 +328,8 @@ export const VSGraphPage = (props) => {
   const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
-  const [dateStart, setDateStart] = React.useState(
-    new Date("2021-01-01T00:00:00")
-  );
-  const [dateEnd, setDateEnd] = React.useState(new Date("2021-05-21T00:00:00"));
+  const [dateStart, setDateStart] = React.useState(props.initialMinDate);
+  const [dateEnd, setDateEnd] = React.useState(props.initialMaxDate);
 
   const setdailyDataTemplate = [
     {
@@ -531,9 +528,11 @@ export const VSGraphPage = (props) => {
                 <Grid item>
                   <DesktopDatePicker
                     label="Start Date"
-                    inputFormat="MM/dd/yyyy"
+                    inputFormat="dd/MM/yyyy"
+                    minDate={props.minDateMonth}
+                    maxDate={props.maxDateMonth}
                     value={dateStart}
-                    onChange={handleDateStart}
+                    // onChange={handleDateStart}
                     renderInput={(params) => (
                       <TextField size="small" {...params} />
                     )}
@@ -544,9 +543,11 @@ export const VSGraphPage = (props) => {
                   <DesktopDatePicker
                     size="small"
                     label="End Date"
-                    inputFormat="MM/dd/yyyy"
+                    minDate={props.minDateMonth}
+                    maxDate={props.maxDateMonth}
+                    inputFormat="dd/MM/yyyy"
                     value={dateEnd}
-                    onChange={handleDateEnd}
+                    // onChange={handleDateEnd}
                     renderInput={(params) => (
                       <TextField size="small" {...params} />
                     )}
@@ -591,7 +592,12 @@ export const VSGraphPage = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => {
+  return {
+    initialMinDate: state.reducer.initialMinDate,
+    initialMaxDate: state.reducer.initialMaxDate,
+  };
+};
 
 const mapDispatchToProps = {};
 
