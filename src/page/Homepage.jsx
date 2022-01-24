@@ -541,9 +541,7 @@ export const Homepage = (props) => {
                   exclusive
                   onChange={handleTypeData}
                 >
-                  <ToggleButton value="real">
-                    &nbsp;Real Data&nbsp;
-                  </ToggleButton>
+                  <ToggleButton value="real">&nbsp;Raw Data&nbsp;</ToggleButton>
                   <ToggleButton value="model">
                     &nbsp;Model Data&nbsp;
                   </ToggleButton>
