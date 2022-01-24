@@ -119,6 +119,7 @@ export const Homepage = (props) => {
   const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
+
   const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
   const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
   const [monthStart, setMonthStart] = React.useState(props.initialMinDate);
@@ -331,6 +332,42 @@ export const Homepage = (props) => {
     setDateStart(props.maindateStartMain);
     setDateEnd(props.maindateEndMain);
   }, [props.maindateEndMain, props.maindateStartMain]);
+
+  useEffect(() => {
+    let listForRemove = [];
+    if (props.mainSStatus === false) {
+      listForRemove.push("Susceptible");
+    }
+    if (props.mainV1Status === false) {
+      listForRemove.push("Vaccine1");
+    }
+    if (props.mainV2Status === false) {
+      listForRemove.push("Vaccine2");
+    }
+    if (props.mainIStatus === false) {
+      listForRemove.push("Infected");
+    }
+    if (props.mainRStatus === false) {
+      listForRemove.push("Recovery");
+    }
+    if (props.mainHStatus === false) {
+      listForRemove.push("Hospital");
+    }
+    if (props.mainDStatus === false) {
+      listForRemove.push("Deaths");
+    }
+    console.log("listForRemove", listForRemove);
+    props.setListForRemove(listForRemove);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    props.mainDStatus,
+    props.mainHStatus,
+    props.mainIStatus,
+    props.mainRStatus,
+    props.mainSStatus,
+    props.mainV1Status,
+    props.mainV2Status,
+  ]);
 
   // const monthFilter = (dataMonth) => {
   //   let startMonth = props.minDateMonth;
@@ -892,6 +929,9 @@ const mapDispatchToProps = (dispatch) => {
 
     configDateEndMonthMain: (datatype) => {
       return dispatch(actions.dateEndMonthMain(datatype));
+    },
+    setListForRemove: (list) => {
+      return dispatch(actions.setListForRemove(list));
     },
   };
 };

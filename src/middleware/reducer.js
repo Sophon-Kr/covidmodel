@@ -14,6 +14,7 @@ import { GET_DATA_DAILY } from "./action";
 import { CONFIG_DATE_START_MONTH__MAIN } from "./action";
 import { CONFIG_DATE_END_MONTH_MAIN } from "./action";
 import { SET_DATE_MAX_MIN } from "./action";
+import { SET_LIST_FOR_REMOVE } from "./action";
 
 const initialState = {
   periodMain: "month",
@@ -48,6 +49,7 @@ const initialState = {
   modelDataMonth: [],
   modelDataDay: [],
   dailyData: [],
+  listForRemove: [],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -74,21 +76,21 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case GET_DATA_REAL_MONTH:
       console.log(type, payload);
-      var max = payload.reduce(function (a, b) {
-        return a > b ? a : b;
-      });
-      console.log("max ==== ", max.name);
-      var min = payload.reduce(function (a, b) {
-        return a < b ? b : a;
-      });
-      console.log("min ==== ", min.name);
+      // var max = payload.reduce(function (a, b) {
+      //   return a > b ? a : b;
+      // });
+      // console.log("max ==== ", max.name);
+      // var min = payload.reduce(function (a, b) {
+      //   return a < b ? b : a;
+      // });
+      // console.log("min ==== ", min.name);
 
       return {
         ...state,
         realDataMonth: payload,
         tempData: payload,
-        minDateMonth: new Date(min),
-        maxDateMonth: new Date(max),
+        // minDateMonth: new Date(min),
+        // maxDateMonth: new Date(max),
       };
 
     case GET_DATA_REAL_DAY:
@@ -98,23 +100,24 @@ const reducer = (state = initialState, { type, payload }) => {
         realDataDay: payload,
         tempData: payload,
       };
+
     case GET_DATA_MODEL_MONTH:
       console.log(type, payload);
-      var max = payload.reduce(function (a, b) {
-        return a > b ? a : b;
-      });
-      console.log("max ==== ", new Date(max.name));
-      var min = payload.reduce(function (a, b) {
-        return a < b ? b : a;
-      });
-      console.log("min ==== ", new Date(min.name));
+      // var max = payload.reduce(function (a, b) {
+      //   return a > b ? a : b;
+      // });
+      // console.log("max ==== ", new Date(max.name));
+      // var min = payload.reduce(function (a, b) {
+      //   return a < b ? b : a;
+      // });
+      // console.log("min ==== ", new Date(min.name));
 
       return {
         ...state,
         modelDataMonth: payload,
         tempData: payload,
-        minDateMonth: new Date(min.name),
-        maxDateMonth: new Date(max.name),
+        // minDateMonth: new Date(min.name),
+        // maxDateMonth: new Date(max.name),
       };
 
     case GET_DATA_MODEL_DAY:
@@ -196,6 +199,13 @@ const reducer = (state = initialState, { type, payload }) => {
 
         dateEndMain: payload[0],
         dateStartMain: payload[1],
+      };
+    case SET_LIST_FOR_REMOVE:
+      console.log(type, payload);
+      return {
+        ...state,
+        listForRemove: payload,
+      
       };
 
     default:

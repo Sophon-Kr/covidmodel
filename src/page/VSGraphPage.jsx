@@ -328,8 +328,8 @@ export const VSGraphPage = (props) => {
   const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
-  const [dateStart, setDateStart] = React.useState(props.initialMinDate);
-  const [dateEnd, setDateEnd] = React.useState(props.initialMaxDate);
+  const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
+  const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
 
   const setdailyDataTemplate = [
     {
@@ -481,6 +481,11 @@ export const VSGraphPage = (props) => {
     props.configDataTypeGraph(newTypedata);
   };
 
+  useEffect(() => {
+    setDateStart(props.maindateStartMain);
+    setDateEnd(props.maindateEndMain);
+  }, [props.maindateEndMain, props.maindateStartMain]);
+
   return (
     <Container maxWidth="xxl" style={{ marginTop: 105 }}>
       {/* <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
@@ -529,9 +534,9 @@ export const VSGraphPage = (props) => {
                   <DesktopDatePicker
                     label="Start Date"
                     inputFormat="dd/MM/yyyy"
-                    minDate={props.minDateMonth}
-                    maxDate={props.maxDateMonth}
                     value={dateStart}
+                    minDate={props.initialMinDate}
+                    maxDate={props.initialMaxDate}
                     // onChange={handleDateStart}
                     renderInput={(params) => (
                       <TextField size="small" {...params} />
@@ -543,8 +548,8 @@ export const VSGraphPage = (props) => {
                   <DesktopDatePicker
                     size="small"
                     label="End Date"
-                    minDate={props.minDateMonth}
-                    maxDate={props.maxDateMonth}
+                    minDate={props.initialMinDate}
+                    maxDate={props.initialMaxDate}
                     inputFormat="dd/MM/yyyy"
                     value={dateEnd}
                     // onChange={handleDateEnd}
@@ -596,6 +601,8 @@ const mapStateToProps = (state) => {
   return {
     initialMinDate: state.reducer.initialMinDate,
     initialMaxDate: state.reducer.initialMaxDate,
+    maindateStartMain: state.reducer.dateStartMain,
+    maindateEndMain: state.reducer.dateEndMain,
   };
 };
 

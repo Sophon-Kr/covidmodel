@@ -11,85 +11,19 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-// const modelData = [
-//   {
-//     name: "Jan",
-//     Susceptible: 4000,
-//     Vaccine1: 2400,
-//     Vaccine2: 2400,
-//     Infected: 100,
-//     Recovery: 1,
-//     Hospital: 1,
-//     Deaths: 1,
-//   },
-//   {
-//     name: "Feb",
-//     Susceptible: 3000,
-//     Vaccine1: 1398,
-//     Vaccine2: 2210,
-//     Infected: 200,
-//     Recovery: 1,
-//     Hospital: 1,
-//     Deaths: 1,
-//   },
-//   {
-//     name: "Mar",
-//     Susceptible: 2000,
-//     Vaccine1: 9800,
-//     Vaccine2: 2290,
-//     Infected: 400,
-//     Recovery: 1,
-//     Hospital: 1,
-//     Deaths: 12,
-//   },
-//   {
-//     name: "Apr",
-//     Susceptible: 2780,
-//     Vaccine1: 3908,
-//     Vaccine2: 2000,
-//     Infected: 600,
-//     Recovery: 1,
-//     Hospital: 1,
-//     Deaths: 19,
-//   },
-//   {
-//     name: "May",
-//     Susceptible: 1890,
-//     Vaccine1: 4800,
-//     Vaccine2: 2181,
-//     Infected: 900,
-//     Recovery: 1,
-//     Hospital: 1,
-//     Deaths: 15,
-//   },
-//   {
-//     name: "Jun",
-//     Susceptible: 2390,
-//     Vaccine1: 3800,
-//     Vaccine2: 2500,
-//     Infected: 350,
-//     Recovery: 1,
-//     Hospital: 1,
-//     Deaths: 10,
-//   },
-//   {
-//     name: "Jul",
-//     Susceptible: 3490,
-//     Vaccine1: 4300,
-//     Vaccine2: 2100,
-//     Infected: 700,
-//     Recovery: 1,
-//     Hospital: 1,
-//     Deaths: 1,
-//   },
-// ];
-
 class MainGraph extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      data: props.mainTempData,
+      covidData: props.mainTempData,
       dataFilterd: [],
+      mainSStatus: props.mainSStatus,
+      mainV1Status: props.mainV1Status,
+      mainV2Status: props.mainV2Status,
+      mainIStatus: props.mainIStatus,
+      mainRStatus: props.mainRStatus,
+      mainHStatus: props.mainHStatus,
+      mainDStatus: props.mainDStatus,
     };
   }
 
@@ -126,9 +60,7 @@ class MainGraph extends PureComponent {
   filterRangeByDate = (data) => {
     var startDate = new Date(this.props.maindateStartMain);
     var endDate = new Date(this.props.maindateEndMain);
-    // maindateStartMain
-    // maindateEndMain
-    // this.props.maindateStartMain
+
     var dateAfterFilter = data.filter((a) => {
       var date = new Date(a.name);
       return date >= startDate && date <= endDate;
@@ -142,15 +74,25 @@ class MainGraph extends PureComponent {
     let startMonth = this.props.dateStartMonthMain;
     let endMonth = this.props.dateEndMonthMain;
 
-    console.log("startMonth M :", new Date(startMonth));
-    console.log("endMonth M :", new Date(endMonth));
+    // console.log("startMonth M :", new Date(startMonth));
+    // console.log("endMonth M :", new Date(endMonth));
 
     var dateAfterFilter = dataMonth.filter((a) => {
       var date = new Date(a.name);
+      // console.log("date month", date);
       return date >= startMonth && date <= endMonth;
     });
-    console.log("dateAfterFilter M :", dateAfterFilter);
+    // console.log("dateAfterFilter M :", dateAfterFilter);
     return dateAfterFilter;
+  };
+
+  removeProperty = (coviddata) => {
+    for (let i = 0; i < coviddata.length; i++) {
+      let newcoviddata = coviddata[i];
+      this.props.listForRemove.forEach((e) => delete newcoviddata[e]);
+    }
+    return coviddata;
+    // console.log("newdata : ", coviddata);
   };
 
   // fetchData = () => {
@@ -196,18 +138,68 @@ class MainGraph extends PureComponent {
     // this.setState({ dataFilterd: getfilter });
   }
 
-  async componentDidUpdate(prevState) {
-    // await this.fetchData();
-    // let getfilter = await this.filterRangeByDate(this.state.data);
-    // if (getfilter !== this.state.dataFilterd) {
-    //   this.setState({ dataFilterd: getfilter });
-    // }
-    // await this.filterRangeByDate(this.state.data);
-    // let getfilter = await this.filterRangeByDate(this.state.data);
-    // if (this.props.userID !== prevProps.userID) {
-    //   this.fetchData(this.props.userID);
-    // }
-    // this.setState({ dataFilterd: getfilter });
+  // async componentDidUpdate(prevState) {
+  //   // await this.fetchData();
+  //   // let getfilter = await this.filterRangeByDate(this.state.data);
+  //   // if (getfilter !== this.state.dataFilterd) {
+  //   //   this.setState({ dataFilterd: getfilter });
+  //   // }
+  //   // await this.filterRangeByDate(this.state.data);
+  //   // let getfilter = await this.filterRangeByDate(this.state.data);
+  //   // if (this.props.userID !== prevProps.userID) {
+  //   //   this.fetchData(this.props.userID);
+  //   // }
+  //   // this.setState({ dataFilterd: getfilter });
+  // }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.mainSStatus !== this.props.mainSStatus) {
+      // const mydata = this.removeProperty(this.state.covidData);
+      // console.log("mydata", mydata);
+      this.setState({
+        mainSStatus: this.props.mainSStatus,
+        // covidData: mydata,
+      });
+    }
+
+    if (prevProps.mainV1Status !== this.props.mainV1Status) {
+      this.setState({
+        mainV1Status: this.props.mainV1Status,
+      });
+    }
+    if (prevProps.mainV2Status !== this.props.mainV2Status) {
+      this.setState({
+        mainV2Status: this.props.mainV2Status,
+      });
+    }
+    if (prevProps.mainIStatus !== this.props.mainIStatus) {
+      this.setState({
+        mainIStatus: this.props.mainIStatus,
+      });
+    }
+    if (prevProps.mainRStatus !== this.props.mainRStatus) {
+      this.setState({
+        mainRStatus: this.props.mainRStatus,
+      });
+    }
+    if (prevProps.mainHStatus !== this.props.mainHStatus) {
+      this.setState({
+        mainHStatus: this.props.mainHStatus,
+      });
+    }
+    if (prevProps.mainDStatus !== this.props.mainDStatus) {
+      this.setState({
+        mainDStatus: this.props.mainDStatus,
+      });
+    }
+    if (prevProps.mainTempData !== this.props.mainTempData) {
+      // const mydata = this.removeProperty(this.state.covidData);
+      // console.log("mydata", mydata);
+      this.setState({
+        covidData: this.props.mainTempData,
+        // covidData: mydata,
+      });
+    }
   }
 
   render() {
@@ -222,8 +214,8 @@ class MainGraph extends PureComponent {
             // data={this.props.mainTempData}
             data={
               this.props.mainperiod == "day"
-                ? this.filterRangeByDate(this.props.mainTempData)
-                : this.props.mainTempData
+                ? this.filterRangeByDate(this.state.covidData)
+                : this.monthFilter(this.state.covidData)
             }
             // data={this.filterRangeByDate(this.state.data)}
             margin={{
@@ -238,16 +230,16 @@ class MainGraph extends PureComponent {
             <YAxis />
             <Tooltip />
             <Legend />
-            {this.props.mainSStatus ? (
-              <Line
-                type="monotone"
-                dataKey="Susceptible"
-                stroke="#039be5"
-                strokeWidth={3}
-                activeDot={{ r: 8 }}
-              />
-            ) : null}
-            {this.props.mainV1Status ? (
+            {/* {this.state.mainSStatus ? ( */}
+            <Line
+              type="monotone"
+              dataKey="Susceptible"
+              stroke="#039be5"
+              strokeWidth={3}
+              activeDot={{ r: 8 }}
+            />
+            {/* ) : null} */}
+            {this.state.mainV1Status ? (
               <Line
                 type="monotone"
                 dataKey="Vaccine1"
@@ -256,7 +248,7 @@ class MainGraph extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-            {this.props.mainV2Status ? (
+            {this.state.mainV2Status ? (
               <Line
                 type="monotone"
                 dataKey="Vaccine2"
@@ -265,7 +257,7 @@ class MainGraph extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-            {this.props.mainIStatus ? (
+            {this.state.mainIStatus ? (
               <Line
                 type="monotone"
                 dataKey="Infected"
@@ -275,7 +267,7 @@ class MainGraph extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-            {this.props.mainRStatus ? (
+            {this.state.mainRStatus ? (
               <Line
                 type="monotone"
                 dataKey="Recovery"
@@ -284,7 +276,7 @@ class MainGraph extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-            {this.props.mainHStatus ? (
+            {this.state.mainHStatus ? (
               <Line
                 type="monotone"
                 dataKey="Hospital"
@@ -293,7 +285,7 @@ class MainGraph extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-            {this.props.mainDStatus ? (
+            {this.state.mainDStatus ? (
               <Line
                 type="monotone"
                 dataKey="Deaths"
@@ -334,6 +326,7 @@ const mapStateToProps = (state) => {
 
     dateStartMonthMain: state.reducer.dateStartMonthMain,
     dateEndMonthMain: state.reducer.dateEndMonthMain,
+    listForRemove: state.reducer.listForRemove,
   };
 };
 

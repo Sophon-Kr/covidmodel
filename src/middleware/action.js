@@ -16,6 +16,7 @@ export const GET_DATA_DAILY = "GET_DATA_DAILY";
 export const CONFIG_DATE_START_MONTH__MAIN = "CONFIG_DATE_START_MONTH__MAIN";
 export const CONFIG_DATE_END_MONTH_MAIN = "CONFIG_DATE_END_MONTH_MAIN";
 export const SET_DATE_MAX_MIN = "SET_DATE_MAX_MIN";
+export const SET_LIST_FOR_REMOVE = "SET_LIST_FOR_REMOVE";
 
 const maxAndMinDate = (data) => {
   const newDates = [];
@@ -171,3 +172,8 @@ export const getDailyData = () => {
       });
   };
 };
+
+export const setListForRemove = (payload) => ({
+  type: "SET_LIST_FOR_REMOVE",
+  payload,
+});
