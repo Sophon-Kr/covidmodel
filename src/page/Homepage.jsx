@@ -119,12 +119,10 @@ export const Homepage = (props) => {
   const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
-  const [dateStart, setDateStart] = React.useState(
-    new Date("2021-06-01T00:00:00")
-  );
-  const [dateEnd, setDateEnd] = React.useState(new Date("2021-08-31T00:00:00"));
-  const [monthStart, setMonthStart] = React.useState(props.minDateMonth);
-  const [monthEnd, setMonthEnd] = React.useState(props.maxDateMonth);
+  const [dateStart, setDateStart] = React.useState(props.initialMinDate);
+  const [dateEnd, setDateEnd] = React.useState(props.initialMaxDate);
+  const [monthStart, setMonthStart] = React.useState(props.initialMinDate);
+  const [monthEnd, setMonthEnd] = React.useState(props.initialMaxDate);
 
   const setdailyDataTemplate = [
     {
@@ -302,6 +300,7 @@ export const Homepage = (props) => {
       } else if (props.mainperiod === "day" && props.maintypeData === "real") {
         await props.getAllRealDataDay();
         console.log("day real");
+        // console.log("max/min", props.initialMaxDate);
       } else if (
         props.mainperiod === "month" &&
         props.maintypeData === "model"
@@ -471,7 +470,8 @@ export const Homepage = (props) => {
                       label="Start Date"
                       inputFormat="MM/dd/yyyy"
                       value={dateStart}
-                      // minDate={new Date("2012-03-01")}
+                      minDate={props.initialMinDate}
+                      maxDate={props.initialMaxDate}
                       // maxDate={new Date("2023-06-01")}
                       onChange={handleDateStart}
                       renderInput={(params) => (
@@ -485,8 +485,8 @@ export const Homepage = (props) => {
                       autoOk={true}
                       openTo="day"
                       views={["day", "month", "year"]}
-                      // minDate={new Date("2012-03-01")}
-                      // maxDate={new Date("2023-06-01")}
+                      minDate={props.initialMinDate}
+                      maxDate={props.initialMaxDate}
                       label="End Date"
                       inputFormat="MM/dd/yyyy"
                       value={dateEnd}
@@ -837,6 +837,9 @@ const mapStateToProps = (state) => {
 
     minDateMonth: state.reducer.minDateMonth,
     maxDateMonth: state.reducer.maxDateMonth,
+
+    initialMinDate: state.reducer.initialMinDate,
+    initialMaxDate: state.reducer.initialMaxDate,
   };
 };
 

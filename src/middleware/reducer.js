@@ -13,6 +13,7 @@ import { CONFIG_DATE_END_VS } from "./action";
 import { GET_DATA_DAILY } from "./action";
 import { CONFIG_DATE_START_MONTH__MAIN } from "./action";
 import { CONFIG_DATE_END_MONTH_MAIN } from "./action";
+import { SET_DATE_MAX_MIN } from "./action";
 
 const initialState = {
   periodMain: "month",
@@ -34,8 +35,12 @@ const initialState = {
   dateEndMonthMain: new Date("2021-05-21T00:00:00"),
   dateStartVS: new Date("2021-01-01T00:00:00"),
   dateEndVS: new Date("2021-05-21T00:00:00"),
+
   minDateMonth: new Date("January-2020"),
   maxDateMonth: new Date("November-2021"),
+
+  initialMinDate: new Date("2021-03-01T00:00:00"),
+  initialMaxDate: new Date("2021-12-01T00:00:00"),
 
   tempData: [],
   realDataMonth: [],
@@ -180,6 +185,14 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         dateEndVS: payload,
+      };
+
+    case SET_DATE_MAX_MIN:
+      console.log(type, payload);
+      return {
+        ...state,
+        initialMaxDate: payload[0],
+        initialMinDate: payload[1],
       };
 
     default:

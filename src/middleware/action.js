@@ -15,40 +15,20 @@ export const CONFIG_DATE_END_VS = "CONFIG_DATE_END_VS";
 export const GET_DATA_DAILY = "GET_DATA_DAILY";
 export const CONFIG_DATE_START_MONTH__MAIN = "CONFIG_DATE_START_MONTH__MAIN";
 export const CONFIG_DATE_END_MONTH_MAIN = "CONFIG_DATE_END_MONTH_MAIN";
+export const SET_DATE_MAX_MIN = "SET_DATE_MAX_MIN";
 
 const maxAndMinDate = (data) => {
-  // const dates = [];
-  // dates.push(new Date("2011/06/25"));
-  // dates.push(new Date("2011/06/26"));
-  // dates.push(new Date("2011/06/27"));
-  // dates.push(new Date("2011/06/28"));
-
-  // const testDate = ["2011-06-28", "2011-06-28", "2011-06-28", "2011-06-28"];
   const newDates = [];
   for (let i = 0; i < data.length; i++) {
     newDates.push(new Date(data[i].name.split("-").join(" ")));
   }
-  console.log("newDates", newDates);
+  // console.log("newDates", newDates);
 
   const maxDate = new Date(Math.max.apply(null, newDates));
   const minDate = new Date(Math.min.apply(null, newDates));
-  // var maxDate = new Date(Math.max.apply(null, data.name));
-  // var minDate = new Date(Math.min.apply(null, data.name));
-  console.log("maxDate:", maxDate, "minDate:", minDate);
-  // console.log("maxDate:minDate", data);
 
-  // var startDate = new Date(this.props.maindateStartMain);
-  // var endDate = new Date(this.props.maindateEndMain);
-  // maindateStartMain
-  // maindateEndMain
-  // this.props.maindateStartMain
-  // var dateAfterFilter = data.filter((a) => {
-  //   var date = new Date(a.name);
-  //   return date >= startDate && date <= endDate;
-  // });
-  // console.log("dateAfterFilter", dateAfterFilter);
-  // return dateAfterFilter;
-  // // this.setState({ dataFilterd: dateAfterFilter });
+  // console.log("maxDate:", maxDate, "minDate:", minDate);
+  return [maxDate, minDate];
 };
 
 export const configGraphLine = (payload) => ({
@@ -123,7 +103,16 @@ export const getRealDataDay = () => {
           type: "GET_DATA_REAL_DAY",
           payload: res.data.data,
         });
-        maxAndMinDate(res.data.data);
+
+        let findDate = maxAndMinDate(res.data.data);
+        let maxDate = findDate[0];
+        let minDate = findDate[1];
+        // console.log("findDate", maxDate, minDate);
+
+        dispatch({
+          type: "SET_DATE_MAX_MIN",
+          payload: [maxDate, minDate],
+        });
       });
   };
 };
@@ -154,6 +143,15 @@ export const getModelDataDay = () => {
           dispatch({
             type: "GET_DATA_MODEL_DAY",
             payload: res.data.data,
+          });
+          let findDate = maxAndMinDate(res.data.data);
+          let maxDate = findDate[0];
+          let minDate = findDate[1];
+          // console.log("findDate", maxDate, minDate);
+
+          dispatch({
+            type: "SET_DATE_MAX_MIN",
+            payload: [maxDate, minDate],
           });
         })
     );
