@@ -29,15 +29,15 @@ const initialState = {
   HStatus: true,
   DStatus: true,
 
-  dateStartMain: new Date("2021-06-01T00:00:00"),
-  dateEndMain: new Date("2021-08-31T00:00:00"),
-  dateStartMonthMain: new Date("2021-01-01T00:00:00"),
-  dateEndMonthMain: new Date("2021-05-21T00:00:00"),
-  dateStartVS: new Date("2021-01-01T00:00:00"),
-  dateEndVS: new Date("2021-05-21T00:00:00"),
+  dateStartMain: new Date("2021-03-01T00:00:00"),
+  dateEndMain: new Date("2021-12-01T00:00:00"),
+  dateStartMonthMain: new Date("2021-03-01T00:00:00"),
+  dateEndMonthMain: new Date("2021-12-01T00:00:00"),
+  dateStartVS: new Date("2021-03-01T00:00:00"),
+  dateEndVS: new Date("2021-12-01T00:00:00"),
 
-  minDateMonth: new Date("January-2020"),
-  maxDateMonth: new Date("November-2021"),
+  minDateMonth: new Date("2021-03-01T00:00:00"),
+  maxDateMonth: new Date("2021-12-01T00:00:00"),
 
   initialMinDate: new Date("2021-03-01T00:00:00"),
   initialMaxDate: new Date("2021-12-01T00:00:00"),
@@ -193,6 +193,9 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         initialMaxDate: payload[0],
         initialMinDate: payload[1],
+
+        dateEndMain: payload[0],
+        dateStartMain: payload[1],
       };
 
     default:

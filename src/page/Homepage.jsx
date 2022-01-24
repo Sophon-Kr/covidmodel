@@ -119,8 +119,8 @@ export const Homepage = (props) => {
   const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
-  const [dateStart, setDateStart] = React.useState(props.initialMinDate);
-  const [dateEnd, setDateEnd] = React.useState(props.initialMaxDate);
+  const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
+  const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
   const [monthStart, setMonthStart] = React.useState(props.initialMinDate);
   const [monthEnd, setMonthEnd] = React.useState(props.initialMaxDate);
 
@@ -244,16 +244,17 @@ export const Homepage = (props) => {
   const handleDateStart = (newDate) => {
     // bug day -1
     setDateStart(newDate);
-    let newTypeDate = handleDateTime(newDate);
-    console.log("newTypeDate", newDate, newTypeDate);
-    props.configDateStartMain(newTypeDate);
+    // console.log("newDate :: ", newDate);
+    // let newTypeDate = handleDateTime(newDate);
+    // console.log("newTypeDate", newDate, newTypeDate);
+    props.configDateStartMain(newDate);
   };
 
   const handleDateEnd = (newDate) => {
     setDateEnd(newDate);
-    let newTypeDate = handleDateTime(newDate);
-    console.log("newTypeDate", newDate, newTypeDate);
-    props.configDateEndMain(newTypeDate);
+    // let newTypeDate = handleDateTime(newDate);
+    // console.log("newTypeDate", newDate, newTypeDate);
+    props.configDateEndMain(newDate);
   };
   const handleMonthStart = (newMonth) => {
     setMonthStart(newMonth);
@@ -300,7 +301,7 @@ export const Homepage = (props) => {
       } else if (props.mainperiod === "day" && props.maintypeData === "real") {
         await props.getAllRealDataDay();
         console.log("day real");
-        // console.log("max/min", props.initialMaxDate);
+        console.log("max/min", props.initialMaxDate);
       } else if (
         props.mainperiod === "month" &&
         props.maintypeData === "model"
@@ -310,6 +311,7 @@ export const Homepage = (props) => {
       } else if (props.mainperiod === "day" && props.maintypeData === "model") {
         await props.getAllModelDataDay();
         console.log("day model");
+        console.log("max/min", props.initialMaxDate);
       }
     }
 
@@ -324,6 +326,11 @@ export const Homepage = (props) => {
     fetchDailyData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    setDateStart(props.maindateStartMain);
+    setDateEnd(props.maindateEndMain);
+  }, [props.maindateEndMain, props.maindateStartMain]);
 
   // const monthFilter = (dataMonth) => {
   //   let startMonth = props.minDateMonth;
