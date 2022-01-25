@@ -95,63 +95,6 @@ class MainGraph extends PureComponent {
     // console.log("newdata : ", coviddata);
   };
 
-  // fetchData = () => {
-  //   if (
-  //     this.props.mainperiod === "month" &&
-  //     this.props.maintypeData === "real"
-  //   ) {
-  //     this.setState({ data: this.props.mainRealDataMonth });
-  //     // await props.getAllRealDataMount();
-  //     console.log("month real ::: ");
-  //   } else if (
-  //     this.props.mainperiod === "day" &&
-  //     this.props.maintypeData === "real"
-  //   ) {
-  //     this.setState({ data: this.props.mainRealDataDay });
-  //     // await props.getAllRealDataDay();
-  //     console.log("day real :::");
-  //   } else if (
-  //     this.props.mainperiod === "month" &&
-  //     this.props.maintypeData === "model"
-  //   ) {
-  //     this.setState({ data: this.props.mainModelDataMonth });
-  //     // await props.getAllModelDataMount();
-  //     console.log("month model :::");
-  //   } else if (
-  //     this.props.mainperiod === "day" &&
-  //     this.props.maintypeData === "model"
-  //   ) {
-  //     this.setState({ data: this.props.mainModelDataDay });
-  //     // await props.getAllModelDataDay();
-  //     console.log("day model :::");
-  //   }
-  // };
-  async componentDidMount(prevState) {
-    // await this.fetchData();
-    // let getfilter = await this.filterRangeByDate(this.state.data);
-    // if (this.state.dataFilterd !== this.prevState.dataFilterd) {
-    //   this.setState({ dataFilterd: getfilter });
-    // }
-    // await this.filterRangeByDate(this.state.data);
-    // let getfilter = await this.filterRangeByDate(this.state.data);
-    // console.log("getfilter", getfilter);
-    // this.setState({ dataFilterd: getfilter });
-  }
-
-  // async componentDidUpdate(prevState) {
-  //   // await this.fetchData();
-  //   // let getfilter = await this.filterRangeByDate(this.state.data);
-  //   // if (getfilter !== this.state.dataFilterd) {
-  //   //   this.setState({ dataFilterd: getfilter });
-  //   // }
-  //   // await this.filterRangeByDate(this.state.data);
-  //   // let getfilter = await this.filterRangeByDate(this.state.data);
-  //   // if (this.props.userID !== prevProps.userID) {
-  //   //   this.fetchData(this.props.userID);
-  //   // }
-  //   // this.setState({ dataFilterd: getfilter });
-  // }
-
   componentDidUpdate(prevProps) {
     if (prevProps.mainSStatus !== this.props.mainSStatus) {
       // const mydata = this.removeProperty(this.state.covidData);
@@ -192,14 +135,14 @@ class MainGraph extends PureComponent {
         mainDStatus: this.props.mainDStatus,
       });
     }
-    if (prevProps.mainTempData !== this.props.mainTempData) {
-      // const mydata = this.removeProperty(this.state.covidData);
-      // console.log("mydata", mydata);
-      this.setState({
-        covidData: this.props.mainTempData,
-        // covidData: mydata,
-      });
-    }
+    // if (prevProps.mainTempData !== this.props.mainTempData) {
+    //   // const mydata = this.removeProperty(this.state.covidData);
+    //   // console.log("mydata", mydata);
+    //   this.setState({
+    //     covidData: this.props.mainTempData,
+    //     // covidData: mydata,
+    //   });
+    // }
   }
 
   render() {
@@ -214,8 +157,10 @@ class MainGraph extends PureComponent {
             // data={this.props.mainTempData}
             data={
               this.props.mainperiod == "day"
-                ? this.filterRangeByDate(this.state.covidData)
-                : this.monthFilter(this.state.covidData)
+                ? this.filterRangeByDate(this.props.mainTempData)
+                : this.monthFilter(this.props.mainTempData)
+              // ? this.filterRangeByDate(this.state.covidData)
+              // : this.monthFilter(this.state.covidData)
             }
             // data={this.filterRangeByDate(this.state.data)}
             margin={{
@@ -230,15 +175,15 @@ class MainGraph extends PureComponent {
             <YAxis />
             <Tooltip />
             <Legend />
-            {/* {this.state.mainSStatus ? ( */}
-            <Line
-              type="monotone"
-              dataKey="Susceptible"
-              stroke="#039be5"
-              strokeWidth={3}
-              activeDot={{ r: 8 }}
-            />
-            {/* ) : null} */}
+            {this.state.mainSStatus ? (
+              <Line
+                type="monotone"
+                dataKey="Susceptible"
+                stroke="#039be5"
+                strokeWidth={3}
+                activeDot={{ r: 8 }}
+              />
+            ) : null}
             {this.state.mainV1Status ? (
               <Line
                 type="monotone"
