@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import MainGraph from "../components/Graph/MainGraph";
-import Grid from "@mui/material/Grid";
+// import Typography from "@mui/material/Typography";
+// import MainGraph from "../components/Graph/MainGraph";
+// import Grid from "@mui/material/Grid";
 
 import Why from "../components/ModelComponent/Why";
-import Evolution from "../components/ModelComponent/Evolution";
+// import Evolution from "../components/ModelComponent/Evolution";
 import ModelPart from "../components/ModelComponent/ModelPart";
 import DescriptionPicLeft from "../components/ModelComponent/DescriptionPicLeft";
 import DescriptionVPicRight from "../components/ModelComponent/DescriptionVPicRight";
@@ -22,7 +22,7 @@ import I from "../assets/I.png";
 import R from "../assets/R.png";
 import H from "../assets/H.png";
 import D from "../assets/D.png";
-import ModelBackground from "../assets/BG2.png";
+// import ModelBackground from "../assets/BG2.png";
 
 const modelDisplay = [
   {

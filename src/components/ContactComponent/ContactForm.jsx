@@ -10,12 +10,42 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 import contactPic from "../../assets/contactPic.png";
 
+import nodemailer from "nodemailer";
+
 export const ContactForm = (props) => {
   const [contact, setContact] = React.useState(0);
 
   const handleChange = (event) => {
     setContact(event.target.value);
   };
+  // const handlesendMail = (event) => {
+  //   let testmail = sendMail;
+  //   console.log(testmail);
+  // };
+
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "covidmodel01@gmail.com",
+      pass: "covidcovid",
+    },
+  });
+
+  var mailOptions = {
+    from: "youremail@gmail.com",
+    to: "sophonkripinit@gmail.com",
+    subject: "Sending Email using Node.js",
+    text: "That was easy!",
+  };
+
+  const sendMail = transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
+
   return (
     <Grid style={{ marginTop: 30, padding: 30 }}>
       <Grid
@@ -54,7 +84,11 @@ export const ContactForm = (props) => {
             variant="h1"
             gutterBottom
             component="div"
-            style={{ color: "#AED6F1", fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "600" }}
+            style={{
+              color: "#AED6F1",
+              fontFamily: "IBM Plex Sans Thai Looped",
+              fontWeight: "600",
+            }}
           >
             CONTACT US
           </Typography>
@@ -69,7 +103,10 @@ export const ContactForm = (props) => {
                 variant="subtitle1"
                 gutterBottom
                 component="div"
-                style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "600" }}
+                style={{
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "600",
+                }}
               >
                 Contact
               </Typography>
@@ -84,7 +121,10 @@ export const ContactForm = (props) => {
                 onChange={handleChange}
                 select
                 fullWidth
-                style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}
+                style={{
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "400",
+                }}
               >
                 <MenuItem value={0}>All</MenuItem>
                 <MenuItem value={1}>Advisor</MenuItem>
@@ -108,7 +148,10 @@ export const ContactForm = (props) => {
                 variant="subtitle1"
                 gutterBottom
                 component="div"
-                style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "600" }}
+                style={{
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "600",
+                }}
               >
                 Your Email
               </Typography>
@@ -134,7 +177,10 @@ export const ContactForm = (props) => {
                 variant="subtitle1"
                 gutterBottom
                 component="div"
-                style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "600" }}
+                style={{
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "600",
+                }}
               >
                 Subject
               </Typography>
@@ -160,7 +206,10 @@ export const ContactForm = (props) => {
                 variant="subtitle1"
                 gutterBottom
                 component="div"
-                style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "600" }}
+                style={{
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "600",
+                }}
               >
                 Details
               </Typography>
@@ -208,6 +257,7 @@ export const ContactForm = (props) => {
                     fontFamily: "IBM Plex Sans Thai Looped",
                     fontWeight: "600",
                   }}
+                  onClick={() => sendMail}
                 >
                   Send
                 </Button>

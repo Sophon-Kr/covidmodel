@@ -146,7 +146,7 @@ class MainGraph extends PureComponent {
   }
 
   render() {
-    const { opacity } = this.state;
+    // const { opacity } = this.state;
 
     return (
       <div style={{ width: "100%" }}>
