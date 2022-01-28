@@ -162,7 +162,6 @@ export const getModelDataDay = () => {
 export const getDailyData = () => {
   return async (dispatch) => {
     return axios
-
       .get(`https://covid19.ddc.moph.go.th/api/Cases/today-cases-all`)
       .then((res) => {
         dispatch({

@@ -10,41 +10,93 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 import contactPic from "../../assets/contactPic.png";
 
-import nodemailer from "nodemailer";
+import { sendMailService } from "../../services/sendemail.service";
+// import { getRawDataMonth } from "../../services/rawData.service";
+
+const mailList = [
+  "Advisor@gmail.com,\
+  Co-Advisor1@gmail.com,\
+  Co-Advisor2@gmail.com,\
+  Student1@gmail.com,\
+  Student2@gmail.com,\
+  Student3@gmail.com,\
+  Student4@gmail.com",
+  "Advisor@gmail.com",
+  "Co-Advisor1@gmail.com",
+  "Co-Advisor2@gmail.com",
+  "Student1@gmail.com",
+  "Student2@gmail.com",
+  "sophon.kra@student.mahidol.edu",
+  "sophonkripinit@gmail.com",
+];
 
 export const ContactForm = (props) => {
   const [contact, setContact] = React.useState(0);
+  const [subjectData, setSubjectData] = React.useState("");
+  const [sendTo, setSendTo] = React.useState(mailList);
+  const [sendFrom, setSendFrom] = React.useState("");
+  const [sendText, setSendText] = React.useState("");
 
-  const handleChange = (event) => {
+  //   var subjectData = "Sending Email using Node.js";
+  // var sendTo = ["sophonkripinit@gmail.com"];
+  // var sendFrom = "sender@server.com";
+  // var sendText =
+  const handleClear = (event) => {
+    setContact(0);
+    setSubjectData("");
+    setSendTo(mailList);
+    setSendFrom("");
+    setSendText("");
+  };
+
+  const handleSubjectData = (event) => {
+    //console.log("handleSubjectData", event);
+    setSubjectData(event.target.value);
+  };
+  const handleSendTo = (event) => {
+    //console.log("handleSendTo", event);
+    // <MenuItem value={0}>All</MenuItem>
+    // <MenuItem value={1}>Advisor</MenuItem>
+    // <MenuItem value={2}>Co-Advisor1</MenuItem>
+    // <MenuItem value={3}>Co-Advisor2</MenuItem>
+    // <MenuItem value={4}>Student1</MenuItem>
+    // <MenuItem value={5}>Student2</MenuItem>
+    // <MenuItem value={6}>Student3</MenuItem>
+    // <MenuItem value={7}>Student4</MenuItem>
+    // let allList =
+    //   "Advisor@gmail.com,\
+    //   Co-Advisor1@gmail.com,\
+    //   Co-Advisor2@gmail.com,\
+    //   Student1@gmail.com,\
+    //   Student2@gmail.com,\
+    //   Student3@gmail.com,\
+    //   Student4@gmail.com";
+
+    let mailPosition = event.target.value;
+    // console.log("mailList[mailPosition]", mailPosition, mailList[mailPosition]);
     setContact(event.target.value);
+    setSendTo(mailList[mailPosition]);
   };
-  // const handlesendMail = (event) => {
-  //   let testmail = sendMail;
-  //   console.log(testmail);
-  // };
-
-  var transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "covidmodel01@gmail.com",
-      pass: "covidcovid",
-    },
-  });
-
-  var mailOptions = {
-    from: "youremail@gmail.com",
-    to: "sophonkripinit@gmail.com",
-    subject: "Sending Email using Node.js",
-    text: "That was easy!",
+  const handleSendFrom = (event) => {
+    // console.log("handleSendFrom", event);
+    setSendFrom(event.target.value);
   };
-
-  const sendMail = transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Email sent: " + info.response);
-    }
-  });
+  const handleSendText = (event) => {
+    //console.log("handleSendText", event.target.value);
+    setSendText(event.target.value);
+  };
+  const handleSendMail = async () => {
+    //console.log("handleSendMail:: ", sendTo, sendFrom, subjectData, sendText);
+    // const tempData = await getRawDataMonth();
+    // console.log("tempData", tempData);
+    var sentmail = await sendMailService(
+      sendTo,
+      sendFrom,
+      subjectData,
+      sendText
+    );
+    // console.log(sentmail);
+  };
 
   return (
     <Grid style={{ marginTop: 30, padding: 30 }}>
@@ -118,7 +170,7 @@ export const ContactForm = (props) => {
                 variant="outlined"
                 value={contact}
                 label="Select Contact"
-                onChange={handleChange}
+                onChange={handleSendTo}
                 select
                 fullWidth
                 style={{
@@ -160,8 +212,8 @@ export const ContactForm = (props) => {
               <TextField
                 variant="outlined"
                 label="Your Email"
-                // value={contact}
-                // onChange={handleChange}
+                value={sendFrom}
+                onChange={handleSendFrom}
                 fullWidth
               ></TextField>
             </Grid>
@@ -189,8 +241,8 @@ export const ContactForm = (props) => {
               <TextField
                 variant="outlined"
                 label="Subject"
-                // value={contact}
-                // onChange={handleChange}
+                value={subjectData}
+                onChange={handleSubjectData}
                 fullWidth
               ></TextField>
             </Grid>
@@ -220,8 +272,8 @@ export const ContactForm = (props) => {
                 label="Details"
                 multiline
                 rows={10}
-                // value={contact}
-                // onChange={handleChange}
+                value={sendText}
+                onChange={handleSendText}
                 fullWidth
               ></TextField>
             </Grid>
@@ -245,6 +297,7 @@ export const ContactForm = (props) => {
                     fontFamily: "IBM Plex Sans Thai Looped",
                     fontWeight: "600",
                   }}
+                  onClick={handleClear}
                 >
                   Clear
                 </Button>
@@ -257,7 +310,7 @@ export const ContactForm = (props) => {
                     fontFamily: "IBM Plex Sans Thai Looped",
                     fontWeight: "600",
                   }}
-                  onClick={() => sendMail}
+                  onClick={handleSendMail}
                 >
                   Send
                 </Button>
