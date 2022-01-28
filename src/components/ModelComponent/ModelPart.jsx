@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 
+import modelFlow from "../../assets/covidflow.png";
+
 export const ModelPart = (props) => {
   return (
     <Grid style={{ marginTop: 50, marginBottom: 70 }}>
@@ -18,14 +20,14 @@ export const ModelPart = (props) => {
           lg={10}
           xl={10}
           style={{
-            backgroundColor: "lightgreen",
+            // backgroundColor: "lightgreen",
             minHeight: 700,
             marginLeft: 50,
             fontSize: 50,
             textAlign: "center",
           }}
         >
-          Flows Model
+          <img src={modelFlow} alt="" width="100%" height="auto" />
         </Grid>
       </Grid>
       <Grid

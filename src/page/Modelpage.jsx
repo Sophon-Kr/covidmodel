@@ -22,6 +22,7 @@ import I from "../assets/I.png";
 import R from "../assets/R.png";
 import H from "../assets/H.png";
 import D from "../assets/D.png";
+import modelFlow from "../assets/covidflow.png";
 // import ModelBackground from "../assets/BG2.png";
 
 const modelDisplay = [
