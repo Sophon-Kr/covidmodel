@@ -119,7 +119,7 @@ export const ContactForm = (props) => {
           }}
         >
           {/* Picture Contact */}
-          <img src={contactPic} alt="contact" width="920" height="auto" />
+          <img src={contactPic} alt="contact" width="150%" height="auto" />
         </Grid>
         <Grid
           item

@@ -3,11 +3,9 @@ import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-export const DescriptionVPicRight = (props) => {
+export const DescriptionPicCenter = (props) => {
   return (
-    <Grid
-    // style={{ marginTop: 50 }}
-    >
+    <Grid>
       <Grid
         container
         direction="row"
@@ -16,28 +14,49 @@ export const DescriptionVPicRight = (props) => {
       >
         <Grid
           item
-          xs={8}
-          md={8}
-          lg={8}
-          xl={8}
+          xs={12}
+          md={12}
+          lg={12}
+          xl={12}
+          style={{
+            textAlign: "center",
+            textJustify: "center",
+            // fontSize: "200px",
+          }}
+        >
+          {props.pic}
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          md={12}
+          lg={12}
+          xl={12}
           style={{
             // backgroundColor: "lightgrey",
             minHeight: 350,
+            marginLeft: 50,
             padding: 40,
             display: "flex",
             alignItems: "center",
-            fontSize: 30,
+            fontSize: "30px",
           }}
         >
-          <Grid container style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}>
+          <Grid
+            container
+            style={{
+              fontFamily: "IBM Plex Sans Thai Looped",
+              fontWeight: "400",
+            }}
+          >
             <Typography
               variant="h3"
               gutterBottom
               component="div"
               style={{
                 color: props.color,
-                fontFamily: "IBM Plex Sans Thai Looped",
                 fontWeight: "600",
+                fontFamily: "IBM Plex Sans Thai Looped",
               }}
             >
               {props.name}
@@ -45,24 +64,6 @@ export const DescriptionVPicRight = (props) => {
 
             {props.text}
           </Grid>
-        </Grid>
-        <Grid
-          item
-          xs={3}
-          md={3}
-          lg={3}
-          xl={3}
-          style={{
-            // backgroundColor: "lightgreen",
-            // minHeight: 350,
-            marginLeft: 50,
-            // padding: 40,
-            textAlign: "center",
-            textJustify: "center",
-            fontSize: 200,
-          }}
-        >
-          {props.pic}
         </Grid>
       </Grid>
     </Grid>
@@ -76,4 +77,4 @@ const mapDispatchToProps = {};
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DescriptionVPicRight);
+)(DescriptionPicCenter);
