@@ -9,6 +9,7 @@ import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 import contactPic from "../../assets/contactPic.png";
+import ContactBackground from "../../assets/BG1.png";
 
 import { sendMailService } from "../../services/sendemail.service";
 // import { getRawDataMonth } from "../../services/rawData.service";
@@ -117,9 +118,39 @@ export const ContactForm = (props) => {
             minHeight: 600,
             // backgroundColor: "lightgrey",
           }}
+          sx={{
+            display: {
+              xs: "none",
+              sm: "none",
+              md: "none",
+              lg: "block",
+              xl: "block",
+            },
+          }}
         >
           {/* Picture Contact */}
           <img src={contactPic} alt="contact" width="150%" height="auto" />
+        </Grid>
+        <Grid
+          item
+          xs={4}
+          md={4}
+          lg={4}
+          xl={4}
+          style={{
+            minHeight: 600,
+          }}
+          sx={{
+            display: {
+              xs: "block",
+              sm: "block",
+              md: "block",
+              lg: "none",
+              xl: "none",
+            },
+          }}
+        >
+          <img src={contactPic} alt="contact" width="300%" height="auto" />
         </Grid>
         <Grid
           item

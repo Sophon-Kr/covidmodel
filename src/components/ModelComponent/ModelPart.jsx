@@ -21,7 +21,7 @@ export const ModelPart = (props) => {
           xl={10}
           style={{
             // backgroundColor: "lightgreen",
-            minHeight: 700,
+            // minHeight: 700,
             marginLeft: 50,
             fontSize: 50,
             textAlign: "center",
