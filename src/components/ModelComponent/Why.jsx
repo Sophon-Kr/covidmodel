@@ -8,9 +8,9 @@ export const Why = (props) => {
     <Grid container direction="row" justifyContent="center" alignItems="center">
       <Grid
         style={{
-          minHeight: 100,
+          //minHeight: 100,
           fontWeight: "600",
-          fontSize: 50,
+          fontSize: "3vw",
           marginLeft: 50,
           fontFamily: "IBM Plex Sans Thai Looped",
         }}
@@ -38,9 +38,9 @@ export const Why = (props) => {
           lg={10}
           xl={10}
           style={{
-            minHeight: 350,
+            // minHeight: 350,
             marginLeft: 50,
-            fontSize: 30,
+            fontSize: "2vw",
             fontFamily: "IBM Plex Sans Thai Looped",
             fontWeight: "400",
           }}

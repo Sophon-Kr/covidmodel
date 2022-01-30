@@ -23,7 +23,7 @@ export const ModelPart = (props) => {
             // backgroundColor: "lightgreen",
             // minHeight: 700,
             marginLeft: 50,
-            fontSize: 50,
+            //fontSize: "3vw",
             textAlign: "center",
           }}
         >
@@ -32,9 +32,9 @@ export const ModelPart = (props) => {
       </Grid>
       <Grid
         style={{
-          minHeight: 100,
+          //minHeight: 100,
           fontWeight: "600",
-          fontSize: 50,
+          fontSize: "3vw",
           textAlign: "center",
           marginTop: 40,
           fontFamily: "IBM Plex Sans Thai Looped",
@@ -56,9 +56,9 @@ export const ModelPart = (props) => {
           xl={8}
           style={{
             // backgroundColor: "lightgrey",
-            minHeight: 200,
+            // minHeight: 200,
             marginLeft: 50,
-            fontSize: 30,
+            fontSize: "2vw",
             fontFamily: "IBM Plex Sans Thai Looped",
             fontWeight: "400",
           }}

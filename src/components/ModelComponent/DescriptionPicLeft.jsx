@@ -49,21 +49,26 @@ export const DescriptionPicLeft = (props) => {
             fontSize: 30,
           }}
         >
-          <Grid container style={{ fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}>
-            <Typography
-              variant="h3"
-              gutterBottom
-              component="div"
+          <Grid container>
+            <div
               style={{
                 color: props.color,
                 fontWeight: "600",
                 fontFamily: "IBM Plex Sans Thai Looped",
+                fontSize: "3vw",
               }}
             >
               {props.name}
-            </Typography>
-
-            {props.text}
+            </div>
+            <div
+              style={{
+                fontFamily: "IBM Plex Sans Thai Looped",
+                fontWeight: "400",
+                fontSize: "2vw",
+              }}
+            >
+              {props.text}
+            </div>
           </Grid>
         </Grid>
       </Grid>

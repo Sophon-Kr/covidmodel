@@ -34,35 +34,34 @@ export const DescriptionPicCenter = (props) => {
           xl={12}
           style={{
             // backgroundColor: "lightgrey",
-            minHeight: 350,
+            //minHeight: 350,
             marginLeft: 50,
             padding: 40,
             display: "flex",
             alignItems: "center",
-            fontSize: "30px",
+            //fontSize: "30px",
           }}
         >
-          <Grid
-            container
-            style={{
-              fontFamily: "IBM Plex Sans Thai Looped",
-              fontWeight: "400",
-            }}
-          >
-            <Typography
-              variant="h3"
-              gutterBottom
-              component="div"
+          <Grid container>
+            <div
               style={{
                 color: props.color,
                 fontWeight: "600",
                 fontFamily: "IBM Plex Sans Thai Looped",
+                fontSize: "3vw",
               }}
             >
               {props.name}
-            </Typography>
-
-            {props.text}
+            </div>
+            <div
+              style={{
+                fontFamily: "IBM Plex Sans Thai Looped",
+                fontWeight: "400",
+                fontSize: "2vw",
+              }}
+            >
+              {props.text}
+            </div>
           </Grid>
         </Grid>
       </Grid>
