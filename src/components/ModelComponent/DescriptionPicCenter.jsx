@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 
 export const DescriptionPicCenter = (props) => {
   return (
@@ -22,6 +22,7 @@ export const DescriptionPicCenter = (props) => {
             textAlign: "center",
             textJustify: "center",
             // fontSize: "200px",
+            maxWidth: "50%",
           }}
         >
           {props.pic}
