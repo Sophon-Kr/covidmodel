@@ -22,7 +22,7 @@ export const ModelPart = (props) => {
           style={{
             // backgroundColor: "lightgreen",
             // minHeight: 700,
-            marginLeft: 50,
+            //marginLeft: 50,
             //fontSize: "3vw",
             textAlign: "center",
           }}
@@ -57,7 +57,7 @@ export const ModelPart = (props) => {
           style={{
             // backgroundColor: "lightgrey",
             // minHeight: 200,
-            marginLeft: 50,
+            //marginLeft: 50,
             fontSize: "2vw",
             fontFamily: "IBM Plex Sans Thai Looped",
             fontWeight: "400",

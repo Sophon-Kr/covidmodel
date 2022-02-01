@@ -187,8 +187,8 @@ export const Navbar = (props) => {
         position="fixed"
         color="primary"
         sx={{
-          top: "auto",
-          bottom: 0,
+          // top: "auto",
+          // bottom: 0,
           display: {
             xs: "block",
             sm: "none",
@@ -199,7 +199,13 @@ export const Navbar = (props) => {
         }}
         style={{ backgroundColor: "#AED6F1", color: "#F9F9F9" }}
       >
-        <Toolbar style={{ backgroundColor: "#AED6F1", color: "#F9F9F9" }}>
+        <Toolbar
+          style={{
+            backgroundColor: "#AED6F1",
+            color: "#F9F9F9",
+            minHeight: 70,
+          }}
+        >
           <Grid
             container
             direction="row"

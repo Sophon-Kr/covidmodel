@@ -144,8 +144,8 @@ export const Modelpage = (props) => {
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
           style={{
-            minHeight: 700,
-            padding: 70,
+            //minHeight: 700,
+            padding: "4%",
             // backgroundImage: `url(${ModelBackground})`,
             // backgroundPosition: "top",
             // backgroundSize: "100%",

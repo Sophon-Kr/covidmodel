@@ -8,21 +8,21 @@ module.exports = {
       subjectData: subjectData,
       sendText: sendText,
     };
-    return fetch(`http://localhost:5000/sendmail`, {
-      method: "POST",
-      headers: {
-        // Authorization: accessToken,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(req),
-    }).then(async (res) => {
-      // if (res.status == 401) {
-      //   sessionStorage.removeItem("token");
-      //   sessionStorage.removeItem("property");
-      //   sessionStorage.removeItem("curent_component");
-      //   window.location.reload(false);
-      // } else
-      return res.json();
+    // return fetch(`http://localhost:5000/sendmail`, {
+    //   method: "POST",
+    //   headers: {
+    //     // Authorization: accessToken,
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(req),
+    // }).then(async (res) => {
+    //   // if (res.status == 401) {
+    //   //   sessionStorage.removeItem("token");
+    //   //   sessionStorage.removeItem("property");
+    //   //   sessionStorage.removeItem("curent_component");
+    //   //   window.location.reload(false);
+    //   // } else
+    //   return res.json();
     });
   },
   // sendMailService: async function (sendTo, sendFrom, subjectData, sendText) {

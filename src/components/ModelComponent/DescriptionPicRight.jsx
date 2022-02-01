@@ -22,11 +22,10 @@ export const DescriptionPicRight = (props) => {
           xl={8}
           style={{
             // backgroundColor: "lightgrey",
-            minHeight: 350,
-            padding: 40,
+            //minHeight: 350,
+            // padding: 40,
             display: "flex",
             alignItems: "center",
-            fontSize: 30,
           }}
         >
           <Grid container>

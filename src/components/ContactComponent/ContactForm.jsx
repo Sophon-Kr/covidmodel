@@ -163,18 +163,16 @@ export const ContactForm = (props) => {
             // backgroundColor: "lightgrey",
           }}
         >
-          <Typography
-            variant="h1"
-            gutterBottom
-            component="div"
+          <div
             style={{
               color: "#AED6F1",
               fontFamily: "IBM Plex Sans Thai Looped",
               fontWeight: "600",
+              fontSize: "6vw",
             }}
           >
             CONTACT US
-          </Typography>
+          </div>
           <Grid
             container
             justifyContent="space-between"

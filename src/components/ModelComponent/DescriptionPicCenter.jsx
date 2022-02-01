@@ -35,7 +35,7 @@ export const DescriptionPicCenter = (props) => {
           style={{
             // backgroundColor: "lightgrey",
             //minHeight: 350,
-            marginLeft: 50,
+            //marginLeft: 50,
             padding: 40,
             display: "flex",
             alignItems: "center",

@@ -11,7 +11,8 @@ export const Why = (props) => {
           //minHeight: 100,
           fontWeight: "600",
           fontSize: "3vw",
-          marginLeft: 50,
+          marginBottom:20,
+          //marginLeft: 50,
           fontFamily: "IBM Plex Sans Thai Looped",
         }}
       >
@@ -39,7 +40,7 @@ export const Why = (props) => {
           xl={10}
           style={{
             // minHeight: 350,
-            marginLeft: 50,
+            //marginLeft: 50,
             fontSize: "2vw",
             fontFamily: "IBM Plex Sans Thai Looped",
             fontWeight: "400",
