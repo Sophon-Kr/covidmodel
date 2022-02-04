@@ -10,7 +10,6 @@ import { NavLink } from "react-router-dom";
 import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
 import Fab from "@mui/material/Fab";
 import UpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { useLayoutEffect } from "react";
 
 // import Typography from "@mui/material/Typography";
 // import MainGraph from "../components/Graph/MainGraph";
@@ -150,13 +149,13 @@ const modelDisplay = [
 ];
 
 export const Modelpage = (props) => {
-  const ScrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
+  // const ScrollToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     left: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
   return (
     <Container
       maxWidth="xxl"
@@ -261,7 +260,7 @@ export const Modelpage = (props) => {
           </div>
         </Paper>
       </Container>
-      <Fab
+      {/* <Fab
         onClick={ScrollToTop}
         size="large"
         sx={{
@@ -273,7 +272,7 @@ export const Modelpage = (props) => {
         style={{ color: "black", backgroundColor: "#AED6F1" }}
       >
         <UpIcon />
-      </Fab>
+      </Fab> */}
     </Container>
   );
 };
