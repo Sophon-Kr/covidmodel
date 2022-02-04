@@ -7,6 +7,10 @@ import Typography from "@mui/material/Typography";
 
 const coAdviser = [
   {
+    name: "ผศ.ดร.วศิน สุทธิฉายา",
+    type: "อาจารย์ที่ปรึกษา",
+  },
+  {
     name: "ผศ.ธนดล ปริตรานันท์",
     type: "อาจารย์ที่ปรึกษาร่วม",
   },
@@ -22,23 +26,8 @@ export const CoAdviser = (props) => {
       direction="row"
       justifyContent="space-around"
       alignItems="center"
-      style={{ marginBottom: 80 }}
+      style={{ marginBottom: 50 }}
     >
-      {/* <Avatar
-          alt="Remy Sharp"
-          src={AdvisorProfile}
-          sx={{ width: 250, height: "auto" }}
-          // width="350"
-          // height="auto"
-        />
-        <Avatar
-          alt="Remy Sharp"
-          src={AdvisorProfile}
-          sx={{ width: 250, height: "auto" }}
-          // width="350"
-          // height="auto"
-        /> */}
-
       {coAdviser.map((CoAdvisorData) => (
         <div>
           <Grid
@@ -51,9 +40,7 @@ export const CoAdviser = (props) => {
             <Avatar
               alt="Remy Sharp"
               src={AdvisorProfile}
-              sx={{ width: 250, height: "auto" }}
-              // width="350"
-              // height="auto"
+              sx={{ width: 200, height: "auto" }}
             />
           </Grid>
           <Grid
@@ -62,14 +49,15 @@ export const CoAdviser = (props) => {
             justifyContent="center"
             alignItems="center"
           >
-            <Typography
-              variant="h3"
-              gutterBottom
-              component="div"
-              style={{ fontSize: 35, fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}
+            <div
+              style={{
+                fontSize: "2vw",
+                fontFamily: "IBM Plex Sans Thai Looped",
+                fontWeight: "400",
+              }}
             >
               {CoAdvisorData.name}
-            </Typography>
+            </div>
           </Grid>
           <Grid
             container
@@ -77,14 +65,15 @@ export const CoAdviser = (props) => {
             justifyContent="center"
             alignItems="center"
           >
-            <Typography
-              variant="h5"
-              gutterBottom
-              component="div"
-              style={{ fontSize: 30, fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}
+            <div
+              style={{
+                fontSize: "1.5vw",
+                fontFamily: "IBM Plex Sans Thai Looped",
+                fontWeight: "400",
+              }}
             >
               {CoAdvisorData.type}
-            </Typography>
+            </div>
           </Grid>
         </div>
       ))}

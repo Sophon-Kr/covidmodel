@@ -176,46 +176,7 @@ export const ContactForm = (props) => {
             justifyContent="space-between"
             alignItems="center"
             style={{ marginTop: 20 }}
-          >
-            <Grid>
-              <Typography
-                variant="subtitle1"
-                gutterBottom
-                component="div"
-                style={{
-                  fontFamily: "IBM Plex Sans Thai Looped",
-                  fontWeight: "600",
-                }}
-              >
-                Contact
-              </Typography>
-            </Grid>
-            <Grid xs={9} md={9} lg={9} xl={9}>
-              <TextField
-                // labelId="demo-simple-select-label"
-                // id="demo-simple-select"
-                variant="outlined"
-                value={contact}
-                label="Select Contact"
-                onChange={handleSendTo}
-                select
-                fullWidth
-                style={{
-                  fontFamily: "IBM Plex Sans Thai Looped",
-                  fontWeight: "400",
-                }}
-              >
-                <MenuItem value={0}>All</MenuItem>
-                <MenuItem value={1}>Advisor</MenuItem>
-                <MenuItem value={2}>Co-Advisor1</MenuItem>
-                <MenuItem value={3}>Co-Advisor2</MenuItem>
-                <MenuItem value={4}>Student1</MenuItem>
-                <MenuItem value={5}>Student2</MenuItem>
-                <MenuItem value={6}>Student3</MenuItem>
-                <MenuItem value={7}>Student4</MenuItem>
-              </TextField>
-            </Grid>
-          </Grid>
+          ></Grid>
           <Grid
             container
             justifyContent="space-between"

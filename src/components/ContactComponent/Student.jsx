@@ -5,7 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import AdvisorProfile from "../../assets/user-computer-icons-anonymity-png-favpng-Ps1EmXsrUx17SLTQrTeDg1FN5.jpg";
 import Typography from "@mui/material/Typography";
 
-const coAdviser = [
+const studentData = [
   {
     name: "นาย กฤษฎา อาทิตย์กวิน",
     type: "นักศึกษา",
@@ -19,7 +19,12 @@ const coAdviser = [
     type: "นักศึกษา",
   },
   {
-    name: "นาย โศภณ ไกรพินิจ",
+    name: (
+      <span>
+        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;นาย โศภณ ไกรพินิจ
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+      </span>
+    ),
     type: "นักศึกษา",
   },
 ];
@@ -33,7 +38,7 @@ export const Student = (props) => {
       alignItems="center"
       style={{ marginBottom: 50 }}
     >
-      {coAdviser.map((CoAdvisorData) => (
+      {studentData.map((studentData) => (
         <div>
           <Grid
             container
@@ -54,14 +59,15 @@ export const Student = (props) => {
             justifyContent="center"
             alignItems="center"
           >
-            <Typography
-              variant="h3"
-              gutterBottom
-              component="div"
-              style={{ fontSize: 35, fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}
+            <div
+              style={{
+                fontSize: "1.75vw",
+                fontFamily: "IBM Plex Sans Thai Looped",
+                fontWeight: "400",
+              }}
             >
-              {CoAdvisorData.name}
-            </Typography>
+              {studentData.name}
+            </div>
           </Grid>
           <Grid
             container
@@ -69,14 +75,15 @@ export const Student = (props) => {
             justifyContent="center"
             alignItems="center"
           >
-            <Typography
-              variant="h5"
-              gutterBottom
-              component="div"
-              style={{ fontSize: 30, fontFamily: "IBM Plex Sans Thai Looped", fontWeight: "400", }}
+            <div
+              style={{
+                fontSize: "1.2vw",
+                fontFamily: "IBM Plex Sans Thai Looped",
+                fontWeight: "400",
+              }}
             >
-              {CoAdvisorData.type}
-            </Typography>
+              {studentData.type}
+            </div>
           </Grid>
         </div>
       ))}

@@ -28,7 +28,7 @@ export const Contactpage = (props) => {
           variant="outlined"
           square
         >
-          <Adviser />
+          {/* <Adviser /> */}
           <CoAdviser />
           <Student />
           <ContactForm />
