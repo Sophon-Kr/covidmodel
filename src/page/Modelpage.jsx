@@ -144,6 +144,7 @@ export const Modelpage = (props) => {
     <Container maxWidth="xxl" style={{ marginTop: 60, marginBottom: 35 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
+       
           style={{
             //minHeight: 700,
             padding: "4%",
@@ -154,6 +155,7 @@ export const Modelpage = (props) => {
           }}
           variant="outlined"
           square
+          
         >
           {/* <img src={ModelBackground} alt="" /> */}
           <Why />

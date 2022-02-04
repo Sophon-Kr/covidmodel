@@ -402,18 +402,24 @@ export const Homepage = (props) => {
     <Container maxWidth="xxl" style={{ marginTop: 65 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Grid container justifyContent="center" spacing={3}>
-          {/* <Button onClick={() => filterRangeByDate(props.mainModelDataDay)}>
-            Test data filter
-          </Button> */}
           {setdailyDataTemplate.map((data) => (
             <Grid key={data.id} item xs={12} sm={6} md={3} lg={3} xl={3}>
               <Paper
                 style={{
-                  minHeight: 100,
+                  minHeight: 230,
                   padding: 30,
                 }}
                 variant="outlined"
                 square
+                sx={{
+                  display: {
+                    xs: "none",
+                    sm: "none",
+                    md: "block",
+                    lg: "none",
+                    xl: "none",
+                  },
+                }}
               >
                 <Grid container>
                   <Typography
@@ -462,8 +468,73 @@ export const Homepage = (props) => {
                     <img width="75" height="75" src={data.icon} alt="icon" />
                   </Grid>
                 </Grid>
-                {/* {data.data}
-                {data.dataAPI} */}
+              </Paper>
+              <Paper
+                style={{
+                  minHeight: 100,
+                  padding: 30,
+                }}
+                variant="outlined"
+                square
+                sx={{
+                  // top: "auto",
+                  // bottom: 0,
+                  display: {
+                    xs: "block",
+                    sm: "block",
+                    md: "none",
+                    lg: "block",
+                    xl: "block",
+                  },
+                }}
+              >
+                <Grid container>
+                  <Typography
+                    variant="h5"
+                    color="initial"
+                    style={{ marginBottom: 8, fontSize: 28, color: data.color }}
+                  >
+                    {data.data}
+                  </Typography>
+                  <Grid
+                    item
+                    xs={8}
+                    sm={8}
+                    md={8}
+                    lg={8}
+                    xl={8}
+                    style={{ flexGrow: 1 }}
+                  >
+                    <Typography
+                      variant="h5"
+                      color="initial"
+                      style={{ marginBottom: 5, fontSize: 20 }}
+                    >
+                      New Case : {data.new}
+                    </Typography>
+                    <Typography variant="subtitle1" color="initial">
+                      Total Case : {data.total}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      // color="initial"
+                      style={{ paddingTop: 8, color: "grey" }}
+                    >
+                      Date :{props.mainDailyData.txn_date}
+                    </Typography>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={4}
+                    sm={4}
+                    md={4}
+                    lg={4}
+                    xl={4}
+                    style={{ textAlign: "center" }}
+                  >
+                    <img width="75" height="75" src={data.icon} alt="icon" />
+                  </Grid>
+                </Grid>
               </Paper>
               <Divider style={{ backgroundColor: data.color, padding: 2 }} />
             </Grid>
