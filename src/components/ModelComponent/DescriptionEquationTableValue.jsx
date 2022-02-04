@@ -51,70 +51,93 @@ const equationCovid = [
   {
     name: "rho",
     symbol: <span>&rho;</span>,
-    meaningEN: "Total Population",
-    meaningTH: "ประชากรทั้งหมด",
+    value: "66,186,727",
+    reference:
+      "ราชกิจจานุเบกษา เรื่อง จำนวนราษฎรทั่วราชอาณาจักร ตามหลักฐานการทะเบียนราษฎร ปี 2563",
   },
   {
     name: "eta",
     symbol: <span>&eta;</span>,
-    meaningEN: "The recurrent infections rate for who was recovery",
-    meaningTH: "อัตราการติดซ้้าของผู้ที่หายจากการติดเชื้อ",
+    value: "0.09 - 0.21",
+    reference:
+      "Recurrent COVID-19 infection in a health care worker : a case report",
   },
 
   {
     name: "beta",
     symbol: <span>&beta;</span>,
-    meaningEN: "The effective contact rate",
-    meaningTH: "ประสิทธิภาพในการแพร่เชื้อโรคระหว่างบุคคล",
+    value: "2.27",
+    reference:
+      "https://scii.chula.ac.th/blog/thailand-tops-the-world-in-covid-reproduction-rate/",
   },
   {
     name: "omega",
     symbol: <span>&omega; </span>,
-    meaningEN: "The performance of vaccination rate",
-    meaningTH: "ก้าลังในการฉีดวัคซีน",
+    value: (
+      <span>
+        &omega;<sub>1</sub> = 0.004, &omega;<sub>2</sub> = 0.001, &omega;
+        <sub>3</sub> = 0.0001
+      </span>
+    ),
+    reference:
+      "ความก้าวหน้าในการฉีดวัคซีนเฉลี่ยตั้งแต่วันที่ 1 กรกฎาคม 2564 ถึง 31 สิงหาคม 2564",
   },
   {
     name: "epsilon",
     symbol: <span>&epsilon;</span>,
-    meaningEN: "The effective of covid-19 vaccine rate",
-    meaningTH: "ประสิทธิภาพของวัคซีน",
+    value: (
+      <div>
+        <div>Pf(1) = 0.52 / Pf(2) = 0.92 / Pf(3)=N/A</div>
+        <div>AZ(1)=0.641 / AZ(2) = 0.704 / AZ(3) =N/A</div>
+        <div>Coronavac (1) =N/A / Coronavac(2)= 0.504 / Coronavac (3) =N/A</div>
+        <div>Sinopharm (1) =N/A / Sinopharm (2)= 0.79 / Sinopharm (3) =N/A</div>
+      </div>
+    ),
+    reference: "ประสิทธิภาพของวัคซีน",
   },
   {
     name: "alpha",
     symbol: <span>&alpha;</span>,
-    meaningEN: "The hospital rate for infected",
-    meaningTH: "อัตราการเข้าโรงพยาบาลของผู้ติดเชื้อ",
+    value: "0.2",
+    reference:
+      "A Mathematical Model of COVID-19 Pandemic: A Case Study of Bangkok, Thailand",
   },
   {
     name: "lambda",
     symbol: <span>&lambda;</span>,
-    meaningEN: "The recovery rate of infected",
-    meaningTH: "อัตราการหายป่วยจากการติดเชื้อ",
+    value: "0.1",
+    reference:
+      "A Mathematical Model of COVID-19 Pandemic: A Case Study of Bangkok, Thailand",
   },
   {
     name: "zeta",
     symbol: <span>&zeta;</span>,
-    meaningEN:
-      "The COVID-19 disease mortality rate for individuals in the infectious",
-    meaningTH: "อัตราการที่ผู้ป่วยติดเชื้อจะเสียชีวิต",
+    value: "0.015",
+    reference:
+      "A Mathematical Model of COVID-19 Pandemic: A Case Study of Bangkok, Thailand",
   },
   {
     name: "mu",
     symbol: <span>&mu;</span>,
-    meaningEN: "The natural death rate of all individuals",
-    meaningTH: "อัตราการตายโดยธรรมชาติ",
+    value: (
+      <span>
+        3.6529 x 10<sup>-5</sup>
+      </span>
+    ),
+    reference:
+      "A Mathematical Model of COVID-19 Pandemic: A Case Study of Bangkok, Thailand",
   },
 ];
 
-export const DescriptionEquationTable = (props) => {
+export const DescriptionEquationTableValue = (props) => {
   return (
     <TableContainer style={{ marginTop: "4%" }}>
       <Table aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell align="center">Symbol</StyledTableCell>
-            <StyledTableCell align="center">Meaning(English)</StyledTableCell>
-            <StyledTableCell align="center">Meaning(Thai)</StyledTableCell>
+            <StyledTableCell align="center">Value</StyledTableCell>
+            <StyledTableCell align="center">Refereces</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -123,8 +146,8 @@ export const DescriptionEquationTable = (props) => {
               <StyledTableCell scope="row" align="center">
                 {row.symbol}
               </StyledTableCell>
-              <StyledTableCell>{row.meaningEN}</StyledTableCell>
-              <StyledTableCell component="th">{row.meaningTH}</StyledTableCell>
+              <StyledTableCell>{row.value}</StyledTableCell>
+              <StyledTableCell component="th">{row.reference}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
@@ -140,4 +163,4 @@ const mapDispatchToProps = {};
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DescriptionEquationTable);
+)(DescriptionEquationTableValue);

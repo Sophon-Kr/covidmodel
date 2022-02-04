@@ -3,6 +3,15 @@ import { connect } from "react-redux";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+//import IconButton from "@mui/material/IconButton";
+
+import { NavLink } from "react-router-dom";
+import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
+import Fab from "@mui/material/Fab";
+import UpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { useLayoutEffect } from "react";
+
 // import Typography from "@mui/material/Typography";
 // import MainGraph from "../components/Graph/MainGraph";
 // import Grid from "@mui/material/Grid";
@@ -15,7 +24,8 @@ import DescriptionPicRight from "../components/ModelComponent/DescriptionPicRigh
 import DescriptionPicCenter from "../components/ModelComponent/DescriptionPicCenter";
 import DescriptionEquation from "../components/ModelComponent/DescriptionEquation";
 import DescriptionEquationTable from "../components/ModelComponent/DescriptionEquationTable";
-import ExampleFlow from "../components/ModelComponent/ExampleFlow";
+import DescriptionEquationTableValue from "../components/ModelComponent/DescriptionEquationTableValue";
+//import ExampleFlow from "../components/ModelComponent/ExampleFlow";
 
 import S from "../assets/S.png";
 import V1 from "../assets/V1.png";
@@ -140,11 +150,23 @@ const modelDisplay = [
 ];
 
 export const Modelpage = (props) => {
+  const ScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
   return (
-    <Container maxWidth="xxl" style={{ marginTop: 60, marginBottom: 35 }}>
+    <Container
+      maxWidth="xxl"
+      style={{
+        marginTop: 60,
+        marginBottom: 35,
+      }}
+    >
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
-       
           style={{
             //minHeight: 700,
             padding: "4%",
@@ -155,7 +177,6 @@ export const Modelpage = (props) => {
           }}
           variant="outlined"
           square
-          
         >
           {/* <img src={ModelBackground} alt="" /> */}
           <Why />
@@ -213,9 +234,46 @@ export const Modelpage = (props) => {
 
           <DescriptionEquation />
           <DescriptionEquationTable />
+          <DescriptionEquationTableValue />
           {/* <ExampleFlow /> */}
+          <div align="center">
+            <NavLink
+              to="/graphpage"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<AutoGraphRoundedIcon />}
+                maxWidth
+                style={{
+                  backgroundColor: "#AED6F1",
+                  color: "black",
+                  padding: "13px",
+                  marginTop: "3%",
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "600",
+                }}
+              >
+                Go to Graph Page
+              </Button>
+            </NavLink>
+          </div>
         </Paper>
       </Container>
+      <Fab
+        onClick={ScrollToTop}
+        size="large"
+        sx={{
+          position: "fixed",
+          bottom: 20,
+          top: "auto",
+          right: 20,
+        }}
+        style={{ color: "black", backgroundColor: "#AED6F1" }}
+      >
+        <UpIcon />
+      </Fab>
     </Container>
   );
 };

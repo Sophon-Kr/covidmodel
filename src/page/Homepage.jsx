@@ -397,6 +397,9 @@ export const Homepage = (props) => {
   //   console.log("dateAfterFilter", dateAfterFilter);
   //   return dateAfterFilter;
   // };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container maxWidth="xxl" style={{ marginTop: 65 }}>
