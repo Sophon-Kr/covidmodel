@@ -14,6 +14,7 @@ import DescriptionPicLeft from "../components/ModelComponent/DescriptionPicLeft"
 import DescriptionPicRight from "../components/ModelComponent/DescriptionPicRight";
 import DescriptionPicCenter from "../components/ModelComponent/DescriptionPicCenter";
 import DescriptionEquation from "../components/ModelComponent/DescriptionEquation";
+import DescriptionEquationTable from "../components/ModelComponent/DescriptionEquationTable";
 import ExampleFlow from "../components/ModelComponent/ExampleFlow";
 
 import S from "../assets/S.png";
@@ -140,7 +141,7 @@ const modelDisplay = [
 
 export const Modelpage = (props) => {
   return (
-    <Container maxWidth="xxl" style={{ marginTop: 75, marginBottom: 35 }}>
+    <Container maxWidth="xxl" style={{ marginTop: 60, marginBottom: 35 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
           style={{
@@ -209,7 +210,8 @@ export const Modelpage = (props) => {
           </Box>
 
           <DescriptionEquation />
-          <ExampleFlow />
+          <DescriptionEquationTable />
+          {/* <ExampleFlow /> */}
         </Paper>
       </Container>
     </Container>

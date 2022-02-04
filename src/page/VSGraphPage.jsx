@@ -487,7 +487,7 @@ export const VSGraphPage = (props) => {
   }, [props.maindateEndMain, props.maindateStartMain]);
 
   return (
-    <Container maxWidth="xxl" style={{ marginTop: 105 }}>
+    <Container maxWidth="xxl" style={{ marginTop: 95 }}>
       {/* <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
       
       </Container> */}

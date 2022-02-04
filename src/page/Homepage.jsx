@@ -399,7 +399,7 @@ export const Homepage = (props) => {
   // };
 
   return (
-    <Container maxWidth="xxl" style={{ marginTop: 75 }}>
+    <Container maxWidth="xxl" style={{ marginTop: 65 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Grid container justifyContent="center" spacing={3}>
           {/* <Button onClick={() => filterRangeByDate(props.mainModelDataDay)}>

@@ -203,7 +203,7 @@ export const Navbar = (props) => {
           style={{
             backgroundColor: "#AED6F1",
             color: "#F9F9F9",
-            minHeight: 70,
+           // minHeight: 20,
           }}
         >
           <Grid

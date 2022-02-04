@@ -14,7 +14,7 @@ import ContactBackground from "../assets/BG1.png";
 
 export const Contactpage = (props) => {
   return (
-    <Container maxWidth="xxl" style={{ marginTop: 75, marginBottom: 35 }}>
+    <Container maxWidth="xxl" style={{ marginTop: 65, marginBottom: 35 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
           style={{
