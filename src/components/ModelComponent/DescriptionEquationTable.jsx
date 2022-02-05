@@ -1,14 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-//import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
+import { tableCellClasses } from "@mui/material/TableCell";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-// import Paper from "@mui/material/Paper";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -16,12 +15,12 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     color: "black",
     fontFamily: "IBM Plex Sans Thai Looped",
     fontWeight: "600",
-    fontSize: "18px",
+    fontSize: "1.4vw",
   },
   [`&.${tableCellClasses.body}`]: {
     fontFamily: "IBM Plex Sans Thai Looped",
     fontWeight: "400",
-    fontSize: "18px",
+    fontSize: "1.4vw",
   },
 }));
 
@@ -34,18 +33,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-
-// function createData(name, calories, fat, carbs, protein) {
-//   return { name, calories, fat, carbs, protein };
-// }
-
-// const rows = [
-//   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-//   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-//   createData("Eclair", 262, 16.0, 24, 6.0),
-//   createData("Cupcake", 305, 3.7, 67, 4.3),
-//   createData("Gingerbread", 356, 16.0, 49, 3.9),
-// ];
 
 const equationCovid = [
   {
@@ -71,7 +58,7 @@ const equationCovid = [
     name: "omega",
     symbol: <span>&omega; </span>,
     meaningEN: "The performance of vaccination rate",
-    meaningTH: "ก้าลังในการฉีดวัคซีน",
+    meaningTH: "กำลังในการฉีดวัคซีน",
   },
   {
     name: "epsilon",

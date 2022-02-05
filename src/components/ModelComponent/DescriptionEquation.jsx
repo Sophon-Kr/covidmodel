@@ -118,10 +118,7 @@ export const DescriptionEquation = (props) => {
           lg={12}
           xl={12}
           style={{
-            // backgroundColor: "lightgrey",
-           // minHeight: 500,
             marginLeft: 50,
-            
           }}
         >
           <div
@@ -141,7 +138,6 @@ export const DescriptionEquation = (props) => {
                 fontFamily: "IBM Plex Sans Thai Looped",
                 fontWeight: "400",
                 fontSize: "2vw",
-                //paddingLeft: 40,
               }}
             >
               {data.equation}

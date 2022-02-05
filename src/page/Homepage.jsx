@@ -844,7 +844,7 @@ export const Homepage = (props) => {
           {typeData === "model" ? (
             <Divider style={{ marginTop: 20, marginBottom: 20 }} />
           ) : null}
-          {typeData === "model" ? (
+          {/* {typeData === "model" ? (
             <Grid container>
               Note**
               {dataconfig.map((item) => (
@@ -863,7 +863,7 @@ export const Homepage = (props) => {
                 </Grid>
               ))}
             </Grid>
-          ) : null}
+          ) : null} */}
         </DialogContent>
         <DialogActions>
           {/* <Grid item style={{ flexGrow: 1 }}>
