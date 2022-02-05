@@ -26,7 +26,6 @@ import TextField from "@mui/material/TextField";
 import TableModel from "../components/Table/TableModel";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import covid from "../assets/icons8-covid-19-64.png";
 import lung from "../assets/icons8-infected-lungs-64.png";
 import flight from "../assets/icons8-no-flight-64.png";
@@ -554,7 +553,13 @@ export const Homepage = (props) => {
               marginBottom: 35,
             }}
           >
-            <Grid container spacing={3}>
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-end"
+              alignItems="center"
+              spacing={3}
+            >
               <Grid item style={{ flexGrow: 1, paddingLeft: 35 }}>
                 <Typography variant="h5" color="initial">
                   COVID-19 Graph
@@ -841,9 +846,9 @@ export const Homepage = (props) => {
               </Grid>
             </Grid>
           ) : null}
-          {typeData === "model" ? (
+          {/* {typeData === "model" ? (
             <Divider style={{ marginTop: 20, marginBottom: 20 }} />
-          ) : null}
+          ) : null} */}
           {/* {typeData === "model" ? (
             <Grid container>
               Note**

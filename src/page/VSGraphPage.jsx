@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import MenuItem from "@mui/material/MenuItem";
 import MainGraph from "../components/Graph/MainGraph";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
@@ -11,11 +12,9 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
-// import IconButton from "@mui/material/IconButton";
-// import CloseIcon from "@mui/icons-material/Close";
+
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
-// import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
@@ -24,222 +23,14 @@ import DateRangeIcon from "@mui/icons-material/DateRange";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FullscreenRoundedIcon from "@mui/icons-material/FullscreenRounded";
-// import { bindActionCreators } from "redux";
 import Slide from "@mui/material/Slide";
 import MainGraphFull from "../components/Graph/MainGraphFull";
-// import VSGraph from "../components/Graph/VSGraph";
 import TextField from "@mui/material/TextField";
-// import TableModel from "../components/Table/TableModel";
 import TableVS from "../components/Table/TableVS";
 import VSGraph from "../components/Graph/VSGraph";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
-// import { getdailyData } from "../services/dailyData.service";
-// import {
-//   getRawDataMonth,
-//   getIndividualProfile,
-// } from "../services/rawData.service";
-
-// const { store } = useContext(ReactReduxContext);
-
-//
-
-// const dataconfig = {
-//   zeta: 0.015,
-//   eta: 0.09,
-//   omega1: 0.04,
-//   omega2: 0.001,
-//   epsilon1: 0.641,
-//   epsilon2: 0.704,
-//   mu: 3.6529e-5,
-//   alpha: 0.2,
-//   lambda: 0.1,
-//   beta: 0.5,
-// };
-
-// const data = [
-//   {
-//     name: "January",
-//     year:"2021",
-//     "Susceptible(Real-Data)": 66162931,
-//     "Susceptible(Model-Data)" : 0,
-//     Vaccines1(Real-Data): 0,
-//     Vaccines1(Model-Data): 0,
-//     Vaccines2(Real-Data): 0,
-//     Vaccines2(Model-Data): 0,
-//     Infection(Real-Data): 11898,
-//     Infection(Model-Data): 0,
-//     Recovery(Real-Data): 7375,
-//     Recovery(Model-Data): 0,
-//     Hospitalize(Real-Data): 4507,
-//     Hospitalize(Model-Data): 0,
-//     Death(Real-Data): 16,
-//     Death(Model-Data): 0
-//   },
-//   {
-//     name: "February",
-//     year:"2021",
-//     "Susceptible(Real-Data)": 66172389,
-//     "Susceptible(Model-Data)" :0 ,
-//     Vaccines1(Real-Data): 0,
-//     Vaccines1(Model-Data): 0,
-//     Vaccines2(Real-Data): 0,
-//     Vaccines2(Model-Data): 0,
-//     Infection(Real-Data): 7169,
-//     Infection(Model-Data): 0,
-//     Recovery(Real-Data): 13513,
-//     Recovery(Model-Data): 0,
-//     Hospitalize(Real-Data): -6350,
-//     Hospitalize(Model-Data):0,
-//     Death(Real-Data): 6,
-//     Death(Model-Data): 0
-//   },
-//   {
-//     name: "March",
-//     year: "2021" ,
-//     "Susceptible(Real-Data)": 66022406,
-//     "Susceptible(Model-Data)" : 0,
-//     Vaccines1(Real-Data): 158497,
-//     Vaccines1(Model-Data): 0,
-//     Vaccines2(Real-Data): 33248,
-//     Vaccines2(Model-Data): 0,
-//     Infection(Real-Data): 2912,
-//     Infection(Model-Data):0 ,
-//     Recovery(Real-Data): 2298,
-//     Recovery(Model-Data):0 ,
-//     Hospitalize(Real-Data): 603,
-//     Hospitalize(Model-Data):0,
-//     Death(Real-Data): 11,
-//     Death(Model-Data):0
-//   },
-//   {
-//     name: "April",
-//     year: "2021" ,
-//     "Susceptible(Real-Data)": 65177414,
-//     "Susceptible(Model-Data)" :0 ,
-//     Vaccines1(Real-Data): 936733,
-//     Vaccines1(Model-Data): 0,
-//     Vaccines2(Real-Data): 348600,
-//     Vaccines2(Model-Data): 0,
-//     Infection(Real-Data): 36290,
-//     Infection(Model-Data): 0,
-//     Recovery(Real-Data): 8828,
-//     Recovery(Model-Data): 0,
-//     Hospitalize(Real-Data): 27353,
-//     Hospitalize(Model-Data):0,
-//     Death(Real-Data): 109,
-//     Death(Model-Data):0
-//   },
-//   {
-//     name: "May",
-//     year: "2021" ,
-//     "Susceptible(Real-Data)": 64553188,
-//     "Susceptible(Model-Data)" : 0,
-//     Vaccines1(Real-Data): 1444261,
-//     Vaccines1(Model-Data): 0,
-//     Vaccines2(Real-Data): 743520,
-//     Vaccines2(Model-Data): 0,
-//     Infection(Real-Data): 94639,
-//     Infection(Model-Data): 0,
-//     Recovery(Real-Data): 72091,
-//     Recovery(Model-Data): 0,
-//     Hospitalize(Real-Data): 21720,
-//     Hospitalize(Model-Data):0,
-//     Death(Real-Data): 828,
-//     Death(Model-Data):0
-//   },
-//   {
-//     name: "June",
-//     year: "2021" ,
-//     "Susceptible(Real-Data)": 61416343,
-//     "Susceptible(Model-Data)" : 0,
-//     Vaccines1(Real-Data): 4571363,
-//     Vaccines1(Model-Data): 0,
-//     Vaccines2(Real-Data): 1691476,
-//     Vaccines2(Model-Data): 0,
-//     Infection(Real-Data): 99509,
-//     Infection(Model-Data): 0,
-//     Recovery(Real-Data): 99134,
-//     Recovery(Model-Data): 0,
-//     Hospitalize(Real-Data): -614,
-//     Hospitalize(Model-Data):0,
-//     Death(Real-Data): 992,
-//     Death(Model-Data):0
-//   },
-//   {
-//     name: "July",
-//     year: "2021" ,
-//     "Susceptible(Real-Data)": 58818693,
-//     "Susceptible(Model-Data)" :0 ,
-//     Vaccines1(Real-Data): 6692062,
-//     Vaccines1(Model-Data): 0,
-//     Vaccines2(Real-Data): 1066214,
-//     Vaccines2(Model-Data): 0,
-//     Infection(Real-Data): 337986,
-//     Infection(Model-Data): 0,
-//     Recovery(Real-Data): 184441,
-//     Recovery(Model-Data): 0,
-//     Hospitalize(Real-Data): 150711,
-//     Hospitalize(Model-Data):0,
-//     Death(Real-Data): 2834,
-//     Death(Model-Data):0
-//   },
-//   {
-//     name: "August",
-//     year: "2021" ,
-//     "Susceptible(Real-Data)": 54962377,
-//     "Susceptible(Model-Data)" : 0,
-//     Vaccines1(Real-Data): 10009247,
-//     Vaccines1(Model-Data): 0,
-//     Vaccines2(Real-Data): 4326504,
-//     Vaccines2(Model-Data): 0,
-//     Infection(Real-Data): 607442,
-//     Infection(Model-Data): 0,
-//     Recovery(Real-Data): 630071,
-//     Recovery(Model-Data):0 ,
-//     Hospitalize(Real-Data): -29142,
-//     Hospitalize(Model-Data):0,
-//     Death(Real-Data): 6732,
-//     Death(Model-Data):0
-//   },
-//   {
-//     name: "September",
-//     year: "2021" ,
-//     "Susceptible(Real-Data)": 56578527,
-//     "Susceptible(Model-Data)" : 56168488.867,
-//     Vaccines1(Real-Data): 8810927,
-//     Vaccines1(Model-Data): 9139212,
-//     Vaccines2(Real-Data): 11722126,
-//     Vaccines2(Model-Data): 11937355,
-//     Infection(Real-Data): 398746,
-//     Infection(Model-Data): 405564.8 ,
-//     Recovery(Real-Data): 448682,
-//     Recovery(Model-Data): 475536.2,
-//     Hospitalize(Real-Data): -55293,
-//     Hospitalize(Model-Data): -54660.2,
-//     Death(Real-Data): 5138,
-//     Death(Model-Data):52585.333
-//   },
-//   {
-//     name: "October",
-//     year: "2021" ,
-//     "Susceptible(Real-Data)": 55801205,
-//     "Susceptible(Model-Data)" : 55986031.291,
-//     Vaccines1(Real-Data): 9768424,
-//     Vaccines1(Model-Data): 9625499,
-//     Vaccines2(Real-Data): 11045684,
-//     Vaccines2(Model-Data): 10753419,
-//     Infection(Real-Data): 308549,
-//     Infection(Model-Data): 297205.9,
-//     Recovery(Real-Data): 321455,
-//     Recovery(Model-Data): 289291.7,
-//     Hospitalize(Real-Data): -15384,
-//     Hospitalize(Model-Data): -13898.9,
-//     Death(Real-Data): 2478,
-//     Death(Model-Data): 2598.009
-//   },
-// ];
 
 const dataconfig = [
   {
@@ -410,6 +201,37 @@ export const VSGraphPage = (props) => {
     },
   ];
 
+  const nodeDataComparison = [
+    {
+      value: "S",
+      label: "Susceptible",
+    },
+    {
+      value: "V1",
+      label: "Vaccines1",
+    },
+    {
+      value: "V2",
+      label: "Vaccines2",
+    },
+    {
+      value: "I",
+      label: "Infected",
+    },
+    {
+      value: "R",
+      label: "Recovery",
+    },
+    {
+      value: "H",
+      label: "Hospital",
+    },
+    {
+      value: "D",
+      label: "Death",
+    },
+  ];
+
   const handleDialogOpen = () => {
     setDialogStatus(true);
   };
@@ -432,7 +254,6 @@ export const VSGraphPage = (props) => {
   };
 
   const handleTypeData = async (event, newTypedata) => {
-    // console.log(newTypedata);
     setTypeData(newTypedata);
     handleDataType(newTypedata);
   };
@@ -450,13 +271,6 @@ export const VSGraphPage = (props) => {
     console.log(newStatus);
     props.configGraphDisplay(newStatus);
     handleDialogClose();
-    // console.log("SStatus :", SStatus);
-    // console.log("V1Status :", V1Status);
-    // console.log("V2Status :", V2Status);
-    // console.log("IStatus :", IStatus);
-    // console.log("RStatus :", RStatus);
-    // console.log("HStatus :", HStatus);
-    // console.log("DStatus :", DStatus);
   };
 
   // const handleFullGraphOpen = () => {
@@ -485,6 +299,12 @@ export const VSGraphPage = (props) => {
     setDateStart(props.maindateStartMain);
     setDateEnd(props.maindateEndMain);
   }, [props.maindateEndMain, props.maindateStartMain]);
+
+  const [nodeData, setNodeData] = React.useState("S");
+
+  const handleNodeData = (event) => {
+    setNodeData(event.target.value);
+  };
 
   return (
     <Container maxWidth="xxl" style={{ marginTop: 95 }}>
@@ -561,21 +381,19 @@ export const VSGraphPage = (props) => {
               </LocalizationProvider>
 
               <Grid item>
-                <ToggleButtonGroup
+                <TextField
+                  select
+                  label="Comparison node"
                   size="small"
-                  color="error"
-                  value={VS}
-                  exclusive
-                  onChange={handleVS}
+                  value={nodeData}
+                  onChange={handleNodeData}
                 >
-                  <ToggleButton value="S">&nbsp;Susceptible&nbsp;</ToggleButton>
-                  <ToggleButton value="V1">&nbsp;Vaccines1&nbsp;</ToggleButton>
-                  <ToggleButton value="V2">&nbsp;Vaccines2&nbsp;</ToggleButton>
-                  <ToggleButton value="I">&nbsp;Infected&nbsp;</ToggleButton>
-                  <ToggleButton value="R">&nbsp;Recovery&nbsp;</ToggleButton>
-                  <ToggleButton value="H">&nbsp;Hospital&nbsp;</ToggleButton>
-                  <ToggleButton value="D">&nbsp;Death&nbsp;</ToggleButton>
-                </ToggleButtonGroup>
+                  {nodeDataComparison.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
               </Grid>
 
               <Grid item>

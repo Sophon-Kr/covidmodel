@@ -154,15 +154,11 @@ class MainGraph extends PureComponent {
           <LineChart
             width={500}
             height={300}
-            // data={this.props.mainTempData}
             data={
               this.props.mainperiod == "day"
                 ? this.filterRangeByDate(this.props.mainTempData)
                 : this.monthFilter(this.props.mainTempData)
-              // ? this.filterRangeByDate(this.state.covidData)
-              // : this.monthFilter(this.state.covidData)
             }
-            // data={this.filterRangeByDate(this.state.data)}
             margin={{
               top: 5,
               right: 30,
