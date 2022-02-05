@@ -104,11 +104,11 @@ export const ContactForm = (props) => {
         direction="row"
         justifyContent="space-around"
         alignItems="center"
-        // style={{ backgroundColor: "lightyellow" }}
       >
         <Grid
           item
           xs={4}
+          sm={4}
           md={4}
           lg={4}
           xl={4}
@@ -132,6 +132,7 @@ export const ContactForm = (props) => {
         <Grid
           item
           xs={4}
+          sm={4}
           md={4}
           lg={4}
           xl={4}
@@ -140,9 +141,9 @@ export const ContactForm = (props) => {
           }}
           sx={{
             display: {
-              xs: "block",
-              sm: "block",
-              md: "block",
+              xs: "none",
+              sm: "none",
+              md: "none",
               lg: "none",
               xl: "none",
             },
@@ -152,8 +153,9 @@ export const ContactForm = (props) => {
         </Grid>
         <Grid
           item
-          xs={7}
-          md={7}
+          xs={12}
+          sm={12}
+          md={12}
           lg={7}
           xl={7}
           style={{
@@ -196,7 +198,7 @@ export const ContactForm = (props) => {
                 Your Email
               </Typography>
             </Grid>
-            <Grid xs={9} md={9} lg={9} xl={9}>
+            <Grid xs={12} sm={12} md={9} lg={9} xl={9}>
               <TextField
                 variant="outlined"
                 label="Your Email"
@@ -225,7 +227,7 @@ export const ContactForm = (props) => {
                 Subject
               </Typography>
             </Grid>
-            <Grid xs={9} md={9} lg={9} xl={9}>
+            <Grid xs={12} sm={12} md={9} lg={9} xl={9}>
               <TextField
                 variant="outlined"
                 label="Subject"
@@ -254,7 +256,7 @@ export const ContactForm = (props) => {
                 Details
               </Typography>
             </Grid>
-            <Grid xs={9} md={9} lg={9} xl={9}>
+            <Grid xs={12} sm={12} md={9} lg={9} xl={9}>
               <TextField
                 variant="outlined"
                 label="Details"
@@ -268,41 +270,49 @@ export const ContactForm = (props) => {
           </Grid>
           <Grid
             container
-            justifyContent="space-between"
+            justifyContent="center"
             alignItems="center"
             style={{ marginTop: 30 }}
           >
-            <Grid></Grid>
-            <Grid xs={9} md={9} lg={9} xl={9}>
-              <Grid container justifyContent="space-evenly" alignItems="center">
-                <Button
-                  variant="contained"
-                  startIcon={<ClearRoundedIcon />}
-                  size="large"
-                  style={{
-                    backgroundColor: "#ADE2FD",
-                    color: "black",
-                    fontFamily: "IBM Plex Sans Thai Looped",
-                    fontWeight: "600",
-                  }}
-                  onClick={handleClear}
-                >
-                  Clear
-                </Button>
-                <Button
-                  variant="contained"
-                  startIcon={<SendRoundedIcon />}
-                  size="large"
-                  style={{
-                    backgroundColor: "#0157A2",
-                    fontFamily: "IBM Plex Sans Thai Looped",
-                    fontWeight: "600",
-                  }}
-                  onClick={handleSendMail}
-                >
-                  Send
-                </Button>
-              </Grid>
+            <Grid
+              xs={12}
+              sm={12}
+              md={9}
+              lg={9}
+              xl={9}
+              container
+              justifyContent="space-around"
+              alignItems="center"
+            >
+              <Button
+                variant="contained"
+                startIcon={<ClearRoundedIcon />}
+                size="large"
+                style={{
+                  backgroundColor: "#ADE2FD",
+                  color: "black",
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "600",
+                  marginTop: 20,
+                }}
+                onClick={handleClear}
+              >
+                Clear
+              </Button>
+              <Button
+                variant="contained"
+                startIcon={<SendRoundedIcon />}
+                size="large"
+                style={{
+                  backgroundColor: "#0157A2",
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "600",
+                  marginTop: 20,
+                }}
+                onClick={handleSendMail}
+              >
+                Send
+              </Button>
             </Grid>
           </Grid>
         </Grid>
