@@ -260,19 +260,6 @@ export const Modelpage = (props) => {
           </div>
         </Paper>
       </Container>
-      {/* <Fab
-        onClick={ScrollToTop}
-        size="large"
-        sx={{
-          position: "fixed",
-          bottom: 20,
-          top: "auto",
-          right: 20,
-        }}
-        style={{ color: "black", backgroundColor: "#AED6F1" }}
-      >
-        <UpIcon />
-      </Fab> */}
     </Container>
   );
 };

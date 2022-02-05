@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import AdvisorProfile from "../../assets/user-computer-icons-anonymity-png-favpng-Ps1EmXsrUx17SLTQrTeDg1FN5.jpg";
-import Typography from "@mui/material/Typography";
+//import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 const coAdviser = [
   {
@@ -35,7 +36,7 @@ export const CoAdviser = (props) => {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            style={{ marginBottom: 50 }}
+            style={{ marginBottom: "5%", marginTop: "5%" }}
           >
             <Avatar
               alt="Remy Sharp"
@@ -49,15 +50,48 @@ export const CoAdviser = (props) => {
             justifyContent="center"
             alignItems="center"
           >
-            <div
-              style={{
-                fontSize: "2vw",
-                fontFamily: "IBM Plex Sans Thai Looped",
-                fontWeight: "400",
+            <Box
+              sx={{
+                display: {
+                  xs: "block",
+                  sm: "block",
+                  md: "none",
+                  lg: "none",
+                  xl: "none",
+                },
               }}
             >
-              {CoAdvisorData.name}
-            </div>
+              <div
+                style={{
+                  fontSize: "18px",
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "400",
+                }}
+              >
+                {CoAdvisorData.name}
+              </div>
+            </Box>
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "none",
+                  md: "block",
+                  lg: "block",
+                  xl: "block",
+                },
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "1.75vw",
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "400",
+                }}
+              >
+                {CoAdvisorData.name}
+              </div>
+            </Box>
           </Grid>
           <Grid
             container
@@ -65,15 +99,48 @@ export const CoAdviser = (props) => {
             justifyContent="center"
             alignItems="center"
           >
-            <div
-              style={{
-                fontSize: "1.5vw",
-                fontFamily: "IBM Plex Sans Thai Looped",
-                fontWeight: "400",
+            <Box
+              sx={{
+                display: {
+                  xs: "block",
+                  sm: "block",
+                  md: "none",
+                  lg: "none",
+                  xl: "none",
+                },
               }}
             >
-              {CoAdvisorData.type}
-            </div>
+              <div
+                style={{
+                  fontSize: "16px",
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "400",
+                }}
+              >
+                {CoAdvisorData.type}
+              </div>
+            </Box>
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "none",
+                  md: "block",
+                  lg: "block",
+                  xl: "block",
+                },
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "1.75vw",
+                  fontFamily: "IBM Plex Sans Thai Looped",
+                  fontWeight: "400",
+                }}
+              >
+                {CoAdvisorData.type}
+              </div>
+            </Box>
           </Grid>
         </div>
       ))}
