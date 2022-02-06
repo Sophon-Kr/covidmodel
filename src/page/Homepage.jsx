@@ -583,7 +583,7 @@ export const Homepage = (props) => {
                     <DatePicker
                       autoOk={true}
                       openTo="day"
-                      views={["day", "month", "year"]}
+                      //views={["day", "month", "year"]}
                       label="Start Date"
                       inputFormat="dd/MM/yyyy"
                       value={dateStart}
@@ -601,7 +601,7 @@ export const Homepage = (props) => {
                     <DatePicker
                       autoOk={true}
                       openTo="day"
-                      views={["day", "month", "year"]}
+                      //views={["day", "month", "year"]}
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}
                       label="End Date"
@@ -619,7 +619,7 @@ export const Homepage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      views={["month", "year"]}
+                      //views={["month", "year"]}
                       label="Start Month"
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}
@@ -636,7 +636,7 @@ export const Homepage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      views={["month", "year"]}
+                      //views={["month", "year"]}
                       label="End Month"
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}

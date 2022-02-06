@@ -108,102 +108,102 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export const VSGraphPage = (props) => {
-  const [dailyDataAPI, setdailyDataAPI] = useState([]);
-  const [dialogStatus, setDialogStatus] = useState(false);
+  // const [dailyDataAPI, setdailyDataAPI] = useState([]);
+  // const [dialogStatus, setDialogStatus] = useState(false);
   const [fullGraph, setFullGraph] = useState(false);
   const [period, setPeriod] = React.useState("day");
-  const [VS, setVS] = React.useState(props.mainVS);
-  const [typeData, setTypeData] = React.useState(props.maintypeData);
-  const [SStatus, setSStatus] = React.useState(props.mainSStatus);
-  const [V1Status, setV1Status] = React.useState(props.mainV1Status);
-  const [V2Status, setV2Status] = React.useState(props.mainV2Status);
-  const [IStatus, setIStatus] = React.useState(props.mainIStatus);
-  const [RStatus, setRStatus] = React.useState(props.mainRStatus);
-  const [HStatus, setHStatus] = React.useState(props.mainHStatus);
-  const [DStatus, setDStatus] = React.useState(props.mainDStatus);
+  // const [VS, setVS] = React.useState(props.mainVS);
+  // const [typeData, setTypeData] = React.useState(props.maintypeData);
+  // const [SStatus, setSStatus] = React.useState(props.mainSStatus);
+  // const [V1Status, setV1Status] = React.useState(props.mainV1Status);
+  // const [V2Status, setV2Status] = React.useState(props.mainV2Status);
+  // const [IStatus, setIStatus] = React.useState(props.mainIStatus);
+  // const [RStatus, setRStatus] = React.useState(props.mainRStatus);
+  // const [HStatus, setHStatus] = React.useState(props.mainHStatus);
+  // const [DStatus, setDStatus] = React.useState(props.mainDStatus);
   const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
   const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
   const [monthStart, setMonthStart] = React.useState(props.initialMinDate);
   const [monthEnd, setMonthEnd] = React.useState(props.initialMaxDate);
 
-  const setdailyDataTemplate = [
-    {
-      id: 1,
-      data: " Daily Confirmed Cases ",
-      color: "red",
-      dataAPI: dailyDataAPI,
-    },
-    {
-      id: 2,
-      data: " Daily Dathes Cases",
-      color: "grey",
-      dataAPI: dailyDataAPI,
-    },
-    {
-      id: 3,
-      data: " Daily Recovered Cases",
-      color: "green",
-      dataAPI: dailyDataAPI,
-    },
-    {
-      id: 4,
-      data: " Hospital Cases",
-      color: "#ffd600",
-      dataAPI: dailyDataAPI,
-    },
-  ];
+  // const setdailyDataTemplate = [
+  //   {
+  //     id: 1,
+  //     data: " Daily Confirmed Cases ",
+  //     color: "red",
+  //     dataAPI: dailyDataAPI,
+  //   },
+  //   {
+  //     id: 2,
+  //     data: " Daily Dathes Cases",
+  //     color: "grey",
+  //     dataAPI: dailyDataAPI,
+  //   },
+  //   {
+  //     id: 3,
+  //     data: " Daily Recovered Cases",
+  //     color: "green",
+  //     dataAPI: dailyDataAPI,
+  //   },
+  //   {
+  //     id: 4,
+  //     data: " Hospital Cases",
+  //     color: "#ffd600",
+  //     dataAPI: dailyDataAPI,
+  //   },
+  // ];
 
-  const listData = [
-    {
-      id: 1,
-      data: "Susceptible",
-      color: "blue",
-      status: props.mainSStatus,
-      handle: (e) => setSStatus(e.target.checked),
-    },
-    {
-      id: 2,
-      data: "Vaccines1",
-      color: "#ffd600",
-      status: props.mainV1Status,
-      handle: (e) => setV1Status(e.target.checked),
-    },
-    {
-      id: 3,
-      data: "Vaccines2",
-      color: "orange",
-      status: props.mainV2Status,
-      handle: (e) => setV2Status(e.target.checked),
-    },
-    {
-      id: 4,
-      data: "Infected",
-      color: "red",
-      status: props.mainIStatus,
-      handle: (e) => setIStatus(e.target.checked),
-    },
-    {
-      id: 5,
-      data: "Recovery",
-      color: "green",
-      status: props.mainRStatus,
-      handle: (e) => setRStatus(e.target.checked),
-    },
-    {
-      id: 6,
-      data: "Hospital",
-      color: "purple",
-      status: props.mainHStatus,
-      handle: (e) => setHStatus(e.target.checked),
-    },
-    {
-      id: 7,
-      data: "Death",
-      color: "black",
-      status: props.mainDStatus,
-      handle: (e) => setDStatus(e.target.checked),
-    },
-  ];
+  // const listData = [
+  //   {
+  //     id: 1,
+  //     data: "Susceptible",
+  //     color: "blue",
+  //     status: props.mainSStatus,
+  //     handle: (e) => setSStatus(e.target.checked),
+  //   },
+  //   {
+  //     id: 2,
+  //     data: "Vaccines1",
+  //     color: "#ffd600",
+  //     status: props.mainV1Status,
+  //     handle: (e) => setV1Status(e.target.checked),
+  //   },
+  //   {
+  //     id: 3,
+  //     data: "Vaccines2",
+  //     color: "orange",
+  //     status: props.mainV2Status,
+  //     handle: (e) => setV2Status(e.target.checked),
+  //   },
+  //   {
+  //     id: 4,
+  //     data: "Infected",
+  //     color: "red",
+  //     status: props.mainIStatus,
+  //     handle: (e) => setIStatus(e.target.checked),
+  //   },
+  //   {
+  //     id: 5,
+  //     data: "Recovery",
+  //     color: "green",
+  //     status: props.mainRStatus,
+  //     handle: (e) => setRStatus(e.target.checked),
+  //   },
+  //   {
+  //     id: 6,
+  //     data: "Hospital",
+  //     color: "purple",
+  //     status: props.mainHStatus,
+  //     handle: (e) => setHStatus(e.target.checked),
+  //   },
+  //   {
+  //     id: 7,
+  //     data: "Death",
+  //     color: "black",
+  //     status: props.mainDStatus,
+  //     handle: (e) => setDStatus(e.target.checked),
+  //   },
+  // ];
 
   const nodeDataComparison = [
     {
@@ -236,12 +236,12 @@ export const VSGraphPage = (props) => {
     },
   ];
 
-  const handleDialogOpen = () => {
-    setDialogStatus(true);
-  };
-  const handleDialogClose = () => {
-    setDialogStatus(false);
-  };
+  // const handleDialogOpen = () => {
+  //   setDialogStatus(true);
+  // };
+  // const handleDialogClose = () => {
+  //   setDialogStatus(false);
+  // };
 
   const handlePeriod = (event, newPeriod) => {
     console.log(newPeriod);
@@ -253,29 +253,29 @@ export const VSGraphPage = (props) => {
       props.getVSDataMount();
     }
   };
-  const handleVS = (event, newVS) => {
-    setVS(newVS);
-  };
+  // const handleVS = (event, newVS) => {
+  //   setVS(newVS);
+  // };
 
-  const handleTypeData = async (event, newTypedata) => {
-    setTypeData(newTypedata);
-    handleDataType(newTypedata);
-  };
+  // const handleTypeData = async (event, newTypedata) => {
+  //   setTypeData(newTypedata);
+  //   handleDataType(newTypedata);
+  // };
 
-  const handleCheck = () => {
-    const newStatus = {
-      S: SStatus,
-      V1: V1Status,
-      V2: V2Status,
-      I: IStatus,
-      R: RStatus,
-      H: HStatus,
-      D: DStatus,
-    };
-    console.log(newStatus);
-    props.configGraphDisplay(newStatus);
-    handleDialogClose();
-  };
+  // const handleCheck = () => {
+  //   const newStatus = {
+  //     S: SStatus,
+  //     V1: V1Status,
+  //     V2: V2Status,
+  //     I: IStatus,
+  //     R: RStatus,
+  //     H: HStatus,
+  //     D: DStatus,
+  //   };
+  //   console.log(newStatus);
+  //   props.configGraphDisplay(newStatus);
+  //   handleDialogClose();
+  // };
 
   const handleFullGraphOpen = () => {
     setFullGraph(true);
@@ -371,7 +371,7 @@ export const VSGraphPage = (props) => {
                     <DatePicker
                       autoOk={true}
                       openTo="day"
-                      views={["day", "month", "year"]}
+                      //views={["day", "month", "year"]}
                       label="Start Date"
                       inputFormat="dd/MM/yyyy"
                       value={dateStart}
@@ -389,7 +389,7 @@ export const VSGraphPage = (props) => {
                     <DatePicker
                       autoOk={true}
                       openTo="day"
-                      views={["day", "month", "year"]}
+                      //views={["day", "month", "year"]}
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}
                       label="End Date"
@@ -407,7 +407,7 @@ export const VSGraphPage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      views={["month", "year"]}
+                      //views={["month", "year"]}
                       label="Start Month"
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}
@@ -424,7 +424,7 @@ export const VSGraphPage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      views={["month", "year"]}
+                      // views={["month", "year"]}
                       label="End Month"
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}

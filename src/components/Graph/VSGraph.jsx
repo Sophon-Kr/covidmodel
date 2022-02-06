@@ -63,13 +63,13 @@ class VSGraph extends PureComponent {
   };
 
   monthFilter = (dataMonth) => {
-    var startMonth = new Date(this.props.maindateStartMain);
-    var endMonth = new Date(this.props.maindateEndMain);
+    let startMonth = this.props.dateStartMonthMain;
+    let endMonth = this.props.dateEndMonthMain;
+
     var dateAfterFilter = dataMonth.filter((a) => {
       var date = new Date(a.name);
       return date >= startMonth && date <= endMonth;
     });
-
     return dateAfterFilter;
   };
 
@@ -250,7 +250,8 @@ const mapStateToProps = (state) => {
   return {
     maindateStartMain: state.reducer.dateStartMain,
     maindateEndMain: state.reducer.dateEndMain,
-
+    dateStartMonthMain: state.reducer.dateStartMonthMain,
+    dateEndMonthMain: state.reducer.dateEndMonthMain,
     mainVS: state.reducer.VS,
     mainVsData: state.reducer.vsData,
   };
