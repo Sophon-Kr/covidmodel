@@ -98,7 +98,7 @@ const modelDisplay = [
     color: "#3A2C97",
   },
   {
-    name: "Infection I Class : I ",
+    name: "Infection Class : I ",
     text: (
       <div>
         &emsp; &emsp; &emsp; คือ

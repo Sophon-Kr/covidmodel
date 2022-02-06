@@ -179,7 +179,7 @@ class VSGraph extends PureComponent {
             {this.state.mainVS === "I" ? (
               <Line
                 type="monotone"
-                dataKey="RecoveryModelData"
+                dataKey="InfectionModelData"
                 stroke="#ff8a80"
                 strokeWidth={3}
                 activeDot={{ r: 8 }}
