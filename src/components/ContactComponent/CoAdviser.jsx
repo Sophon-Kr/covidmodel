@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import AdvisorProfile from "../../assets/user-computer-icons-anonymity-png-favpng-Ps1EmXsrUx17SLTQrTeDg1FN5.jpg";
-//import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 const coAdviser = [

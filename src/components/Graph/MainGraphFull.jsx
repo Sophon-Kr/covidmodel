@@ -65,24 +65,16 @@ class MainGraphFull extends PureComponent {
       var date = new Date(a.name);
       return date >= startDate && date <= endDate;
     });
-    console.log("dateAfterFilter", dateAfterFilter);
     return dateAfterFilter;
-    // this.setState({ dataFilterd: dateAfterFilter });
   };
 
   monthFilter = (dataMonth) => {
     let startMonth = this.props.dateStartMonthMain;
     let endMonth = this.props.dateEndMonthMain;
-
-    // console.log("startMonth M :", new Date(startMonth));
-    // console.log("endMonth M :", new Date(endMonth));
-
     var dateAfterFilter = dataMonth.filter((a) => {
       var date = new Date(a.name);
-      // console.log("date month", date);
       return date >= startMonth && date <= endMonth;
     });
-    // console.log("dateAfterFilter M :", dateAfterFilter);
     return dateAfterFilter;
   };
 
@@ -92,16 +84,12 @@ class MainGraphFull extends PureComponent {
       this.props.listForRemove.forEach((e) => delete newcoviddata[e]);
     }
     return coviddata;
-    // console.log("newdata : ", coviddata);
   };
 
   componentDidUpdate(prevProps) {
     if (prevProps.mainSStatus !== this.props.mainSStatus) {
-      // const mydata = this.removeProperty(this.state.covidData);
-      // console.log("mydata", mydata);
       this.setState({
         mainSStatus: this.props.mainSStatus,
-        // covidData: mydata,
       });
     }
 
@@ -135,19 +123,9 @@ class MainGraphFull extends PureComponent {
         mainDStatus: this.props.mainDStatus,
       });
     }
-    // if (prevProps.mainTempData !== this.props.mainTempData) {
-    //   // const mydata = this.removeProperty(this.state.covidData);
-    //   // console.log("mydata", mydata);
-    //   this.setState({
-    //     covidData: this.props.mainTempData,
-    //     // covidData: mydata,
-    //   });
-    // }
   }
 
   render() {
-    // const { opacity } = this.state;
-
     return (
       <div style={{ width: "100%" }}>
         <ResponsiveContainer width="100%" height={830}>
@@ -155,7 +133,7 @@ class MainGraphFull extends PureComponent {
             width={500}
             height={300}
             data={
-              this.props.mainperiod == "day"
+              this.props.mainperiod === "day"
                 ? this.filterRangeByDate(this.props.mainTempData)
                 : this.monthFilter(this.props.mainTempData)
             }

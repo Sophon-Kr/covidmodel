@@ -2,10 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import MainGraph from "../components/Graph/MainGraph";
-import Grid from "@mui/material/Grid";
-
 import CoAdviser from "../components/ContactComponent/CoAdviser";
 import Student from "../components/ContactComponent/Student";
 import ContactForm from "../components/ContactComponent/ContactForm";

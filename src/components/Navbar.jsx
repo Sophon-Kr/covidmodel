@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import Darklogo from "../Covid-logo-dark.png";
 import Lightlogo from "../Covid-logo-light.png";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -8,10 +7,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import SortIcon from "@mui/icons-material/Sort";
-import Collapse from "@mui/material/Collapse";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import Grid from "@mui/material/Grid";
@@ -31,10 +26,6 @@ const theme = createTheme({
   },
 });
 export const Navbar = (props) => {
-  const [isMobile, setIsMobile] = useState(false);
-  const handleMenuMobile = () => {
-    setIsMobile(!isMobile);
-  };
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -187,8 +178,6 @@ export const Navbar = (props) => {
         position="fixed"
         color="primary"
         sx={{
-          // top: "auto",
-          // bottom: 0,
           display: {
             xs: "block",
             sm: "none",
@@ -203,7 +192,7 @@ export const Navbar = (props) => {
           style={{
             backgroundColor: "#AED6F1",
             color: "#F9F9F9",
-           // minHeight: 20,
+            // minHeight: 20,
           }}
         >
           <Grid

@@ -20,7 +20,6 @@ export const TableVS = (props) => {
       var date = new Date(a.name);
       return date >= startDate && date <= endDate;
     });
-    // console.log("dateAfterFilter ::", dateAfterFilter);
     return dateAfterFilter;
   };
 
@@ -39,11 +38,9 @@ export const TableVS = (props) => {
     async function fetchData() {
       await setData([]);
       if (props.period === "day") {
-        //console.log("props.mainVsData ;;;;;", props.mainVsData);
         let tempDataTable1 = filterRangeByDate(props.mainVsData);
         await setData(tempDataTable1);
       } else {
-        // console.log("props.mainVsData |||||", props.mainVsData);
         let tempDataTable2 = monthFilter(props.mainVsData);
         await setData(tempDataTable2);
       }
@@ -62,7 +59,6 @@ export const TableVS = (props) => {
   ]);
 
   const findDiffernceValue = (raw, model) => {
-    //console.log("raw, model", raw, model);
     if (raw == 0) {
       let val = 0;
       return val.toFixed(5);

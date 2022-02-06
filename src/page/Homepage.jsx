@@ -106,7 +106,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export const Homepage = (props) => {
-  const [dailyDataAPI, setdailyDataAPI] = useState([]);
   const [dialogStatus, setDialogStatus] = useState(false);
   const [fullGraph, setFullGraph] = useState(false);
   const [period, setPeriod] = React.useState(props.mainperiod);
@@ -235,35 +234,26 @@ export const Homepage = (props) => {
     await props.configPeriodMainData(newPeriod);
   };
 
-  const handleDateTime = (date) => {
-    let dateWithoutTime = date.toISOString();
-    let _dateWithoutTime = dateWithoutTime.split("T");
-    return _dateWithoutTime[0];
-  };
-
   const handleDateStart = (newDate) => {
     // bug day -1
     setDateStart(newDate);
-    // console.log("newDate :: ", newDate);
-    // let newTypeDate = handleDateTime(newDate);
-    // console.log("newTypeDate", newDate, newTypeDate);
+
     props.configDateStartMain(newDate);
   };
 
   const handleDateEnd = (newDate) => {
     setDateEnd(newDate);
-    // let newTypeDate = handleDateTime(newDate);
-    // console.log("newTypeDate", newDate, newTypeDate);
+
     props.configDateEndMain(newDate);
   };
   const handleMonthStart = (newMonth) => {
     setMonthStart(newMonth);
-    console.log("newMonth Start", newMonth);
+
     props.configDateStartMonthMain(newMonth);
   };
   const handleMonthEnd = (newMonth) => {
     setMonthEnd(newMonth);
-    console.log("newMonth End", newMonth);
+
     props.configDateEndMonthMain(newMonth);
   };
 
@@ -282,7 +272,7 @@ export const Homepage = (props) => {
       H: HStatus,
       D: DStatus,
     };
-    console.log(newStatus);
+
     props.configGraphDisplay(newStatus);
     handleDialogClose();
   };
@@ -291,21 +281,15 @@ export const Homepage = (props) => {
     async function fetchDataMonth() {
       if (props.mainperiod === "month" && props.maintypeData === "real") {
         await props.getAllRealDataMount();
-        console.log("month real");
       } else if (props.mainperiod === "day" && props.maintypeData === "real") {
         await props.getAllRealDataDay();
-        console.log("day real");
-        console.log("max/min", props.initialMaxDate);
       } else if (
         props.mainperiod === "month" &&
         props.maintypeData === "model"
       ) {
         await props.getAllModelDataMount();
-        console.log("month model");
       } else if (props.mainperiod === "day" && props.maintypeData === "model") {
         await props.getAllModelDataDay();
-        console.log("day model");
-        console.log("max/min", props.initialMaxDate);
       }
     }
 
@@ -326,70 +310,6 @@ export const Homepage = (props) => {
     setDateEnd(props.maindateEndMain);
   }, [props.maindateEndMain, props.maindateStartMain]);
 
-  // useEffect(() => {
-  //   let listForRemove = [];
-  //   if (props.mainSStatus === false) {
-  //     listForRemove.push("Susceptible");
-  //   }
-  //   if (props.mainV1Status === false) {
-  //     listForRemove.push("Vaccine1");
-  //   }
-  //   if (props.mainV2Status === false) {
-  //     listForRemove.push("Vaccine2");
-  //   }
-  //   if (props.mainIStatus === false) {
-  //     listForRemove.push("Infected");
-  //   }
-  //   if (props.mainRStatus === false) {
-  //     listForRemove.push("Recovery");
-  //   }
-  //   if (props.mainHStatus === false) {
-  //     listForRemove.push("Hospital");
-  //   }
-  //   if (props.mainDStatus === false) {
-  //     listForRemove.push("Deaths");
-  //   }
-  //   console.log("listForRemove", listForRemove);
-  //   props.setListForRemove(listForRemove);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [
-  //   props.mainDStatus,
-  //   props.mainHStatus,
-  //   props.mainIStatus,
-  //   props.mainRStatus,
-  //   props.mainSStatus,
-  //   props.mainV1Status,
-  //   props.mainV2Status,
-  // ]);
-
-  // const monthFilter = (dataMonth) => {
-  //   let startMonth = props.minDateMonth;
-  //   let endMonth = props.maxDateMonth;
-  //   var dateAfterFilter = dataMonth.filter((a) => {
-  //     var date = new Date(a.name);
-  //     return date >= startMonth && date <= endMonth;
-  //   });
-  //   console.log("dateAfterFilter M :", dateAfterFilter);
-  // };
-
-  // useEffect(() => {
-  //   // async function fetchData() {}
-  //   // fetchData();
-  //   // console.log("dailyDataAPI", dailyDataAPI);
-
-  //   monthFilter(dataSV);
-  // }, []);
-
-  // const filterRangeByDate = (data) => {
-  //   var startDate = new Date("2021-02-01");
-  //   var endDate = new Date("2021-02-15");
-  //   var dateAfterFilter = data.filter((a) => {
-  //     var date = new Date(a.name);
-  //     return date >= startDate && date <= endDate;
-  //   });
-  //   console.log("dateAfterFilter", dateAfterFilter);
-  //   return dateAfterFilter;
-  // };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -473,8 +393,6 @@ export const Homepage = (props) => {
                 variant="outlined"
                 square
                 sx={{
-                  // top: "auto",
-                  // bottom: 0,
                   display: {
                     xs: "block",
                     sm: "block",
@@ -513,7 +431,6 @@ export const Homepage = (props) => {
                     </Typography>
                     <Typography
                       variant="body1"
-                      // color="initial"
                       style={{ paddingTop: 8, color: "grey" }}
                     >
                       Date :{props.mainDailyData.txn_date}
@@ -583,13 +500,12 @@ export const Homepage = (props) => {
                     <DatePicker
                       autoOk={true}
                       openTo="day"
-                      //views={["day", "month", "year"]}
+                      views={["day", "month", "year"]}
                       label="Start Date"
                       inputFormat="dd/MM/yyyy"
                       value={dateStart}
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}
-                      // maxDate={new Date("2023-06-01")}
                       onChange={handleDateStart}
                       renderInput={(params) => (
                         <TextField size="small" {...params} />
@@ -601,7 +517,7 @@ export const Homepage = (props) => {
                     <DatePicker
                       autoOk={true}
                       openTo="day"
-                      //views={["day", "month", "year"]}
+                      views={["day", "month", "year"]}
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}
                       label="End Date"
@@ -619,12 +535,10 @@ export const Homepage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      //views={["month", "year"]}
+                      views={["month", "year"]}
                       label="Start Month"
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}
-                      // minDate={props.minDateMonth}
-                      // maxDate={props.maxDateMonth}
                       value={monthStart}
                       onChange={handleMonthStart}
                       renderInput={(params) => (
@@ -636,14 +550,10 @@ export const Homepage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      //views={["month", "year"]}
+                      views={["month", "year"]}
                       label="End Month"
                       minDate={props.initialMinDate}
                       maxDate={props.initialMaxDate}
-                      // minDate={props.minDateMonth}
-                      // maxDate={props.maxDateMonth}
-                      // minDate={new Date("2020-03-01")}
-                      // maxDate={new Date("2022-06-01")}
                       value={monthEnd}
                       onChange={handleMonthEnd}
                       renderInput={(params) => (

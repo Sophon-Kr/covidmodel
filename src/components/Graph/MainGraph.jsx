@@ -65,7 +65,6 @@ class MainGraph extends PureComponent {
       var date = new Date(a.name);
       return date >= startDate && date <= endDate;
     });
-    console.log("dateAfterFilter", dateAfterFilter);
     return dateAfterFilter;
   };
 
@@ -86,16 +85,12 @@ class MainGraph extends PureComponent {
       this.props.listForRemove.forEach((e) => delete newcoviddata[e]);
     }
     return coviddata;
-    // console.log("newdata : ", coviddata);
   };
 
   componentDidUpdate(prevProps) {
     if (prevProps.mainSStatus !== this.props.mainSStatus) {
-      // const mydata = this.removeProperty(this.state.covidData);
-      // console.log("mydata", mydata);
       this.setState({
         mainSStatus: this.props.mainSStatus,
-        // covidData: mydata,
       });
     }
 
@@ -129,19 +124,9 @@ class MainGraph extends PureComponent {
         mainDStatus: this.props.mainDStatus,
       });
     }
-    // if (prevProps.mainTempData !== this.props.mainTempData) {
-    //   // const mydata = this.removeProperty(this.state.covidData);
-    //   // console.log("mydata", mydata);
-    //   this.setState({
-    //     covidData: this.props.mainTempData,
-    //     // covidData: mydata,
-    //   });
-    // }
   }
 
   render() {
-    // const { opacity } = this.state;
-
     return (
       <div style={{ width: "100%" }}>
         <ResponsiveContainer width="100%" height={445}>

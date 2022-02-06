@@ -1,18 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 
 export const Why = (props) => {
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">
       <Grid
         style={{
-          //minHeight: 100,
           fontWeight: "600",
           fontSize: "3vw",
-          marginBottom:20,
-          //marginLeft: 50,
+          marginBottom: 20,
           fontFamily: "IBM Plex Sans Thai Looped",
         }}
       >
@@ -24,14 +21,6 @@ export const Why = (props) => {
         justifyContent="center"
         alignItems="center"
       >
-        {/* <Grid
-          item
-          xs={3}
-          md={3}
-          lg={3}
-          xl={3}
-          style={{ backgroundColor: "lightgreen", minHeight: 350 }}
-        ></Grid> */}
         <Grid
           item
           xs={10}
@@ -39,8 +28,6 @@ export const Why = (props) => {
           lg={10}
           xl={10}
           style={{
-            // minHeight: 350,
-            //marginLeft: 50,
             fontSize: "2vw",
             fontFamily: "IBM Plex Sans Thai Looped",
             fontWeight: "400",

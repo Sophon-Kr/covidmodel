@@ -20,7 +20,6 @@ export const TableModel = (props) => {
       var date = new Date(a.name);
       return date >= startDate && date <= endDate;
     });
-    console.log("dateAfterFilter", dateAfterFilter);
     return dateAfterFilter;
   };
 

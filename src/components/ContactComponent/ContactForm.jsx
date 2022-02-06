@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
-import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -9,7 +8,6 @@ import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 import contactPic from "../../assets/contactPic.png";
-import ContactBackground from "../../assets/BG1.png";
 
 // import EmailUtil from "../../services/sendemail.service";
 // import { getRawDataMonth } from "../../services/rawData.service";
@@ -34,33 +32,26 @@ import ContactBackground from "../../assets/BG1.png";
 export const ContactForm = (props) => {
   const [contact, setContact] = React.useState(0);
   const [subjectData, setSubjectData] = React.useState("");
-  // const [sendTo, setSendTo] = React.useState(mailList);
   const [sendFrom, setSendFrom] = React.useState("");
   const [sendText, setSendText] = React.useState("");
 
-  //   var subjectData = "Sending Email using Node.js";
-  // var sendTo = ["sophonkripinit@gmail.com"];
-  // var sendFrom = "sender@server.com";
-  // var sendText =
+ 
   const handleClear = (event) => {
     setContact(0);
     setSubjectData("");
-    // setSendTo(mailList);
+   
     setSendFrom("");
     setSendText("");
   };
 
   const handleSubjectData = (event) => {
-    //console.log("handleSubjectData", event);
     setSubjectData(event.target.value);
   };
 
   const handleSendFrom = (event) => {
-    // console.log("handleSendFrom", event);
     setSendFrom(event.target.value);
   };
   const handleSendText = (event) => {
-    //console.log("handleSendText", event.target.value);
     setSendText(event.target.value);
   };
   const handleSendMail = async () => {
@@ -86,7 +77,6 @@ export const ContactForm = (props) => {
           xl={4}
           style={{
             minHeight: 600,
-            // backgroundColor: "lightgrey",
           }}
           sx={{
             display: {
@@ -98,7 +88,6 @@ export const ContactForm = (props) => {
             },
           }}
         >
-          {/* Picture Contact */}
           <img src={contactPic} alt="contact" width="150%" height="auto" />
         </Grid>
         <Grid
@@ -132,7 +121,6 @@ export const ContactForm = (props) => {
           xl={7}
           style={{
             minHeight: 600,
-            // backgroundColor: "lightgrey",
           }}
         >
           <div

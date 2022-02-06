@@ -4,19 +4,9 @@ import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-//import IconButton from "@mui/material/IconButton";
-
 import { NavLink } from "react-router-dom";
 import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
-// import Fab from "@mui/material/Fab";
-// import UpIcon from "@mui/icons-material/KeyboardArrowUp";
-
-// import Typography from "@mui/material/Typography";
-// import MainGraph from "../components/Graph/MainGraph";
-// import Grid from "@mui/material/Grid";
-
 import Why from "../components/ModelComponent/Why";
-// import Evolution from "../components/ModelComponent/Evolution";
 import ModelPart from "../components/ModelComponent/ModelPart";
 import DescriptionPicLeft from "../components/ModelComponent/DescriptionPicLeft";
 import DescriptionPicRight from "../components/ModelComponent/DescriptionPicRight";
@@ -24,8 +14,6 @@ import DescriptionPicCenter from "../components/ModelComponent/DescriptionPicCen
 import DescriptionEquation from "../components/ModelComponent/DescriptionEquation";
 import DescriptionEquationTable from "../components/ModelComponent/DescriptionEquationTable";
 import DescriptionEquationTableValue from "../components/ModelComponent/DescriptionEquationTableValue";
-//import ExampleFlow from "../components/ModelComponent/ExampleFlow";
-
 import S from "../assets/S.png";
 import V1 from "../assets/V1.png";
 import V2 from "../assets/V2.png";
@@ -34,8 +22,6 @@ import I from "../assets/I.png";
 import R from "../assets/R.png";
 import H from "../assets/H.png";
 import D from "../assets/D.png";
-import modelFlow from "../assets/covidflow.png";
-// import ModelBackground from "../assets/BG2.png";
 
 const modelDisplay = [
   {

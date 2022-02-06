@@ -58,7 +58,6 @@ class VSGraph extends PureComponent {
       var date = new Date(a.name);
       return date >= startDate && date <= endDate;
     });
-    console.log("dateAfterFilter", dateAfterFilter);
     return dateAfterFilter;
   };
 
@@ -74,7 +73,6 @@ class VSGraph extends PureComponent {
   };
 
   componentDidUpdate(prevProps) {
-    console.log("props.mainVsData,", this.state.mainVsData);
     if (prevProps.c !== this.props.mainVS) {
       this.setState({
         mainVS: this.props.mainVS,
@@ -88,8 +86,6 @@ class VSGraph extends PureComponent {
   }
 
   render() {
-    const { opacity } = this.state;
-
     return (
       <div style={{ width: "100%" }}>
         <ResponsiveContainer width="100%" height={445}>
@@ -257,12 +253,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    // testEditstate: (d) => {
-    //   return dispatch(actions.testGet(d));
-    // },
-  };
-};
+const mapDispatchToProps = (dispatch) => {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(VSGraph);
