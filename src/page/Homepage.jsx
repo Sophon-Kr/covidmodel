@@ -627,8 +627,10 @@ export const Homepage = (props) => {
                       autoOk={true}
                       views={["month", "year"]}
                       label="Start Month"
-                      minDate={props.minDateMonth}
-                      maxDate={props.maxDateMonth}
+                      minDate={props.initialMinDate}
+                      maxDate={props.initialMaxDate}
+                      // minDate={props.minDateMonth}
+                      // maxDate={props.maxDateMonth}
                       value={monthStart}
                       onChange={handleMonthStart}
                       renderInput={(params) => (
@@ -642,8 +644,10 @@ export const Homepage = (props) => {
                       autoOk={true}
                       views={["month", "year"]}
                       label="End Month"
-                      minDate={props.minDateMonth}
-                      maxDate={props.maxDateMonth}
+                      minDate={props.initialMinDate}
+                      maxDate={props.initialMaxDate}
+                      // minDate={props.minDateMonth}
+                      // maxDate={props.maxDateMonth}
                       // minDate={new Date("2020-03-01")}
                       // maxDate={new Date("2022-06-01")}
                       value={monthEnd}

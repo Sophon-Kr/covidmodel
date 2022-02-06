@@ -109,7 +109,7 @@ export const VSGraphPage = (props) => {
   const [dailyDataAPI, setdailyDataAPI] = useState([]);
   const [dialogStatus, setDialogStatus] = useState(false);
   const [fullGraph, setFullGraph] = useState(false);
-  const [period, setPeriod] = React.useState(props.mainperiod);
+  const [period, setPeriod] = React.useState("day");
   const [VS, setVS] = React.useState(props.mainVS);
   const [typeData, setTypeData] = React.useState(props.maintypeData);
   const [SStatus, setSStatus] = React.useState(props.mainSStatus);
@@ -247,7 +247,14 @@ export const VSGraphPage = (props) => {
   };
 
   const handlePeriod = (event, newPeriod) => {
+    console.log(newPeriod);
     setPeriod(newPeriod);
+    console.log("newPeriod", newPeriod);
+    if (newPeriod === "day") {
+      props.getVSDataDay();
+    } else if (newPeriod === "month") {
+      props.getVSDataMount();
+    }
   };
   const handleVS = (event, newVS) => {
     setVS(newVS);
@@ -300,17 +307,19 @@ export const VSGraphPage = (props) => {
     setDateEnd(props.maindateEndMain);
   }, [props.maindateEndMain, props.maindateStartMain]);
 
+  useEffect((period) => {
+    props.getVSDataDay();
+  }, []);
+
   const [nodeData, setNodeData] = React.useState("S");
 
   const handleNodeData = (event) => {
     setNodeData(event.target.value);
+    props.configTypeVS(event.target.value);
   };
 
   return (
     <Container maxWidth="xxl" style={{ marginTop: 95 }}>
-      {/* <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
-      
-      </Container> */}
       <Container maxWidth="xxl" style={{ marginTop: 30, paddingBottom: 30 }}>
         <Paper variant="outlined" square style={{ padding: 35 }}>
           <Grid
@@ -338,10 +347,6 @@ export const VSGraphPage = (props) => {
                   <ToggleButton value="day">
                     <CalendarTodayIcon /> &nbsp; Day &nbsp;
                   </ToggleButton>
-                  {/* <ToggleButton value="week">
-                    <DateRangeIcon />
-                    &nbsp;Week&nbsp;
-                  </ToggleButton> */}
                   <ToggleButton value="month">
                     <EventNoteIcon />
                     &nbsp;Month&nbsp;
@@ -408,7 +413,7 @@ export const VSGraphPage = (props) => {
               </Grid>
             </Grid>
           </Grid>
-          <VSGraph />
+          <VSGraph period={period} />
         </Paper>
       </Container>
       <TableVS />
@@ -422,9 +427,23 @@ const mapStateToProps = (state) => {
     initialMaxDate: state.reducer.initialMaxDate,
     maindateStartMain: state.reducer.dateStartMain,
     maindateEndMain: state.reducer.dateEndMain,
+    mainVS: state.reducer.VS,
+    mainVsData: state.reducer.vsData,
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getVSDataDay: () => {
+      return dispatch(actions.getVSDataDay());
+    },
+    getVSDataMount: () => {
+      return dispatch(actions.getVSDataMount());
+    },
+    configTypeVS: (type) => {
+      return dispatch(actions.configTypeVS(type));
+    },
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(VSGraphPage);

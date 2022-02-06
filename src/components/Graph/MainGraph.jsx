@@ -67,16 +67,13 @@ class MainGraph extends PureComponent {
     });
     console.log("dateAfterFilter", dateAfterFilter);
     return dateAfterFilter;
-    // this.setState({ dataFilterd: dateAfterFilter });
   };
 
   monthFilter = (dataMonth) => {
-    let startMonth = this.props.dateStartMonthMain;
-    let endMonth = this.props.dateEndMonthMain;
+    var startMonth = new Date(this.props.maindateStartMain);
+    var endMonth = new Date(this.props.maindateEndMain);
 
-    // console.log("startMonth M :", new Date(startMonth));
-    // console.log("endMonth M :", new Date(endMonth));
-
+    
     var dateAfterFilter = dataMonth.filter((a) => {
       var date = new Date(a.name);
       // console.log("date month", date);

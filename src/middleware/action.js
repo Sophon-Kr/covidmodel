@@ -17,6 +17,9 @@ export const CONFIG_DATE_START_MONTH__MAIN = "CONFIG_DATE_START_MONTH__MAIN";
 export const CONFIG_DATE_END_MONTH_MAIN = "CONFIG_DATE_END_MONTH_MAIN";
 export const SET_DATE_MAX_MIN = "SET_DATE_MAX_MIN";
 export const SET_LIST_FOR_REMOVE = "SET_LIST_FOR_REMOVE";
+export const GET_DATA_VS_MONTH = "GET_DATA_VS_MONTH";
+export const GET_DATA_VS_DAY = "GET_DATA_VS_DAY";
+export const CONFIG_TYPE_VS = "CONFIG_TYPE_VS";
 
 const maxAndMinDate = (data) => {
   const newDates = [];
@@ -82,6 +85,10 @@ export const dateEndVS = (payload) => ({
   type: "CONFIG_DATE_END_VS",
   payload,
 });
+export const configTypeVS = (payload) => ({
+  type: "CONFIG_TYPE_VS",
+  payload,
+});
 
 export const getRealDataMount = () => {
   return async (dispatch) => {
@@ -95,6 +102,7 @@ export const getRealDataMount = () => {
       });
   };
 };
+
 export const getRealDataDay = () => {
   return async (dispatch) => {
     return axios
@@ -120,42 +128,71 @@ export const getRealDataDay = () => {
 
 export const getModelDataMount = () => {
   return async (dispatch) => {
-    return (
-      axios
-        //for change Model link
-        .get(`https://covid-data-123.herokuapp.com/coviddata/month`)
-        .then((res) => {
-          dispatch({
-            type: "GET_DATA_MODEL_MONTH",
-            payload: res.data.data,
-          });
-        })
-    );
+    return axios
+      .get(`https://covid-data-123.herokuapp.com/covidmodel/month`)
+      .then((res) => {
+        dispatch({
+          type: "GET_DATA_MODEL_MONTH",
+          payload: res.data.data,
+        });
+      });
   };
 };
 
 export const getModelDataDay = () => {
   return async (dispatch) => {
-    return (
-      axios
-        //for change Model link
-        .get(`https://covid-data-123.herokuapp.com/coviddata/day`)
-        .then((res) => {
-          dispatch({
-            type: "GET_DATA_MODEL_DAY",
-            payload: res.data.data,
-          });
-          let findDate = maxAndMinDate(res.data.data);
-          let maxDate = findDate[0];
-          let minDate = findDate[1];
-          // console.log("findDate", maxDate, minDate);
+    return axios
+      .get(`https://covid-data-123.herokuapp.com/covidmodel/day`)
+      .then((res) => {
+        dispatch({
+          type: "GET_DATA_MODEL_DAY",
+          payload: res.data.data,
+        });
+        let findDate = maxAndMinDate(res.data.data);
+        let maxDate = findDate[0];
+        let minDate = findDate[1];
+        // console.log("findDate", maxDate, minDate);
 
-          dispatch({
-            type: "SET_DATE_MAX_MIN",
-            payload: [maxDate, minDate],
-          });
-        })
-    );
+        dispatch({
+          type: "SET_DATE_MAX_MIN",
+          payload: [maxDate, minDate],
+        });
+      });
+  };
+};
+export const getVSDataMount = () => {
+  return async (dispatch) => {
+    return axios
+      .get(`https://covid-data-123.herokuapp.com/vsdata/month`)
+      .then((res) => {
+        dispatch({
+          type: "GET_DATA_VS_MONTH",
+
+          payload: res.data.data,
+        });
+      });
+  };
+};
+
+export const getVSDataDay = () => {
+  return async (dispatch) => {
+    return axios
+      .get(`https://covid-data-123.herokuapp.com/vsdata/day`)
+      .then((res) => {
+        dispatch({
+          type: "GET_DATA_VS_DAY",
+          payload: res.data.data,
+        });
+        let findDate = maxAndMinDate(res.data.data);
+        let maxDate = findDate[0];
+        let minDate = findDate[1];
+        // console.log("findDate", maxDate, minDate);
+
+        dispatch({
+          type: "SET_DATE_MAX_MIN",
+          payload: [maxDate, minDate],
+        });
+      });
   };
 };
 

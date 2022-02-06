@@ -15,6 +15,9 @@ import { CONFIG_DATE_START_MONTH__MAIN } from "./action";
 import { CONFIG_DATE_END_MONTH_MAIN } from "./action";
 import { SET_DATE_MAX_MIN } from "./action";
 import { SET_LIST_FOR_REMOVE } from "./action";
+import { GET_DATA_VS_MONTH } from "./action";
+import { GET_DATA_VS_DAY } from "./action";
+import { CONFIG_TYPE_VS } from "./action";
 
 const initialState = {
   periodMain: "month",
@@ -50,6 +53,7 @@ const initialState = {
   modelDataDay: [],
   dailyData: [],
   listForRemove: [],
+  vsData: [],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -127,6 +131,24 @@ const reducer = (state = initialState, { type, payload }) => {
         modelDataDay: payload,
         tempData: payload,
       };
+
+    case GET_DATA_VS_MONTH:
+      console.log(type, payload);
+
+      return {
+        ...state,
+        //modelDataMonth: payload,
+        vsData: payload,
+      };
+
+    case GET_DATA_VS_DAY:
+      console.log(type, payload);
+      return {
+        ...state,
+        // modelDataDay: payload,
+        vsData: payload,
+      };
+
     case GET_DATA_DAILY:
       console.log(type, payload);
       return {
@@ -160,6 +182,12 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         periodVS: payload,
+      };
+    case CONFIG_TYPE_VS:
+      console.log(type, payload);
+      return {
+        ...state,
+        VS: payload,
       };
 
     case CONFIG_DATE_START_MAIN:
@@ -205,7 +233,6 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         listForRemove: payload,
-      
       };
 
     default:
