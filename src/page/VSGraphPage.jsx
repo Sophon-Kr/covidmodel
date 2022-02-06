@@ -28,9 +28,11 @@ import MainGraphFull from "../components/Graph/MainGraphFull";
 import TextField from "@mui/material/TextField";
 import TableVS from "../components/Table/TableVS";
 import VSGraph from "../components/Graph/VSGraph";
+import VSFullGraph from "../components/Graph/VSFullGraph";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
+import DatePicker from "@mui/lab/DatePicker";
 
 const dataconfig = [
   {
@@ -121,6 +123,8 @@ export const VSGraphPage = (props) => {
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
   const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
   const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
+  const [monthStart, setMonthStart] = React.useState(props.initialMinDate);
+  const [monthEnd, setMonthEnd] = React.useState(props.initialMaxDate);
 
   const setdailyDataTemplate = [
     {
@@ -239,13 +243,6 @@ export const VSGraphPage = (props) => {
     setDialogStatus(false);
   };
 
-  const handleFullGraphOpen = () => {
-    setFullGraph(true);
-  };
-  const handleFullGraphClose = () => {
-    setFullGraph(false);
-  };
-
   const handlePeriod = (event, newPeriod) => {
     console.log(newPeriod);
     setPeriod(newPeriod);
@@ -280,19 +277,22 @@ export const VSGraphPage = (props) => {
     handleDialogClose();
   };
 
-  // const handleFullGraphOpen = () => {
-  //   setFullGraph(true);
-  // };
-  // const handleFullGraphClose = () => {
-  //   setFullGraph(false);
-  // };
-  const handleDateStart = (newDate) => {
-    setDateStart(newDate);
-    props.configDateStartMain(newDate.toISOString());
+  const handleFullGraphOpen = () => {
+    setFullGraph(true);
   };
+  const handleFullGraphClose = () => {
+    setFullGraph(false);
+  };
+
+  const handleDateStart = (newDate) => {
+    // bug day -1
+    setDateStart(newDate);
+    props.configDateStartMain(newDate);
+  };
+
   const handleDateEnd = (newDate) => {
     setDateEnd(newDate);
-    props.configDateEndMain(newDate.toISOString());
+    props.configDateEndMain(newDate);
   };
 
   const handleDataType = (newTypedata) => {
@@ -300,6 +300,17 @@ export const VSGraphPage = (props) => {
     // setTypeData();
     console.log("newTypedata", newTypedata);
     props.configDataTypeGraph(newTypedata);
+  };
+
+  const handleMonthStart = (newMonth) => {
+    setMonthStart(newMonth);
+    console.log("newMonth Start", newMonth);
+    props.configDateStartMonthMain(newMonth);
+  };
+  const handleMonthEnd = (newMonth) => {
+    setMonthEnd(newMonth);
+    console.log("newMonth End", newMonth);
+    props.configDateEndMonthMain(newMonth);
   };
 
   useEffect(() => {
@@ -354,36 +365,78 @@ export const VSGraphPage = (props) => {
                 </ToggleButtonGroup>
               </Grid>
 
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <Grid item>
-                  <DesktopDatePicker
-                    label="Start Date"
-                    inputFormat="dd/MM/yyyy"
-                    value={dateStart}
-                    minDate={props.initialMinDate}
-                    maxDate={props.initialMaxDate}
-                    // onChange={handleDateStart}
-                    renderInput={(params) => (
-                      <TextField size="small" {...params} />
-                    )}
-                  />
-                </Grid>
+              {period === "day" ? (
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <Grid item>
+                    <DatePicker
+                      autoOk={true}
+                      openTo="day"
+                      views={["day", "month", "year"]}
+                      label="Start Date"
+                      inputFormat="dd/MM/yyyy"
+                      value={dateStart}
+                      minDate={props.initialMinDate}
+                      maxDate={props.initialMaxDate}
+                      // maxDate={new Date("2023-06-01")}
+                      onChange={handleDateStart}
+                      renderInput={(params) => (
+                        <TextField size="small" {...params} />
+                      )}
+                    />
+                  </Grid>
 
-                <Grid item>
-                  <DesktopDatePicker
-                    size="small"
-                    label="End Date"
-                    minDate={props.initialMinDate}
-                    maxDate={props.initialMaxDate}
-                    inputFormat="dd/MM/yyyy"
-                    value={dateEnd}
-                    // onChange={handleDateEnd}
-                    renderInput={(params) => (
-                      <TextField size="small" {...params} />
-                    )}
-                  />
-                </Grid>
-              </LocalizationProvider>
+                  <Grid item>
+                    <DatePicker
+                      autoOk={true}
+                      openTo="day"
+                      views={["day", "month", "year"]}
+                      minDate={props.initialMinDate}
+                      maxDate={props.initialMaxDate}
+                      label="End Date"
+                      inputFormat="dd/MM/yyyy"
+                      value={dateEnd}
+                      onChange={handleDateEnd}
+                      renderInput={(params) => (
+                        <TextField size="small" {...params} />
+                      )}
+                    />
+                  </Grid>
+                </LocalizationProvider>
+              ) : period === "month" ? (
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <Grid item>
+                    <DatePicker
+                      autoOk={true}
+                      views={["month", "year"]}
+                      label="Start Month"
+                      minDate={props.initialMinDate}
+                      maxDate={props.initialMaxDate}
+                      // minDate={props.minDateMonth}
+                      // maxDate={props.maxDateMonth}
+                      value={monthStart}
+                      onChange={handleMonthStart}
+                      renderInput={(params) => (
+                        <TextField size="small" {...params} helperText={null} />
+                      )}
+                    />
+                  </Grid>
+
+                  <Grid item>
+                    <DatePicker
+                      autoOk={true}
+                      views={["month", "year"]}
+                      label="End Month"
+                      minDate={props.initialMinDate}
+                      maxDate={props.initialMaxDate}
+                      value={monthEnd}
+                      onChange={handleMonthEnd}
+                      renderInput={(params) => (
+                        <TextField size="small" {...params} helperText={null} />
+                      )}
+                    />
+                  </Grid>
+                </LocalizationProvider>
+              ) : null}
 
               <Grid item>
                 <TextField
@@ -417,6 +470,38 @@ export const VSGraphPage = (props) => {
         </Paper>
       </Container>
       <TableVS />
+
+      {/* ======================full graph ====================== */}
+      <Dialog
+        fullScreen
+        open={fullGraph}
+        onClose={handleFullGraphClose}
+        TransitionComponent={Transition}
+      >
+        <Container maxWidth="xxl">
+          <Grid container style={{ paddingRight: 20 }}>
+            <Grid item style={{ flexGrow: 1 }}></Grid>
+            <Grid item>
+              <Button
+                color="inherit"
+                variant="contained"
+                onClick={handleFullGraphClose}
+                style={{
+                  marginTop: 20,
+                  marginBottom: 20,
+                  backgroundColor: "#ef5350",
+                  color: "white",
+                }}
+              >
+                Close
+              </Button>
+            </Grid>
+          </Grid>
+          <Grid container>
+            <VSFullGraph />
+          </Grid>
+        </Container>
+      </Dialog>
     </Container>
   );
 };
@@ -442,6 +527,20 @@ const mapDispatchToProps = (dispatch) => {
     },
     configTypeVS: (type) => {
       return dispatch(actions.configTypeVS(type));
+    },
+    configDateStartMain: (datatype) => {
+      return dispatch(actions.dateStartMain(datatype));
+    },
+
+    configDateEndMain: (datatype) => {
+      return dispatch(actions.dateEndMain(datatype));
+    },
+    configDateStartMonthMain: (datatype) => {
+      return dispatch(actions.dateStartMonthMain(datatype));
+    },
+
+    configDateEndMonthMain: (datatype) => {
+      return dispatch(actions.dateEndMonthMain(datatype));
     },
   };
 };

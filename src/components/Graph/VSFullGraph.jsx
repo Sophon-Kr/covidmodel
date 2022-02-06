@@ -14,7 +14,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-class VSGraph extends PureComponent {
+class VSFullGraph extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -99,7 +99,7 @@ class VSGraph extends PureComponent {
 
     return (
       <div style={{ width: "100%" }}>
-        <ResponsiveContainer width="100%" height={445}>
+        <ResponsiveContainer width="100%" height={830}>
           <LineChart
             width={500}
             height={300}
@@ -281,4 +281,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(VSGraph);
+export default connect(mapStateToProps, mapDispatchToProps)(VSFullGraph);

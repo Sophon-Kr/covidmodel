@@ -11,7 +11,7 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import contactPic from "../../assets/contactPic.png";
 import ContactBackground from "../../assets/BG1.png";
 
-import EmailUtil from "../../services/sendemail.service";
+// import EmailUtil from "../../services/sendemail.service";
 // import { getRawDataMonth } from "../../services/rawData.service";
 
 // const mailList = [
@@ -65,8 +65,8 @@ export const ContactForm = (props) => {
   };
   const handleSendMail = async () => {
     //console.log("handleSendMail:: ", sendFrom, subjectData, sendText);
-    const tempEmail = EmailUtil.sendEmail(sendFrom, subjectData, sendText);
-    console.log("tempEmail", tempEmail);
+    // const tempEmail = EmailUtil.sendEmail(sendFrom, subjectData, sendText);
+    // console.log("tempEmail", tempEmail);
   };
 
   return (

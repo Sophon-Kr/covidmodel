@@ -260,17 +260,11 @@ export const Homepage = (props) => {
     setMonthStart(newMonth);
     console.log("newMonth Start", newMonth);
     props.configDateStartMonthMain(newMonth);
-    // let newTypeDate = handleDateTime(newMonth);
-    // console.log("newTypeDate", newMonth, newTypeDate);
-    // props.configDateStartMain(newTypeDate);
   };
   const handleMonthEnd = (newMonth) => {
     setMonthEnd(newMonth);
     console.log("newMonth End", newMonth);
     props.configDateEndMonthMain(newMonth);
-    // let newTypeDate = handleDateTime(newMonth);
-    // console.log("newTypeDate", newMonth, newTypeDate);
-    // props.configDateEndMain(newTypeDate);
   };
 
   const handleTypeData = async (event, newTypedata) => {
