@@ -469,7 +469,7 @@ export const VSGraphPage = (props) => {
           <VSGraph period={period} />
         </Paper>
       </Container>
-      <TableVS />
+      <TableVS period={period}/>
 
       {/* ======================full graph ====================== */}
       <Dialog
