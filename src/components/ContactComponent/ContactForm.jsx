@@ -11,30 +11,30 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import contactPic from "../../assets/contactPic.png";
 import ContactBackground from "../../assets/BG1.png";
 
-//import { sendMailService } from "../../services/sendemail.service";
+import EmailUtil from "../../services/sendemail.service";
 // import { getRawDataMonth } from "../../services/rawData.service";
 
-const mailList = [
-  "Advisor@gmail.com,\
-  Co-Advisor1@gmail.com,\
-  Co-Advisor2@gmail.com,\
-  Student1@gmail.com,\
-  Student2@gmail.com,\
-  Student3@gmail.com,\
-  Student4@gmail.com",
-  "Advisor@gmail.com",
-  "Co-Advisor1@gmail.com",
-  "Co-Advisor2@gmail.com",
-  "Student1@gmail.com",
-  "Student2@gmail.com",
-  "sophon.kra@student.mahidol.edu",
-  "sophonkripinit@gmail.com",
-];
+// const mailList = [
+//   "Advisor@gmail.com,\
+//   Co-Advisor1@gmail.com,\
+//   Co-Advisor2@gmail.com,\
+//   Student1@gmail.com,\
+//   Student2@gmail.com,\
+//   Student3@gmail.com,\
+//   Student4@gmail.com",
+//   "Advisor@gmail.com",
+//   "Co-Advisor1@gmail.com",
+//   "Co-Advisor2@gmail.com",
+//   "Student1@gmail.com",
+//   "Student2@gmail.com",
+//   "sophon.kra@student.mahidol.edu",
+//   "sophonkripinit@gmail.com",
+// ];
 
 export const ContactForm = (props) => {
   const [contact, setContact] = React.useState(0);
   const [subjectData, setSubjectData] = React.useState("");
-  const [sendTo, setSendTo] = React.useState(mailList);
+  // const [sendTo, setSendTo] = React.useState(mailList);
   const [sendFrom, setSendFrom] = React.useState("");
   const [sendText, setSendText] = React.useState("");
 
@@ -45,7 +45,7 @@ export const ContactForm = (props) => {
   const handleClear = (event) => {
     setContact(0);
     setSubjectData("");
-    setSendTo(mailList);
+    // setSendTo(mailList);
     setSendFrom("");
     setSendText("");
   };
@@ -54,30 +54,7 @@ export const ContactForm = (props) => {
     //console.log("handleSubjectData", event);
     setSubjectData(event.target.value);
   };
-  const handleSendTo = (event) => {
-    //console.log("handleSendTo", event);
-    // <MenuItem value={0}>All</MenuItem>
-    // <MenuItem value={1}>Advisor</MenuItem>
-    // <MenuItem value={2}>Co-Advisor1</MenuItem>
-    // <MenuItem value={3}>Co-Advisor2</MenuItem>
-    // <MenuItem value={4}>Student1</MenuItem>
-    // <MenuItem value={5}>Student2</MenuItem>
-    // <MenuItem value={6}>Student3</MenuItem>
-    // <MenuItem value={7}>Student4</MenuItem>
-    // let allList =
-    //   "Advisor@gmail.com,\
-    //   Co-Advisor1@gmail.com,\
-    //   Co-Advisor2@gmail.com,\
-    //   Student1@gmail.com,\
-    //   Student2@gmail.com,\
-    //   Student3@gmail.com,\
-    //   Student4@gmail.com";
 
-    let mailPosition = event.target.value;
-    // console.log("mailList[mailPosition]", mailPosition, mailList[mailPosition]);
-    setContact(event.target.value);
-    setSendTo(mailList[mailPosition]);
-  };
   const handleSendFrom = (event) => {
     // console.log("handleSendFrom", event);
     setSendFrom(event.target.value);
@@ -87,14 +64,9 @@ export const ContactForm = (props) => {
     setSendText(event.target.value);
   };
   const handleSendMail = async () => {
-    console.log("handleSendMail:: ", sendTo, sendFrom, subjectData, sendText);
-    // var sentmail = await sendMailService(
-    //   sendTo,
-    //   sendFrom,
-    //   subjectData,
-    //   sendText
-    // );
-    // console.log(sentmail);
+    //console.log("handleSendMail:: ", sendFrom, subjectData, sendText);
+    const tempEmail = EmailUtil.sendEmail(sendFrom, subjectData, sendText);
+    console.log("tempEmail", tempEmail);
   };
 
   return (

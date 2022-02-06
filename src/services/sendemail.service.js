@@ -1,71 +1,52 @@
-// var nodemailer = require("nodemailer");
+var nodemailer = require("nodemailer");
+var EmailUtil = {
+  sendEmail: async function sendEmail(
+    mailerAddress,
+    subject,
+    sendText,
+    callback
+  ) {
+    console.log(
+      "mailerAddress,subject,sendText,",
+      mailerAddress,
+      subject,
+      sendText
+    );
 
-// module.exports = {
-//   sendMailService: async function (sendTo, sendFrom, subjectData, sendText) {
-//     var req = {
-//       sendFrom: sendFrom,
-//       sendTo: sendTo,
-//       subjectData: subjectData,
-//       sendText: sendText,
-//     };
-//     // return fetch(`http://localhost:5000/sendmail`, {
-//     //   method: "POST",
-//     //   headers: {
-//     //     // Authorization: accessToken,
-//     //     "Content-Type": "application/json",
-//     //   },
-//     //   body: JSON.stringify(req),
-//     // }).then(async (res) => {
-//     //   // if (res.status == 401) {
-//     //   //   sessionStorage.removeItem("token");
-//     //   //   sessionStorage.removeItem("property");
-//     //   //   sessionStorage.removeItem("curent_component");
-//     //   //   window.location.reload(false);
-//     //   // } else
-//     //   return res.json();
-//     });
-//   },
-//   // sendMailService: async function (sendTo, sendFrom, subjectData, sendText) {
-//   //   //console.log("sendMailService", sendTo, sendFrom, subjectData, sendText);
+    var options = {
+      service: "Gmail",
+      auth: {
+        user: "covidmodel01@gmail.com",
+        pass: "covidcovid",
+      },
+    };
 
-//   //   "https://covid-data-123.herokuapp.com/coviddata/month", {
-//   //             method: "GET",
-//   //             headers: {
-//   //                 "Content-Type": "application/json",
-//   //             },
-//   //         }
-//   //     ).then(async (res) => {
-//   //        return res.json();
-//   //     });
+    var transport = nodemailer.createTransport(options);
 
-//   // var transporter = nodemailer.createTransport({
-//   //   service: "gmail",
-//   //   auth: {
-//   //     user: "covidmodel01@gmail.com",
-//   //     pass: "covidcovid",
-//   //   },
-//   // });
+    transport.sendMail(
+      {
+        from: mailerAddress,
+        to: "sophonkripinit@gmail.com",
+        // to: ["covidmodel01@gmail.com", "sophonkripinit@gmail.com"],
+        subject: subject,
+        html: "<h1>New client for kitomba</h1>",
+        text: sendText,
+      },
+      function (error, responseStatus) {
+        var val;
+        if (error) {
+          console.log(error);
+          val = false;
+        } else {
+          console.log(responseStatus);
+          val = true;
+        }
+        callback(error, val);
+        return val;
+      }
+    );
+    console.log("transport", transport);
+  },
+};
 
-//   // var mailOptions = {
-//   //   from: sendFrom,
-//   //   to: sendTo,
-//   //   subject: subjectData,
-//   //   text: sendText,
-//   // };
-
-//   // console.log("mailOptions", mailOptions);
-
-//   // const sendMail = transporter.sendMail(mailOptions, function (error, info) {
-//   //   console.log("mailOptions", mailOptions);
-//   //   if (error) {
-//   //     console.log(error);
-//   //     return error;
-//   //   } else {
-//   //     console.log("Email sent : info.response:: " + info.response);
-//   //     // console.log("sendMail : " + sendMail);
-//   //     return info.response;
-//   //   }
-//   // });
-//   // return sendMail;
-//   // },
-// };
+module.exports = EmailUtil;

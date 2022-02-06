@@ -90,7 +90,7 @@ const modelDisplay = [
         ระดับภูมิคุ้มจากวัคซีนชุดแรกที่ได้รับจะค่อยๆ ลดลง
         ทำให้ประสิทธิภาพในการป้องกันลดลง
         จึงต้องมีการรับวัคซีนเข็มกระตุ้นเพื่อกระตุ้นประสิทธิภาพของวัคซีน
-        ประกาศจำนวนจากทางกระทรวงสาธารณสุข
+        โดยประกาศจำนวนจากข้อมูลของทางกระทรวงสาธารณสุข
       </div>
     ),
     pic: <img src={M} alt="Maintenance Shot" width="100%" height="auto" />,
@@ -101,7 +101,8 @@ const modelDisplay = [
     text: (
       <div>
         &emsp; &emsp; &emsp; คือ
-        ประชากรที่ได้รับการยืนยันว่าติดเชื้อโรคแล้วในประเทศไทยประกาศจำนวนจากทางกระทรวงสาธารณสุข
+        ประชากรในประเทศไทยที่ได้รับการยืนยันว่าติดเชื้อโรคแล้วในประเทศไทย
+        โดยประกาศจำนวนจากข้อมูลของทางกระทรวงสาธารณสุขประเทศไทย
       </div>
     ),
     pic: <img src={I} alt="Infection" width="100%" height="auto" />,
@@ -111,10 +112,9 @@ const modelDisplay = [
     name: "Recovery Class : R",
     text: (
       <div>
-        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
-        and typesetting industry. Lorem Ipsum has been the industry's standard
-        dummy text ever since the 1500s, when an unknown printer took a galley
-        of type and scrambled it to make a type specimen book.
+        &emsp; &emsp; &emsp; คือ
+        ประชากรในประเทศไทยที่ได้รับการยืนยันว่าเข้ารับการรักษาในโรงพยาล
+        โดยประกาศจำนวนจากข้อมูลของทางกระทรวงสาธารณสุขประเทศไทย
       </div>
     ),
     pic: <img src={R} alt="Recovery" width="100%" height="auto" />,
@@ -124,10 +124,10 @@ const modelDisplay = [
     name: "Hospital Class : H",
     text: (
       <div>
-        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
-        and typesetting industry. Lorem Ipsum has been the industry's standard
-        dummy text ever since the 1500s, when an unknown printer took a galley
-        of type and scrambled it to make a type specimen book.
+        &emsp; &emsp; &emsp; คือ
+        ประชากรในประเทศไทยที่ได้รับการยืนยันว่าเป็นผู้ที่ฟื้นตัว หรือก็คือ
+        ผู้ที่รักษาหายจากเชื้อชนิดนี้แล้ว
+        โดยประกาศจำนวนจากข้อมูลของทางกระทรวงสาธารณสุขประเทศไทย
       </div>
     ),
     pic: <img src={H} alt="Hospital" width="100%" height="auto" />,
@@ -137,10 +137,9 @@ const modelDisplay = [
     name: "Death Class : D",
     text: (
       <div>
-        &emsp; &emsp; &emsp; Lorem Ipsum is simply dummy text of the printing
-        and typesetting industry. Lorem Ipsum has been the industry's standard
-        dummy text ever since the 1500s, when an unknown printer took a galley
-        of type and scrambled it to make a type specimen book.
+        &emsp; &emsp; &emsp; คือ
+        ประชากรในประเทศไทยที่ได้รับการยืนยันว่าเป็นผู้เสียชีวิตจากเชื้อชนิดนี้
+        โดยประกาศจำนวนจากข้อมูลของทางกระทรวงสาธารณสุขประเทศไทย
       </div>
     ),
     pic: <img src={D} alt="Death" width="100%" height="auto" />,
@@ -149,13 +148,6 @@ const modelDisplay = [
 ];
 
 export const Modelpage = (props) => {
-  // const ScrollToTop = () => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     left: 0,
-  //     behavior: "smooth",
-  //   });
-  // };
   return (
     <Container
       maxWidth="xxl"
@@ -167,19 +159,12 @@ export const Modelpage = (props) => {
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
         <Paper
           style={{
-            //minHeight: 700,
             padding: "4%",
-            // backgroundImage: `url(${ModelBackground})`,
-            // backgroundPosition: "top",
-            // backgroundSize: "100%",
-            // backgroundRepeat: "no-repeat",
           }}
           variant="outlined"
           square
         >
-          {/* <img src={ModelBackground} alt="" /> */}
           <Why />
-          {/* <Evolution /> */}
           <ModelPart />
           <Box
             sx={{

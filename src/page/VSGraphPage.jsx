@@ -387,6 +387,7 @@ export const VSGraphPage = (props) => {
                   size="small"
                   value={nodeData}
                   onChange={handleNodeData}
+                  style={{ minWidth: 130 }}
                 >
                   {nodeDataComparison.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
