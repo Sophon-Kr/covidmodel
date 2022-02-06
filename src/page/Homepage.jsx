@@ -695,76 +695,6 @@ export const Homepage = (props) => {
       </Container>
       <TableModel />
 
-      {/* =================VS Graph Arear============= */}
-      {/* <Container maxWidth="xxl" style={{ marginTop: 30, paddingBottom: 30 }}>
-        <Paper variant="outlined" square style={{ padding: 35 }}>
-          <Grid
-            container
-            style={{
-              padding: 10,
-              marginBottom: 35,
-            }}
-          >
-            <Grid container spacing={3}>
-              <Grid item style={{ flexGrow: 1, paddingLeft: 35 }}>
-                <Typography variant="h5" color="initial">
-                  COVID-19 Comparison Graph
-                </Typography>
-              </Grid>
-              <Grid item>
-                <ToggleButtonGroup
-                  size="small"
-                  color="primary"
-                  value={period}
-                  exclusive
-                  onChange={handlePeriod}
-                >
-                  <ToggleButton value="day">
-                    <CalendarTodayIcon /> &nbsp; Day &nbsp;
-                  </ToggleButton>
-                  <ToggleButton value="week">
-                    <DateRangeIcon />
-                    &nbsp;Week&nbsp;
-                  </ToggleButton>
-                  <ToggleButton value="month">
-                    <EventNoteIcon />
-                    &nbsp;Month&nbsp;
-                  </ToggleButton>
-                </ToggleButtonGroup>
-              </Grid>
-
-              <Grid item>
-                <ToggleButtonGroup
-                  size="small"
-                  color="error"
-                  value={VS}
-                  exclusive
-                  onChange={handleVS}
-                >
-                  <ToggleButton value="S">&nbsp;Susceptible&nbsp;</ToggleButton>
-                  <ToggleButton value="V1">&nbsp;Vaccines1&nbsp;</ToggleButton>
-                  <ToggleButton value="V2">&nbsp;Vaccines2&nbsp;</ToggleButton>
-                  <ToggleButton value="I">&nbsp;Infected&nbsp;</ToggleButton>
-                  <ToggleButton value="R">&nbsp;Recovery&nbsp;</ToggleButton>
-                  <ToggleButton value="H">&nbsp;Hospital&nbsp;</ToggleButton>
-                  <ToggleButton value="D">&nbsp;Death&nbsp;</ToggleButton>
-                </ToggleButtonGroup>
-              </Grid>
-
-              <Grid item>
-                <Button
-                  variant="contained"
-                  style={{ backgroundColor: "#AED6F1", color: "black" }}
-                  onClick={handleFullGraphOpen}
-                >
-                  <FullscreenRoundedIcon />
-                </Button>
-              </Grid>
-            </Grid>
-          </Grid>
-          <VSGraph />
-        </Paper>
-      </Container> */}
       {/* ==================== dialog setting =========================== */}
       <Dialog maxWidth="md" onClose={handleDialogClose} open={dialogStatus}>
         <DialogTitle onClose={handleDialogClose}>
@@ -844,41 +774,8 @@ export const Homepage = (props) => {
               </Grid>
             </Grid>
           ) : null}
-          {/* {typeData === "model" ? (
-            <Divider style={{ marginTop: 20, marginBottom: 20 }} />
-          ) : null} */}
-          {/* {typeData === "model" ? (
-            <Grid container>
-              Note**
-              {dataconfig.map((item) => (
-                <Grid
-                  item
-                  key={item.name}
-                  xs={12}
-                  sm={12}
-                  md={12}
-                  lg={12}
-                  xl={12}
-                >
-                  <Typography variant="body1" color="initial">
-                    {item.symbol} ({item.name}): {item.des}
-                  </Typography>
-                </Grid>
-              ))}
-            </Grid>
-          ) : null} */}
         </DialogContent>
         <DialogActions>
-          {/* <Grid item style={{ flexGrow: 1 }}>
-            {" "}
-            <Button
-              onClick={handleDialogClose}
-              variant="contained"
-              style={{ color: "white", backgroundColor: "grey" }}
-            >
-              Reset Default Value
-            </Button>
-          </Grid> */}
           <Grid item>
             <Button
               onClick={handleDialogClose}

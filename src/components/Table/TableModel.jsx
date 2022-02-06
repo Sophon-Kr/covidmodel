@@ -117,30 +117,40 @@ const rows = [
 ];
 
 export const TableModel = (props) => {
-  const [data, setData] = useState([props.mainTempData]);
+  const [data, setData] = useState(props.mainTempData);
 
   const filterRangeByDate = (data) => {
     var startDate = new Date(props.maindateStartMain);
     var endDate = new Date(props.maindateEndMain);
-    // maindateStartMain
-    // maindateEndMain
-    // this.props.maindateStartMain
+
     var dateAfterFilter = data.filter((a) => {
       var date = new Date(a.name);
       return date >= startDate && date <= endDate;
     });
     console.log("dateAfterFilter", dateAfterFilter);
     return dateAfterFilter;
-    // this.setState({ dataFilterd: dateAfterFilter });
+  };
+
+  const monthFilter = (dataMonth) => {
+    let startMonth = props.dateStartMonthMain;
+    let endMonth = props.dateEndMonthMain;
+
+    var dateAfterFilter = dataMonth.filter((a) => {
+      var date = new Date(a.name);
+      return date >= startMonth && date <= endMonth;
+    });
+    return dateAfterFilter;
   };
 
   useEffect(() => {
     async function fetchData() {
       await setData([]);
-      if (props.mainperiod == "day") {
-        await setData(filterRangeByDate(props.mainTempData));
+      if (props.mainperiod === "day") {
+        let tempDataTable1 = filterRangeByDate(props.mainTempData);
+        await setData(tempDataTable1);
       } else {
-        await setData(props.mainTempData);
+        let tempDataTable2 = monthFilter(props.mainTempData);
+        await setData(tempDataTable2);
       }
     }
     fetchData();
@@ -152,14 +162,10 @@ export const TableModel = (props) => {
     props.mainTempData,
     props.maindateStartMain,
     props.maindateEndMain,
+    props.dateStartMonthMain,
+    props.dateEndMonthMain,
   ]);
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     await setData(props.mainTempData);
-  //   }
-  //   fetchData();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+
   return (
     <Container maxWidth="xxl" style={{ paddingBottom: 30 }}>
       <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
@@ -171,7 +177,6 @@ export const TableModel = (props) => {
           variant="outlined"
           square
         >
-          {/* <Typography variant="h6" color="initial">Data From Model</Typography> */}
           <TableContainer style={{ maxHeight: 900 }}>
             <Table>
               <TableHead>
@@ -339,6 +344,9 @@ const mapStateToProps = (state) => {
     mainRealDataDay: state.reducer.realDataDay,
     mainModelDataMonth: state.reducer.modelDataMonth,
     mainModelDataDay: state.reducer.modelDataDay,
+
+    dateStartMonthMain: state.reducer.dateStartMonthMain,
+    dateEndMonthMain: state.reducer.dateEndMonthMain,
   };
 };
 
