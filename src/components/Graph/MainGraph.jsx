@@ -70,16 +70,13 @@ class MainGraph extends PureComponent {
   };
 
   monthFilter = (dataMonth) => {
-    var startMonth = new Date(this.props.maindateStartMain);
-    var endMonth = new Date(this.props.maindateEndMain);
+    let startMonth = this.props.dateStartMonthMain;
+    let endMonth = this.props.dateEndMonthMain;
 
-    
     var dateAfterFilter = dataMonth.filter((a) => {
       var date = new Date(a.name);
-      // console.log("date month", date);
       return date >= startMonth && date <= endMonth;
     });
-    // console.log("dateAfterFilter M :", dateAfterFilter);
     return dateAfterFilter;
   };
 
@@ -152,7 +149,7 @@ class MainGraph extends PureComponent {
             width={500}
             height={300}
             data={
-              this.props.mainperiod == "day"
+              this.props.mainperiod === "day"
                 ? this.filterRangeByDate(this.props.mainTempData)
                 : this.monthFilter(this.props.mainTempData)
             }

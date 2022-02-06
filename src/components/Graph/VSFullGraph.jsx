@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import * as actions from "../../middleware/action";
 import { connect } from "react-redux";
 import {
   LineChart,
@@ -9,8 +8,6 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  AreaChart,
-  Area,
   ResponsiveContainer,
 } from "recharts";
 
@@ -71,15 +68,12 @@ class VSFullGraph extends PureComponent {
 
     var dateAfterFilter = dataMonth.filter((a) => {
       var date = new Date(a.name);
-      // console.log("date month", date);
       return date >= startMonth && date <= endMonth;
     });
-    // console.log("dateAfterFilter M :", dateAfterFilter);
+
     return dateAfterFilter;
   };
-  // componentDidMount() {
-  //   console.log("props.mainVsData,", this.state.mainVsData);
-  // }
+
   componentDidUpdate(prevProps) {
     console.log("props.mainVsData,", this.state.mainVsData);
     if (prevProps.c !== this.props.mainVS) {
@@ -104,11 +98,10 @@ class VSFullGraph extends PureComponent {
             width={500}
             height={300}
             data={
-              this.props.period == "day"
+              this.props.period === "day"
                 ? this.filterRangeByDate(this.state.mainVsData)
                 : this.monthFilter(this.state.mainVsData)
             }
-            // data={this.state.mainVsData}
             margin={{
               top: 5,
               right: 30,
@@ -256,15 +249,6 @@ class VSFullGraph extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    mainperiod: state.reducer.period,
-    maintypeData: state.reducer.typeData,
-    mainSStatus: state.reducer.SStatus,
-    mainV1Status: state.reducer.V1Status,
-    mainV2Status: state.reducer.V2Status,
-    mainIStatus: state.reducer.IStatus,
-    mainRStatus: state.reducer.RStatus,
-    mainHStatus: state.reducer.HStatus,
-    mainDStatus: state.reducer.DStatus,
     maindateStartMain: state.reducer.dateStartMain,
     maindateEndMain: state.reducer.dateEndMain,
 
