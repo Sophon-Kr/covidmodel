@@ -284,7 +284,7 @@ export const VSGraphPage = (props) => {
             </Grid>
           </Grid>
           <Grid container>
-            <VSFullGraph />
+            <VSFullGraph period={period} />
           </Grid>
         </Container>
       </Dialog>

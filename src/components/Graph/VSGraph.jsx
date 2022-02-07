@@ -15,9 +15,9 @@ class VSGraph extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      covidData: props.mainTempData,
+      //covidData: props.mainTempData,
       mainVS: props.mainVS,
-      mainVsData: props.mainVsData,
+      mainStateVsData: props.mainVsData,
     };
   }
   state = {
@@ -73,14 +73,14 @@ class VSGraph extends PureComponent {
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.c !== this.props.mainVS) {
+    if (prevProps.mainVS !== this.props.mainVS) {
       this.setState({
         mainVS: this.props.mainVS,
       });
     }
     if (prevProps.mainVsData !== this.props.mainVsData) {
       this.setState({
-        mainVsData: this.props.mainVsData,
+        mainStateVsData: this.props.mainVsData,
       });
     }
   }
@@ -94,8 +94,8 @@ class VSGraph extends PureComponent {
             height={300}
             data={
               this.props.period === "day"
-                ? this.filterRangeByDate(this.state.mainVsData)
-                : this.monthFilter(this.state.mainVsData)
+                ? this.filterRangeByDate(this.state.mainStateVsData)
+                : this.monthFilter(this.state.mainStateVsData)
             }
             margin={{
               top: 5,

@@ -78,13 +78,13 @@ class MainGraphFull extends PureComponent {
     return dateAfterFilter;
   };
 
-  removeProperty = (coviddata) => {
-    for (let i = 0; i < coviddata.length; i++) {
-      let newcoviddata = coviddata[i];
-      this.props.listForRemove.forEach((e) => delete newcoviddata[e]);
-    }
-    return coviddata;
-  };
+  // removeProperty = (coviddata) => {
+  //   for (let i = 0; i < coviddata.length; i++) {
+  //     let newcoviddata = coviddata[i];
+  //     this.props.listForRemove.forEach((e) => delete newcoviddata[e]);
+  //   }
+  //   return coviddata;
+  // };
 
   componentDidUpdate(prevProps) {
     if (prevProps.mainSStatus !== this.props.mainSStatus) {
@@ -123,6 +123,11 @@ class MainGraphFull extends PureComponent {
         mainDStatus: this.props.mainDStatus,
       });
     }
+    if (prevProps.mainTempData !== this.props.mainTempData) {
+      this.setState({
+        covidData: this.props.mainTempData,
+      });
+    }
   }
 
   render() {
@@ -134,8 +139,8 @@ class MainGraphFull extends PureComponent {
             height={300}
             data={
               this.props.mainperiod === "day"
-                ? this.filterRangeByDate(this.props.mainTempData)
-                : this.monthFilter(this.props.mainTempData)
+                ? this.filterRangeByDate(this.state.covidData)
+                : this.monthFilter(this.state.covidData)
             }
             margin={{
               top: 5,
