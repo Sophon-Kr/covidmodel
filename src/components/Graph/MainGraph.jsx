@@ -15,8 +15,8 @@ class MainGraph extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      covidData: props.tempDataService,
-      // covidData: props.mainTempData,
+      // covidData: props.tempDataService,
+      covidData: props.mainTempData,
       dataFilterd: [],
       mainSStatus: props.mainSStatus,
       mainV1Status: props.mainV1Status,
