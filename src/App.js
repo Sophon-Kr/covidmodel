@@ -14,15 +14,15 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import reducer from "../src/middleware/reducer";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-const rootReducer = combineReducers({
-  reducer,
-  composeWithDevTools,
-});
+// const rootReducer = combineReducers({
+//   reducer,
+//   // composeWithDevTools,
+// });
 function App() {
-  const [store, setStore] = useState(
-    createStore(rootReducer, applyMiddleware(thunk))
-  );
-  //const [store, setStore] = useState(configureStore());
+  // const [store, setStore] = useState(
+  //   createStore(rootReducer, applyMiddleware(thunk))
+  // );
+  const [store, setStore] = useState(configureStore());
   const ScrollToTop = () => {
     window.scrollTo({
       top: 0,
