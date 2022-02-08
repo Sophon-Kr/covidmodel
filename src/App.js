@@ -10,9 +10,19 @@ import UpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "./middleware/store";
-
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import reducer from "../src/middleware/reducer";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+const rootReducer = combineReducers({
+  reducer,
+  composeWithDevTools,
+});
 function App() {
-  const [store, setStore] = useState(configureStore());
+  const [store, setStore] = useState(
+    createStore(rootReducer, applyMiddleware(thunk))
+  );
+  //const [store, setStore] = useState(configureStore());
   const ScrollToTop = () => {
     window.scrollTo({
       top: 0,
