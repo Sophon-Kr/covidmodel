@@ -31,6 +31,7 @@ import lung from "../assets/icons8-infected-lungs-64.png";
 import flight from "../assets/icons8-no-flight-64.png";
 import vaccine from "../assets/icons8-vaccine-64.png";
 import DatePicker from "@mui/lab/DatePicker";
+import { getRawDataMonth, getRawDataDay } from "../services/rawData.service";
 
 const dataconfig = [
   {
@@ -106,6 +107,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export const Homepage = (props) => {
+  const [tempData, setTempData] = useState([]);
   const [dialogStatus, setDialogStatus] = useState(false);
   const [fullGraph, setFullGraph] = useState(false);
   const [period, setPeriod] = React.useState(props.mainperiod);
@@ -342,8 +344,12 @@ export const Homepage = (props) => {
     async function fetchDataMonth() {
       if (props.mainperiod === "month" && props.maintypeData === "real") {
         await props.getAllRealDataMount();
+        let data = getRawDataMonth();
+        setTempData(data);
       } else if (props.mainperiod === "day" && props.maintypeData === "real") {
         await props.getAllRealDataDay();
+        let data = getRawDataDay;
+        setTempData(data);
       } else if (
         props.mainperiod === "month" &&
         props.maintypeData === "model"
@@ -363,6 +369,13 @@ export const Homepage = (props) => {
       await props.getAllDailyData();
     }
     fetchDailyData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    async function fetchInitialData() {
+      await props.getAllRealDataMount();
+    }
+    fetchInitialData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

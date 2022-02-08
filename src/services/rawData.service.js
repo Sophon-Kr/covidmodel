@@ -1,16 +1,19 @@
-
+import axios from "axios";
 module.exports = {
-    getRawDataMonth: async function (accessToken, id) {
-      return fetch(
-        "https://covid-data-123.herokuapp.com/coviddata/month", {
-              method: "GET",
-              headers: {
-                  Authorization: accessToken,
-                  "Content-Type": "application/json",
-              },
-          }
-      ).then(async (res) => {
-         return res.json();
+  getRawDataMonth: async function () {
+    return axios
+      .get(`https://covid-data-123.herokuapp.com/coviddata/month`)
+      .then((res) => {
+        console.log(res);
+        return res.data.data;
       });
-  }
-}
+  },
+  getRawDataDay: async function () {
+    return axios
+      .get(`https://covid-data-123.herokuapp.com/coviddata/day`)
+      .then((res) => {
+        console.log(res);
+        return res.data.data;
+      });
+  },
+};
