@@ -107,7 +107,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export const Homepage = (props) => {
-  const [tempData, setTempData] = useState([]);
+  const [tempDataService, setTempData] = useState([]);
   const [dialogStatus, setDialogStatus] = useState(false);
   const [fullGraph, setFullGraph] = useState(false);
   const [period, setPeriod] = React.useState(props.mainperiod);
@@ -371,9 +371,11 @@ export const Homepage = (props) => {
     fetchDailyData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
     async function fetchInitialData() {
-      await props.getAllRealDataMount();
+      let data = getRawDataMonth();
+      setTempData(data);
     }
     fetchInitialData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -674,7 +676,7 @@ export const Homepage = (props) => {
               </Grid>
             </Grid>
           </Grid>
-          <MainGraph />
+          <MainGraph tempDataService={tempDataService} />
         </Paper>
       </Container>
       <TableModel />
