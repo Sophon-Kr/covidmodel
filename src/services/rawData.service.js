@@ -1,4 +1,5 @@
-import axios from "axios";
+// import axios from "axios";
+var axios = require("axios");
 module.exports = {
   getRawDataMonth: async function () {
     return axios
