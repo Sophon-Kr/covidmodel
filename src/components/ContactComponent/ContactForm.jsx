@@ -39,7 +39,6 @@ export const ContactForm = (props) => {
   const handleClear = (event) => {
     setContact(0);
     setSubjectData("");
-   
     setSendFrom("");
     setSendText("");
   };

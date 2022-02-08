@@ -126,6 +126,25 @@ export const TableModel = (props) => {
                       Vaccines2
                     </TableCell>
                   )}
+                  {props.maintypeData === "model"
+                    ? [
+                        props.mainMStatus ? (
+                          <TableCell
+                            align="left"
+                            style={{ backgroundColor: "#8c9eff" }}
+                          >
+                            Maintenance
+                          </TableCell>
+                        ) : (
+                          <TableCell
+                            align="left"
+                            style={{ backgroundColor: "#e0e0e0" }}
+                          >
+                            Maintenance
+                          </TableCell>
+                        ),
+                      ]
+                    : null}
 
                   {props.mainIStatus ? (
                     <TableCell
@@ -187,7 +206,7 @@ export const TableModel = (props) => {
                       align="left"
                       style={{ backgroundColor: "#e0e0e0" }}
                     >
-                      Death
+                      Maintenance
                     </TableCell>
                   )}
                 </TableRow>
@@ -202,6 +221,9 @@ export const TableModel = (props) => {
                     <TableCell align="left">{row.Susceptible}</TableCell>
                     <TableCell align="left">{row.Vaccine1}</TableCell>
                     <TableCell align="left">{row.Vaccine2}</TableCell>
+                    {props.maintypeData === "model" ? (
+                      <TableCell align="left">{row.Maintenance}</TableCell>
+                    ) : null}
                     <TableCell align="left">{row.Infected}</TableCell>
                     <TableCell align="left">{row.Recovery}</TableCell>
                     <TableCell align="left">{row.Hospital}</TableCell>
@@ -228,6 +250,7 @@ const mapStateToProps = (state) => {
     mainRStatus: state.reducer.RStatus,
     mainHStatus: state.reducer.HStatus,
     mainDStatus: state.reducer.DStatus,
+    mainMStatus: state.reducer.MStatus,
     maindateStartMain: state.reducer.dateStartMain,
     maindateEndMain: state.reducer.dateEndMain,
 

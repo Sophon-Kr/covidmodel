@@ -117,6 +117,7 @@ export const Homepage = (props) => {
   const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
+  const [MStatus, setMStatus] = React.useState(props.mainMStatus);
 
   const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
   const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
@@ -185,6 +186,65 @@ export const Homepage = (props) => {
       status: props.mainV2Status,
       handle: (e) => setV2Status(e.target.checked),
     },
+    {
+      id: 4,
+      data: "Maintenance",
+      color: "#1a237e",
+      status: props.mainMStatus,
+      handle: (e) => setMStatus(e.target.checked),
+    },
+    {
+      id: 5,
+      data: "Infected",
+      color: "red",
+      status: props.mainIStatus,
+      handle: (e) => setIStatus(e.target.checked),
+    },
+    {
+      id: 6,
+      data: "Recovery",
+      color: "green",
+      status: props.mainRStatus,
+      handle: (e) => setRStatus(e.target.checked),
+    },
+    {
+      id: 7,
+      data: "Hospital",
+      color: "purple",
+      status: props.mainHStatus,
+      handle: (e) => setHStatus(e.target.checked),
+    },
+    {
+      id: 8,
+      data: "Death",
+      color: "black",
+      status: props.mainDStatus,
+      handle: (e) => setDStatus(e.target.checked),
+    },
+  ];
+  const listData2 = [
+    {
+      id: 1,
+      data: "Susceptible",
+      color: "blue",
+      status: props.mainSStatus,
+      handle: (e) => setSStatus(e.target.checked),
+    },
+    {
+      id: 2,
+      data: "Vaccine1",
+      color: "#ffd600",
+      status: props.mainV1Status,
+      handle: (e) => setV1Status(e.target.checked),
+    },
+    {
+      id: 3,
+      data: "Vaccine2",
+      color: "orange",
+      status: props.mainV2Status,
+      handle: (e) => setV2Status(e.target.checked),
+    },
+
     {
       id: 4,
       data: "Infected",
@@ -267,6 +327,7 @@ export const Homepage = (props) => {
       S: SStatus,
       V1: V1Status,
       V2: V2Status,
+      M: MStatus,
       I: IStatus,
       R: RStatus,
       H: HStatus,
@@ -616,34 +677,66 @@ export const Homepage = (props) => {
           <Typography gutterBottom variant="subtitle1">
             Select options for display on the graph.
           </Typography>
-          <Grid
-            container
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-          >
-            {listData.map((data) => (
-              <Grid item>
-                <FormControlLabel
-                  value="end"
-                  control={
-                    <Checkbox
-                      defaultChecked={data.status}
-                      sx={{
-                        "& .MuiSvgIcon-root": {
-                          fontSize: 30,
-                          color: data.color,
-                        },
-                      }}
-                      onChange={data.handle}
-                    />
-                  }
-                  label={data.data}
-                  labelPlacement="end"
-                />
-              </Grid>
-            ))}
-          </Grid>
+          {typeData === "model" ? (
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+            >
+              {listData.map((data) => (
+                <Grid item>
+                  <FormControlLabel
+                    value="end"
+                    control={
+                      <Checkbox
+                        defaultChecked={data.status}
+                        sx={{
+                          "& .MuiSvgIcon-root": {
+                            fontSize: 30,
+                            color: data.color,
+                          },
+                        }}
+                        onChange={data.handle}
+                      />
+                    }
+                    label={data.data}
+                    labelPlacement="end"
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          ) : (
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+            >
+              {listData2.map((data) => (
+                <Grid item>
+                  <FormControlLabel
+                    value="end"
+                    control={
+                      <Checkbox
+                        defaultChecked={data.status}
+                        sx={{
+                          "& .MuiSvgIcon-root": {
+                            fontSize: 30,
+                            color: data.color,
+                          },
+                        }}
+                        onChange={data.handle}
+                      />
+                    }
+                    label={data.data}
+                    labelPlacement="end"
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          )}
+
           {typeData === "model" ? (
             <Divider style={{ marginTop: 10, marginBottom: 10 }} />
           ) : null}
@@ -754,6 +847,7 @@ const mapStateToProps = (state) => {
     mainRStatus: state.reducer.RStatus,
     mainHStatus: state.reducer.HStatus,
     mainDStatus: state.reducer.DStatus,
+    mainMStatus: state.reducer.MStatus,
     maindateStartMain: state.reducer.dateStartMain,
     maindateEndMain: state.reducer.dateEndMain,
 

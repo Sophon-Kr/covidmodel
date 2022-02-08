@@ -32,6 +32,7 @@ const initialState = {
   RStatus: true,
   HStatus: true,
   DStatus: true,
+  MStatus: true,
 
   dateStartMain: new Date("2021-03-01T00:00:00"),
   dateEndMain: new Date("2021-12-01T00:00:00"),
@@ -69,6 +70,7 @@ const reducer = (state = initialState, { type, payload }) => {
         RStatus: payload.R,
         HStatus: payload.H,
         DStatus: payload.D,
+        MStatus: payload.M,
       };
 
     case CONFIG_DATA_TYPE:

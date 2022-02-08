@@ -24,6 +24,7 @@ class MainGraphFull extends PureComponent {
       mainRStatus: props.mainRStatus,
       mainHStatus: props.mainHStatus,
       mainDStatus: props.mainDStatus,
+      mainMStatus: props.mainMStatus,
     };
   }
 
@@ -101,6 +102,11 @@ class MainGraphFull extends PureComponent {
     if (prevProps.mainV2Status !== this.props.mainV2Status) {
       this.setState({
         mainV2Status: this.props.mainV2Status,
+      });
+    }
+    if (prevProps.mainMStatus !== this.props.mainMStatus) {
+      this.setState({
+        mainMStatus: this.props.mainMStatus,
       });
     }
     if (prevProps.mainIStatus !== this.props.mainIStatus) {
@@ -181,6 +187,15 @@ class MainGraphFull extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
+            {this.state.mainMStatus ? (
+              <Line
+                type="monotone"
+                dataKey="Maintenance"
+                stroke="#1a237e"
+                strokeWidth={3}
+                activeDot={{ r: 8 }}
+              />
+            ) : null}
             {this.state.mainIStatus ? (
               <Line
                 type="monotone"
@@ -236,6 +251,7 @@ const mapStateToProps = (state) => {
     mainRStatus: state.reducer.RStatus,
     mainHStatus: state.reducer.HStatus,
     mainDStatus: state.reducer.DStatus,
+    mainMStatus: state.reducer.MStatus,
     maindateStartMain: state.reducer.dateStartMain,
     maindateEndMain: state.reducer.dateEndMain,
 
