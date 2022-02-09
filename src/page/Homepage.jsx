@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import * as actions from "../middleware/action";
 import { connect } from "react-redux";
 import Container from "@mui/material/Container";
@@ -31,7 +32,7 @@ import lung from "../assets/icons8-infected-lungs-64.png";
 import flight from "../assets/icons8-no-flight-64.png";
 import vaccine from "../assets/icons8-vaccine-64.png";
 import DatePicker from "@mui/lab/DatePicker";
-import { getRawDataMonth, getRawDataDay } from "../services/rawDataservice";
+//import { getRawDataMonth, getRawDataDay } from "../services/rawDataservice";
 
 const dataconfig = [
   {
@@ -276,6 +277,24 @@ export const Homepage = (props) => {
       handle: (e) => setDStatus(e.target.checked),
     },
   ];
+
+  const getRawDataMonth = () => {
+    return axios
+      .get(`https://covid-data-123.herokuapp.com/coviddata/month`)
+      .then((res) => {
+        console.log(res);
+        return res.data.data;
+      });
+  };
+
+  const getRawDataDay = () => {
+    return axios
+      .get(`https://covid-data-123.herokuapp.com/coviddata/day`)
+      .then((res) => {
+        console.log(res);
+        return res.data.data;
+      });
+  };
 
   const handleDialogOpen = () => {
     setDialogStatus(true);
