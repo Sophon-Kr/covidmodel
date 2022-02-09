@@ -700,7 +700,9 @@ export const Homepage = (props) => {
               </Grid>
             </Grid>
           </Grid>
-          <MainGraph tempDataService={tempDataService} />
+          <MainGraph
+          // tempDataService={tempDataService}
+          />
         </Paper>
       </Container>
       <TableModel />
