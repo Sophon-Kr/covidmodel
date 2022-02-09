@@ -11,6 +11,7 @@ import TableRow from "@mui/material/TableRow";
 
 export const TableModel = (props) => {
   const [data, setData] = useState(props.mainTempData);
+  // const [data, setData] = useState(props.mainTempData);
 
   const filterRangeByDate = (data) => {
     var startDate = new Date(props.maindateStartMain);
