@@ -66,6 +66,8 @@ export const VSGraphPage = (props) => {
     },
   ];
 
+  
+
   const handlePeriod = (event, newPeriod) => {
     setPeriod(newPeriod);
     if (newPeriod === "day") {
@@ -109,6 +111,7 @@ export const VSGraphPage = (props) => {
 
   useEffect((period) => {
     props.getVSDataMount();
+    props.configTypeVS("S");
   }, []);
 
   const [nodeData, setNodeData] = React.useState("S");

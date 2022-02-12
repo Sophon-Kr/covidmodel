@@ -26,6 +26,7 @@ import MainGraphFull from "../components/Graph/MainGraphFull";
 import TextField from "@mui/material/TextField";
 import TableModel from "../components/Table/TableModel";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import MenuItem from "@mui/material/MenuItem";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import covid from "../assets/icons8-covid-19-64.png";
 import lung from "../assets/icons8-infected-lungs-64.png";
@@ -33,73 +34,158 @@ import flight from "../assets/icons8-no-flight-64.png";
 import vaccine from "../assets/icons8-vaccine-64.png";
 import DatePicker from "@mui/lab/DatePicker";
 //import { getRawDataMonth, getRawDataDay } from "../services/rawDataservice";
+import { getDay, getMonth } from "../middleware/dataday";
 
 const dataconfig = [
+  // {
+  //   name: "rho",
+  //   des: "Total Population",
+  //   symbol: <span>&#961;</span>,
+  //   value: "0.015",
+  // },
+  // {
+  //   name: "zeta",
+  //   des: "The covid-19 dissese mortality rate for individuals in the infected rate",
+  //   symbol: <span>&#950;</span>,
+  //   value: "0.015",
+  // },
+  // {
+  //   name: "eta",
+  //   des: "The recurrent infections rate for who was recovery",
+  //   symbol: <span>&eta;</span>,
+  //   value: "0.09",
+  // },
+  // {
+  //   name: "omega1",
+  //   des: "The performance of vacination first doses",
+  //   symbol: <span>&#969;1</span>,
+  //   value: "0.04",
+  // },
+  // {
+  //   name: "omega1",
+  //   des: "The performance of vacination second doses",
+  //   symbol: <span>&#969;2</span>,
+  //   value: " 0.001",
+  // },
+  // {
+  //   name: "epsilon1",
+  //   des: "The effective of covid-19 vacine rate first doses",
+  //   symbol: <span>&#949;1</span>,
+  //   value: "0.641",
+  // },
+  // {
+  //   name: "epsilon2",
+  //   des: "The effective of covid-19 vacine rate second doses",
+  //   symbol: <span>&#949;2</span>,
+  //   value: "0.704",
+  // },
+  // {
+  //   name: "mu",
+  //   des: "The natural death rate of all individual",
+  //   symbol: <span>&#956;</span>,
+  //   value: "3.6529e-5",
+  // },
+  // {
+  //   name: "alpha",
+  //   des: "The hospital rate for infected",
+  //   symbol: <span>&#945;</span>,
+  //   value: "0.2",
+  // },
+  // {
+  //   name: "lambda",
+  //   des: "The recovery rate of infected",
+  //   symbol: <span>&#955;</span>,
+  //   value: "0.1",
+  // },
+  // {
+  //   name: "beta",
+  //   des: "The effective contact rate",
+  //   symbol: <span>&#946;</span>,
+  //   value: "0.5",
+  // },
+  // {
+  //   name: "rho",
+  //   des: "Total Population",
+  //   symbol: <span>&#961;</span>,
+  //   value: tempConfig,
+  // },
   {
-    name: "rho",
-    des: "Total Population",
-    symbol: <span>&#961;</span>,
-    value: "0.015",
+    name: "zetah",
+    des: "The covid-19 dissese mortality rate for individuals in the infected rate",
+    symbol: <span>&#950;h</span>,
+    value: 0,
   },
   {
-    name: "zeta",
+    name: "zetas",
     des: "The covid-19 dissese mortality rate for individuals in the infected rate",
-    symbol: <span>&#950;</span>,
-    value: "0.015",
+    symbol: <span>&#950;h</span>,
+    value: 0,
   },
   {
     name: "eta",
     des: "The recurrent infections rate for who was recovery",
     symbol: <span>&eta;</span>,
-    value: "0.09",
+    value: 0,
   },
   {
     name: "omega1",
     des: "The performance of vacination first doses",
     symbol: <span>&#969;1</span>,
-    value: "0.04",
+    value: 0,
   },
   {
-    name: "omega1",
+    name: "omega2",
     des: "The performance of vacination second doses",
     symbol: <span>&#969;2</span>,
-    value: " 0.001",
+    value: 0,
+  },
+  {
+    name: "omega3",
+    des: "The performance of vacination second doses",
+    symbol: <span>&#969;3</span>,
+    value: 0,
   },
   {
     name: "epsilon1",
     des: "The effective of covid-19 vacine rate first doses",
     symbol: <span>&#949;1</span>,
-    value: "0.641",
+    value: 0,
   },
   {
     name: "epsilon2",
     des: "The effective of covid-19 vacine rate second doses",
     symbol: <span>&#949;2</span>,
-    value: "0.704",
+    value: 0,
   },
   {
     name: "mu",
     des: "The natural death rate of all individual",
     symbol: <span>&#956;</span>,
-    value: "3.6529e-5",
+    value: 0,
   },
   {
     name: "alpha",
     des: "The hospital rate for infected",
     symbol: <span>&#945;</span>,
-    value: "0.2",
+    value: 0,
   },
   {
-    name: "lambda",
+    name: "lambdah",
     des: "The recovery rate of infected",
-    symbol: <span>&#955;</span>,
-    value: "0.1",
+    symbol: <span>&#955;h</span>,
+    value: 0,
+  },
+  {
+    name: "lambdas",
+    des: "The recovery rate of infected",
+    symbol: <span>&#955;s</span>,
+    value: 0,
   },
   {
     name: "beta",
     des: "The effective contact rate",
     symbol: <span>&#946;</span>,
-    value: "0.5",
+    value: 0,
   },
 ];
 
@@ -121,11 +207,28 @@ export const Homepage = (props) => {
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
   const [MStatus, setMStatus] = React.useState(props.mainMStatus);
+  const [alpha, setAlpha] = React.useState(0);
+  const [beta, setBeta] = React.useState(0);
+  const [epsilon1, setEpsilon1] = React.useState(0);
+  const [epsilon2, setEpsilon2] = React.useState(0);
+  const [lambdaH, setLambdaH] = React.useState(0);
+  const [lambdaS, setLambdaS] = React.useState(0);
+  const [mu, setMu] = React.useState(0);
+  const [omega1, setOmega1] = React.useState(0);
+  const [omega2, setOmega2] = React.useState(0);
+  const [omega3, setOmega3] = React.useState(0);
+  const [zetaH, setZetaH] = React.useState(0);
+  const [zetaS, setZetaS] = React.useState(0);
 
   const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
   const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
   const [monthStart, setMonthStart] = React.useState(props.initialMinDate);
   const [monthEnd, setMonthEnd] = React.useState(props.initialMaxDate);
+  const [initialDateForSet, setInitialDateForSet] = useState("");
+  const [listInitialDate, setListInitialDate] = useState([]);
+  const [listAllInitialDate, setListAllInitialDate] = useState([]);
+  // const [initialValueDataConfig, setInitialValueDataConfig] =
+  //   useState(tempConfigSchema);
 
   const setdailyDataTemplate = [
     {
@@ -296,10 +399,221 @@ export const Homepage = (props) => {
       });
   };
 
+  var initialTemp = [
+    {
+      startdate: "01-10-2021",
+      alpha: 0.046,
+      beta: 1.11e-9,
+      epsilon1: 0.641,
+      epsilon2: 0.704,
+      lambdah: 0.046,
+      lambdas: 0.0015,
+      mu: 3.6529e-5,
+      omega1: 0.005,
+      omega2: 0.001,
+      omega3: 0.005,
+      zetah: 0.0004,
+      zetas: 4e-5,
+      time_length: 16,
+    },
+    {
+      startdate: "15-10-2021",
+      alpha: 1.046,
+      beta: 1.11e-9,
+      epsilon1: 1.641,
+      epsilon2: 1.704,
+      lambdah: 1.046,
+      lambdas: 1.0015,
+      mu: 3.6529e-5,
+      omega1: 1.005,
+      omega2: 1.001,
+      omega3: 1.005,
+      zetah: 1.0004,
+      zetas: 4e-5,
+      time_length: 16,
+    },
+  ];
+
+  function filterInitialValue(listAll, InitialDate) {
+    //console.log("listAll, InitialDate", listAll, InitialDate);
+    let tempfillter = [];
+    for (let i = 0; i < listAll.length; i++) {
+      if (listAll[i].startdate == InitialDate) {
+        tempfillter = listAll[i];
+      }
+    }
+    return tempfillter;
+  }
+
+  function listForSelectInitialValue(listAll) {
+    var tempListInitialSelect = [];
+    for (let i = 0; i < listAll.length; i++) {
+      tempListInitialSelect.push({
+        label: listAll[i].startdate,
+        value: listAll[i].startdate,
+      });
+    }
+    return tempListInitialSelect;
+  }
+
+  let initialValueDataConfig = [
+    // {
+    //   name: "rho",
+    //   des: "Total Population",
+    //   symbol: <span>&#961;</span>,
+    //   value: tempConfig,
+    // },
+    {
+      name: "zetah",
+      des: "The covid-19 dissese mortality rate for individuals in the infected rate",
+      symbol: <span>&#950;h</span>,
+      value: zetaH,
+      setValue: (event) => setZetaH(event.target.value),
+    },
+    {
+      name: "zetas",
+      des: "The covid-19 dissese mortality rate for individuals in the infected rate",
+      symbol: <span>&#950;h</span>,
+      value: zetaS,
+      setValue: (event) => setZetaS(event.target.value),
+    },
+    // {
+    //   name: "eta",
+    //   des: "The recurrent infections rate for who was recovery",
+    //   symbol: <span>&eta;</span>,
+    //   value: tempConfig,
+    // },
+    {
+      name: "omega1",
+      des: "The performance of vacination first doses",
+      symbol: <span>&#969;1</span>,
+      value: omega1,
+      setValue: (event) => setOmega1(event.target.value),
+    },
+    {
+      name: "omega2",
+      des: "The performance of vacination second doses",
+      symbol: <span>&#969;2</span>,
+      value: omega2,
+      setValue: (event) => setOmega2(event.target.value),
+    },
+    {
+      name: "omega3",
+      des: "The performance of vacination second doses",
+      symbol: <span>&#969;3</span>,
+      value: omega3,
+      setValue: (event) => setOmega3(event.target.value),
+    },
+    {
+      name: "epsilon1",
+      des: "The effective of covid-19 vacine rate first doses",
+      symbol: <span>&#949;1</span>,
+      value: epsilon1,
+      setValue: (event) => setEpsilon1(event.target.value),
+    },
+    {
+      name: "epsilon2",
+      des: "The effective of covid-19 vacine rate second doses",
+      symbol: <span>&#949;2</span>,
+      value: epsilon2,
+      setValue: (event) => setEpsilon2(event.target.value),
+    },
+    {
+      name: "mu",
+      des: "The natural death rate of all individual",
+      symbol: <span>&#956;</span>,
+      value: mu,
+      setValue: (event) => setMu(event.target.value),
+    },
+    {
+      name: "alpha",
+      des: "The hospital rate for infected",
+      symbol: <span>&#945;</span>,
+      value: alpha,
+      setValue: (event) => setAlpha(event.target.value),
+    },
+    {
+      name: "lambdah",
+      des: "The recovery rate of infected",
+      symbol: <span>&#955;h</span>,
+      value: lambdaH,
+      setValue: (event) => setLambdaH(event.target.value),
+    },
+    {
+      name: "lambdas",
+      des: "The recovery rate of infected",
+      symbol: <span>&#955;s</span>,
+      value: lambdaS,
+      setValue: (event) => setLambdaS(event.target.value),
+    },
+    {
+      name: "beta",
+      des: "The effective contact rate",
+      symbol: <span>&#946;</span>,
+      value: beta,
+      setValue: (event) => setBeta(event.target.value),
+    },
+  ];
+
+  useEffect(() => {
+    // setInitialDateForSet;
+    // setListInitialDate;
+    //1. fetchdata
+    setListAllInitialDate(initialTemp);
+    const tempListInitialDate = listForSelectInitialValue(initialTemp);
+    setListInitialDate(tempListInitialDate);
+    setInitialDateForSet(tempListInitialDate[0].value);
+  }, []);
+
+  useEffect(() => {
+    const tempConfig = filterInitialValue(
+      listAllInitialDate,
+      initialDateForSet
+    );
+    console.log("tempConfig", tempConfig);
+    setAlpha(tempConfig.alpha);
+    setBeta(tempConfig.beta);
+    setEpsilon1(tempConfig.epsilon1);
+    setEpsilon2(tempConfig.epsilon2);
+    setLambdaH(tempConfig.lambdah);
+    setLambdaS(tempConfig.lambdas);
+    setMu(tempConfig.mu);
+    setOmega1(tempConfig.omega1);
+    setOmega2(tempConfig.omega2);
+    setOmega3(tempConfig.omega3);
+    setZetaH(tempConfig.zetah);
+    setZetaS(tempConfig.zetas);
+
+    // setInitialDateForSet;
+    // setListInitialDate;
+    // setListAllInitialDate;
+  }, [initialDateForSet]);
+
+  const handleInitialDateForSet = (event) => {
+    setInitialDateForSet(event.target.value);
+  };
+
   const handleDialogOpen = () => {
     setDialogStatus(true);
   };
   const handleDialogClose = () => {
+    const tempConfig = filterInitialValue(
+      listAllInitialDate,
+      initialDateForSet
+    );
+    console.log("tempConfig", tempConfig);
+    setAlpha(tempConfig.alpha);
+    setBeta(tempConfig.beta);
+    setEpsilon1(tempConfig.epsilon1);
+    setEpsilon2(tempConfig.epsilon2);
+    setLambdaH(tempConfig.lambdah);
+    setLambdaS(tempConfig.lambdas);
+    setMu(tempConfig.mu);
+    setOmega1(tempConfig.omega1);
+    setOmega2(tempConfig.omega2);
+    setOmega3(tempConfig.omega3);
+    setZetaH(tempConfig.zetah);
+    setZetaS(tempConfig.zetas);
     setDialogStatus(false);
   };
 
@@ -364,12 +678,12 @@ export const Homepage = (props) => {
       if (props.mainperiod === "month" && props.maintypeData === "real") {
         await props.getAllRealDataMount();
 
-        let data = getRawDataMonth();
+        let data = getMonth();
         setTempData(data);
       } else if (props.mainperiod === "day" && props.maintypeData === "real") {
         await props.getAllRealDataDay();
 
-        let data = getRawDataDay;
+        let data = getDay();
         setTempData(data);
       } else if (
         props.mainperiod === "month" &&
@@ -397,7 +711,7 @@ export const Homepage = (props) => {
     async function fetchInitialData() {
       // await props.getAllRealDataMount();
 
-      let data = getRawDataMonth();
+      let data = getMonth();
       return data;
     }
     let temp = fetchInitialData();
@@ -700,9 +1014,7 @@ export const Homepage = (props) => {
               </Grid>
             </Grid>
           </Grid>
-          <MainGraph
-          // tempDataService={tempDataService}
-          />
+          <MainGraph tempDataService={tempDataService} />
         </Paper>
       </Container>
       <TableModel />
@@ -784,11 +1096,32 @@ export const Homepage = (props) => {
           {typeData === "model" ? (
             <Grid container spacing={3}>
               <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                <Typography gutterBottom variant="subtitle1">
-                  Input values to generate a new graph
-                </Typography>
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Typography gutterBottom variant="subtitle1">
+                    Input values to generate a new graph
+                  </Typography>
+                  <TextField
+                    select
+                    label="Select Date"
+                    size="small"
+                    value={initialDateForSet}
+                    onChange={handleInitialDateForSet}
+                    style={{ minWidth: 160 }}
+                  >
+                    {listInitialDate.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Grid>
               </Grid>
-              {dataconfig.map((item) => (
+              {initialValueDataConfig.map((item) => (
                 <Grid item key={item.name} xs={4} sm={4} md={4} lg={4} xl={4}>
                   <TextField
                     label={
@@ -796,31 +1129,47 @@ export const Homepage = (props) => {
                         {item.symbol} ({item.name})
                       </span>
                     }
-                    defaultValue={item.value}
+                    value={item.value}
+                    onChange={item.setValue}
+                    type="number"
                     variant="outlined"
                     maxWidth
                   />
                 </Grid>
               ))}
-              <Grid item>
-                <Button
-                  onClick={handleDialogClose}
-                  variant="contained"
-                  style={{
-                    color: "white",
-                    backgroundColor: "grey",
-                    marginLeft: 10,
-                    marginTop: 10,
-                  }}
-                >
-                  Reset Default Value
-                </Button>
-              </Grid>
             </Grid>
           ) : null}
         </DialogContent>
         <DialogActions>
+          <Grid item style={{ flexGrow: 1 }}>
+            <Button
+              onClick={handleDialogClose}
+              variant="contained"
+              style={{
+                color: "white",
+                backgroundColor: "grey",
+              }}
+            >
+              Reset Default Value
+            </Button>
+          </Grid>
           <Grid item>
+            {/* <span style={{ flexGrow: 1 }}>
+              <Button
+                onClick={handleDialogClose}
+                variant="contained"
+                style={{
+                  color: "white",
+                  backgroundColor: "grey",
+
+                  // marginLeft: 10,
+                  //marginTop: 10,
+                }}
+              >
+                Reset Default Value
+              </Button>
+            </span> */}
+
             <Button
               onClick={handleDialogClose}
               variant="contained"

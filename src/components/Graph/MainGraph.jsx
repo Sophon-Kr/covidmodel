@@ -136,6 +136,11 @@ class MainGraph extends PureComponent {
         covidData: this.props.mainTempData,
       });
     }
+    // if (prevProps.tempDataService !== this.props.tempDataService) {
+    //   this.setState({
+    //     covidData: this.props.tempDataService,
+    //   });
+    // }
   }
 
   render() {
