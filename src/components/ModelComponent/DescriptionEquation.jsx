@@ -46,7 +46,9 @@ const equationCovid = [
         <sup>d(M)</sup>
         &frasl;<sub>d(t)</sub> = &omega;<sub>3</sub>V<sub>2</sub> &minus;
         &omega;
-        <sub>3</sub>V<sub>2</sub> + R &minus; &beta;<sub>S</sub>
+        <sub>3</sub>V<sub>2</sub> + &lambda;
+        <sub>H</sub>H + &lambda;
+        <sub>S</sub>I &beta;<sub>S</sub>
         (1&minus;&epsilon;
         <sub>2</sub>)MI&minus; &mu;M
       </span>
@@ -81,16 +83,16 @@ const equationCovid = [
       </span>
     ),
   },
-  {
-    node: "R",
-    equation: (
-      <span>
-        <sup>d(R)</sup>
-        &frasl;<sub>d(t)</sub> = &lambda;
-        <sub>H</sub>H + &lambda;<sub>S</sub>I &minus; R
-      </span>
-    ),
-  },
+  // {
+  //   node: "R",
+  //   equation: (
+  //     <span>
+  //       <sup>d(R)</sup>
+  //       &frasl;<sub>d(t)</sub> = &lambda;
+  //       <sub>H</sub>H + &lambda;<sub>S</sub>I &minus; R
+  //     </span>
+  //   ),
+  // },
   {
     node: "D",
     equation: (
