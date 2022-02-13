@@ -353,75 +353,76 @@ export const TableVS = (props) => {
                 </TableBody>
               </Table>
             </TableContainer>
-          ) : props.mainVS === "R" ? (
-            <TableContainer>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell
-                      align="left"
-                      style={{ backgroundColor: "#1b5e20", color: "white" }}
-                    >
-                      Date
-                    </TableCell>
-                    <TableCell
-                      align="left"
-                      style={{ backgroundColor: "#2e7d32", color: "white" }}
-                    >
-                      Recovery(Raw Data)
-                    </TableCell>
-                    <TableCell
-                      align="left"
-                      style={{ backgroundColor: "#4caf50" }}
-                    >
-                      Recovery(Model Data)
-                    </TableCell>
-                    <TableCell
-                      align="left"
-                      style={{ backgroundColor: "#a5d6a7" }}
-                    >
-                      Different
-                    </TableCell>
-                    <TableCell
-                      align="left"
-                      style={{ backgroundColor: "#e8f5e9" }}
-                    >
-                      Percent Difference
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {data.map((row) => (
-                    <TableRow
-                      key={row.name}
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell align="left">{row.name}</TableCell>
+          ) : // props.mainVS === "R" ? (
+          //   <TableContainer>
+          //     <Table>
+          //       <TableHead>
+          //         <TableRow>
+          //           <TableCell
+          //             align="left"
+          //             style={{ backgroundColor: "#1b5e20", color: "white" }}
+          //           >
+          //             Date
+          //           </TableCell>
+          //           <TableCell
+          //             align="left"
+          //             style={{ backgroundColor: "#2e7d32", color: "white" }}
+          //           >
+          //             Recovery(Raw Data)
+          //           </TableCell>
+          //           <TableCell
+          //             align="left"
+          //             style={{ backgroundColor: "#4caf50" }}
+          //           >
+          //             Recovery(Model Data)
+          //           </TableCell>
+          //           <TableCell
+          //             align="left"
+          //             style={{ backgroundColor: "#a5d6a7" }}
+          //           >
+          //             Different
+          //           </TableCell>
+          //           <TableCell
+          //             align="left"
+          //             style={{ backgroundColor: "#e8f5e9" }}
+          //           >
+          //             Percent Difference
+          //           </TableCell>
+          //         </TableRow>
+          //       </TableHead>
+          //       <TableBody>
+          //         {data.map((row) => (
+          //           <TableRow
+          //             key={row.name}
+          //             sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+          //           >
+          //             <TableCell align="left">{row.name}</TableCell>
 
-                      <TableCell align="left">{row.RecoveryRawData}</TableCell>
-                      <TableCell align="left">
-                        {row.RecoveryModelData}
-                      </TableCell>
-                      <TableCell align="left">
-                        {Math.abs(
-                          Math.floor(
-                            row.RecoveryRawData - row.RecoveryModelData
-                          )
-                        )}
-                      </TableCell>
-                      <TableCell align="left">
-                        {findDiffernceValue(
-                          row.RecoveryRawData,
-                          row.RecoveryModelData
-                        )}
-                        %
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          ) : props.mainVS === "H" ? (
+          //             <TableCell align="left">{row.RecoveryRawData}</TableCell>
+          //             <TableCell align="left">
+          //               {row.RecoveryModelData}
+          //             </TableCell>
+          //             <TableCell align="left">
+          //               {Math.abs(
+          //                 Math.floor(
+          //                   row.RecoveryRawData - row.RecoveryModelData
+          //                 )
+          //               )}
+          //             </TableCell>
+          //             <TableCell align="left">
+          //               {findDiffernceValue(
+          //                 row.RecoveryRawData,
+          //                 row.RecoveryModelData
+          //               )}
+          //               %
+          //             </TableCell>
+          //           </TableRow>
+          //         ))}
+          //       </TableBody>
+          //     </Table>
+          //   </TableContainer>
+          // ) :
+          props.mainVS === "H" ? (
             <TableContainer>
               <Table>
                 <TableHead>

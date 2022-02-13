@@ -52,10 +52,10 @@ export const VSGraphPage = (props) => {
       value: "I",
       label: "Infected",
     },
-    {
-      value: "R",
-      label: "Recovery",
-    },
+    // {
+    //   value: "R",
+    //   label: "Recovery",
+    // },
     {
       value: "H",
       label: "Hospital",
@@ -65,8 +65,6 @@ export const VSGraphPage = (props) => {
       label: "Death",
     },
   ];
-
-  
 
   const handlePeriod = (event, newPeriod) => {
     setPeriod(newPeriod);

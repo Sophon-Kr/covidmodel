@@ -95,18 +95,18 @@ const modelDisplay = [
     pic: <img src={I} alt="Infection" width="100%" height="auto" />,
     color: "#f44336",
   },
-  {
-    name: "Recovery Class : R",
-    text: (
-      <div>
-        &emsp; &emsp; &emsp; คือ
-        ประชากรในประเทศไทยที่ได้รับการยืนยันว่าเข้ารับการรักษาในโรงพยาล
-        โดยประกาศจำนวนจากข้อมูลของทางกระทรวงสาธารณสุขประเทศไทย
-      </div>
-    ),
-    pic: <img src={R} alt="Recovery" width="100%" height="auto" />,
-    color: "#008000",
-  },
+  // {
+  //   name: "Recovery Class : R",
+  //   text: (
+  //     <div>
+  //       &emsp; &emsp; &emsp; คือ
+  //       ประชากรในประเทศไทยที่ได้รับการยืนยันว่าเข้ารับการรักษาในโรงพยาล
+  //       โดยประกาศจำนวนจากข้อมูลของทางกระทรวงสาธารณสุขประเทศไทย
+  //     </div>
+  //   ),
+  //   pic: <img src={R} alt="Recovery" width="100%" height="auto" />,
+  //   color: "#008000",
+  // },
   {
     name: "Hospital Class : H",
     text: (

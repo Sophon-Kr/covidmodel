@@ -306,13 +306,13 @@ export const Homepage = (props) => {
       status: props.mainIStatus,
       handle: (e) => setIStatus(e.target.checked),
     },
-    {
-      id: 6,
-      data: "Recovery",
-      color: "green",
-      status: props.mainRStatus,
-      handle: (e) => setRStatus(e.target.checked),
-    },
+    // {
+    //   id: 6,
+    //   data: "Recovery",
+    //   color: "green",
+    //   status: props.mainRStatus,
+    //   handle: (e) => setRStatus(e.target.checked),
+    // },
     {
       id: 7,
       data: "Hospital",
@@ -358,13 +358,13 @@ export const Homepage = (props) => {
       status: props.mainIStatus,
       handle: (e) => setIStatus(e.target.checked),
     },
-    {
-      id: 5,
-      data: "Recovery",
-      color: "green",
-      status: props.mainRStatus,
-      handle: (e) => setRStatus(e.target.checked),
-    },
+    // {
+    //   id: 5,
+    //   data: "Recovery",
+    //   color: "green",
+    //   status: props.mainRStatus,
+    //   handle: (e) => setRStatus(e.target.checked),
+    // },
     {
       id: 6,
       data: "Hospital",
@@ -673,28 +673,25 @@ export const Homepage = (props) => {
     handleDialogClose();
   };
 
-  useEffect(() => {
-    async function fetchDataMonth() {
-      if (props.mainperiod === "month" && props.maintypeData === "real") {
-        await props.getAllRealDataMount();
+  async function fetchDataMonth() {
+    if (props.mainperiod === "month" && props.maintypeData === "real") {
+      await props.getAllRealDataMount();
 
-        let data = getMonth();
-        setTempData(data);
-      } else if (props.mainperiod === "day" && props.maintypeData === "real") {
-        await props.getAllRealDataDay();
+      let data = getMonth();
+      setTempData(data);
+    } else if (props.mainperiod === "day" && props.maintypeData === "real") {
+      await props.getAllRealDataDay();
 
-        let data = getDay();
-        setTempData(data);
-      } else if (
-        props.mainperiod === "month" &&
-        props.maintypeData === "model"
-      ) {
-        await props.getAllModelDataMount();
-      } else if (props.mainperiod === "day" && props.maintypeData === "model") {
-        await props.getAllModelDataDay();
-      }
+      let data = getDay();
+      setTempData(data);
+    } else if (props.mainperiod === "month" && props.maintypeData === "model") {
+      await props.getAllModelDataMount();
+    } else if (props.mainperiod === "day" && props.maintypeData === "model") {
+      await props.getAllModelDataDay();
     }
+  }
 
+  useEffect(() => {
     fetchDataMonth();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.maintypeData, props.mainperiod]);
@@ -1141,18 +1138,21 @@ export const Homepage = (props) => {
           ) : null}
         </DialogContent>
         <DialogActions>
-          <Grid item style={{ flexGrow: 1 }}>
-            <Button
-              onClick={handleDialogClose}
-              variant="contained"
-              style={{
-                color: "white",
-                backgroundColor: "grey",
-              }}
-            >
-              Reset Default Value
-            </Button>
-          </Grid>
+          {typeData === "model" ? (
+            <Grid item style={{ flexGrow: 1 }}>
+              <Button
+                onClick={handleDialogClose}
+                variant="contained"
+                style={{
+                  color: "white",
+                  backgroundColor: "grey",
+                }}
+              >
+                Reset Default Value
+              </Button>
+            </Grid>
+          ) : null}
+
           <Grid item>
             {/* <span style={{ flexGrow: 1 }}>
               <Button

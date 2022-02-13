@@ -35,7 +35,7 @@ export const ModelPart = (props) => {
           fontFamily: "IBM Plex Sans Thai Looped",
         }}
       >
-        SV1V2MIRHD MODEL
+        SV1V2MIHD MODEL
       </Grid>
       <Grid
         container
@@ -55,7 +55,7 @@ export const ModelPart = (props) => {
             fontWeight: "400",
           }}
         >
-          &emsp; &emsp; &emsp; SV1V2MIRHD MODEL คือ โมเดลที่เราได้ทำการปรับจาก
+          &emsp; &emsp; &emsp; SV1V2MIHD MODEL คือ โมเดลที่เราได้ทำการปรับจาก
           โมเดลพื้นฐาน SEIR เป็นโมเดลที่สอดคล้องกับข้อมูลของเรามากขึ้น โดย
           มีความหมายศัพท์ทางการแพทย์แต่ละตัวดังนี้
         </Grid>
