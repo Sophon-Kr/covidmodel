@@ -10,6 +10,7 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import contactPic from "../../assets/contactPic.png";
 
 // import EmailUtil from "../../services/sendemail.service";
+import { sendEmail } from "../../services/sendemail.service";
 // import { getRawDataMonth } from "../../services/rawData.service";
 
 // const mailList = [
@@ -35,7 +36,6 @@ export const ContactForm = (props) => {
   const [sendFrom, setSendFrom] = React.useState("");
   const [sendText, setSendText] = React.useState("");
 
- 
   const handleClear = (event) => {
     setContact(0);
     setSubjectData("");
@@ -54,6 +54,14 @@ export const ContactForm = (props) => {
     setSendText(event.target.value);
   };
   const handleSendMail = async () => {
+    const forSend = {
+      sendFrom,
+      subjectData,
+      sendText,
+    };
+    //console.log("testsend", forSend);
+    const testsend = await sendEmail(forSend);
+    console.log("testsend", testsend);
     //console.log("handleSendMail:: ", sendFrom, subjectData, sendText);
     // const tempEmail = EmailUtil.sendEmail(sendFrom, subjectData, sendText);
     // console.log("tempEmail", tempEmail);
