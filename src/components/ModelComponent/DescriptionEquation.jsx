@@ -44,11 +44,9 @@ const equationCovid = [
     equation: (
       <span>
         <sup>d(M)</sup>
-        &frasl;<sub>d(t)</sub> = &omega;<sub>3</sub>V<sub>2</sub> &minus;
-        &omega;
-        <sub>3</sub>V<sub>2</sub> + &lambda;
+        &frasl;<sub>d(t)</sub> = &omega;<sub>3</sub>V<sub>2</sub> + &lambda;
         <sub>H</sub>H + &lambda;
-        <sub>S</sub>I &beta;<sub>S</sub>
+        <sub>S</sub>I - &beta;<sub>S</sub>
         (1&minus;&epsilon;
         <sub>2</sub>)MI&minus; &mu;M
       </span>
