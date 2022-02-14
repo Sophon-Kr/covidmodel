@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import * as actions from "../middleware/action";
 import { connect } from "react-redux";
 import Container from "@mui/material/Container";
@@ -36,158 +36,158 @@ import DatePicker from "@mui/lab/DatePicker";
 //import { getRawDataMonth, getRawDataDay } from "../services/rawDataservice";
 import { getDay, getMonth } from "../middleware/dataday";
 
-const dataconfig = [
-  // {
-  //   name: "rho",
-  //   des: "Total Population",
-  //   symbol: <span>&#961;</span>,
-  //   value: "0.015",
-  // },
-  // {
-  //   name: "zeta",
-  //   des: "The covid-19 dissese mortality rate for individuals in the infected rate",
-  //   symbol: <span>&#950;</span>,
-  //   value: "0.015",
-  // },
-  // {
-  //   name: "eta",
-  //   des: "The recurrent infections rate for who was recovery",
-  //   symbol: <span>&eta;</span>,
-  //   value: "0.09",
-  // },
-  // {
-  //   name: "omega1",
-  //   des: "The performance of vacination first doses",
-  //   symbol: <span>&#969;1</span>,
-  //   value: "0.04",
-  // },
-  // {
-  //   name: "omega1",
-  //   des: "The performance of vacination second doses",
-  //   symbol: <span>&#969;2</span>,
-  //   value: " 0.001",
-  // },
-  // {
-  //   name: "epsilon1",
-  //   des: "The effective of covid-19 vacine rate first doses",
-  //   symbol: <span>&#949;1</span>,
-  //   value: "0.641",
-  // },
-  // {
-  //   name: "epsilon2",
-  //   des: "The effective of covid-19 vacine rate second doses",
-  //   symbol: <span>&#949;2</span>,
-  //   value: "0.704",
-  // },
-  // {
-  //   name: "mu",
-  //   des: "The natural death rate of all individual",
-  //   symbol: <span>&#956;</span>,
-  //   value: "3.6529e-5",
-  // },
-  // {
-  //   name: "alpha",
-  //   des: "The hospital rate for infected",
-  //   symbol: <span>&#945;</span>,
-  //   value: "0.2",
-  // },
-  // {
-  //   name: "lambda",
-  //   des: "The recovery rate of infected",
-  //   symbol: <span>&#955;</span>,
-  //   value: "0.1",
-  // },
-  // {
-  //   name: "beta",
-  //   des: "The effective contact rate",
-  //   symbol: <span>&#946;</span>,
-  //   value: "0.5",
-  // },
-  // {
-  //   name: "rho",
-  //   des: "Total Population",
-  //   symbol: <span>&#961;</span>,
-  //   value: tempConfig,
-  // },
-  {
-    name: "zetah",
-    des: "The covid-19 dissese mortality rate for individuals in the infected rate",
-    symbol: <span>&#950;h</span>,
-    value: 0,
-  },
-  {
-    name: "zetas",
-    des: "The covid-19 dissese mortality rate for individuals in the infected rate",
-    symbol: <span>&#950;h</span>,
-    value: 0,
-  },
-  {
-    name: "eta",
-    des: "The recurrent infections rate for who was recovery",
-    symbol: <span>&eta;</span>,
-    value: 0,
-  },
-  {
-    name: "omega1",
-    des: "The performance of vacination first doses",
-    symbol: <span>&#969;1</span>,
-    value: 0,
-  },
-  {
-    name: "omega2",
-    des: "The performance of vacination second doses",
-    symbol: <span>&#969;2</span>,
-    value: 0,
-  },
-  {
-    name: "omega3",
-    des: "The performance of vacination second doses",
-    symbol: <span>&#969;3</span>,
-    value: 0,
-  },
-  {
-    name: "epsilon1",
-    des: "The effective of covid-19 vacine rate first doses",
-    symbol: <span>&#949;1</span>,
-    value: 0,
-  },
-  {
-    name: "epsilon2",
-    des: "The effective of covid-19 vacine rate second doses",
-    symbol: <span>&#949;2</span>,
-    value: 0,
-  },
-  {
-    name: "mu",
-    des: "The natural death rate of all individual",
-    symbol: <span>&#956;</span>,
-    value: 0,
-  },
-  {
-    name: "alpha",
-    des: "The hospital rate for infected",
-    symbol: <span>&#945;</span>,
-    value: 0,
-  },
-  {
-    name: "lambdah",
-    des: "The recovery rate of infected",
-    symbol: <span>&#955;h</span>,
-    value: 0,
-  },
-  {
-    name: "lambdas",
-    des: "The recovery rate of infected",
-    symbol: <span>&#955;s</span>,
-    value: 0,
-  },
-  {
-    name: "beta",
-    des: "The effective contact rate",
-    symbol: <span>&#946;</span>,
-    value: 0,
-  },
-];
+// const dataconfig = [
+//   // {
+//   //   name: "rho",
+//   //   des: "Total Population",
+//   //   symbol: <span>&#961;</span>,
+//   //   value: "0.015",
+//   // },
+//   // {
+//   //   name: "zeta",
+//   //   des: "The covid-19 dissese mortality rate for individuals in the infected rate",
+//   //   symbol: <span>&#950;</span>,
+//   //   value: "0.015",
+//   // },
+//   // {
+//   //   name: "eta",
+//   //   des: "The recurrent infections rate for who was recovery",
+//   //   symbol: <span>&eta;</span>,
+//   //   value: "0.09",
+//   // },
+//   // {
+//   //   name: "omega1",
+//   //   des: "The performance of vacination first doses",
+//   //   symbol: <span>&#969;1</span>,
+//   //   value: "0.04",
+//   // },
+//   // {
+//   //   name: "omega1",
+//   //   des: "The performance of vacination second doses",
+//   //   symbol: <span>&#969;2</span>,
+//   //   value: " 0.001",
+//   // },
+//   // {
+//   //   name: "epsilon1",
+//   //   des: "The effective of covid-19 vacine rate first doses",
+//   //   symbol: <span>&#949;1</span>,
+//   //   value: "0.641",
+//   // },
+//   // {
+//   //   name: "epsilon2",
+//   //   des: "The effective of covid-19 vacine rate second doses",
+//   //   symbol: <span>&#949;2</span>,
+//   //   value: "0.704",
+//   // },
+//   // {
+//   //   name: "mu",
+//   //   des: "The natural death rate of all individual",
+//   //   symbol: <span>&#956;</span>,
+//   //   value: "3.6529e-5",
+//   // },
+//   // {
+//   //   name: "alpha",
+//   //   des: "The hospital rate for infected",
+//   //   symbol: <span>&#945;</span>,
+//   //   value: "0.2",
+//   // },
+//   // {
+//   //   name: "lambda",
+//   //   des: "The recovery rate of infected",
+//   //   symbol: <span>&#955;</span>,
+//   //   value: "0.1",
+//   // },
+//   // {
+//   //   name: "beta",
+//   //   des: "The effective contact rate",
+//   //   symbol: <span>&#946;</span>,
+//   //   value: "0.5",
+//   // },
+//   // {
+//   //   name: "rho",
+//   //   des: "Total Population",
+//   //   symbol: <span>&#961;</span>,
+//   //   value: tempConfig,
+//   // },
+//   {
+//     name: "zetah",
+//     des: "The covid-19 dissese mortality rate for individuals in the infected rate",
+//     symbol: <span>&#950;h</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "zetas",
+//     des: "The covid-19 dissese mortality rate for individuals in the infected rate",
+//     symbol: <span>&#950;h</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "eta",
+//     des: "The recurrent infections rate for who was recovery",
+//     symbol: <span>&eta;</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "omega1",
+//     des: "The performance of vacination first doses",
+//     symbol: <span>&#969;1</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "omega2",
+//     des: "The performance of vacination second doses",
+//     symbol: <span>&#969;2</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "omega3",
+//     des: "The performance of vacination second doses",
+//     symbol: <span>&#969;3</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "epsilon1",
+//     des: "The effective of covid-19 vacine rate first doses",
+//     symbol: <span>&#949;1</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "epsilon2",
+//     des: "The effective of covid-19 vacine rate second doses",
+//     symbol: <span>&#949;2</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "mu",
+//     des: "The natural death rate of all individual",
+//     symbol: <span>&#956;</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "alpha",
+//     des: "The hospital rate for infected",
+//     symbol: <span>&#945;</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "lambdah",
+//     des: "The recovery rate of infected",
+//     symbol: <span>&#955;h</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "lambdas",
+//     des: "The recovery rate of infected",
+//     symbol: <span>&#955;s</span>,
+//     value: 0,
+//   },
+//   {
+//     name: "beta",
+//     des: "The effective contact rate",
+//     symbol: <span>&#946;</span>,
+//     value: 0,
+//   },
+// ];
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -203,7 +203,7 @@ export const Homepage = (props) => {
   const [V1Status, setV1Status] = React.useState(props.mainV1Status);
   const [V2Status, setV2Status] = React.useState(props.mainV2Status);
   const [IStatus, setIStatus] = React.useState(props.mainIStatus);
-  const [RStatus, setRStatus] = React.useState(props.mainRStatus);
+  //const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
   const [MStatus, setMStatus] = React.useState(props.mainMStatus);
@@ -381,23 +381,23 @@ export const Homepage = (props) => {
     },
   ];
 
-  const getRawDataMonth = () => {
-    return axios
-      .get(`https://covid-data-123.herokuapp.com/coviddata/month`)
-      .then((res) => {
-        console.log(res);
-        return res.data.data;
-      });
-  };
+  // const getRawDataMonth = () => {
+  //   return axios
+  //     .get(`https://covid-data-123.herokuapp.com/coviddata/month`)
+  //     .then((res) => {
+  //       console.log(res);
+  //       return res.data.data;
+  //     });
+  // };
 
-  const getRawDataDay = () => {
-    return axios
-      .get(`https://covid-data-123.herokuapp.com/coviddata/day`)
-      .then((res) => {
-        console.log(res);
-        return res.data.data;
-      });
-  };
+  // const getRawDataDay = () => {
+  //   return axios
+  //     .get(`https://covid-data-123.herokuapp.com/coviddata/day`)
+  //     .then((res) => {
+  //       console.log(res);
+  //       return res.data.data;
+  //     });
+  // };
 
   var initialTemp = [
     {
@@ -438,7 +438,7 @@ export const Homepage = (props) => {
     //console.log("listAll, InitialDate", listAll, InitialDate);
     let tempfillter = [];
     for (let i = 0; i < listAll.length; i++) {
-      if (listAll[i].startdate == InitialDate) {
+      if (listAll[i].startdate === InitialDate) {
         tempfillter = listAll[i];
       }
     }
@@ -563,6 +563,7 @@ export const Homepage = (props) => {
     const tempListInitialDate = listForSelectInitialValue(initialTemp);
     setListInitialDate(tempListInitialDate);
     setInitialDateForSet(tempListInitialDate[0].value);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -587,6 +588,7 @@ export const Homepage = (props) => {
     // setInitialDateForSet;
     // setListInitialDate;
     // setListAllInitialDate;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialDateForSet]);
 
   const handleInitialDateForSet = (event) => {
@@ -664,7 +666,7 @@ export const Homepage = (props) => {
       V2: V2Status,
       M: MStatus,
       I: IStatus,
-      R: RStatus,
+      //R: RStatus,
       H: HStatus,
       D: DStatus,
     };

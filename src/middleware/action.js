@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getDay, getMonth } from "./dataday";
+// import { getDay, getMonth } from "./dataday";
 
 export const CONFIG_GRAPH_DISPLAY = "CONFIG_GRAPH_DISPLAY";
 export const CONFIG_DATA_TYPE = "CONFIG_DATA_TYPE";

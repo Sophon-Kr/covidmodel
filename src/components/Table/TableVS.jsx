@@ -59,7 +59,7 @@ export const TableVS = (props) => {
   ]);
 
   const findDiffernceValue = (raw, model) => {
-    if (raw == 0) {
+    if (raw === 0) {
       let val = 0;
       return val.toFixed(5);
     } else {

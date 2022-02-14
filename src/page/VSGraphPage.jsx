@@ -110,6 +110,7 @@ export const VSGraphPage = (props) => {
   useEffect((period) => {
     props.getVSDataMount();
     props.configTypeVS("S");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [nodeData, setNodeData] = React.useState("S");

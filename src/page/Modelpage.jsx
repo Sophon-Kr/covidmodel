@@ -19,7 +19,7 @@ import V1 from "../assets/V1.png";
 import V2 from "../assets/V2.png";
 import M from "../assets/M.png";
 import I from "../assets/I.png";
-import R from "../assets/R.png";
+// import R from "../assets/R.png";
 import H from "../assets/H.png";
 import D from "../assets/D.png";
 

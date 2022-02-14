@@ -31,13 +31,13 @@ import { sendEmail } from "../../services/sendemail.service";
 // ];
 
 export const ContactForm = (props) => {
-  const [contact, setContact] = React.useState(0);
+  // const [contact, setContact] = React.useState(0);
   const [subjectData, setSubjectData] = React.useState("");
   const [sendFrom, setSendFrom] = React.useState("");
   const [sendText, setSendText] = React.useState("");
 
   const handleClear = (event) => {
-    setContact(0);
+    // setContact(0);
     setSubjectData("");
     setSendFrom("");
     setSendText("");
