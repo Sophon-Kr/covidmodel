@@ -16,12 +16,12 @@ const coAdviser = [
   {
     name: "ผศ.ธนดล ปริตรานันท์",
     type: "อาจารย์ที่ปรึกษาร่วม",
-    pic: ra,
+    pic: ta,
   },
   {
     name: "รศ.ดร.รังสิพรรณ มฤคทัต",
     type: "อาจารย์ที่ปรึกษาร่วม",
-    pic: ta,
+    pic: ra,
   },
 ];
 export const CoAdviser = (props) => {

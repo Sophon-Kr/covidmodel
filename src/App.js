@@ -22,7 +22,8 @@ function App() {
   // const [store, setStore] = useState(
   //   createStore(rootReducer, applyMiddleware(thunk))
   // );
-  const [store, setStore] = useState(configureStore());
+  // const [store, setStore] = useState(configureStore());
+  const store = configureStore();
   const ScrollToTop = () => {
     window.scrollTo({
       top: 0,

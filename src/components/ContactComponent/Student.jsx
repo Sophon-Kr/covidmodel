@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
-import AdvisorProfile from "../../assets/user-computer-icons-anonymity-png-favpng-Ps1EmXsrUx17SLTQrTeDg1FN5.jpg";
 import Box from "@mui/material/Box";
 import pr from "../../assets/pr.png";
 import so from "../../assets/so.png";
