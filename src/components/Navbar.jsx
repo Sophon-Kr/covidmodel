@@ -102,7 +102,7 @@ export const Navbar = (props) => {
                       }}
                       color="inherit"
                       startIcon={<DescriptionRoundedIcon />}
-                      maxWidth
+                      // maxWidth
                     >
                       Model
                     </Button>
@@ -122,7 +122,7 @@ export const Navbar = (props) => {
                       }}
                       color="inherit"
                       startIcon={<AutoGraphRoundedIcon />}
-                      maxWidth
+                      // maxWidth
                     >
                       Graph
                     </Button>
@@ -142,7 +142,7 @@ export const Navbar = (props) => {
                       }}
                       color="inherit"
                       startIcon={<StorageRoundedIcon />}
-                      maxWidth
+                      // maxWidth
                     >
                       Comparasion
                     </Button>
@@ -162,7 +162,7 @@ export const Navbar = (props) => {
                       }}
                       color="inherit"
                       startIcon={<PeopleAltRoundedIcon />}
-                      maxWidth
+                      //maxWidth
                     >
                       Contact
                     </Button>

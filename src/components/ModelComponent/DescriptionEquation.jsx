@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 
 const equationCovid = [
   {
+    id: "1",
     node: "S",
     equation: (
       <span>
@@ -13,6 +14,7 @@ const equationCovid = [
     ),
   },
   {
+    id: "2",
     node: "V1",
     equation: (
       <span>
@@ -26,6 +28,7 @@ const equationCovid = [
     ),
   },
   {
+    id: "3",
     node: "V2",
     equation: (
       <span>
@@ -40,6 +43,7 @@ const equationCovid = [
     ),
   },
   {
+    id: "4",
     node: "M",
     equation: (
       <span>
@@ -53,6 +57,7 @@ const equationCovid = [
     ),
   },
   {
+    id: "5",
     node: "I",
     equation: (
       <span>
@@ -72,6 +77,7 @@ const equationCovid = [
     ),
   },
   {
+    id: "6",
     node: "H",
     equation: (
       <span>
@@ -82,6 +88,7 @@ const equationCovid = [
     ),
   },
   // {
+  // id:"",
   //   node: "R",
   //   equation: (
   //     <span>
@@ -92,6 +99,7 @@ const equationCovid = [
   //   ),
   // },
   {
+    id: "7",
     node: "D",
     equation: (
       <span>
@@ -134,6 +142,7 @@ export const DescriptionEquation = (props) => {
 
           {equationCovid.map((data) => (
             <div
+              key={data.id}
               style={{
                 fontFamily: "IBM Plex Sans Thai Looped",
                 fontWeight: "400",

@@ -25,6 +25,7 @@ import D from "../assets/D.png";
 
 const modelDisplay = [
   {
+    id: "1",
     name: "Susceptible Class : S",
     text: (
       <div>
@@ -37,6 +38,7 @@ const modelDisplay = [
     color: "#039be5",
   },
   {
+    id: "2",
     name: "Vaccines I Class : V1",
     text: (
       <div>
@@ -53,6 +55,7 @@ const modelDisplay = [
     color: "#FFD600",
   },
   {
+    id: "3",
     name: "Vaccines I Class : V2",
     text: (
       <div>
@@ -68,6 +71,7 @@ const modelDisplay = [
     color: "#FFA500",
   },
   {
+    id: "4",
     name: "Maintenance Shot Class : M",
     text: (
       <div>
@@ -84,6 +88,7 @@ const modelDisplay = [
     color: "#3A2C97",
   },
   {
+    id: "5",
     name: "Infection Class : I ",
     text: (
       <div>
@@ -96,6 +101,7 @@ const modelDisplay = [
     color: "#f44336",
   },
   // {
+  // id: "",
   //   name: "Recovery Class : R",
   //   text: (
   //     <div>
@@ -108,6 +114,7 @@ const modelDisplay = [
   //   color: "#008000",
   // },
   {
+    id: "6",
     name: "Hospital Class : H",
     text: (
       <div>
@@ -121,6 +128,7 @@ const modelDisplay = [
     color: "#800080",
   },
   {
+    id: "7",
     name: "Death Class : D",
     text: (
       <div>
@@ -167,6 +175,7 @@ export const Modelpage = (props) => {
             {modelDisplay.map((DescriptionData, index) =>
               index % 2 === 0 ? (
                 <DescriptionPicLeft
+                  key={DescriptionData.id}
                   name={DescriptionData.name}
                   text={DescriptionData.text}
                   pic={DescriptionData.pic}
@@ -174,6 +183,7 @@ export const Modelpage = (props) => {
                 />
               ) : (
                 <DescriptionPicRight
+                  key={DescriptionData.id}
                   name={DescriptionData.name}
                   text={DescriptionData.text}
                   pic={DescriptionData.pic}
@@ -195,6 +205,7 @@ export const Modelpage = (props) => {
           >
             {modelDisplay.map((DescriptionData) => (
               <DescriptionPicCenter
+                key={DescriptionData.id}
                 name={DescriptionData.name}
                 text={DescriptionData.text}
                 pic={DescriptionData.pic}
@@ -216,7 +227,7 @@ export const Modelpage = (props) => {
                 variant="contained"
                 size="large"
                 startIcon={<AutoGraphRoundedIcon />}
-                maxWidth
+                // maxWidth
                 style={{
                   backgroundColor: "#AED6F1",
                   color: "black",
