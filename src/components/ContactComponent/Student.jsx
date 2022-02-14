@@ -4,25 +4,33 @@ import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import AdvisorProfile from "../../assets/user-computer-icons-anonymity-png-favpng-Ps1EmXsrUx17SLTQrTeDg1FN5.jpg";
 import Box from "@mui/material/Box";
+import pr from "../../assets/pr.png";
+import so from "../../assets/so.png";
+import ba from "../../assets/ba.png";
+import be from "../../assets/be.png";
 
 const studentData = [
   {
     name: "นาย กฤษฎา อาทิตย์กวิน",
     type: "นักศึกษา",
+    pic: ba,
   },
   {
     name: "นางสาว พรรษมน บุญชนะชัย",
     type: "นักศึกษา",
+    pic: be,
   },
   {
     name: <span> &nbsp;&nbsp;นางสาว แพรวฟ้า สันทิฐิกวงศ์</span>,
     type: "นักศึกษา",
+    pic: pr,
   },
   {
     name: (
       <span>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;นาย โศภณ ไกรพินิจ &nbsp;&nbsp;</span>
     ),
     type: "นักศึกษา",
+    pic: so,
   },
 ];
 
@@ -46,8 +54,8 @@ export const Student = (props) => {
           >
             <Avatar
               alt="Remy Sharp"
-              src={AdvisorProfile}
-              sx={{ width: 150, height: "auto" }}
+              src={studentData.pic}
+              sx={{ width: 180, height: "auto" }}
             />
           </Grid>
           <Grid
@@ -148,7 +156,7 @@ export const Student = (props) => {
               </div>
             </Box>
           </Grid>
-          </Grid>
+        </Grid>
       ))}
     </Grid>
   );

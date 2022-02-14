@@ -88,7 +88,7 @@ class VSGraph extends PureComponent {
   render() {
     return (
       <div style={{ width: "100%" }}>
-        <ResponsiveContainer width="100%" height={445}>
+        <ResponsiveContainer width="98%" height={445}>
           <LineChart
             width={500}
             height={300}

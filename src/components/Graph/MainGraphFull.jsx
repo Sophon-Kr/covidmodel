@@ -138,8 +138,8 @@ class MainGraphFull extends PureComponent {
 
   render() {
     return (
-      <div style={{ width: "100%" }}>
-        <ResponsiveContainer width="100%" height={830}>
+      <div style={{ width: "100%", height: "100%" }}>
+        <ResponsiveContainer width="98%" height={830}>
           <LineChart
             width={500}
             height={300}

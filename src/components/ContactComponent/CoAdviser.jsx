@@ -2,21 +2,26 @@ import React from "react";
 import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
-import AdvisorProfile from "../../assets/user-computer-icons-anonymity-png-favpng-Ps1EmXsrUx17SLTQrTeDg1FN5.jpg";
 import Box from "@mui/material/Box";
+import va from "../../assets/va.png";
+import ra from "../../assets/ra.png";
+import ta from "../../assets/ta.png";
 
 const coAdviser = [
   {
     name: "ผศ.ดร.วศิน สุทธิฉายา",
     type: "อาจารย์ที่ปรึกษา",
+    pic: va,
   },
   {
     name: "ผศ.ธนดล ปริตรานันท์",
     type: "อาจารย์ที่ปรึกษาร่วม",
+    pic: ra,
   },
   {
     name: "รศ.ดร.รังสิพรรณ มฤคทัต",
     type: "อาจารย์ที่ปรึกษาร่วม",
+    pic: ta,
   },
 ];
 export const CoAdviser = (props) => {
@@ -39,7 +44,7 @@ export const CoAdviser = (props) => {
           >
             <Avatar
               alt="Remy Sharp"
-              src={AdvisorProfile}
+              src={CoAdvisorData.pic}
               sx={{ width: 200, height: "auto" }}
             />
           </Grid>

@@ -21,7 +21,3 @@
 
 //   export default {getRawDataMonth,getRawDataDay}
 // // };
-
-
-
-
