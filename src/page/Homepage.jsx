@@ -34,6 +34,11 @@ import flight from "../assets/icons8-no-flight-64.png";
 import vaccine from "../assets/icons8-vaccine-64.png";
 import DatePicker from "@mui/lab/DatePicker";
 import { getDay, getMonth } from "../middleware/dataday";
+import {
+  getAllInitial,
+  resetInitial,
+  editInitialByDate,
+} from "../services/initialData.service";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -245,46 +250,46 @@ export const Homepage = (props) => {
   //     });
   // };
 
-  var initialTemp = [
-    {
-      startdate: "01-10-2021",
-      alpha: 0.046,
-      beta: 1.11e-9,
-      epsilon1: 0.641,
-      epsilon2: 0.704,
-      lambdah: 0.046,
-      lambdas: 0.0015,
-      mu: 3.6529e-5,
-      omega1: 0.005,
-      omega2: 0.001,
-      omega3: 0.005,
-      zetah: 0.0004,
-      zetas: 4e-5,
-      time_length: 16,
-    },
-    {
-      startdate: "15-10-2021",
-      alpha: 1.046,
-      beta: 1.11e-9,
-      epsilon1: 1.641,
-      epsilon2: 1.704,
-      lambdah: 1.046,
-      lambdas: 1.0015,
-      mu: 3.6529e-5,
-      omega1: 1.005,
-      omega2: 1.001,
-      omega3: 1.005,
-      zetah: 1.0004,
-      zetas: 4e-5,
-      time_length: 16,
-    },
-  ];
+  // var initialTemp = [
+  //   {
+  //     startdate: "01-10-2021",
+  //     alpha: 0.046,
+  //     beta: 1.11e-9,
+  //     epsilon1: 0.641,
+  //     epsilon2: 0.704,
+  //     lambdah: 0.046,
+  //     lambdas: 0.0015,
+  //     mu: 3.6529e-5,
+  //     omega1: 0.005,
+  //     omega2: 0.001,
+  //     omega3: 0.005,
+  //     zetah: 0.0004,
+  //     zetas: 4e-5,
+  //     time_length: 16,
+  //   },
+  //   {
+  //     startdate: "15-10-2021",
+  //     alpha: 1.046,
+  //     beta: 1.11e-9,
+  //     epsilon1: 1.641,
+  //     epsilon2: 1.704,
+  //     lambdah: 1.046,
+  //     lambdas: 1.0015,
+  //     mu: 3.6529e-5,
+  //     omega1: 1.005,
+  //     omega2: 1.001,
+  //     omega3: 1.005,
+  //     zetah: 1.0004,
+  //     zetas: 4e-5,
+  //     time_length: 16,
+  //   },
+  // ];
 
   function filterInitialValue(listAll, InitialDate) {
     //console.log("listAll, InitialDate", listAll, InitialDate);
     let tempfillter = [];
     for (let i = 0; i < listAll.length; i++) {
-      if (listAll[i].startdate === InitialDate) {
+      if (listAll[i].name === InitialDate) {
         tempfillter = listAll[i];
       }
     }
@@ -295,8 +300,8 @@ export const Homepage = (props) => {
     var tempListInitialSelect = [];
     for (let i = 0; i < listAll.length; i++) {
       tempListInitialSelect.push({
-        label: listAll[i].startdate,
-        value: listAll[i].startdate,
+        label: listAll[i].name,
+        value: listAll[i].name,
       });
     }
     return tempListInitialSelect;
@@ -405,10 +410,16 @@ export const Homepage = (props) => {
     // setInitialDateForSet;
     // setListInitialDate;
     //1. fetchdata
-    setListAllInitialDate(initialTemp);
-    const tempListInitialDate = listForSelectInitialValue(initialTemp);
-    setListInitialDate(tempListInitialDate);
-    setInitialDateForSet(tempListInitialDate[0].value);
+    async function getAllIntialValue() {
+      let initialTemp = await getAllInitial();
+      console.log("initialTemp", initialTemp);
+      setListAllInitialDate(initialTemp);
+      const tempListInitialDate = listForSelectInitialValue(initialTemp);
+      setListInitialDate(tempListInitialDate);
+      setInitialDateForSet(tempListInitialDate[0].value);
+    }
+    getAllIntialValue();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
