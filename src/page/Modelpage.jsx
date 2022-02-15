@@ -22,6 +22,7 @@ import I from "../assets/I.png";
 // import R from "../assets/R.png";
 import H from "../assets/H.png";
 import D from "../assets/D.png";
+import { resetInitial } from "../services/initialData.service";
 
 const modelDisplay = [
   {
@@ -143,6 +144,9 @@ const modelDisplay = [
 ];
 
 export const Modelpage = (props) => {
+  React.useEffect(() => {
+    resetInitial();
+  }, []);
   return (
     <Container
       maxWidth="xxl"

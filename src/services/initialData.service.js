@@ -34,7 +34,22 @@ export async function editInitialByDate({
   zetah,
   zetas,
 }) {
-  //console.log(sendFrom, subjectData, sendText);
+  console.log(
+    "editInitialByDate",
+    start_date,
+    alpha,
+    beta,
+    epsilon1,
+    epsilon2,
+    lambdah,
+    lambdas,
+    mu,
+    omega1,
+    omega2,
+    omega3,
+    zetah,
+    zetas
+  );
   return axios
     .put(`https://covid-data-123.herokuapp.com/covidmodel`, {
       start_date: start_date,

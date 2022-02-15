@@ -406,18 +406,16 @@ export const Homepage = (props) => {
     },
   ];
 
+  async function getAllIntialValue() {
+    let initialTemp = await getAllInitial();
+    console.log("initialTemp", initialTemp);
+    setListAllInitialDate(initialTemp);
+    const tempListInitialDate = listForSelectInitialValue(initialTemp);
+    setListInitialDate(tempListInitialDate);
+    setInitialDateForSet(tempListInitialDate[0].value);
+  }
+
   useEffect(() => {
-    // setInitialDateForSet;
-    // setListInitialDate;
-    //1. fetchdata
-    async function getAllIntialValue() {
-      let initialTemp = await getAllInitial();
-      console.log("initialTemp", initialTemp);
-      setListAllInitialDate(initialTemp);
-      const tempListInitialDate = listForSelectInitialValue(initialTemp);
-      setListInitialDate(tempListInitialDate);
-      setInitialDateForSet(tempListInitialDate[0].value);
-    }
     getAllIntialValue();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -455,6 +453,13 @@ export const Homepage = (props) => {
   const handleDialogOpen = () => {
     setDialogStatus(true);
   };
+
+  const handleResetDefault = async () => {
+    await resetInitial();
+    getAllIntialValue();
+    setDialogStatus(false);
+  };
+
   const handleDialogClose = () => {
     const tempConfig = filterInitialValue(
       listAllInitialDate,
@@ -516,6 +521,54 @@ export const Homepage = (props) => {
     props.configDataTypeGraph(newTypedata);
   };
 
+  function checkValueChange(alldata, currentdata) {
+    var checkDataInitialChange = "";
+    const tempConfig = {
+      alpha: alpha,
+      beta: beta,
+      epsilon1: epsilon1,
+      epsilon2: epsilon2,
+      lambdah: lambdaH,
+      lambdas: lambdaS,
+      mu: mu,
+      name: initialDateForSet,
+      omega1: omega1,
+      omega2: omega2,
+      omega3: omega3,
+      zetah: zetaH,
+      zetas: zetaS,
+    };
+
+    for (let i = 0; i < alldata.length; i++) {
+      if (alldata[i].name === currentdata) {
+        checkDataInitialChange = alldata[i];
+      }
+    }
+
+    var checkDataInitialChangeReturn =
+      JSON.stringify(checkDataInitialChange) === JSON.stringify(tempConfig);
+
+    return checkDataInitialChangeReturn;
+  }
+
+  function editInitialValueByDate() {
+    editInitialByDate({
+      start_date: initialDateForSet,
+      alpha: alpha,
+      beta: beta,
+      epsilon1: epsilon1,
+      epsilon2: epsilon2,
+      lambdah: lambdaH,
+      lambdas: lambdaS,
+      mu: mu,
+      omega1: omega1,
+      omega2: omega2,
+      omega3: omega3,
+      zetah: zetaH,
+      zetas: zetaS,
+    });
+  }
+
   const handleCheck = () => {
     const newStatus = {
       S: SStatus,
@@ -529,6 +582,11 @@ export const Homepage = (props) => {
     };
 
     props.configGraphDisplay(newStatus);
+    let checkChange = checkValueChange(listAllInitialDate, initialDateForSet);
+    if (!checkChange) {
+      editInitialValueByDate();
+      getAllIntialValue();
+    }
     handleDialogClose();
   };
 
@@ -1000,7 +1058,7 @@ export const Homepage = (props) => {
           {typeData === "model" ? (
             <Grid item style={{ flexGrow: 1 }}>
               <Button
-                onClick={handleDialogClose}
+                onClick={handleResetDefault}
                 variant="contained"
                 style={{
                   color: "white",
