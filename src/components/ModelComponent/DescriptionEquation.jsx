@@ -49,8 +49,8 @@ const equationCovid = [
       <span>
         <sup>d(M)</sup>
         &frasl;<sub>d(t)</sub> = &omega;<sub>3</sub>V<sub>2</sub> + &lambda;
-        <sub>H</sub>H + &lambda;
-        <sub>S</sub>I - &beta;<sub>S</sub>
+        <sub>2</sub>H + &lambda;
+        <sub>1</sub>I - &beta;<sub>S</sub>
         (1&minus;&epsilon;
         <sub>2</sub>)MI&minus; &mu;M
       </span>
@@ -72,7 +72,7 @@ const equationCovid = [
         <sub>S</sub>
         (1&minus;&epsilon;
         <sub>2</sub>)MI &minus; &alpha;<sub>S</sub>I &minus; &lambda;
-        <sub>S</sub>I &minus; &zeta;<sub>S</sub>I
+        <sub>1</sub>I &minus; &zeta;<sub>S</sub>I
       </span>
     ),
   },
@@ -83,7 +83,7 @@ const equationCovid = [
       <span>
         <sup>d(H)</sup>
         &frasl;<sub>d(t)</sub> = &alpha;<sub>S</sub>I &minus; &lambda;
-        <sub>H</sub>H &minus; &zeta;<sub>H</sub>H
+        <sub>2</sub>H &minus; &zeta;<sub>H</sub>H
       </span>
     ),
   },
@@ -94,7 +94,7 @@ const equationCovid = [
   //     <span>
   //       <sup>d(R)</sup>
   //       &frasl;<sub>d(t)</sub> = &lambda;
-  //       <sub>H</sub>H + &lambda;<sub>S</sub>I &minus; R
+  //       <sub>2</sub>H + &lambda;<sub>1</sub>I &minus; R
   //     </span>
   //   ),
   // },
