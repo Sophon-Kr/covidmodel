@@ -6,36 +6,36 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
-
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import contactPic from "../../assets/contactPic.png";
 
 // import EmailUtil from "../../services/sendemail.service";
 import { sendEmail } from "../../services/sendemail.service";
 // import { getRawDataMonth } from "../../services/rawData.service";
 
-// const mailList = [
-//   "Advisor@gmail.com,\
-//   Co-Advisor1@gmail.com,\
-//   Co-Advisor2@gmail.com,\
-//   Student1@gmail.com,\
-//   Student2@gmail.com,\
-//   Student3@gmail.com,\
-//   Student4@gmail.com",
-//   "Advisor@gmail.com",
-//   "Co-Advisor1@gmail.com",
-//   "Co-Advisor2@gmail.com",
-//   "Student1@gmail.com",
-//   "Student2@gmail.com",
-//   "sophon.kra@student.mahidol.edu",
-//   "sophonkripinit@gmail.com",
-// ];
-
 export const ContactForm = (props) => {
   // const [contact, setContact] = React.useState(0);
   const [subjectData, setSubjectData] = React.useState("");
   const [sendFrom, setSendFrom] = React.useState("");
   const [sendText, setSendText] = React.useState("");
+  const [sendSnackbar, setSendSnackbar] = React.useState(false);
 
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+
+  const handleOpenSnackbar = (status) => {
+    if (status === "Success") {
+      setSendSnackbar(status);
+    } else {
+      setSendSnackbar("failure");
+    }
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    setSendSnackbar(false);
+  };
   const handleClear = (event) => {
     // setContact(0);
     setSubjectData("");
@@ -62,6 +62,7 @@ export const ContactForm = (props) => {
     //console.log("testsend", forSend);
     const testsend = await sendEmail(forSend);
     console.log("testsend", testsend);
+    handleOpenSnackbar(testsend);
     //console.log("handleSendMail:: ", sendFrom, subjectData, sendText);
     // const tempEmail = EmailUtil.sendEmail(sendFrom, subjectData, sendText);
     // console.log("tempEmail", tempEmail);
@@ -284,6 +285,31 @@ export const ContactForm = (props) => {
           </Grid>
         </Grid>
       </Grid>
+
+      <Snackbar
+        open={sendSnackbar}
+        autoHideDuration={5000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        {sendSnackbar === "Success" ? (
+          <Alert
+            onClose={handleCloseSnackbar}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Sending Completed
+          </Alert>
+        ) : sendSnackbar === "failure" ? (
+          <Alert
+            onClose={handleCloseSnackbar}
+            severity="error"
+            sx={{ width: "100%" }}
+          >
+            Sending Failed
+          </Alert>
+        ) : null}
+      </Snackbar>
     </Grid>
   );
 };
