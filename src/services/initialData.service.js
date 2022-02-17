@@ -4,8 +4,7 @@ export async function getAllInitial() {
   return axios
     .get(`https://covid-data-123.herokuapp.com/covidmodel`)
     .then((res) => {
-      //console.log("res", res.data.initial_default);
-      //   initial_default
+      console.log("res", res.data.initial_default);
       return res.data.initial_default;
     });
 }

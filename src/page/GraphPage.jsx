@@ -39,6 +39,9 @@ import {
   resetInitial,
   editInitialByDate,
 } from "../services/initialData.service";
+import Box from "@mui/material/Box";
+import LinearProgress from "@mui/material/LinearProgress";
+import Backdrop from "@mui/material/Backdrop";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -54,7 +57,6 @@ export const GraphPage = (props) => {
   const [V1Status, setV1Status] = React.useState(props.mainV1Status);
   const [V2Status, setV2Status] = React.useState(props.mainV2Status);
   const [IStatus, setIStatus] = React.useState(props.mainIStatus);
-  //const [RStatus, setRStatus] = React.useState(props.mainRStatus);
   const [HStatus, setHStatus] = React.useState(props.mainHStatus);
   const [DStatus, setDStatus] = React.useState(props.mainDStatus);
   const [MStatus, setMStatus] = React.useState(props.mainMStatus);
@@ -78,8 +80,7 @@ export const GraphPage = (props) => {
   const [initialDateForSet, setInitialDateForSet] = useState("");
   const [listInitialDate, setListInitialDate] = useState([]);
   const [listAllInitialDate, setListAllInitialDate] = useState([]);
-  // const [initialValueDataConfig, setInitialValueDataConfig] =
-  //   useState(tempConfigSchema);
+  const [resettingStatus, setResettingStatus] = useState(false);
 
   const setdailyDataTemplate = [
     {
@@ -408,9 +409,11 @@ export const GraphPage = (props) => {
   };
 
   const handleResetDefault = async () => {
-    await resetInitial();
-    getAllIntialValue();
     setDialogStatus(false);
+    setResettingStatus(true);
+    await resetInitial();
+    await getAllIntialValue();
+    await setResettingStatus(false);
   };
 
   const handleDialogClose = () => {
@@ -594,6 +597,10 @@ export const GraphPage = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  function handleCloseBackdrop() {
+    setResettingStatus(false);
+  }
 
   return (
     <Container maxWidth="xxl" style={{ marginTop: 65 }}>
@@ -1092,6 +1099,16 @@ export const GraphPage = (props) => {
           </Grid>
         </Container>
       </Dialog>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 100 }}
+        open={resettingStatus}
+        //onClick={handleCloseBackdrop}
+      >
+        <Box sx={{ width: "30%" }}>
+          <div>Reseting...</div>
+          <LinearProgress />
+        </Box>
+      </Backdrop>
     </Container>
   );
 };
