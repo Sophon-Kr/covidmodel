@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import Homepage from "./page/Homepage";
+import GraphPage from "./page/GraphPage";
 import Contactpage from "./page/Contactpage";
 import Modelpage from "./page/Modelpage";
 import VSGraphPage from "./page/VSGraphPage";
@@ -29,7 +29,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <Route exact path="/graphpage" component={Homepage} />
+          <Route exact path="/graphpage" component={GraphPage} />
           <Route exact path="/vsgraphpage" component={VSGraphPage} />
           <Route exact path="/contactpage" component={Contactpage} />
           <Route exact path="/" component={Modelpage} />
