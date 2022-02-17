@@ -29,18 +29,6 @@ class MainGraph extends PureComponent {
     };
   }
 
-  // state = {
-  //   opacity: {
-  //     Susceptible: 1,
-  //     Vaccine1: 1,
-  //     Vaccine2: 1,
-  //     Infected: 1,
-  //     Recovery: 1,
-  //     Hospital: 1,
-  //     Deaths: 1,
-  //   },
-  // };
-
   handleMouseEnter = (o) => {
     const { dataKey } = o;
     const { opacity } = this.state;
@@ -62,10 +50,10 @@ class MainGraph extends PureComponent {
   filterRangeByDate = (data) => {
     var startDate = new Date(this.props.maindateStartMain);
     var endDate = new Date(this.props.maindateEndMain);
-
+    var endDateNext = endDate.setDate(endDate.getDate() + 1);
     var dateAfterFilter = data.filter((a) => {
       var date = new Date(a.name);
-      return date >= startDate && date <= endDate;
+      return date >= startDate && date <= endDateNext;
     });
     return dateAfterFilter;
   };

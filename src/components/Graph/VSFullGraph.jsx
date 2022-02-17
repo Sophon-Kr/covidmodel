@@ -49,17 +49,17 @@ class VSFullGraph extends PureComponent {
       opacity: { ...opacity, [dataKey]: 1 },
     });
   };
-
   filterRangeByDate = (data) => {
     var startDate = new Date(this.props.maindateStartMain);
     var endDate = new Date(this.props.maindateEndMain);
-
+    var endDateNext = endDate.setDate(endDate.getDate() + 1);
     var dateAfterFilter = data.filter((a) => {
       var date = new Date(a.name);
-      return date >= startDate && date <= endDate;
+      return date >= startDate && date <= endDateNext;
     });
     return dateAfterFilter;
   };
+ 
 
   monthFilter = (dataMonth) => {
     let startMonth = this.props.dateStartMonthMain;

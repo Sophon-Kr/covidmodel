@@ -232,59 +232,6 @@ export const Homepage = (props) => {
     },
   ];
 
-  // const getRawDataMonth = () => {
-  //   return axios
-  //     .get(`https://covid-data-123.herokuapp.com/coviddata/month`)
-  //     .then((res) => {
-  //       console.log(res);
-  //       return res.data.data;
-  //     });
-  // };
-
-  // const getRawDataDay = () => {
-  //   return axios
-  //     .get(`https://covid-data-123.herokuapp.com/coviddata/day`)
-  //     .then((res) => {
-  //       console.log(res);
-  //       return res.data.data;
-  //     });
-  // };
-
-  // var initialTemp = [
-  //   {
-  //     startdate: "01-10-2021",
-  //     alpha: 0.046,
-  //     beta: 1.11e-9,
-  //     epsilon1: 0.641,
-  //     epsilon2: 0.704,
-  //     lambdah: 0.046,
-  //     lambdas: 0.0015,
-  //     mu: 3.6529e-5,
-  //     omega1: 0.005,
-  //     omega2: 0.001,
-  //     omega3: 0.005,
-  //     zetah: 0.0004,
-  //     zetas: 4e-5,
-  //     time_length: 16,
-  //   },
-  //   {
-  //     startdate: "15-10-2021",
-  //     alpha: 1.046,
-  //     beta: 1.11e-9,
-  //     epsilon1: 1.641,
-  //     epsilon2: 1.704,
-  //     lambdah: 1.046,
-  //     lambdas: 1.0015,
-  //     mu: 3.6529e-5,
-  //     omega1: 1.005,
-  //     omega2: 1.001,
-  //     omega3: 1.005,
-  //     zetah: 1.0004,
-  //     zetas: 4e-5,
-  //     time_length: 16,
-  //   },
-  // ];
-
   function filterInitialValue(listAll, InitialDate) {
     //console.log("listAll, InitialDate", listAll, InitialDate);
     let tempfillter = [];
@@ -298,13 +245,19 @@ export const Homepage = (props) => {
 
   function listForSelectInitialValue(listAll) {
     var tempListInitialSelect = [];
+    var tempListInitialSelectReturn = [];
     for (let i = 0; i < listAll.length; i++) {
-      tempListInitialSelect.push({
-        label: listAll[i].name,
-        value: listAll[i].name,
+      tempListInitialSelect.push(listAll[i].name);
+    }
+    let data = tempListInitialSelect.sort();
+    for (let i = 0; i < data.length; i++) {
+      tempListInitialSelectReturn.push({
+        label: data[i],
+        value: data[i],
       });
     }
-    return tempListInitialSelect;
+
+    return tempListInitialSelectReturn;
   }
 
   let initialValueDataConfig = [

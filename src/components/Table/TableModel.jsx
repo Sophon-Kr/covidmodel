@@ -16,10 +16,10 @@ export const TableModel = (props) => {
   const filterRangeByDate = (data) => {
     var startDate = new Date(props.maindateStartMain);
     var endDate = new Date(props.maindateEndMain);
-
+    var endDateNext = endDate.setDate(endDate.getDate() + 1);
     var dateAfterFilter = data.filter((a) => {
       var date = new Date(a.name);
-      return date >= startDate && date <= endDate;
+      return date >= startDate && date <= endDateNext;
     });
     return dateAfterFilter;
   };
