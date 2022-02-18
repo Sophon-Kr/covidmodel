@@ -48,7 +48,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export const GraphPage = (props) => {
-  const [tempDataService, setTempData] = useState([]);
+  //const [tempDataService, setTempData] = useState([]);
   const [dialogStatus, setDialogStatus] = useState(false);
   const [fullGraph, setFullGraph] = useState(false);
   const [period, setPeriod] = React.useState(props.mainperiod);
@@ -82,6 +82,7 @@ export const GraphPage = (props) => {
   const [listAllInitialDate, setListAllInitialDate] = useState([]);
   const [resettingStatus, setResettingStatus] = useState(false);
   const [edittingStatus, setEdittingStatus] = useState(false);
+  const [checkFetchStatus, setCheckFetchStatus] = useState(false);
 
   const setdailyDataTemplate = [
     {
@@ -237,14 +238,8 @@ export const GraphPage = (props) => {
   async function fetchDataMonth() {
     if (props.mainperiod === "month" && props.maintypeData === "real") {
       await props.getAllRealDataMount();
-
-      // let data = getMonth();
-      // setTempData(data);
     } else if (props.mainperiod === "day" && props.maintypeData === "real") {
       await props.getAllRealDataDay();
-
-      // let data = getDay();
-      // setTempData(data);
     } else if (props.mainperiod === "month" && props.maintypeData === "model") {
       await props.getAllModelDataMount();
     } else if (props.mainperiod === "day" && props.maintypeData === "model") {
@@ -281,12 +276,6 @@ export const GraphPage = (props) => {
   }
 
   let initialValueDataConfig = [
-    // {
-    //   name: "rho",
-    //   des: "Total Population",
-    //   symbol: <span>&#961;</span>,
-    //   value: tempConfig,
-    // },
     {
       name: "zeta2",
       des: "The covid-19 dissese mortality rate for individuals in the infected rate",
@@ -301,12 +290,6 @@ export const GraphPage = (props) => {
       value: zetaS,
       setValue: (event) => setZetaS(event.target.value),
     },
-    // {
-    //   name: "eta",
-    //   des: "The recurrent infections rate for who was recovery",
-    //   symbol: <span>&eta;</span>,
-    //   value: tempConfig,
-    // },
     {
       name: "omega1",
       des: "The performance of vacination first doses",
@@ -392,9 +375,14 @@ export const GraphPage = (props) => {
     getAllIntialValue();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checkFetchStatus]);
+  useEffect(() => {
+    getAllIntialValue();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function parameterChange() {
+  async function parameterChange() {
     const tempConfig = filterInitialValue(
       listAllInitialDate,
       initialDateForSet
@@ -421,7 +409,7 @@ export const GraphPage = (props) => {
     // setListInitialDate;
     // setListAllInitialDate;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialDateForSet]);
+  }, [initialDateForSet, listAllInitialDate, checkFetchStatus]);
 
   const handleInitialDateForSet = (event) => {
     setInitialDateForSet(event.target.value);
@@ -438,6 +426,7 @@ export const GraphPage = (props) => {
     await getAllIntialValue();
     await parameterChange();
     await fetchDataMonth();
+    await setCheckFetchStatus(!checkFetchStatus);
     await setResettingStatus(false);
   };
 
@@ -532,7 +521,7 @@ export const GraphPage = (props) => {
     return checkDataInitialChangeReturn;
   }
 
-  function editInitialValueByDate() {
+  async function editInitialValueByDate() {
     editInitialByDate({
       start_date: initialDateForSet,
       alpha: alpha,
@@ -574,6 +563,7 @@ export const GraphPage = (props) => {
       await getAllIntialValue();
       await parameterChange();
       await fetchDataMonth();
+      await setCheckFetchStatus(!checkFetchStatus);
       await setEdittingStatus(false);
     }
   };
@@ -581,7 +571,7 @@ export const GraphPage = (props) => {
   useEffect(() => {
     fetchDataMonth();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.maintypeData, props.mainperiod]);
+  }, [props.maintypeData, props.mainperiod, checkFetchStatus]);
 
   useEffect(() => {
     async function fetchDailyData() {
@@ -902,7 +892,9 @@ export const GraphPage = (props) => {
               </Grid>
             </Grid>
           </Grid>
-          <MainGraph tempDataService={tempDataService} />
+          <MainGraph
+          // tempDataService={tempDataService}
+          />
         </Paper>
       </Container>
       <TableModel />
