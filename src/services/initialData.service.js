@@ -66,7 +66,7 @@ export async function editInitialByDate({
       zetas: zetas,
     })
     .then((res) => {
-      console.log("res", res);
-      return res.data;
+      console.log("res editInitialByDate", res.data.initial_value);
+      return res.data.initial_value;
     });
 }

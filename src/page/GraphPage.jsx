@@ -33,7 +33,7 @@ import lung from "../assets/icons8-infected-lungs-64.png";
 import flight from "../assets/icons8-no-flight-64.png";
 import vaccine from "../assets/icons8-vaccine-64.png";
 import DatePicker from "@mui/lab/DatePicker";
-import { getDay, getMonth } from "../middleware/dataday";
+//import { getDay, getMonth } from "../middleware/dataday";
 import {
   getAllInitial,
   resetInitial,
@@ -81,6 +81,7 @@ export const GraphPage = (props) => {
   const [listInitialDate, setListInitialDate] = useState([]);
   const [listAllInitialDate, setListAllInitialDate] = useState([]);
   const [resettingStatus, setResettingStatus] = useState(false);
+  const [edittingStatus, setEdittingStatus] = useState(false);
 
   const setdailyDataTemplate = [
     {
@@ -233,6 +234,24 @@ export const GraphPage = (props) => {
     },
   ];
 
+  async function fetchDataMonth() {
+    if (props.mainperiod === "month" && props.maintypeData === "real") {
+      await props.getAllRealDataMount();
+
+      // let data = getMonth();
+      // setTempData(data);
+    } else if (props.mainperiod === "day" && props.maintypeData === "real") {
+      await props.getAllRealDataDay();
+
+      // let data = getDay();
+      // setTempData(data);
+    } else if (props.mainperiod === "month" && props.maintypeData === "model") {
+      await props.getAllModelDataMount();
+    } else if (props.mainperiod === "day" && props.maintypeData === "model") {
+      await props.getAllModelDataDay();
+    }
+  }
+
   function filterInitialValue(listAll, InitialDate) {
     //console.log("listAll, InitialDate", listAll, InitialDate);
     let tempfillter = [];
@@ -269,16 +288,16 @@ export const GraphPage = (props) => {
     //   value: tempConfig,
     // },
     {
-      name: "zetah",
+      name: "zeta2",
       des: "The covid-19 dissese mortality rate for individuals in the infected rate",
-      symbol: <span>&#950;h</span>,
+      symbol: <span>&#950;2</span>,
       value: zetaH,
       setValue: (event) => setZetaH(event.target.value),
     },
     {
-      name: "zetas",
+      name: "zeta1",
       des: "The covid-19 dissese mortality rate for individuals in the infected rate",
-      symbol: <span>&#950;h</span>,
+      symbol: <span>&#950;1</span>,
       value: zetaS,
       setValue: (event) => setZetaS(event.target.value),
     },
@@ -338,16 +357,16 @@ export const GraphPage = (props) => {
       setValue: (event) => setAlpha(event.target.value),
     },
     {
-      name: "lambdah",
+      name: "lambda2",
       des: "The recovery rate of infected",
-      symbol: <span>&#955;h</span>,
+      symbol: <span>&#955;2</span>,
       value: lambdaH,
       setValue: (event) => setLambdaH(event.target.value),
     },
     {
-      name: "lambdas",
+      name: "lambda1",
       des: "The recovery rate of infected",
-      symbol: <span>&#955;s</span>,
+      symbol: <span>&#955;1</span>,
       value: lambdaS,
       setValue: (event) => setLambdaS(event.target.value),
     },
@@ -375,7 +394,7 @@ export const GraphPage = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
+  function parameterChange() {
     const tempConfig = filterInitialValue(
       listAllInitialDate,
       initialDateForSet
@@ -393,6 +412,10 @@ export const GraphPage = (props) => {
     setOmega3(tempConfig.omega3);
     setZetaH(tempConfig.zetah);
     setZetaS(tempConfig.zetas);
+  }
+
+  useEffect(() => {
+    parameterChange();
 
     // setInitialDateForSet;
     // setListInitialDate;
@@ -413,6 +436,8 @@ export const GraphPage = (props) => {
     setResettingStatus(true);
     await resetInitial();
     await getAllIntialValue();
+    await parameterChange();
+    await fetchDataMonth();
     await setResettingStatus(false);
   };
 
@@ -503,7 +528,7 @@ export const GraphPage = (props) => {
 
     var checkDataInitialChangeReturn =
       JSON.stringify(checkDataInitialChange) === JSON.stringify(tempConfig);
-
+    console.log("checkDataInitialChangeReturn", checkDataInitialChangeReturn);
     return checkDataInitialChangeReturn;
   }
 
@@ -525,7 +550,7 @@ export const GraphPage = (props) => {
     });
   }
 
-  const handleCheck = () => {
+  const handleCheck = async () => {
     const newStatus = {
       S: SStatus,
       V1: V1Status,
@@ -538,31 +563,20 @@ export const GraphPage = (props) => {
     };
 
     props.configGraphDisplay(newStatus);
-    let checkChange = checkValueChange(listAllInitialDate, initialDateForSet);
-    if (!checkChange) {
-      editInitialValueByDate();
-      getAllIntialValue();
-    }
     handleDialogClose();
-  };
-
-  async function fetchDataMonth() {
-    if (props.mainperiod === "month" && props.maintypeData === "real") {
-      await props.getAllRealDataMount();
-
-      let data = getMonth();
-      setTempData(data);
-    } else if (props.mainperiod === "day" && props.maintypeData === "real") {
-      await props.getAllRealDataDay();
-
-      let data = getDay();
-      setTempData(data);
-    } else if (props.mainperiod === "month" && props.maintypeData === "model") {
-      await props.getAllModelDataMount();
-    } else if (props.mainperiod === "day" && props.maintypeData === "model") {
-      await props.getAllModelDataDay();
+    let checkChange = await checkValueChange(
+      listAllInitialDate,
+      initialDateForSet
+    );
+    if (!checkChange) {
+      setEdittingStatus(true);
+      await editInitialValueByDate();
+      await getAllIntialValue();
+      await parameterChange();
+      await fetchDataMonth();
+      await setEdittingStatus(false);
     }
-  }
+  };
 
   useEffect(() => {
     fetchDataMonth();
@@ -578,14 +592,14 @@ export const GraphPage = (props) => {
   }, []);
 
   useEffect(() => {
-    async function fetchInitialData() {
-      // await props.getAllRealDataMount();
-
-      let data = getMonth();
-      return data;
-    }
-    let temp = fetchInitialData();
-    setTempData(temp);
+    // async function fetchInitialData() {
+    //   return await props.getAllRealDataMount();
+    //   // let data = getMonth();
+    //   // return data;
+    // }
+    // let temp = fetchInitialData();
+    // setTempData(temp);
+    fetchDataMonth();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -598,9 +612,9 @@ export const GraphPage = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
-  function handleCloseBackdrop() {
-    setResettingStatus(false);
-  }
+  // function handleCloseBackdrop() {
+  //   setResettingStatus(false);
+  // }
 
   return (
     <Container maxWidth="xxl" style={{ marginTop: 65 }}>
@@ -1105,7 +1119,37 @@ export const GraphPage = (props) => {
         //onClick={handleCloseBackdrop}
       >
         <Box sx={{ width: "30%" }}>
-          <div>Reseting...</div>
+          <div
+            style={{
+              //color: "#0091ea",
+              textAlign: "center",
+              fontSize: "2vw",
+              fontFamily: "IBM Plex Sans Thai Looped",
+              fontWeight: "400",
+            }}
+          >
+            Reseting...
+          </div>
+          <LinearProgress />
+        </Box>
+      </Backdrop>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 100 }}
+        open={edittingStatus}
+        //onClick={handleCloseBackdrop}
+      >
+        <Box sx={{ width: "30%" }}>
+          <div
+            style={{
+              //color: "#0091ea",
+              textAlign: "center",
+              fontSize: "2vw",
+              fontFamily: "IBM Plex Sans Thai Looped",
+              fontWeight: "400",
+            }}
+          >
+            Editing...
+          </div>
           <LinearProgress />
         </Box>
       </Backdrop>
