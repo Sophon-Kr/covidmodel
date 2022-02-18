@@ -1,23 +1,12 @@
-// //import axios from "axios";
-// var axios = require("axios");
-// // module.exports = {
-//      function getRawDataMonth () {
-//     return axios
-//       .get(`https://covid-data-123.herokuapp.com/coviddata/month`)
-//       .then((res) => {
-//         console.log(res);
-//         return res.data.data;
-//       });
-//   },
+// const axios = require("axios");
 
-//    function getRawDataDay () {}
+// export async function getMonthModel(dispatch) {
 //     return axios
-//       .get(`https://covid-data-123.herokuapp.com/coviddata/day`)
-//       .then((res) => {
-//         console.log(res);
-//         return res.data.data;
+//     .get(`https://covid-data-123.herokuapp.com/covidmodel/month`)
+//     .then((res) => {
+//       dispatch({
+//         type: "GET_DATA_MODEL_MONTH",
+//         payload: res.data.data,
 //       });
-//   }
-
-//   export default {getRawDataMonth,getRawDataDay}
-// // };
+//     });
+// }

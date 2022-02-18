@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
 import * as actions from "../middleware/action";
 import { connect } from "react-redux";
 import Container from "@mui/material/Container";
@@ -22,26 +21,27 @@ import EventNoteIcon from "@mui/icons-material/EventNote";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FullscreenRoundedIcon from "@mui/icons-material/FullscreenRounded";
 import Slide from "@mui/material/Slide";
-import MainGraphFull from "../components/Graph/MainGraphFull";
 import TextField from "@mui/material/TextField";
-import TableModel from "../components/Table/TableModel";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import MenuItem from "@mui/material/MenuItem";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DatePicker from "@mui/lab/DatePicker";
+import Box from "@mui/material/Box";
+import LinearProgress from "@mui/material/LinearProgress";
+import Backdrop from "@mui/material/Backdrop";
+
+import MainGraphFull from "../components/Graph/MainGraphFull";
+import TableModel from "../components/Table/TableModel";
 import covid from "../assets/icons8-covid-19-64.png";
 import lung from "../assets/icons8-infected-lungs-64.png";
 import flight from "../assets/icons8-no-flight-64.png";
 import vaccine from "../assets/icons8-vaccine-64.png";
-import DatePicker from "@mui/lab/DatePicker";
-//import { getDay, getMonth } from "../middleware/dataday";
 import {
   getAllInitial,
   resetInitial,
   editInitialByDate,
 } from "../services/initialData.service";
-import Box from "@mui/material/Box";
-import LinearProgress from "@mui/material/LinearProgress";
-import Backdrop from "@mui/material/Backdrop";
+// import { getMonthModel } from "../services/rawData.service";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -72,7 +72,6 @@ export const GraphPage = (props) => {
   const [omega3, setOmega3] = React.useState(0);
   const [zetaH, setZetaH] = React.useState(0);
   const [zetaS, setZetaS] = React.useState(0);
-
   const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
   const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
   const [monthStart, setMonthStart] = React.useState(props.initialMinDate);
@@ -425,8 +424,9 @@ export const GraphPage = (props) => {
     await resetInitial();
     await getAllIntialValue();
     await parameterChange();
-    await fetchDataMonth();
+
     await setCheckFetchStatus(!checkFetchStatus);
+    await fetchDataMonth();
     await setResettingStatus(false);
   };
 
@@ -562,16 +562,23 @@ export const GraphPage = (props) => {
       await editInitialValueByDate();
       await getAllIntialValue();
       await parameterChange();
-      await fetchDataMonth();
       await setCheckFetchStatus(!checkFetchStatus);
+      const fetchDataAfterEdit = await fetchDataMonth();
+      await console.log("edit fetchDataMonth", fetchDataAfterEdit);
       await setEdittingStatus(false);
+      await setCheckFetchStatus(!checkFetchStatus);
     }
   };
 
   useEffect(() => {
     fetchDataMonth();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.maintypeData, props.mainperiod, checkFetchStatus]);
+  }, [
+    props.maintypeData,
+    props.mainperiod,
+    checkFetchStatus,
+    listAllInitialDate,
+  ]);
 
   useEffect(() => {
     async function fetchDailyData() {
