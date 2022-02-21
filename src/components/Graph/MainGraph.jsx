@@ -104,11 +104,7 @@ class MainGraph extends PureComponent {
         mainIStatus: this.props.mainIStatus,
       });
     }
-    // if (prevProps.mainRStatus !== this.props.mainRStatus) {
-    //   this.setState({
-    //     mainRStatus: this.props.mainRStatus,
-    //   });
-    // }
+  
     if (prevProps.mainHStatus !== this.props.mainHStatus) {
       this.setState({
         mainHStatus: this.props.mainHStatus,
@@ -201,15 +197,7 @@ class MainGraph extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-            {/* {this.state.mainRStatus ? (
-              <Line
-                type="monotone"
-                dataKey="Recovery"
-                stroke="green"
-                strokeWidth={3}
-                activeDot={{ r: 8 }}
-              />
-            ) : null} */}
+         
             {this.state.mainHStatus ? (
               <Line
                 type="monotone"

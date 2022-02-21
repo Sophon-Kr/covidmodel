@@ -163,21 +163,6 @@ export const TableModel = (props) => {
                     </TableCell>
                   )}
 
-                  {/* {props.mainRStatus ? (
-                    <TableCell
-                      align="left"
-                      style={{ backgroundColor: "#c5e1a5" }}
-                    >
-                      Recovery
-                    </TableCell>
-                  ) : (
-                    <TableCell
-                      align="left"
-                      style={{ backgroundColor: "#e0e0e0" }}
-                    >
-                      Recovery
-                    </TableCell>
-                  )} */}
 
                   {props.mainHStatus ? (
                     <TableCell
@@ -226,7 +211,6 @@ export const TableModel = (props) => {
                       <TableCell align="left">{row.Maintenance}</TableCell>
                     ) : null}
                     <TableCell align="left">{row.Infected}</TableCell>
-                    {/* <TableCell align="left">{row.Recovery}</TableCell> */}
                     <TableCell align="left">{row.Hospital}</TableCell>
                     <TableCell align="left">{row.Deaths}</TableCell>
                   </TableRow>

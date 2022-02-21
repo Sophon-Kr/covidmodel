@@ -87,17 +87,7 @@ const equationCovid = [
       </span>
     ),
   },
-  // {
-  // id:"",
-  //   node: "R",
-  //   equation: (
-  //     <span>
-  //       <sup>d(R)</sup>
-  //       &frasl;<sub>d(t)</sub> = &lambda;
-  //       <sub>2</sub>H + &lambda;<sub>1</sub>I &minus; R
-  //     </span>
-  //   ),
-  // },
+ 
   {
     id: "7",
     node: "D",

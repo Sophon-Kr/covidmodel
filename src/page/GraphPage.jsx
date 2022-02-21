@@ -32,10 +32,10 @@ import Backdrop from "@mui/material/Backdrop";
 
 import MainGraphFull from "../components/Graph/MainGraphFull";
 import TableModel from "../components/Table/TableModel";
-import covid from "../assets/icons8-covid-19-64.png";
-import lung from "../assets/icons8-infected-lungs-64.png";
-import flight from "../assets/icons8-no-flight-64.png";
-import vaccine from "../assets/icons8-vaccine-64.png";
+import covid from "../assets/virusicon.png";
+import lung from "../assets/lungicon.png";
+import flight from "../assets/airplaneicon.png";
+import vaccine from "../assets/maskicon.png";
 import {
   getAllInitial,
   resetInitial,
@@ -72,10 +72,11 @@ export const GraphPage = (props) => {
   const [omega3, setOmega3] = React.useState(0);
   const [zetaH, setZetaH] = React.useState(0);
   const [zetaS, setZetaS] = React.useState(0);
+
   const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
   const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
-  const [monthStart, setMonthStart] = React.useState(props.initialMinDate);
-  const [monthEnd, setMonthEnd] = React.useState(props.initialMaxDate);
+  const [monthStart, setMonthStart] = React.useState(props.dateStartMonthMain);
+  const [monthEnd, setMonthEnd] = React.useState(props.dateEndMonthMain);
   const [initialDateForSet, setInitialDateForSet] = useState("");
   const [listInitialDate, setListInitialDate] = useState([]);
   const [listAllInitialDate, setListAllInitialDate] = useState([]);
@@ -589,13 +590,7 @@ export const GraphPage = (props) => {
   }, []);
 
   useEffect(() => {
-    // async function fetchInitialData() {
-    //   return await props.getAllRealDataMount();
-    //   // let data = getMonth();
-    //   // return data;
-    // }
-    // let temp = fetchInitialData();
-    // setTempData(temp);
+    
     fetchDataMonth();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -608,10 +603,6 @@ export const GraphPage = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // function handleCloseBackdrop() {
-  //   setResettingStatus(false);
-  // }
 
   return (
     <Container maxWidth="xxl" style={{ marginTop: 65 }}>
@@ -646,11 +637,11 @@ export const GraphPage = (props) => {
                   </Typography>
                   <Grid
                     item
-                    xs={8}
-                    sm={8}
-                    md={8}
-                    lg={8}
-                    xl={8}
+                    xs={9}
+                    sm={9}
+                    md={9}
+                    lg={9}
+                    xl={9}
                     style={{ flexGrow: 1 }}
                   >
                     <Typography
@@ -673,14 +664,14 @@ export const GraphPage = (props) => {
                   </Grid>
                   <Grid
                     item
-                    xs={4}
-                    sm={4}
-                    md={4}
-                    lg={4}
-                    xl={4}
+                    xs={3}
+                    sm={3}
+                    md={3}
+                    lg={3}
+                    xl={3}
                     style={{ textAlign: "center" }}
                   >
-                    <img width="75" height="75" src={data.icon} alt="icon" />
+                    <img width="150" height="150" src={data.icon} alt="icon" />
                   </Grid>
                 </Grid>
               </Paper>
@@ -1044,21 +1035,7 @@ export const GraphPage = (props) => {
           ) : null}
 
           <Grid item>
-            {/* <span style={{ flexGrow: 1 }}>
-              <Button
-                onClick={handleDialogClose}
-                variant="contained"
-                style={{
-                  color: "white",
-                  backgroundColor: "grey",
-
-                  // marginLeft: 10,
-                  //marginTop: 10,
-                }}
-              >
-                Reset Default Value
-              </Button>
-            </span> */}
+            
 
             <Button
               onClick={handleDialogClose}
@@ -1135,7 +1112,7 @@ export const GraphPage = (props) => {
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 100 }}
         open={edittingStatus}
-        //onClick={handleCloseBackdrop}
+       
       >
         <Box sx={{ width: "30%" }}>
           <div
@@ -1182,6 +1159,9 @@ const mapStateToProps = (state) => {
 
     initialMinDate: state.reducer.initialMinDate,
     initialMaxDate: state.reducer.initialMaxDate,
+
+    dateStartMonthMain: state.reducer.dateStartMonthMain,
+    dateEndMonthMain: state.reducer.dateEndMonthMain,
   };
 };
 

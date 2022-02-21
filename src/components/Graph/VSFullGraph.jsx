@@ -181,24 +181,7 @@ class VSFullGraph extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-            {/* {this.state.mainVS === "R" ? (
-              <Line
-                type="monotone"
-                dataKey="RecoveryRawData"
-                stroke="#1b5e20"
-                strokeWidth={3}
-                activeDot={{ r: 8 }}
-              />
-            ) : null}
-            {this.state.mainVS === "R" ? (
-              <Line
-                type="monotone"
-                dataKey="RecoveryModelData"
-                stroke="#69f0ae"
-                strokeWidth={3}
-                activeDot={{ r: 8 }}
-              />
-            ) : null} */}
+            
             {this.state.mainVS === "H" ? (
               <Line
                 type="monotone"

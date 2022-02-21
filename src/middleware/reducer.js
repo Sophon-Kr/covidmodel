@@ -229,6 +229,12 @@ const reducer = (state = initialState, { type, payload }) => {
 
         dateEndMain: payload[0],
         dateStartMain: payload[1],
+
+        dateStartMonthMain: payload[1],
+        dateEndMonthMain: payload[0],
+        
+        dateStartVS: payload[1],
+        dateEndVS: payload[0],
       };
     case SET_LIST_FOR_REMOVE:
       console.log(type, payload);

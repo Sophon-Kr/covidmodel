@@ -19,7 +19,6 @@ import V1 from "../assets/V1.png";
 import V2 from "../assets/V2.png";
 import M from "../assets/M.png";
 import I from "../assets/I.png";
-// import R from "../assets/R.png";
 import H from "../assets/H.png";
 import D from "../assets/D.png";
 import { resetInitial } from "../services/initialData.service";
@@ -101,19 +100,7 @@ const modelDisplay = [
     pic: <img src={I} alt="Infection" width="100%" height="auto" />,
     color: "#f44336",
   },
-  // {
-  // id: "",
-  //   name: "Recovery Class : R",
-  //   text: (
-  //     <div>
-  //       &emsp; &emsp; &emsp; คือ
-  //       ประชากรในประเทศไทยที่ได้รับการยืนยันว่าเข้ารับการรักษาในโรงพยาล
-  //       โดยประกาศจำนวนจากข้อมูลของทางกระทรวงสาธารณสุขประเทศไทย
-  //     </div>
-  //   ),
-  //   pic: <img src={R} alt="Recovery" width="100%" height="auto" />,
-  //   color: "#008000",
-  // },
+  
   {
     id: "6",
     name: "Hospital Class : H",

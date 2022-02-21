@@ -207,15 +207,7 @@ class MainGraphFull extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-            {/* {this.state.mainRStatus ? (
-              <Line
-                type="monotone"
-                dataKey="Recovery"
-                stroke="green"
-                strokeWidth={3}
-                activeDot={{ r: 8 }}
-              />
-            ) : null} */}
+            
             {this.state.mainHStatus ? (
               <Line
                 type="monotone"

@@ -37,7 +37,6 @@ export const ContactForm = (props) => {
     setSendSnackbar(false);
   };
   const handleClear = (event) => {
-    // setContact(0);
     setSubjectData("");
     setSendFrom("");
     setSendText("");
@@ -63,9 +62,7 @@ export const ContactForm = (props) => {
     const testsend = await sendEmail(forSend);
     console.log("testsend", testsend);
     handleOpenSnackbar(testsend);
-    //console.log("handleSendMail:: ", sendFrom, subjectData, sendText);
-    // const tempEmail = EmailUtil.sendEmail(sendFrom, subjectData, sendText);
-    // console.log("tempEmail", tempEmail);
+  
   };
 
   return (
