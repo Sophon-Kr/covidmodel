@@ -100,6 +100,15 @@ export const getRealDataMount = () => {
           type: "GET_DATA_REAL_MONTH",
           payload: res.data.data,
         });
+        let findDate = maxAndMinDate(res.data.data);
+        let maxDate = findDate[0];
+        let minDate = findDate[1];
+        // console.log("findDate", maxDate, minDate);
+
+        dispatch({
+          type: "SET_DATE_MAX_MIN",
+          payload: [maxDate, minDate],
+        });
       });
   };
 };
@@ -142,6 +151,15 @@ export const getModelDataMount = () => {
         dispatch({
           type: "GET_DATA_MODEL_MONTH",
           payload: res.data.data,
+        });
+        let findDate = maxAndMinDate(res.data.data);
+        let maxDate = findDate[0];
+        let minDate = findDate[1];
+        // console.log("findDate", maxDate, minDate);
+
+        dispatch({
+          type: "SET_DATE_MAX_MIN",
+          payload: [maxDate, minDate],
         });
       });
   };
@@ -193,6 +211,16 @@ export const getVSDataMount = () => {
           type: "GET_DATA_VS_MONTH",
 
           payload: res.data.data,
+        });
+
+        let findDate = maxAndMinDate(res.data.data);
+        let maxDate = findDate[0];
+        let minDate = findDate[1];
+        // console.log("findDate", maxDate, minDate);
+
+        dispatch({
+          type: "SET_DATE_MAX_MIN",
+          payload: [maxDate, minDate],
         });
       });
   };

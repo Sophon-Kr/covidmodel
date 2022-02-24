@@ -590,7 +590,6 @@ export const GraphPage = (props) => {
   }, []);
 
   useEffect(() => {
-    
     fetchDataMonth();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -1035,8 +1034,6 @@ export const GraphPage = (props) => {
           ) : null}
 
           <Grid item>
-            
-
             <Button
               onClick={handleDialogClose}
               variant="contained"
@@ -1112,7 +1109,6 @@ export const GraphPage = (props) => {
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 100 }}
         open={edittingStatus}
-       
       >
         <Box sx={{ width: "30%" }}>
           <div
