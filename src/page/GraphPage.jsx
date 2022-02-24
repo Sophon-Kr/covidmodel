@@ -73,10 +73,16 @@ export const GraphPage = (props) => {
   const [zetaH, setZetaH] = React.useState(0);
   const [zetaS, setZetaS] = React.useState(0);
 
-  const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
-  const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
-  const [monthStart, setMonthStart] = React.useState(props.dateStartMonthMain);
-  const [monthEnd, setMonthEnd] = React.useState(props.dateEndMonthMain);
+  const [dateStart, setDateStart] = React.useState(
+    new Date(props.maindateStartMain)
+  );
+  const [dateEnd, setDateEnd] = React.useState(new Date(props.maindateEndMain));
+  const [monthStart, setMonthStart] = React.useState(
+    new Date(props.dateStartMonthMain)
+  );
+  const [monthEnd, setMonthEnd] = React.useState(
+    new Date(props.dateEndMonthMain)
+  );
   const [initialDateForSet, setInitialDateForSet] = useState("");
   const [listInitialDate, setListInitialDate] = useState([]);
   const [listAllInitialDate, setListAllInitialDate] = useState([]);
@@ -850,8 +856,8 @@ export const GraphPage = (props) => {
                       autoOk={true}
                       views={["month", "year"]}
                       label="Start Month"
-                      minDate={props.initialMinDate}
-                      maxDate={props.initialMaxDate}
+                      minDate={new Date(props.initialMinDate)}
+                      maxDate={new Date(props.initialMaxDate)}
                       value={monthStart}
                       onChange={handleMonthStart}
                       renderInput={(params) => (
@@ -865,8 +871,8 @@ export const GraphPage = (props) => {
                       autoOk={true}
                       views={["month", "year"]}
                       label="End Month"
-                      minDate={props.initialMinDate}
-                      maxDate={props.initialMaxDate}
+                      minDate={new Date(props.initialMinDate)}
+                      maxDate={new Date(props.initialMaxDate)}
                       value={monthEnd}
                       onChange={handleMonthEnd}
                       renderInput={(params) => (
