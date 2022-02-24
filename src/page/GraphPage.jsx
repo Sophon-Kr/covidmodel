@@ -627,7 +627,7 @@ export const GraphPage = (props) => {
                 style={{
                   //minHeight: 230,
                   padding: 30,
-                  height:"100%"
+                  height: "100%",
                 }}
                 variant="outlined"
                 square
@@ -804,41 +804,45 @@ export const GraphPage = (props) => {
                 </ToggleButtonGroup>
               </Grid>
               {props.mainperiod === "day" ? (
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <div>
                   <Grid item>
-                    <DatePicker
-                      autoOk={true}
-                      openTo="day"
-                      views={["day", "month", "year"]}
-                      label="Start Date"
-                      inputFormat="dd/MM/yyyy"
-                      value={dateStart}
-                      minDate={props.initialMinDate}
-                      maxDate={props.initialMaxDate}
-                      onChange={handleDateStart}
-                      renderInput={(params) => (
-                        <TextField size="small" {...params} />
-                      )}
-                    />
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                      <DatePicker
+                        autoOk={true}
+                        openTo="day"
+                        views={["day", "month", "year"]}
+                        label="Start Date"
+                        inputFormat="dd/MM/yyyy"
+                        value={dateStart}
+                        minDate={props.initialMinDate}
+                        maxDate={props.initialMaxDate}
+                        onChange={handleDateStart}
+                        renderInput={(params) => (
+                          <TextField size="small" {...params} />
+                        )}
+                      />
+                    </LocalizationProvider>
                   </Grid>
 
                   <Grid item>
-                    <DatePicker
-                      autoOk={true}
-                      openTo="day"
-                      views={["day", "month", "year"]}
-                      minDate={props.initialMinDate}
-                      maxDate={props.initialMaxDate}
-                      label="End Date"
-                      inputFormat="dd/MM/yyyy"
-                      value={dateEnd}
-                      onChange={handleDateEnd}
-                      renderInput={(params) => (
-                        <TextField size="small" {...params} />
-                      )}
-                    />
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                      <DatePicker
+                        autoOk={true}
+                        openTo="day"
+                        views={["day", "month", "year"]}
+                        minDate={props.initialMinDate}
+                        maxDate={props.initialMaxDate}
+                        label="End Date"
+                        inputFormat="dd/MM/yyyy"
+                        value={dateEnd}
+                        onChange={handleDateEnd}
+                        renderInput={(params) => (
+                          <TextField size="small" {...params} />
+                        )}
+                      />
+                    </LocalizationProvider>
                   </Grid>
-                </LocalizationProvider>
+                </div>
               ) : props.mainperiod === "month" ? (
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Grid item>
