@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getDay, getMonth } from "./dataday";
+//import { getDay, getMonth } from "./dataday";
 
 export const CONFIG_GRAPH_DISPLAY = "CONFIG_GRAPH_DISPLAY";
 export const CONFIG_DATA_TYPE = "CONFIG_DATA_TYPE";
@@ -25,7 +25,7 @@ export const CONFIG_TYPE_VS = "CONFIG_TYPE_VS";
 const maxAndMinDate = (data) => {
   const newDates = [];
   for (let i = 0; i < data.length; i++) {
-    newDates.push(new Date(data[i].name.split("-").join("/")));
+    newDates.push(new Date(data[i].name.split("-").join(" ")));
   }
   // console.log("newDates", newDates);
 
@@ -163,7 +163,7 @@ export const getModelDataMount = () => {
         let findDate = maxAndMinDate(res.data.data);
         let maxDate = findDate[0];
         let minDate = findDate[1];
-        // console.log("findDate", maxDate, minDate);
+        console.log("findDate", maxDate, minDate);
 
         dispatch({
           type: "SET_DATE_MAX_MIN",

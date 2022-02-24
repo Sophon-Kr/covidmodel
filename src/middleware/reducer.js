@@ -224,17 +224,17 @@ const reducer = (state = initialState, { type, payload }) => {
       console.log(type, payload);
       return {
         ...state,
-        initialMaxDate: payload[0],
-        initialMinDate: payload[1],
+        initialMaxDate: new Date(payload[0]),
+        initialMinDate: new Date(payload[1]),
 
-        dateEndMain: payload[0],
-        dateStartMain: payload[1],
+        dateEndMain: new Date(payload[0]),
+        dateStartMain: new Date(payload[1]),
 
-        dateStartMonthMain: payload[1],
-        dateEndMonthMain: payload[0],
-        
-        dateStartVS: payload[1],
-        dateEndVS: payload[0],
+        dateStartMonthMain: new Date(payload[1]),
+        dateEndMonthMain: new Date(payload[0]),
+
+        dateStartVS: new Date(payload[1]),
+        dateEndVS: new Date(payload[0]),
       };
     case SET_LIST_FOR_REMOVE:
       console.log(type, payload);
