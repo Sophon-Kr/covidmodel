@@ -605,6 +605,13 @@ export const GraphPage = (props) => {
     props.dateEndMonthMain,
     props.dateStartMonthMain,
   ]);
+  useEffect(() => {
+    setDateStart(props.maindateStartMain);
+    setDateEnd(props.maindateEndMain);
+    setMonthStart(props.dateStartMonthMain);
+    setMonthEnd(props.dateEndMonthMain);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);

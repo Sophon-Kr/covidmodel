@@ -104,7 +104,7 @@ class MainGraph extends PureComponent {
         mainIStatus: this.props.mainIStatus,
       });
     }
-  
+
     if (prevProps.mainHStatus !== this.props.mainHStatus) {
       this.setState({
         mainHStatus: this.props.mainHStatus,
@@ -116,6 +116,7 @@ class MainGraph extends PureComponent {
       });
     }
     if (prevProps.mainTempData !== this.props.mainTempData) {
+      console.log("mainTempData change :", this.state.covidData);
       this.setState({
         covidData: this.props.mainTempData,
       });
@@ -197,7 +198,7 @@ class MainGraph extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-         
+
             {this.state.mainHStatus ? (
               <Line
                 type="monotone"
