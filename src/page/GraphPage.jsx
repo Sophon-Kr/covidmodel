@@ -601,10 +601,10 @@ export const GraphPage = (props) => {
   }, []);
 
   useEffect(() => {
-    setDateStart(props.maindateStartMain);
-    setDateEnd(props.maindateEndMain);
-    setMonthStart(props.dateStartMonthMain);
-    setMonthEnd(props.dateEndMonthMain);
+    setDateStart(new Date(props.maindateStartMain));
+    setDateEnd(new Date(props.maindateEndMain));
+    setMonthStart(new Date(props.dateStartMonthMain));
+    setMonthEnd(new Date(props.dateEndMonthMain));
   }, [
     props.maindateEndMain,
     props.maindateStartMain,
