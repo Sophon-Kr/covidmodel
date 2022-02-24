@@ -597,7 +597,14 @@ export const GraphPage = (props) => {
   useEffect(() => {
     setDateStart(props.maindateStartMain);
     setDateEnd(props.maindateEndMain);
-  }, [props.maindateEndMain, props.maindateStartMain]);
+    setMonthStart(props.dateStartMonthMain);
+    setMonthEnd(props.dateEndMonthMain);
+  }, [
+    props.maindateEndMain,
+    props.maindateStartMain,
+    props.dateEndMonthMain,
+    props.dateStartMonthMain,
+  ]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

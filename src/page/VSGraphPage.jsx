@@ -32,8 +32,8 @@ export const VSGraphPage = (props) => {
 
   const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
   const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
-  const [monthStart, setMonthStart] = React.useState(props.initialMinDate);
-  const [monthEnd, setMonthEnd] = React.useState(props.initialMaxDate);
+  const [monthStart, setMonthStart] = React.useState(props.dateStartVS);
+  const [monthEnd, setMonthEnd] = React.useState(props.dateEndVS);
 
   const nodeDataComparison = [
     {
@@ -52,7 +52,7 @@ export const VSGraphPage = (props) => {
       value: "I",
       label: "Infected",
     },
-    
+
     {
       value: "H",
       label: "Hospital",
@@ -102,12 +102,19 @@ export const VSGraphPage = (props) => {
   useEffect(() => {
     setDateStart(props.maindateStartMain);
     setDateEnd(props.maindateEndMain);
-  }, [props.maindateEndMain, props.maindateStartMain]);
+    setMonthStart(props.dateStartVS);
+    setMonthEnd(props.dateEndVS);
+  }, [
+    props.maindateEndMain,
+    props.maindateStartMain,
+    props.dateStartVS,
+    props.dateEndVS,
+  ]);
 
   useEffect((period) => {
     props.getVSDataMount();
     props.configTypeVS("S");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [nodeData, setNodeData] = React.useState("S");
@@ -299,6 +306,9 @@ const mapStateToProps = (state) => {
     maindateEndMain: state.reducer.dateEndMain,
     mainVS: state.reducer.VS,
     mainVsData: state.reducer.vsData,
+
+    dateStartVS: state.reducer.dateStartVS,
+    dateEndVS: state.reducer.dateEndVS,
   };
 };
 
