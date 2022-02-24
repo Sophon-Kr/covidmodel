@@ -25,8 +25,8 @@ export const TableModel = (props) => {
   };
 
   const monthFilter = (dataMonth) => {
-    let startMonth = props.dateStartMonthMain;
-    let endMonth = props.dateEndMonthMain;
+    let startMonth = new Date(props.dateStartMonthMain);
+    let endMonth = new Date(props.dateEndMonthMain);
 
     var dateAfterFilter = dataMonth.filter((a) => {
       var date = new Date(a.name);
@@ -162,7 +162,6 @@ export const TableModel = (props) => {
                       Infected
                     </TableCell>
                   )}
-
 
                   {props.mainHStatus ? (
                     <TableCell
