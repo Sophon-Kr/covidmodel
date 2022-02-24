@@ -625,8 +625,9 @@ export const GraphPage = (props) => {
             <Grid key={data.id} item xs={12} sm={6} md={3} lg={3} xl={3}>
               <Paper
                 style={{
-                  minHeight: 230,
+                  //minHeight: 230,
                   padding: 30,
+                  height:"100%"
                 }}
                 variant="outlined"
                 square
@@ -684,7 +685,12 @@ export const GraphPage = (props) => {
                     xl={3}
                     style={{ textAlign: "center" }}
                   >
-                    <img width="150" height="150" src={data.icon} alt="icon" />
+                    <img
+                      width="100%"
+                      height="auto"
+                      src={data.icon}
+                      alt="icon"
+                    />
                   </Grid>
                 </Grid>
               </Paper>

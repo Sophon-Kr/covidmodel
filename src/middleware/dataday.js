@@ -8,7 +8,7 @@ const data = [
     Susceptible: 66172401,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-01",
+    name: "2021/01/01",
   },
   {
     Deaths: 1,
@@ -19,7 +19,7 @@ const data = [
     Susceptible: 66171969,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-02",
+    name: "2021/01/02",
   },
   {
     Deaths: 0,
@@ -30,7 +30,7 @@ const data = [
     Susceptible: 66171339,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-03",
+    name: "2021/01/03",
   },
   {
     Deaths: 1,
@@ -41,7 +41,7 @@ const data = [
     Susceptible: 66169849,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-04",
+    name: "2021/01/04",
   },
   {
     Deaths: 0,
@@ -52,7 +52,7 @@ const data = [
     Susceptible: 66168795,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-05",
+    name: "2021/01/05",
   },
   {
     Deaths: 1,
@@ -63,7 +63,7 @@ const data = [
     Susceptible: 66168065,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-06",
+    name: "2021/01/06",
   },
   {
     Deaths: 1,
@@ -74,7 +74,7 @@ const data = [
     Susceptible: 66167455,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-07",
+    name: "2021/01/07",
   },
   {
     Deaths: 0,
@@ -85,7 +85,7 @@ const data = [
     Susceptible: 66167045,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-08",
+    name: "2021/01/08",
   },
   {
     Deaths: 0,
@@ -96,7 +96,7 @@ const data = [
     Susceptible: 66166621,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-09",
+    name: "2021/01/09",
   },
   {
     Deaths: 0,
@@ -107,7 +107,7 @@ const data = [
     Susceptible: 66166131,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-10",
+    name: "2021/01/10",
   },
   {
     Deaths: 0,
@@ -118,7 +118,7 @@ const data = [
     Susceptible: 66165633,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-11",
+    name: "2021/01/11",
   },
   {
     Deaths: 0,
@@ -129,7 +129,7 @@ const data = [
     Susceptible: 66165059,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-12",
+    name: "2021/01/12",
   },
   {
     Deaths: 0,
@@ -140,7 +140,7 @@ const data = [
     Susceptible: 66164745,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-13",
+    name: "2021/01/13",
   },
   {
     Deaths: 2,
@@ -151,7 +151,7 @@ const data = [
     Susceptible: 66164203,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-14",
+    name: "2021/01/14",
   },
   {
     Deaths: 0,
@@ -162,7 +162,7 @@ const data = [
     Susceptible: 66163827,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-15",
+    name: "2021/01/15",
   },
   {
     Deaths: 0,
@@ -173,7 +173,7 @@ const data = [
     Susceptible: 66163367,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-16",
+    name: "2021/01/16",
   },
   {
     Deaths: 1,
@@ -184,7 +184,7 @@ const data = [
     Susceptible: 66162619,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-17",
+    name: "2021/01/17",
   },
   {
     Deaths: 0,
@@ -195,7 +195,7 @@ const data = [
     Susceptible: 66161881,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-18",
+    name: "2021/01/18",
   },
   {
     Deaths: 0,
@@ -206,7 +206,7 @@ const data = [
     Susceptible: 66161539,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-19",
+    name: "2021/01/19",
   },
   {
     Deaths: 1,
@@ -217,7 +217,7 @@ const data = [
     Susceptible: 66161421,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-20",
+    name: "2021/01/20",
   },
   {
     Deaths: 0,
@@ -228,7 +228,7 @@ const data = [
     Susceptible: 66161137,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-21",
+    name: "2021/01/21",
   },
   {
     Deaths: 0,
@@ -239,7 +239,7 @@ const data = [
     Susceptible: 66160519,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-22",
+    name: "2021/01/22",
   },
   {
     Deaths: 1,
@@ -250,7 +250,7 @@ const data = [
     Susceptible: 66160123,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-23",
+    name: "2021/01/23",
   },
   {
     Deaths: 1,
@@ -261,7 +261,7 @@ const data = [
     Susceptible: 66159727,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-24",
+    name: "2021/01/24",
   },
   {
     Deaths: 2,
@@ -272,7 +272,7 @@ const data = [
     Susceptible: 66159353,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-25",
+    name: "2021/01/25",
   },
   {
     Deaths: 0,
@@ -283,7 +283,7 @@ const data = [
     Susceptible: 66157435,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-26",
+    name: "2021/01/26",
   },
   {
     Deaths: 1,
@@ -294,7 +294,7 @@ const data = [
     Susceptible: 66155797,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-27",
+    name: "2021/01/27",
   },
   {
     Deaths: 0,
@@ -305,7 +305,7 @@ const data = [
     Susceptible: 66154285,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-28",
+    name: "2021/01/28",
   },
   {
     Deaths: 0,
@@ -316,7 +316,7 @@ const data = [
     Susceptible: 66152681,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-29",
+    name: "2021/01/29",
   },
   {
     Deaths: 1,
@@ -327,7 +327,7 @@ const data = [
     Susceptible: 66150821,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-30",
+    name: "2021/01/30",
   },
   {
     Deaths: 0,
@@ -338,7 +338,7 @@ const data = [
     Susceptible: 66149163,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-01-31",
+    name: "2021/01/31",
   },
   {
     Deaths: 0,
@@ -349,7 +349,7 @@ const data = [
     Susceptible: 66147491,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-01",
+    name: "2021/02/01",
   },
   {
     Deaths: 2,
@@ -360,7 +360,7 @@ const data = [
     Susceptible: 66145819,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-02",
+    name: "2021/02/02",
   },
   {
     Deaths: 0,
@@ -371,7 +371,7 @@ const data = [
     Susceptible: 66144229,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-03",
+    name: "2021/02/03",
   },
   {
     Deaths: 0,
@@ -382,7 +382,7 @@ const data = [
     Susceptible: 66142611,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-04",
+    name: "2021/02/04",
   },
   {
     Deaths: 0,
@@ -393,7 +393,7 @@ const data = [
     Susceptible: 66141439,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-05",
+    name: "2021/02/05",
   },
   {
     Deaths: 0,
@@ -404,7 +404,7 @@ const data = [
     Susceptible: 66140459,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-06",
+    name: "2021/02/06",
   },
   {
     Deaths: 0,
@@ -415,7 +415,7 @@ const data = [
     Susceptible: 66139985,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-07",
+    name: "2021/02/07",
   },
   {
     Deaths: 0,
@@ -426,7 +426,7 @@ const data = [
     Susceptible: 66139613,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-08",
+    name: "2021/02/08",
   },
   {
     Deaths: 0,
@@ -437,7 +437,7 @@ const data = [
     Susceptible: 66139235,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-09",
+    name: "2021/02/09",
   },
   {
     Deaths: 1,
@@ -448,7 +448,7 @@ const data = [
     Susceptible: 66138921,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-10",
+    name: "2021/02/10",
   },
   {
     Deaths: 0,
@@ -459,7 +459,7 @@ const data = [
     Susceptible: 66138519,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-11",
+    name: "2021/02/11",
   },
   {
     Deaths: 0,
@@ -470,7 +470,7 @@ const data = [
     Susceptible: 66138169,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-12",
+    name: "2021/02/12",
   },
   {
     Deaths: 0,
@@ -481,7 +481,7 @@ const data = [
     Susceptible: 66137917,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-13",
+    name: "2021/02/13",
   },
   {
     Deaths: 2,
@@ -492,7 +492,7 @@ const data = [
     Susceptible: 66137299,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-15",
+    name: "2021/02/15",
   },
   {
     Deaths: 0,
@@ -503,7 +503,7 @@ const data = [
     Susceptible: 66137155,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-16",
+    name: "2021/02/16",
   },
   {
     Deaths: 0,
@@ -514,7 +514,7 @@ const data = [
     Susceptible: 66136805,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-17",
+    name: "2021/02/17",
   },
   {
     Deaths: 0,
@@ -525,7 +525,7 @@ const data = [
     Susceptible: 66136505,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-18",
+    name: "2021/02/18",
   },
   {
     Deaths: 1,
@@ -536,7 +536,7 @@ const data = [
     Susceptible: 66136245,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-19",
+    name: "2021/02/19",
   },
   {
     Deaths: 0,
@@ -547,7 +547,7 @@ const data = [
     Susceptible: 66136081,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-20",
+    name: "2021/02/20",
   },
   {
     Deaths: 0,
@@ -558,7 +558,7 @@ const data = [
     Susceptible: 66135897,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-21",
+    name: "2021/02/21",
   },
   {
     Deaths: 0,
@@ -569,7 +569,7 @@ const data = [
     Susceptible: 66135719,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-22",
+    name: "2021/02/22",
   },
   {
     Deaths: 0,
@@ -580,7 +580,7 @@ const data = [
     Susceptible: 66135529,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-23",
+    name: "2021/02/23",
   },
   {
     Deaths: 0,
@@ -591,7 +591,7 @@ const data = [
     Susceptible: 66135343,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-24",
+    name: "2021/02/24",
   },
   {
     Deaths: 0,
@@ -602,7 +602,7 @@ const data = [
     Susceptible: 66135199,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-25",
+    name: "2021/02/25",
   },
   {
     Deaths: 0,
@@ -613,7 +613,7 @@ const data = [
     Susceptible: 66135109,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-26",
+    name: "2021/02/26",
   },
   {
     Deaths: 0,
@@ -624,7 +624,7 @@ const data = [
     Susceptible: 66134965,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-27",
+    name: "2021/02/27",
   },
   {
     Deaths: 0,
@@ -635,7 +635,7 @@ const data = [
     Susceptible: 66134825,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-02-28",
+    name: "2021/02/28",
   },
   {
     Deaths: 0,
@@ -646,7 +646,7 @@ const data = [
     Susceptible: 66134665,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-03-01",
+    name: "2021/03/01",
   },
   {
     Deaths: 1,
@@ -657,7 +657,7 @@ const data = [
     Susceptible: 66134581,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-03-02",
+    name: "2021/03/02",
   },
   {
     Deaths: 0,
@@ -668,7 +668,7 @@ const data = [
     Susceptible: 66134511,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-03-03",
+    name: "2021/03/03",
   },
   {
     Deaths: 1,
@@ -679,7 +679,7 @@ const data = [
     Susceptible: 66134403,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-03-04",
+    name: "2021/03/04",
   },
   {
     Deaths: 0,
@@ -690,7 +690,7 @@ const data = [
     Susceptible: 66134245,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-03-05",
+    name: "2021/03/05",
   },
   {
     Deaths: 0,
@@ -701,7 +701,7 @@ const data = [
     Susceptible: 66106620,
     Vaccine1: 27497,
     Vaccine2: 0,
-    name: "2021-03-06",
+    name: "2021/03/06",
   },
   {
     Deaths: 0,
@@ -712,7 +712,7 @@ const data = [
     Susceptible: 66133987,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-03-07",
+    name: "2021/03/07",
   },
   {
     Deaths: 0,
@@ -723,7 +723,7 @@ const data = [
     Susceptible: 66131442,
     Vaccine1: 2403,
     Vaccine2: 0,
-    name: "2021-03-08",
+    name: "2021/03/08",
   },
   {
     Deaths: 0,
@@ -734,7 +734,7 @@ const data = [
     Susceptible: 66130004,
     Vaccine1: 3721,
     Vaccine2: 0,
-    name: "2021-03-09",
+    name: "2021/03/09",
   },
   {
     Deaths: 0,
@@ -745,7 +745,7 @@ const data = [
     Susceptible: 66130471,
     Vaccine1: 3176,
     Vaccine2: 0,
-    name: "2021-03-10",
+    name: "2021/03/10",
   },
   {
     Deaths: 0,
@@ -756,7 +756,7 @@ const data = [
     Susceptible: 66130188,
     Vaccine1: 3343,
     Vaccine2: 0,
-    name: "2021-03-11",
+    name: "2021/03/11",
   },
   {
     Deaths: 0,
@@ -767,7 +767,7 @@ const data = [
     Susceptible: 66129100,
     Vaccine1: 4269,
     Vaccine2: 0,
-    name: "2021-03-12",
+    name: "2021/03/12",
   },
   {
     Deaths: 1,
@@ -778,7 +778,7 @@ const data = [
     Susceptible: 66132659,
     Vaccine1: 554,
     Vaccine2: 0,
-    name: "2021-03-13",
+    name: "2021/03/13",
   },
   {
     Deaths: 0,
@@ -789,7 +789,7 @@ const data = [
     Susceptible: 66131238,
     Vaccine1: 1635,
     Vaccine2: 0,
-    name: "2021-03-14",
+    name: "2021/03/14",
   },
   {
     Deaths: 1,
@@ -800,7 +800,7 @@ const data = [
     Susceptible: 66128927,
     Vaccine1: 3790,
     Vaccine2: 0,
-    name: "2021-03-15",
+    name: "2021/03/15",
   },
   {
     Deaths: 0,
@@ -811,7 +811,7 @@ const data = [
     Susceptible: 66128965,
     Vaccine1: 3454,
     Vaccine2: 0,
-    name: "2021-03-16",
+    name: "2021/03/16",
   },
   {
     Deaths: 1,
@@ -822,7 +822,7 @@ const data = [
     Susceptible: 66127741,
     Vaccine1: 4182,
     Vaccine2: 0,
-    name: "2021-03-17",
+    name: "2021/03/17",
   },
   {
     Deaths: 1,
@@ -833,7 +833,7 @@ const data = [
     Susceptible: 66126822,
     Vaccine1: 4917,
     Vaccine2: 0,
-    name: "2021-03-18",
+    name: "2021/03/18",
   },
   {
     Deaths: 1,
@@ -844,7 +844,7 @@ const data = [
     Susceptible: 66127257,
     Vaccine1: 4282,
     Vaccine2: 0,
-    name: "2021-03-19",
+    name: "2021/03/19",
   },
   {
     Deaths: 0,
@@ -855,7 +855,7 @@ const data = [
     Susceptible: 66128597,
     Vaccine1: 2704,
     Vaccine2: 0,
-    name: "2021-03-20",
+    name: "2021/03/20",
   },
   {
     Deaths: 0,
@@ -866,7 +866,7 @@ const data = [
     Susceptible: 66127531,
     Vaccine1: 3590,
     Vaccine2: 0,
-    name: "2021-03-21",
+    name: "2021/03/21",
   },
   {
     Deaths: 1,
@@ -877,7 +877,7 @@ const data = [
     Susceptible: 66121680,
     Vaccine1: 9295,
     Vaccine2: 2429,
-    name: "2021-03-22",
+    name: "2021/03/22",
   },
   {
     Deaths: 1,
@@ -888,7 +888,7 @@ const data = [
     Susceptible: 66130173,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-03-23",
+    name: "2021/03/23",
   },
   {
     Deaths: 0,
@@ -899,7 +899,7 @@ const data = [
     Susceptible: 66103694,
     Vaccine1: 26341,
     Vaccine2: 9019,
-    name: "2021-03-24",
+    name: "2021/03/24",
   },
   {
     Deaths: 0,
@@ -910,7 +910,7 @@ const data = [
     Susceptible: 66117602,
     Vaccine1: 12239,
     Vaccine2: 3350,
-    name: "2021-03-25",
+    name: "2021/03/25",
   },
   {
     Deaths: 0,
@@ -921,7 +921,7 @@ const data = [
     Susceptible: 66121456,
     Vaccine1: 8117,
     Vaccine2: 4598,
-    name: "2021-03-26",
+    name: "2021/03/26",
   },
   {
     Deaths: 1,
@@ -932,7 +932,7 @@ const data = [
     Susceptible: 66128735,
     Vaccine1: 678,
     Vaccine2: 524,
-    name: "2021-03-27",
+    name: "2021/03/27",
   },
   {
     Deaths: 1,
@@ -943,7 +943,7 @@ const data = [
     Susceptible: 66126336,
     Vaccine1: 2923,
     Vaccine2: 1263,
-    name: "2021-03-28",
+    name: "2021/03/28",
   },
   {
     Deaths: 0,
@@ -954,7 +954,7 @@ const data = [
     Susceptible: 66121210,
     Vaccine1: 7971,
     Vaccine2: 4094,
-    name: "2021-03-29",
+    name: "2021/03/29",
   },
   {
     Deaths: 0,
@@ -965,7 +965,7 @@ const data = [
     Susceptible: 66118753,
     Vaccine1: 10332,
     Vaccine2: 3787,
-    name: "2021-03-30",
+    name: "2021/03/30",
   },
   {
     Deaths: 0,
@@ -976,7 +976,7 @@ const data = [
     Susceptible: 66121917,
     Vaccine1: 7084,
     Vaccine2: 4184,
-    name: "2021-03-31",
+    name: "2021/03/31",
   },
   {
     Deaths: 0,
@@ -987,7 +987,7 @@ const data = [
     Susceptible: 66121471,
     Vaccine1: 7478,
     Vaccine2: 2928,
-    name: "2021-04-01",
+    name: "2021/04/01",
   },
   {
     Deaths: 0,
@@ -998,7 +998,7 @@ const data = [
     Susceptible: 66105142,
     Vaccine1: 23691,
     Vaccine2: 6040,
-    name: "2021-04-02",
+    name: "2021/04/02",
   },
   {
     Deaths: 1,
@@ -1009,7 +1009,7 @@ const data = [
     Susceptible: 66116467,
     Vaccine1: 12198,
     Vaccine2: 174,
-    name: "2021-04-03",
+    name: "2021/04/03",
   },
   {
     Deaths: 0,
@@ -1020,7 +1020,7 @@ const data = [
     Susceptible: 66116389,
     Vaccine1: 12084,
     Vaccine2: 1146,
-    name: "2021-04-04",
+    name: "2021/04/04",
   },
   {
     Deaths: 0,
@@ -1031,7 +1031,7 @@ const data = [
     Susceptible: 66094183,
     Vaccine1: 33902,
     Vaccine2: 3495,
-    name: "2021-04-05",
+    name: "2021/04/05",
   },
   {
     Deaths: 0,
@@ -1042,7 +1042,7 @@ const data = [
     Susceptible: 66101081,
     Vaccine1: 26504,
     Vaccine2: 2604,
-    name: "2021-04-06",
+    name: "2021/04/06",
   },
   {
     Deaths: 0,
@@ -1053,7 +1053,7 @@ const data = [
     Susceptible: 66064463,
     Vaccine1: 62454,
     Vaccine2: 5309,
-    name: "2021-04-07",
+    name: "2021/04/07",
   },
   {
     Deaths: 0,
@@ -1064,7 +1064,7 @@ const data = [
     Susceptible: 66057004,
     Vaccine1: 69103,
     Vaccine2: 5519,
-    name: "2021-04-08",
+    name: "2021/04/08",
   },
   {
     Deaths: 1,
@@ -1075,7 +1075,7 @@ const data = [
     Susceptible: 66060599,
     Vaccine1: 64390,
     Vaccine2: 6616,
-    name: "2021-04-09",
+    name: "2021/04/09",
   },
   {
     Deaths: 1,
@@ -1086,7 +1086,7 @@ const data = [
     Susceptible: 66107755,
     Vaccine1: 15656,
     Vaccine2: 2360,
-    name: "2021-04-10",
+    name: "2021/04/10",
   },
   {
     Deaths: 0,
@@ -1097,7 +1097,7 @@ const data = [
     Susceptible: 66108643,
     Vaccine1: 12834,
     Vaccine2: 1822,
-    name: "2021-04-11",
+    name: "2021/04/11",
   },
   {
     Deaths: 0,
@@ -1108,7 +1108,7 @@ const data = [
     Susceptible: 66113083,
     Vaccine1: 6424,
     Vaccine2: 2056,
-    name: "2021-04-12",
+    name: "2021/04/12",
   },
   {
     Deaths: 0,
@@ -1119,7 +1119,7 @@ const data = [
     Susceptible: 66117048,
     Vaccine1: 529,
     Vaccine2: 244,
-    name: "2021-04-13",
+    name: "2021/04/13",
   },
   {
     Deaths: 0,
@@ -1130,7 +1130,7 @@ const data = [
     Susceptible: 66114901,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-04-14",
+    name: "2021/04/14",
   },
   {
     Deaths: 0,
@@ -1141,7 +1141,7 @@ const data = [
     Susceptible: 66107103,
     Vaccine1: 4712,
     Vaccine2: 2015,
-    name: "2021-04-15",
+    name: "2021/04/15",
   },
   {
     Deaths: 0,
@@ -1152,7 +1152,7 @@ const data = [
     Susceptible: 66095277,
     Vaccine1: 13374,
     Vaccine2: 5853,
-    name: "2021-04-16",
+    name: "2021/04/16",
   },
   {
     Deaths: 2,
@@ -1163,7 +1163,7 @@ const data = [
     Susceptible: 66102681,
     Vaccine1: 2876,
     Vaccine2: 386,
-    name: "2021-04-17",
+    name: "2021/04/17",
   },
   {
     Deaths: 2,
@@ -1174,7 +1174,7 @@ const data = [
     Susceptible: 66092804,
     Vaccine1: 9219,
     Vaccine2: 843,
-    name: "2021-04-18",
+    name: "2021/04/18",
   },
   {
     Deaths: 3,
@@ -1185,7 +1185,7 @@ const data = [
     Susceptible: 66063343,
     Vaccine1: 35900,
     Vaccine2: 11727,
-    name: "2021-04-19",
+    name: "2021/04/19",
   },
   {
     Deaths: 4,
@@ -1196,7 +1196,7 @@ const data = [
     Susceptible: 66063235,
     Vaccine1: 33122,
     Vaccine2: 13278,
-    name: "2021-04-20",
+    name: "2021/04/20",
   },
   {
     Deaths: 2,
@@ -1207,7 +1207,7 @@ const data = [
     Susceptible: 65951771,
     Vaccine1: 141670,
     Vaccine2: 10560,
-    name: "2021-04-21",
+    name: "2021/04/21",
   },
   {
     Deaths: 7,
@@ -1218,7 +1218,7 @@ const data = [
     Susceptible: 66003036,
     Vaccine1: 87465,
     Vaccine2: 12520,
-    name: "2021-04-22",
+    name: "2021/04/22",
   },
   {
     Deaths: 4,
@@ -1229,7 +1229,7 @@ const data = [
     Susceptible: 65985994,
     Vaccine1: 100367,
     Vaccine2: 30253,
-    name: "2021-04-23",
+    name: "2021/04/23",
   },
   {
     Deaths: 8,
@@ -1240,7 +1240,7 @@ const data = [
     Susceptible: 66066008,
     Vaccine1: 14675,
     Vaccine2: 14033,
-    name: "2021-04-24",
+    name: "2021/04/24",
   },
   {
     Deaths: 11,
@@ -1251,7 +1251,7 @@ const data = [
     Susceptible: 66052727,
     Vaccine1: 23080,
     Vaccine2: 2433,
-    name: "2021-04-25",
+    name: "2021/04/25",
   },
   {
     Deaths: 8,
@@ -1262,7 +1262,7 @@ const data = [
     Susceptible: 66031527,
     Vaccine1: 40184,
     Vaccine2: 37182,
-    name: "2021-04-26",
+    name: "2021/04/26",
   },
   {
     Deaths: 15,
@@ -1273,7 +1273,7 @@ const data = [
     Susceptible: 66040781,
     Vaccine1: 26572,
     Vaccine2: 26109,
-    name: "2021-04-27",
+    name: "2021/04/27",
   },
   {
     Deaths: 15,
@@ -1284,7 +1284,7 @@ const data = [
     Susceptible: 66042568,
     Vaccine1: 20761,
     Vaccine2: 44172,
-    name: "2021-04-28",
+    name: "2021/04/28",
   },
   {
     Deaths: 10,
@@ -1295,7 +1295,7 @@ const data = [
     Susceptible: 66043552,
     Vaccine1: 16035,
     Vaccine2: 50933,
-    name: "2021-04-29",
+    name: "2021/04/29",
   },
   {
     Deaths: 15,
@@ -1306,7 +1306,7 @@ const data = [
     Susceptible: 66036947,
     Vaccine1: 19474,
     Vaccine2: 45990,
-    name: "2021-04-30",
+    name: "2021/04/30",
   },
   {
     Deaths: 21,
@@ -1317,7 +1317,7 @@ const data = [
     Susceptible: 66050007,
     Vaccine1: 2632,
     Vaccine2: 4855,
-    name: "2021-05-01",
+    name: "2021/05/01",
   },
   {
     Deaths: 21,
@@ -1328,7 +1328,7 @@ const data = [
     Susceptible: 66047161,
     Vaccine1: 1598,
     Vaccine2: 744,
-    name: "2021-05-02",
+    name: "2021/05/02",
   },
   {
     Deaths: 31,
@@ -1339,7 +1339,7 @@ const data = [
     Susceptible: 66038066,
     Vaccine1: 6611,
     Vaccine2: 5099,
-    name: "2021-05-03",
+    name: "2021/05/03",
   },
   {
     Deaths: 27,
@@ -1350,7 +1350,7 @@ const data = [
     Susceptible: 66001526,
     Vaccine1: 39625,
     Vaccine2: 29965,
-    name: "2021-05-04",
+    name: "2021/05/04",
   },
   {
     Deaths: 15,
@@ -1361,7 +1361,7 @@ const data = [
     Susceptible: 66014904,
     Vaccine1: 22023,
     Vaccine2: 11603,
-    name: "2021-05-05",
+    name: "2021/05/05",
   },
   {
     Deaths: 18,
@@ -1372,7 +1372,7 @@ const data = [
     Susceptible: 65999566,
     Vaccine1: 33539,
     Vaccine2: 16410,
-    name: "2021-05-06",
+    name: "2021/05/06",
   },
   {
     Deaths: 27,
@@ -1383,7 +1383,7 @@ const data = [
     Susceptible: 65967572,
     Vaccine1: 61445,
     Vaccine2: 17261,
-    name: "2021-05-07",
+    name: "2021/05/07",
   },
   {
     Deaths: 19,
@@ -1394,7 +1394,7 @@ const data = [
     Susceptible: 66013216,
     Vaccine1: 10963,
     Vaccine2: 2269,
-    name: "2021-05-08",
+    name: "2021/05/08",
   },
   {
     Deaths: 17,
@@ -1405,7 +1405,7 @@ const data = [
     Susceptible: 65997203,
     Vaccine1: 22774,
     Vaccine2: 43400,
-    name: "2021-05-09",
+    name: "2021/05/09",
   },
   {
     Deaths: 22,
@@ -1416,7 +1416,7 @@ const data = [
     Susceptible: 65947165,
     Vaccine1: 69552,
     Vaccine2: 19008,
-    name: "2021-05-10",
+    name: "2021/05/10",
   },
   {
     Deaths: 31,
@@ -1427,7 +1427,7 @@ const data = [
     Susceptible: 66006858,
     Vaccine1: 6021,
     Vaccine2: 31090,
-    name: "2021-05-11",
+    name: "2021/05/11",
   },
   {
     Deaths: 34,
@@ -1438,7 +1438,7 @@ const data = [
     Susceptible: 65985796,
     Vaccine1: 23117,
     Vaccine2: 81681,
-    name: "2021-05-12",
+    name: "2021/05/12",
   },
   {
     Deaths: 32,
@@ -1449,7 +1449,7 @@ const data = [
     Susceptible: 65977537,
     Vaccine1: 21602,
     Vaccine2: 63067,
-    name: "2021-05-13",
+    name: "2021/05/13",
   },
   {
     Deaths: 30,
@@ -1460,7 +1460,7 @@ const data = [
     Susceptible: 65948597,
     Vaccine1: 46030,
     Vaccine2: 71088,
-    name: "2021-05-14",
+    name: "2021/05/14",
   },
   {
     Deaths: 17,
@@ -1471,7 +1471,7 @@ const data = [
     Susceptible: 65988437,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "2021-05-15",
+    name: "2021/05/15",
   },
   {
     Deaths: 24,
@@ -1482,7 +1482,7 @@ const data = [
     Susceptible: 65963893,
     Vaccine1: 19940,
     Vaccine2: 2218,
-    name: "2021-05-16",
+    name: "2021/05/16",
   },
   {
     Deaths: 25,
@@ -1493,7 +1493,7 @@ const data = [
     Susceptible: 65926231,
     Vaccine1: 38332,
     Vaccine2: 38355,
-    name: "2021-05-17",
+    name: "2021/05/17",
   },
   {
     Deaths: 35,
@@ -1504,7 +1504,7 @@ const data = [
     Susceptible: 65894878,
     Vaccine1: 64739,
     Vaccine2: 39911,
-    name: "2021-05-18",
+    name: "2021/05/18",
   },
   {
     Deaths: 29,
@@ -1515,7 +1515,7 @@ const data = [
     Susceptible: 65890731,
     Vaccine1: 62098,
     Vaccine2: 32373,
-    name: "2021-05-19",
+    name: "2021/05/19",
   },
   {
     Deaths: 25,
@@ -1526,7 +1526,7 @@ const data = [
     Susceptible: 65868997,
     Vaccine1: 78560,
     Vaccine2: 29580,
-    name: "2021-05-20",
+    name: "2021/05/20",
   },
   {
     Deaths: 32,
@@ -1537,7 +1537,7 @@ const data = [
     Susceptible: 65817633,
     Vaccine1: 122962,
     Vaccine2: 40331,
-    name: "2021-05-21",
+    name: "2021/05/21",
   },
   {
     Deaths: 24,
@@ -1548,7 +1548,7 @@ const data = [
     Susceptible: 65885552,
     Vaccine1: 48939,
     Vaccine2: 4603,
-    name: "2021-05-22",
+    name: "2021/05/22",
   },
   {
     Deaths: 17,
@@ -1559,7 +1559,7 @@ const data = [
     Susceptible: 65884494,
     Vaccine1: 43233,
     Vaccine2: 2340,
-    name: "2021-05-23",
+    name: "2021/05/23",
   },
   {
     Deaths: 30,
@@ -1570,7 +1570,7 @@ const data = [
     Susceptible: 65819743,
     Vaccine1: 102558,
     Vaccine2: 11091,
-    name: "2021-05-24",
+    name: "2021/05/24",
   },
   {
     Deaths: 26,
@@ -1581,7 +1581,7 @@ const data = [
     Susceptible: 65802363,
     Vaccine1: 113486,
     Vaccine2: 9428,
-    name: "2021-05-25",
+    name: "2021/05/25",
   },
   {
     Deaths: 41,
@@ -1592,7 +1592,7 @@ const data = [
     Susceptible: 65853827,
     Vaccine1: 57112,
     Vaccine2: 4543,
-    name: "2021-05-26",
+    name: "2021/05/26",
   },
   {
     Deaths: 47,
@@ -1603,7 +1603,7 @@ const data = [
     Susceptible: 65799710,
     Vaccine1: 104583,
     Vaccine2: 33585,
-    name: "2021-05-27",
+    name: "2021/05/27",
   },
   {
     Deaths: 34,
@@ -1614,7 +1614,7 @@ const data = [
     Susceptible: 65800176,
     Vaccine1: 96599,
     Vaccine2: 60476,
-    name: "2021-05-28",
+    name: "2021/05/28",
   },
   {
     Deaths: 34,
@@ -1625,7 +1625,7 @@ const data = [
     Susceptible: 65849265,
     Vaccine1: 37904,
     Vaccine2: 6301,
-    name: "2021-05-29",
+    name: "2021/05/29",
   },
   {
     Deaths: 24,
@@ -1636,7 +1636,7 @@ const data = [
     Susceptible: 65832991,
     Vaccine1: 45122,
     Vaccine2: 16430,
-    name: "2021-05-30",
+    name: "2021/05/30",
   },
   {
     Deaths: 19,
@@ -1647,7 +1647,7 @@ const data = [
     Susceptible: 65826581,
     Vaccine1: 40562,
     Vaccine2: 14415,
-    name: "2021-05-31",
+    name: "2021/05/31",
   },
   {
     Deaths: 38,
@@ -1658,7 +1658,7 @@ const data = [
     Susceptible: 65810802,
     Vaccine1: 51881,
     Vaccine2: 36978,
-    name: "2021-06-01",
+    name: "2021/06/01",
   },
   {
     Deaths: 38,
@@ -1669,7 +1669,7 @@ const data = [
     Susceptible: 65708886,
     Vaccine1: 146917,
     Vaccine2: 58721,
-    name: "2021-06-02",
+    name: "2021/06/02",
   },
   {
     Deaths: 39,
@@ -1678,9 +1678,9 @@ const data = [
     Maintenance: 0,
     Recovery: 3626,
     Susceptible: 65858561,
-    Vaccine1: -10530,
+    Vaccine1: 10530,
     Vaccine2: 12763,
-    name: "2021-06-03",
+    name: "2021/06/03",
   },
   {
     Deaths: 31,
@@ -1691,7 +1691,7 @@ const data = [
     Susceptible: 65751852,
     Vaccine1: 90917,
     Vaccine2: 90438,
-    name: "2021-06-04",
+    name: "2021/06/04",
   },
   {
     Deaths: 36,
@@ -1702,7 +1702,7 @@ const data = [
     Susceptible: 65810524,
     Vaccine1: 26611,
     Vaccine2: 20948,
-    name: "2021-06-05",
+    name: "2021/06/05",
   },
   {
     Deaths: 23,
@@ -1713,7 +1713,7 @@ const data = [
     Susceptible: 65822039,
     Vaccine1: 9754,
     Vaccine2: 17837,
-    name: "2021-06-06",
+    name: "2021/06/06",
   },
   {
     Deaths: 33,
@@ -1724,7 +1724,7 @@ const data = [
     Susceptible: 65438083,
     Vaccine1: 388872,
     Vaccine2: 27975,
-    name: "2021-06-07",
+    name: "2021/06/07",
   },
   {
     Deaths: 28,
@@ -1735,7 +1735,7 @@ const data = [
     Susceptible: 65393172,
     Vaccine1: 428459,
     Vaccine2: 43669,
-    name: "2021-06-08",
+    name: "2021/06/08",
   },
   {
     Deaths: 35,
@@ -1746,7 +1746,7 @@ const data = [
     Susceptible: 65522552,
     Vaccine1: 293719,
     Vaccine2: 42955,
-    name: "2021-06-09",
+    name: "2021/06/09",
   },
   {
     Deaths: 43,
@@ -1757,7 +1757,7 @@ const data = [
     Susceptible: 65634298,
     Vaccine1: 177353,
     Vaccine2: 45962,
-    name: "2021-06-10",
+    name: "2021/06/10",
   },
   {
     Deaths: 27,
@@ -1768,7 +1768,7 @@ const data = [
     Susceptible: 65587830,
     Vaccine1: 219241,
     Vaccine2: 89221,
-    name: "2021-06-11",
+    name: "2021/06/11",
   },
   {
     Deaths: 29,
@@ -1779,7 +1779,7 @@ const data = [
     Susceptible: 65706416,
     Vaccine1: 94101,
     Vaccine2: 11621,
-    name: "2021-06-12",
+    name: "2021/06/12",
   },
   {
     Deaths: 18,
@@ -1790,7 +1790,7 @@ const data = [
     Susceptible: 65719781,
     Vaccine1: 75128,
     Vaccine2: 31754,
-    name: "2021-06-13",
+    name: "2021/06/13",
   },
   {
     Deaths: 17,
@@ -1801,7 +1801,7 @@ const data = [
     Susceptible: 65558050,
     Vaccine1: 230149,
     Vaccine2: 92911,
-    name: "2021-06-14",
+    name: "2021/06/14",
   },
   {
     Deaths: 19,
@@ -1812,7 +1812,7 @@ const data = [
     Susceptible: 65596035,
     Vaccine1: 186164,
     Vaccine2: 83468,
-    name: "2021-06-15",
+    name: "2021/06/15",
   },
   {
     Deaths: 40,
@@ -1823,7 +1823,7 @@ const data = [
     Susceptible: 65611009,
     Vaccine1: 166528,
     Vaccine2: 56439,
-    name: "2021-06-16",
+    name: "2021/06/16",
   },
   {
     Deaths: 30,
@@ -1834,7 +1834,7 @@ const data = [
     Susceptible: 65633503,
     Vaccine1: 137776,
     Vaccine2: 78109,
-    name: "2021-06-17",
+    name: "2021/06/17",
   },
   {
     Deaths: 22,
@@ -1845,7 +1845,7 @@ const data = [
     Susceptible: 65583575,
     Vaccine1: 181588,
     Vaccine2: 81827,
-    name: "2021-06-18",
+    name: "2021/06/18",
   },
   {
     Deaths: 32,
@@ -1856,7 +1856,7 @@ const data = [
     Susceptible: 65705856,
     Vaccine1: 51973,
     Vaccine2: 52122,
-    name: "2021-06-19",
+    name: "2021/06/19",
   },
   {
     Deaths: 20,
@@ -1867,7 +1867,7 @@ const data = [
     Susceptible: 65710518,
     Vaccine1: 39947,
     Vaccine2: 51932,
-    name: "2021-06-20",
+    name: "2021/06/20",
   },
   {
     Deaths: 29,
@@ -1878,7 +1878,7 @@ const data = [
     Susceptible: 65591306,
     Vaccine1: 152809,
     Vaccine2: 74830,
-    name: "2021-06-21",
+    name: "2021/06/21",
   },
   {
     Deaths: 35,
@@ -1889,7 +1889,7 @@ const data = [
     Susceptible: 65570324,
     Vaccine1: 165673,
     Vaccine2: 75966,
-    name: "2021-06-22",
+    name: "2021/06/22",
   },
   {
     Deaths: 51,
@@ -1900,7 +1900,7 @@ const data = [
     Susceptible: 65556746,
     Vaccine1: 172903,
     Vaccine2: 79082,
-    name: "2021-06-23",
+    name: "2021/06/23",
   },
   {
     Deaths: 31,
@@ -1911,7 +1911,7 @@ const data = [
     Susceptible: 65532504,
     Vaccine1: 188929,
     Vaccine2: 68174,
-    name: "2021-06-24",
+    name: "2021/06/24",
   },
   {
     Deaths: 44,
@@ -1922,7 +1922,7 @@ const data = [
     Susceptible: 65485190,
     Vaccine1: 228955,
     Vaccine2: 95100,
-    name: "2021-06-25",
+    name: "2021/06/25",
   },
   {
     Deaths: 51,
@@ -1933,7 +1933,7 @@ const data = [
     Susceptible: 65665305,
     Vaccine1: 40518,
     Vaccine2: 33145,
-    name: "2021-06-26",
+    name: "2021/06/26",
   },
   {
     Deaths: 42,
@@ -1944,7 +1944,7 @@ const data = [
     Susceptible: 65635808,
     Vaccine1: 62025,
     Vaccine2: 30347,
-    name: "2021-06-27",
+    name: "2021/06/27",
   },
   {
     Deaths: 22,
@@ -1955,7 +1955,7 @@ const data = [
     Susceptible: 65503834,
     Vaccine1: 183187,
     Vaccine2: 85732,
-    name: "2021-06-28",
+    name: "2021/06/28",
   },
   {
     Deaths: 36,
@@ -1966,7 +1966,7 @@ const data = [
     Susceptible: 65488566,
     Vaccine1: 189131,
     Vaccine2: 67143,
-    name: "2021-06-29",
+    name: "2021/06/29",
   },
   {
     Deaths: 53,
@@ -1977,7 +1977,7 @@ const data = [
     Susceptible: 65467440,
     Vaccine1: 200685,
     Vaccine2: 54307,
-    name: "2021-06-30",
+    name: "2021/06/30",
   },
   {
     Deaths: 57,
@@ -1988,7 +1988,7 @@ const data = [
     Susceptible: 65403328,
     Vaccine1: 253731,
     Vaccine2: 45754,
-    name: "2021-07-01",
+    name: "2021/07/01",
   },
   {
     Deaths: 61,
@@ -1999,7 +1999,7 @@ const data = [
     Susceptible: 65369352,
     Vaccine1: 275533,
     Vaccine2: 69576,
-    name: "2021-07-02",
+    name: "2021/07/02",
   },
   {
     Deaths: 41,
@@ -2010,7 +2010,7 @@ const data = [
     Susceptible: 65551393,
     Vaccine1: 81032,
     Vaccine2: 17573,
-    name: "2021-07-03",
+    name: "2021/07/03",
   },
   {
     Deaths: 44,
@@ -2021,7 +2021,7 @@ const data = [
     Susceptible: 65537089,
     Vaccine1: 83504,
     Vaccine2: 23347,
-    name: "2021-07-04",
+    name: "2021/07/04",
   },
   {
     Deaths: 50,
@@ -2032,7 +2032,7 @@ const data = [
     Susceptible: 65390886,
     Vaccine1: 217375,
     Vaccine2: 63267,
-    name: "2021-07-05",
+    name: "2021/07/05",
   },
   {
     Deaths: 57,
@@ -2043,7 +2043,7 @@ const data = [
     Susceptible: 65374153,
     Vaccine1: 223268,
     Vaccine2: 46385,
-    name: "2021-07-06",
+    name: "2021/07/06",
   },
   {
     Deaths: 54,
@@ -2054,7 +2054,7 @@ const data = [
     Susceptible: 65335450,
     Vaccine1: 248933,
     Vaccine2: 42642,
-    name: "2021-07-07",
+    name: "2021/07/07",
   },
   {
     Deaths: 75,
@@ -2065,7 +2065,7 @@ const data = [
     Susceptible: 65264342,
     Vaccine1: 305925,
     Vaccine2: 50453,
-    name: "2021-07-08",
+    name: "2021/07/08",
   },
   {
     Deaths: 72,
@@ -2076,7 +2076,7 @@ const data = [
     Susceptible: 65221344,
     Vaccine1: 330371,
     Vaccine2: 69537,
-    name: "2021-07-09",
+    name: "2021/07/09",
   },
   {
     Deaths: 91,
@@ -2087,7 +2087,7 @@ const data = [
     Susceptible: 65449991,
     Vaccine1: 83072,
     Vaccine2: 10212,
-    name: "2021-07-10",
+    name: "2021/07/10",
   },
   {
     Deaths: 86,
@@ -2098,7 +2098,7 @@ const data = [
     Susceptible: 65426176,
     Vaccine1: 87809,
     Vaccine2: 12216,
-    name: "2021-07-11",
+    name: "2021/07/11",
   },
   {
     Deaths: 80,
@@ -2109,7 +2109,7 @@ const data = [
     Susceptible: 65199131,
     Vaccine1: 297542,
     Vaccine2: 41438,
-    name: "2021-07-12",
+    name: "2021/07/12",
   },
   {
     Deaths: 56,
@@ -2120,7 +2120,7 @@ const data = [
     Susceptible: 65190128,
     Vaccine1: 289175,
     Vaccine2: 33313,
-    name: "2021-07-13",
+    name: "2021/07/13",
   },
   {
     Deaths: 87,
@@ -2131,7 +2131,7 @@ const data = [
     Susceptible: 65185453,
     Vaccine1: 275216,
     Vaccine2: 27820,
-    name: "2021-07-14",
+    name: "2021/07/14",
   },
   {
     Deaths: 98,
@@ -2142,7 +2142,7 @@ const data = [
     Susceptible: 65181282,
     Vaccine1: 261015,
     Vaccine2: 28053,
-    name: "2021-07-15",
+    name: "2021/07/15",
   },
   {
     Deaths: 67,
@@ -2153,7 +2153,7 @@ const data = [
     Susceptible: 65149690,
     Vaccine1: 273223,
     Vaccine2: 34481,
-    name: "2021-07-16",
+    name: "2021/07/16",
   },
   {
     Deaths: 141,
@@ -2164,7 +2164,7 @@ const data = [
     Susceptible: 65319895,
     Vaccine1: 82854,
     Vaccine2: 10419,
-    name: "2021-07-17",
+    name: "2021/07/17",
   },
   {
     Deaths: 101,
@@ -2175,7 +2175,7 @@ const data = [
     Susceptible: 65310288,
     Vaccine1: 69667,
     Vaccine2: 5167,
-    name: "2021-07-18",
+    name: "2021/07/18",
   },
   {
     Deaths: 81,
@@ -2186,7 +2186,7 @@ const data = [
     Susceptible: 65138968,
     Vaccine1: 217419,
     Vaccine2: 31229,
-    name: "2021-07-19",
+    name: "2021/07/19",
   },
   {
     Deaths: 80,
@@ -2197,7 +2197,7 @@ const data = [
     Susceptible: 65108716,
     Vaccine1: 225061,
     Vaccine2: 32815,
-    name: "2021-07-20",
+    name: "2021/07/20",
   },
   {
     Deaths: 108,
@@ -2208,7 +2208,7 @@ const data = [
     Susceptible: 65061486,
     Vaccine1: 246287,
     Vaccine2: 33289,
-    name: "2021-07-21",
+    name: "2021/07/21",
   },
   {
     Deaths: 87,
@@ -2219,7 +2219,7 @@ const data = [
     Susceptible: 65014149,
     Vaccine1: 266314,
     Vaccine2: 37929,
-    name: "2021-07-22",
+    name: "2021/07/22",
   },
   {
     Deaths: 114,
@@ -2230,7 +2230,7 @@ const data = [
     Susceptible: 64947069,
     Vaccine1: 304244,
     Vaccine2: 48635,
-    name: "2021-07-23",
+    name: "2021/07/23",
   },
   {
     Deaths: 119,
@@ -2241,7 +2241,7 @@ const data = [
     Susceptible: 65105372,
     Vaccine1: 117421,
     Vaccine2: 10605,
-    name: "2021-07-24",
+    name: "2021/07/24",
   },
   {
     Deaths: 129,
@@ -2252,7 +2252,7 @@ const data = [
     Susceptible: 65111180,
     Vaccine1: 80943,
     Vaccine2: 9991,
-    name: "2021-07-25",
+    name: "2021/07/25",
   },
   {
     Deaths: 87,
@@ -2263,7 +2263,7 @@ const data = [
     Susceptible: 65039234,
     Vaccine1: 122137,
     Vaccine2: 16755,
-    name: "2021-07-26",
+    name: "2021/07/26",
   },
   {
     Deaths: 118,
@@ -2274,7 +2274,7 @@ const data = [
     Susceptible: 64848684,
     Vaccine1: 284387,
     Vaccine2: 43002,
-    name: "2021-07-27",
+    name: "2021/07/27",
   },
   {
     Deaths: 133,
@@ -2285,7 +2285,7 @@ const data = [
     Susceptible: 64955747,
     Vaccine1: 144258,
     Vaccine2: 20012,
-    name: "2021-07-28",
+    name: "2021/07/28",
   },
   {
     Deaths: 165,
@@ -2296,7 +2296,7 @@ const data = [
     Susceptible: 64698004,
     Vaccine1: 366663,
     Vaccine2: 53485,
-    name: "2021-07-29",
+    name: "2021/07/29",
   },
   {
     Deaths: 117,
@@ -2307,7 +2307,7 @@ const data = [
     Susceptible: 64615031,
     Vaccine1: 414946,
     Vaccine2: 65209,
-    name: "2021-07-30",
+    name: "2021/07/30",
   },
   {
     Deaths: 178,
@@ -2318,7 +2318,7 @@ const data = [
     Susceptible: 64829416,
     Vaccine1: 162737,
     Vaccine2: 31605,
-    name: "2021-07-31",
+    name: "2021/07/31",
   },
   {
     Deaths: 133,
@@ -2329,7 +2329,7 @@ const data = [
     Susceptible: 51995076,
     Vaccine1: 152171,
     Vaccine2: 28381,
-    name: "2021-08-01",
+    name: "2021/08/01",
   },
   {
     Deaths: 163,
@@ -2340,7 +2340,7 @@ const data = [
     Susceptible: 51563419,
     Vaccine1: 579797,
     Vaccine2: 30466,
-    name: "2021-08-02",
+    name: "2021/08/02",
   },
   {
     Deaths: 194,
@@ -2351,7 +2351,7 @@ const data = [
     Susceptible: 51135346,
     Vaccine1: 1001377,
     Vaccine2: 35009,
-    name: "2021-08-03",
+    name: "2021/08/03",
   },
   {
     Deaths: 225,
@@ -2362,7 +2362,7 @@ const data = [
     Susceptible: 50710826,
     Vaccine1: 1416976,
     Vaccine2: 41972,
-    name: "2021-08-04",
+    name: "2021/08/04",
   },
   {
     Deaths: 255,
@@ -2373,7 +2373,7 @@ const data = [
     Susceptible: 50289831,
     Vaccine1: 1826657,
     Vaccine2: 51317,
-    name: "2021-08-05",
+    name: "2021/08/05",
   },
   {
     Deaths: 286,
@@ -2384,7 +2384,7 @@ const data = [
     Susceptible: 49872331,
     Vaccine1: 2230485,
     Vaccine2: 63006,
-    name: "2021-08-06",
+    name: "2021/08/06",
   },
   {
     Deaths: 317,
@@ -2395,7 +2395,7 @@ const data = [
     Susceptible: 49458297,
     Vaccine1: 2628522,
     Vaccine2: 77003,
-    name: "2021-08-07",
+    name: "2021/08/07",
   },
   {
     Deaths: 348,
@@ -2406,7 +2406,7 @@ const data = [
     Susceptible: 49047701,
     Vaccine1: 3020831,
     Vaccine2: 93272,
-    name: "2021-08-08",
+    name: "2021/08/08",
   },
   {
     Deaths: 378,
@@ -2417,7 +2417,7 @@ const data = [
     Susceptible: 48640513,
     Vaccine1: 3407472,
     Vaccine2: 111774,
-    name: "2021-08-09",
+    name: "2021/08/09",
   },
   {
     Deaths: 409,
@@ -2428,7 +2428,7 @@ const data = [
     Susceptible: 48236705,
     Vaccine1: 3788508,
     Vaccine2: 132476,
-    name: "2021-08-10",
+    name: "2021/08/10",
   },
   {
     Deaths: 440,
@@ -2439,7 +2439,7 @@ const data = [
     Susceptible: 47836250,
     Vaccine1: 4163998,
     Vaccine2: 155342,
-    name: "2021-08-11",
+    name: "2021/08/11",
   },
   {
     Deaths: 470,
@@ -2450,7 +2450,7 @@ const data = [
     Susceptible: 47439119,
     Vaccine1: 4534003,
     Vaccine2: 180336,
-    name: "2021-08-12",
+    name: "2021/08/12",
   },
   {
     Deaths: 501,
@@ -2461,7 +2461,7 @@ const data = [
     Susceptible: 47045286,
     Vaccine1: 4898582,
     Vaccine2: 207425,
-    name: "2021-08-13",
+    name: "2021/08/13",
   },
   {
     Deaths: 532,
@@ -2472,7 +2472,7 @@ const data = [
     Susceptible: 46654722,
     Vaccine1: 5257793,
     Vaccine2: 236573,
-    name: "2021-08-14",
+    name: "2021/08/14",
   },
   {
     Deaths: 563,
@@ -2483,7 +2483,7 @@ const data = [
     Susceptible: 46267400,
     Vaccine1: 5611695,
     Vaccine2: 267748,
-    name: "2021-08-15",
+    name: "2021/08/15",
   },
   {
     Deaths: 182,
@@ -2494,7 +2494,7 @@ const data = [
     Susceptible: 47559746,
     Vaccine1: 374435,
     Vaccine2: 117422,
-    name: "2021-08-16",
+    name: "2021/08/16",
   },
   {
     Deaths: 276,
@@ -2505,7 +2505,7 @@ const data = [
     Susceptible: 47133150,
     Vaccine1: 766707,
     Vaccine2: 118061,
-    name: "2021-08-17",
+    name: "2021/08/17",
   },
   {
     Deaths: 415,
@@ -2516,7 +2516,7 @@ const data = [
     Susceptible: 46688863,
     Vaccine1: 1155341,
     Vaccine2: 118669,
-    name: "2021-08-18",
+    name: "2021/08/18",
   },
   {
     Deaths: 598,
@@ -2527,7 +2527,7 @@ const data = [
     Susceptible: 46227663,
     Vaccine1: 1540194,
     Vaccine2: 119237,
-    name: "2021-08-19",
+    name: "2021/08/19",
   },
   {
     Deaths: 826,
@@ -2538,7 +2538,7 @@ const data = [
     Susceptible: 45750343,
     Vaccine1: 1921128,
     Vaccine2: 119745,
-    name: "2021-08-20",
+    name: "2021/08/20",
   },
   {
     Deaths: 1099,
@@ -2549,7 +2549,7 @@ const data = [
     Susceptible: 45257711,
     Vaccine1: 2298015,
     Vaccine2: 120171,
-    name: "2021-08-21",
+    name: "2021/08/21",
   },
   {
     Deaths: 1417,
@@ -2560,7 +2560,7 @@ const data = [
     Susceptible: 44750587,
     Vaccine1: 2670730,
     Vaccine2: 120488,
-    name: "2021-08-22",
+    name: "2021/08/22",
   },
   {
     Deaths: 1780,
@@ -2571,7 +2571,7 @@ const data = [
     Susceptible: 44229800,
     Vaccine1: 3039158,
     Vaccine2: 120668,
-    name: "2021-08-23",
+    name: "2021/08/23",
   },
   {
     Deaths: 2189,
@@ -2582,7 +2582,7 @@ const data = [
     Susceptible: 43696186,
     Vaccine1: 3403190,
     Vaccine2: 120676,
-    name: "2021-08-24",
+    name: "2021/08/24",
   },
   {
     Deaths: 2644,
@@ -2593,7 +2593,7 @@ const data = [
     Susceptible: 43150584,
     Vaccine1: 3762725,
     Vaccine2: 120477,
-    name: "2021-08-25",
+    name: "2021/08/25",
   },
   {
     Deaths: 3145,
@@ -2604,7 +2604,7 @@ const data = [
     Susceptible: 42593835,
     Vaccine1: 4117669,
     Vaccine2: 120034,
-    name: "2021-08-26",
+    name: "2021/08/26",
   },
   {
     Deaths: 3691,
@@ -2615,7 +2615,7 @@ const data = [
     Susceptible: 42026780,
     Vaccine1: 4467935,
     Vaccine2: 119304,
-    name: "2021-08-27",
+    name: "2021/08/27",
   },
   {
     Deaths: 4284,
@@ -2626,7 +2626,7 @@ const data = [
     Susceptible: 41450254,
     Vaccine1: 4813444,
     Vaccine2: 118246,
-    name: "2021-08-28",
+    name: "2021/08/28",
   },
 ];
 
@@ -2639,7 +2639,7 @@ const Mdata = [
     Susceptible: 2051648522,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "January-2021",
+    name: "January/2021",
   },
   {
     Deaths: 6,
@@ -2649,7 +2649,7 @@ const Mdata = [
     Susceptible: 1786929569,
     Vaccine1: 0,
     Vaccine2: 0,
-    name: "February-2021",
+    name: "February/2021",
   },
   {
     Deaths: 11,
@@ -2659,7 +2659,7 @@ const Mdata = [
     Susceptible: 2049747850,
     Vaccine1: 158497,
     Vaccine2: 33248,
-    name: "March-2021",
+    name: "March/2021",
   },
   {
     Deaths: 109,
@@ -2669,7 +2669,7 @@ const Mdata = [
     Susceptible: 1967201987,
     Vaccine1: 936733,
     Vaccine2: 348600,
-    name: "April-2021",
+    name: "April/2021",
   },
   {
     Deaths: 828,
@@ -2679,7 +2679,7 @@ const Mdata = [
     Susceptible: 1999033735,
     Vaccine1: 1444261,
     Vaccine2: 743520,
-    name: "May-2021",
+    name: "May/2021",
   },
   {
     Deaths: 992,
@@ -2689,7 +2689,7 @@ const Mdata = [
     Susceptible: 1838710245,
     Vaccine1: 4571363,
     Vaccine2: 1691476,
-    name: "June-2021",
+    name: "June/2021",
   },
   {
     Deaths: 2834,
@@ -2699,7 +2699,7 @@ const Mdata = [
     Susceptible: 1722584153,
     Vaccine1: 6692062,
     Vaccine2: 1066214,
-    name: "July-2021",
+    name: "July/2021",
   },
   {
     Deaths: 6732,
@@ -2709,7 +2709,7 @@ const Mdata = [
     Susceptible: 1464609706,
     Vaccine1: 10009247,
     Vaccine2: 4326504,
-    name: "August-2021",
+    name: "August/2021",
   },
   {
     Deaths: 5138,
@@ -2719,7 +2719,7 @@ const Mdata = [
     Susceptible: 1129455260,
     Vaccine1: 8810927,
     Vaccine2: 11722126,
-    name: "September-2021",
+    name: "September/2021",
   },
   {
     Deaths: 2478,
@@ -2729,7 +2729,7 @@ const Mdata = [
     Susceptible: 885223342,
     Vaccine1: 9768424,
     Vaccine2: 11042684,
-    name: "October-2021",
+    name: "October/2021",
   },
   {
     Deaths: 1566,
@@ -2739,7 +2739,7 @@ const Mdata = [
     Susceptible: 611280013,
     Vaccine1: 6009329,
     Vaccine2: 10614801,
-    name: "November-2021",
+    name: "November/2021",
   },
 ];
 

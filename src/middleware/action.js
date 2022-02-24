@@ -1,5 +1,5 @@
 import axios from "axios";
-// import { getDay, getMonth } from "./dataday";
+import { getDay, getMonth } from "./dataday";
 
 export const CONFIG_GRAPH_DISPLAY = "CONFIG_GRAPH_DISPLAY";
 export const CONFIG_DATA_TYPE = "CONFIG_DATA_TYPE";
@@ -25,7 +25,7 @@ export const CONFIG_TYPE_VS = "CONFIG_TYPE_VS";
 const maxAndMinDate = (data) => {
   const newDates = [];
   for (let i = 0; i < data.length; i++) {
-    newDates.push(new Date(data[i].name.split("-").join(" ")));
+    newDates.push(new Date(data[i].name.split("-").join("/")));
   }
   // console.log("newDates", newDates);
 
@@ -139,12 +139,20 @@ export const getRealDataDay = () => {
 export const getModelDataMount = () => {
   return async (dispatch) => {
     // var tempdata = getMonth();
-    // console.log("tempdata", tempdata);
-    // // return tempdata;
+    // console.log("tempdata getMonth", tempdata);
+
     // dispatch({
     //   type: "GET_DATA_MODEL_MONTH",
     //   payload: tempdata,
     // });
+    // let findDate = maxAndMinDate(tempdata);
+    // let maxDate = findDate[0];
+    // let minDate = findDate[1];
+    // dispatch({
+    //   type: "SET_DATE_MAX_MIN",
+    //   payload: [maxDate, minDate],
+    // });
+
     return axios
       .get(`https://covid-data-123.herokuapp.com/covidmodel/month`)
       .then((res) => {
