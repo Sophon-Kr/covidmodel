@@ -21,6 +21,7 @@ export const SET_LIST_FOR_REMOVE = "SET_LIST_FOR_REMOVE";
 export const GET_DATA_VS_MONTH = "GET_DATA_VS_MONTH";
 export const GET_DATA_VS_DAY = "GET_DATA_VS_DAY";
 export const CONFIG_TYPE_VS = "CONFIG_TYPE_VS";
+export const GET_USERID = "GET_USERID";
 
 const maxAndMinDate = (data) => {
   const newDates = [];
@@ -264,6 +265,19 @@ export const getDailyData = () => {
         dispatch({
           type: "GET_DATA_DAILY",
           payload: res.data[0],
+        });
+      });
+  };
+};
+export const getUserID = () => {
+  return async (dispatch) => {
+    return axios
+      .get(`https://covid-data-123.herokuapp.com/createuserid`)
+      .then((res) => {
+        console.log("getUserID", res);
+        dispatch({
+          type: "GET_USERID",
+          payload: res.data.id,
         });
       });
   };

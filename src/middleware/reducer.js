@@ -18,6 +18,7 @@ import { SET_LIST_FOR_REMOVE } from "./action";
 import { GET_DATA_VS_MONTH } from "./action";
 import { GET_DATA_VS_DAY } from "./action";
 import { CONFIG_TYPE_VS } from "./action";
+import { GET_USERID } from "./action";
 
 const initialState = {
   periodMain: "month",
@@ -55,6 +56,7 @@ const initialState = {
   dailyData: [],
   listForRemove: [],
   vsData: [],
+  userID: "",
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -241,6 +243,12 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         listForRemove: payload,
+      };
+    case GET_USERID:
+      console.log(type, payload);
+      return {
+        ...state,
+        userID: payload,
       };
 
     default:

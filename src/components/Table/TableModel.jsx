@@ -14,24 +14,29 @@ export const TableModel = (props) => {
   // const [data, setData] = useState(props.mainTempData);
 
   const filterRangeByDate = (data) => {
-    var startDate = new Date(props.maindateStartMain);
-    var endDate = new Date(props.maindateEndMain);
-    var endDateNext = endDate.setDate(endDate.getDate() + 1);
-    var dateAfterFilter = data.filter((a) => {
-      var date = new Date(a.name);
-      return date >= startDate && date <= endDateNext;
-    });
+    if (data) {
+      var startDate = new Date(props.maindateStartMain);
+      var endDate = new Date(props.maindateEndMain);
+      var endDateNext = endDate.setDate(endDate.getDate() + 1);
+      var dateAfterFilter = data.filter((a) => {
+        var date = new Date(a.name);
+        return date >= startDate && date <= endDateNext;
+      });
+    }
     return dateAfterFilter;
   };
 
   const monthFilter = (dataMonth) => {
-    let startMonth = props.dateStartMonthMain;
-    let endMonth = props.dateEndMonthMain;
+    if (dataMonth) {
+      let startMonth = props.dateStartMonthMain;
+      let endMonth = props.dateEndMonthMain;
 
-    var dateAfterFilter = dataMonth.filter((a) => {
-      var date = new Date(a.name);
-      return date >= startMonth && date <= endMonth;
-    });
+      var dateAfterFilter = dataMonth.filter((a) => {
+        var date = new Date(a.name);
+        return date >= startMonth && date <= endMonth;
+      });
+    }
+
     return dateAfterFilter;
   };
 

@@ -10,12 +10,26 @@ import UpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "./middleware/store";
+import * as actions from "../src/middleware/action";
 
 function App() {
+  // const [selectedProperty, setSelectedProperty] = useState(
+  //   sessionStorage.getItem("property")
+  // );
   // const [store, setStore] = useState(
   //   createStore(rootReducer, applyMiddleware(thunk))
   // );
   // const [store, setStore] = useState(configureStore());
+  async function fetchID() {
+    // console.log(actions);
+    // GET_USERID
+    await actions.getUserID();
+  }
+  React.useEffect(() => {
+    console.log("getUserID");
+    fetchID();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const store = configureStore();
   const ScrollToTop = () => {
     window.scrollTo({
