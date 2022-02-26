@@ -483,11 +483,13 @@ export const GraphPage = (props) => {
     props.configDateEndMain(newDate);
   };
   const handleMonthStart = (newMonth) => {
+    console.log("newMonth", newMonth);
     setMonthStart(newMonth);
 
     props.configDateStartMonthMain(newMonth);
   };
   const handleMonthEnd = (newMonth) => {
+    console.log("newMonth", newMonth);
     setMonthEnd(newMonth);
 
     props.configDateEndMonthMain(newMonth);
@@ -874,6 +876,7 @@ export const GraphPage = (props) => {
                       minDate={new Date(props.initialMinDate)}
                       maxDate={new Date(props.initialMaxDate)}
                       value={monthEnd}
+                      // todayText="Today"
                       onChange={handleMonthEnd}
                       renderInput={(params) => (
                         <TextField size="small" {...params} helperText={null} />
@@ -945,7 +948,7 @@ export const GraphPage = (props) => {
               alignItems="center"
             >
               {listData.map((data) => (
-                <Grid item>
+                <Grid item key={data.key}>
                   <FormControlLabel
                     value="end"
                     control={
@@ -974,7 +977,7 @@ export const GraphPage = (props) => {
               alignItems="center"
             >
               {listData2.map((data) => (
-                <Grid item>
+                <Grid item key={data.name}>
                   <FormControlLabel
                     value="end"
                     control={

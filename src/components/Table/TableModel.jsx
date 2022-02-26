@@ -25,8 +25,8 @@ export const TableModel = (props) => {
   };
 
   const monthFilter = (dataMonth) => {
-    let startMonth = new Date(props.dateStartMonthMain);
-    let endMonth = new Date(props.dateEndMonthMain);
+    let startMonth = props.dateStartMonthMain;
+    let endMonth = props.dateEndMonthMain;
 
     var dateAfterFilter = dataMonth.filter((a) => {
       var date = new Date(a.name);
