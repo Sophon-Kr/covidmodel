@@ -11,7 +11,7 @@ import { CONFIG_DATE_END_MAIN } from "./action";
 import { CONFIG_DATE_START_VS } from "./action";
 import { CONFIG_DATE_END_VS } from "./action";
 import { GET_DATA_DAILY } from "./action";
-import { CONFIG_DATE_START_MONTH__MAIN } from "./action";
+import { CONFIG_DATE_START_MONTH_MAIN } from "./action";
 import { CONFIG_DATE_END_MONTH_MAIN } from "./action";
 import { SET_DATE_MAX_MIN } from "./action";
 import { SET_LIST_FOR_REMOVE } from "./action";
@@ -160,7 +160,7 @@ const reducer = (state = initialState, { type, payload }) => {
         dailyData: payload,
       };
 
-    case CONFIG_DATE_START_MONTH__MAIN:
+    case CONFIG_DATE_START_MONTH_MAIN:
       console.log(type, payload);
       return {
         ...state,
