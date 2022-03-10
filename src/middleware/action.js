@@ -25,11 +25,12 @@ export const GET_USERID = "GET_USERID";
 
 const maxAndMinDate = (data) => {
   const newDates = [];
-  for (let i = 0; i < data.length; i++) {
-    newDates.push(new Date(data[i].name.split("-").join(" ")));
+  if (data) {
+    for (let i = 0; i < data.length; i++) {
+      newDates.push(new Date(data[i].name.split("-").join(" ")));
+    }
+    // console.log("newDates", newDates);
   }
-  // console.log("newDates", newDates);
-
   const maxDate = new Date(Math.max.apply(null, newDates));
   const minDate = new Date(Math.min.apply(null, newDates));
 
@@ -287,11 +288,12 @@ export const getUserID = () => {
     return axios
       .get(`https://covid-data-123.herokuapp.com/createuserid`)
       .then((res) => {
-        console.log("getUserID", res);
-        dispatch({
-          type: "GET_USERID",
-          payload: res.data.id,
-        });
+        console.log("getUserID : ", res);
+        sessionStorage.setItem("id", res.id);
+        // dispatch({
+        //   type: "GET_USERID",
+        //   payload: res.data.id,
+        // });
       });
   };
 };

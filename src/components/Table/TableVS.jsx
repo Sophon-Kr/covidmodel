@@ -10,28 +10,77 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 export const TableVS = (props) => {
-  const [data, setData] = useState(props.mainVsData);
+  const [data, setData] = useState(
+    props.mainTempData === null ||
+      props.mainTempData === false ||
+      props.mainTempData === undefined ||
+      props.mainTempData === "false"
+      ? [
+          {
+            Deaths: 0,
+            Hospital: 0,
+            Infected: 0,
+            Maintenance: 0,
+            Susceptible: 0,
+            Vaccine1: 0,
+            Vaccine2: 0,
+            name: "nodata",
+          },
+        ]
+      : props.mainTempData
+  );
 
   const filterRangeByDate = (data) => {
-    var startDate = new Date(props.maindateStartMain);
-    var endDate = new Date(props.maindateEndMain);
-    var endDateNext = endDate.setDate(endDate.getDate() + 1);
-    var dateAfterFilter = data.filter((a) => {
-      var date = new Date(a.name);
-      return date >= startDate && date <= endDateNext;
-    });
-    return dateAfterFilter;
+    var returndata = [];
+    if (data) {
+      var startDate = new Date(props.maindateStartMain);
+      var endDate = new Date(props.maindateEndMain);
+      var endDateNext = endDate.setDate(endDate.getDate() + 1);
+      var dateAfterFilter = data.filter((a) => {
+        var date = new Date(a.name);
+        return date >= startDate && date <= endDateNext;
+      });
+      returndata.push(dateAfterFilter);
+    } else {
+      returndata.push({
+        Deaths: 0,
+        Hospital: 0,
+        Infected: 0,
+        Maintenance: 0,
+        Susceptible: 0,
+        Vaccine1: 0,
+        Vaccine2: 0,
+        name: "nodata",
+      });
+    }
+    return returndata;
   };
 
   const monthFilter = (dataMonth) => {
-    let startMonth = props.dateStartMonthMain;
-    let endMonth = props.dateEndMonthMain;
+    var returndata = [];
+    if (dataMonth) {
+      let startMonth = props.dateStartMonthMain;
+      let endMonth = props.dateEndMonthMain;
 
-    var dateAfterFilter = dataMonth.filter((a) => {
-      var date = new Date(a.name);
-      return date >= startMonth && date <= endMonth;
-    });
-    return dateAfterFilter;
+      var dateAfterFilter = dataMonth.filter((a) => {
+        var date = new Date(a.name);
+        return date >= startMonth && date <= endMonth;
+      });
+      returndata.push(dateAfterFilter);
+    } else {
+      returndata.push({
+        Deaths: 0,
+        Hospital: 0,
+        Infected: 0,
+        Maintenance: 0,
+        Susceptible: 0,
+        Vaccine1: 0,
+        Vaccine2: 0,
+        name: "nodata",
+      });
+    }
+
+    return returndata;
   };
 
   useEffect(() => {

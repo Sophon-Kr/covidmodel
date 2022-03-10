@@ -41,6 +41,7 @@ import {
   resetInitial,
   editInitialByDate,
 } from "../services/initialData.service";
+
 // import { getMonthModel } from "../services/rawData.service";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -812,45 +813,40 @@ export const GraphPage = (props) => {
                 </ToggleButtonGroup>
               </Grid>
               {props.mainperiod === "day" ? (
-                <div>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Grid item>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      <DatePicker
-                        autoOk={true}
-                        openTo="day"
-                        views={["day", "month", "year"]}
-                        label="Start Date"
-                        inputFormat="dd/MM/yyyy"
-                        value={dateStart}
-                        minDate={props.initialMinDate}
-                        maxDate={props.initialMaxDate}
-                        onChange={handleDateStart}
-                        renderInput={(params) => (
-                          <TextField size="small" {...params} />
-                        )}
-                      />
-                    </LocalizationProvider>
+                    <DatePicker
+                      autoOk={true}
+                      openTo="day"
+                      views={["day", "month", "year"]}
+                      label="Start Date"
+                      inputFormat="dd/MM/yyyy"
+                      value={dateStart}
+                      minDate={props.initialMinDate}
+                      maxDate={props.initialMaxDate}
+                      onChange={handleDateStart}
+                      renderInput={(params) => (
+                        <TextField size="small" {...params} />
+                      )}
+                    />
                   </Grid>
-
                   <Grid item>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      <DatePicker
-                        autoOk={true}
-                        openTo="day"
-                        views={["day", "month", "year"]}
-                        minDate={props.initialMinDate}
-                        maxDate={props.initialMaxDate}
-                        label="End Date"
-                        inputFormat="dd/MM/yyyy"
-                        value={dateEnd}
-                        onChange={handleDateEnd}
-                        renderInput={(params) => (
-                          <TextField size="small" {...params} />
-                        )}
-                      />
-                    </LocalizationProvider>
+                    <DatePicker
+                      autoOk={true}
+                      openTo="day"
+                      views={["day", "month", "year"]}
+                      minDate={props.initialMinDate}
+                      maxDate={props.initialMaxDate}
+                      label="End Date"
+                      inputFormat="dd/MM/yyyy"
+                      value={dateEnd}
+                      onChange={handleDateEnd}
+                      renderInput={(params) => (
+                        <TextField size="small" {...params} />
+                      )}
+                    />
                   </Grid>
-                </div>
+                </LocalizationProvider>
               ) : props.mainperiod === "month" ? (
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Grid item>

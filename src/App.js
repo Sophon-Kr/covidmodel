@@ -13,9 +13,7 @@ import configureStore from "./middleware/store";
 import * as actions from "../src/middleware/action";
 
 function App() {
-  // const [selectedProperty, setSelectedProperty] = useState(
-  //   sessionStorage.getItem("property")
-  // );
+  // const [id, setID] = React.useState(sessionStorage.getItem("id"));
   // const [store, setStore] = useState(
   //   createStore(rootReducer, applyMiddleware(thunk))
   // );
@@ -23,7 +21,11 @@ function App() {
   async function fetchID() {
     // console.log(actions);
     // GET_USERID
-    await actions.getUserID();
+    const id = sessionStorage.getItem("id");
+    console.log("id : sessionStorage: ", id);
+    if (!id) {
+      await actions.getUserID();
+    }
   }
   React.useEffect(() => {
     console.log("getUserID");
