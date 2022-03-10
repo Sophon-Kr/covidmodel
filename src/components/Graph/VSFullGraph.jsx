@@ -49,27 +49,71 @@ class VSFullGraph extends PureComponent {
       opacity: { ...opacity, [dataKey]: 1 },
     });
   };
+
   filterRangeByDate = (data) => {
-    var startDate = new Date(this.props.maindateStartMain);
-    var endDate = new Date(this.props.maindateEndMain);
-    var endDateNext = endDate.setDate(endDate.getDate() + 1);
-    var dateAfterFilter = data.filter((a) => {
-      var date = new Date(a.name);
-      return date >= startDate && date <= endDateNext;
-    });
-    return dateAfterFilter;
+    var returndata = [];
+    if (data) {
+      var startDate = new Date(this.props.maindateStartMain);
+      var endDate = new Date(this.props.maindateEndMain);
+      var endDateNext = endDate.setDate(endDate.getDate() + 1);
+      var dateAfterFilter = data.filter((a) => {
+        var date = new Date(a.name);
+        return date >= startDate && date <= endDateNext;
+      });
+      returndata.push(dateAfterFilter);
+    } else {
+      returndata.push({
+        DeathModelData: 0,
+        DeathRawData: 0,
+        HospitalizeModelData: 0,
+        HospitalizeRawData: 0,
+        InfectionModelData: 0,
+        InfectionRawData: 0,
+        MaintenanceShotModelData: 0,
+        MaintenanceShotRawData: 0,
+        SusceptibleModelData: 0,
+        SusceptibleRawData: 0,
+        Vaccines1ModelData: 0,
+        Vaccines1RawData: 0,
+        Vaccines2ModelData: 0,
+        Vaccines2RawData: 0,
+        name: "nodata",
+      });
+    }
+    return returndata;
   };
- 
 
   monthFilter = (dataMonth) => {
-    let startMonth = this.props.dateStartMonthMain;
-    let endMonth = this.props.dateEndMonthMain;
+    var returndata = [];
+    if (dataMonth) {
+      let startMonth = this.props.dateStartMonthMain;
+      let endMonth = this.props.dateEndMonthMain;
 
-    var dateAfterFilter = dataMonth.filter((a) => {
-      var date = new Date(a.name);
-      return date >= startMonth && date <= endMonth;
-    });
-    return dateAfterFilter;
+      var dateAfterFilter = dataMonth.filter((a) => {
+        var date = new Date(a.name);
+        return date >= startMonth && date <= endMonth;
+      });
+      returndata.push(dateAfterFilter);
+    } else {
+      returndata.push({
+        DeathModelData: 0,
+        DeathRawData: 0,
+        HospitalizeModelData: 0,
+        HospitalizeRawData: 0,
+        InfectionModelData: 0,
+        InfectionRawData: 0,
+        MaintenanceShotModelData: 0,
+        MaintenanceShotRawData: 0,
+        SusceptibleModelData: 0,
+        SusceptibleRawData: 0,
+        Vaccines1ModelData: 0,
+        Vaccines1RawData: 0,
+        Vaccines2ModelData: 0,
+        Vaccines2RawData: 0,
+        name: "nodata",
+      });
+    }
+    return returndata;
   };
 
   componentDidUpdate(prevProps) {
@@ -181,7 +225,7 @@ class VSFullGraph extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-            
+
             {this.state.mainVS === "H" ? (
               <Line
                 type="monotone"

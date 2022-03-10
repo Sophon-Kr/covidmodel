@@ -48,6 +48,7 @@ class MainGraph extends PureComponent {
   };
 
   filterRangeByDate = (data) => {
+    var returndata = [];
     if (data) {
       var startDate = new Date(this.props.maindateStartMain);
       var endDate = new Date(this.props.maindateEndMain);
@@ -56,11 +57,24 @@ class MainGraph extends PureComponent {
         var date = new Date(a.name);
         return date >= startDate && date <= endDateNext;
       });
+      returndata.push(dateAfterFilter);
+    } else {
+      returndata.push({
+        Deaths: 0,
+        Hospital: 0,
+        Infected: 0,
+        Maintenance: 0,
+        Susceptible: 0,
+        Vaccine1: 0,
+        Vaccine2: 0,
+        name: "nodata",
+      });
     }
-    return dateAfterFilter;
+    return returndata;
   };
 
   monthFilter = (dataMonth) => {
+    var returndata = [];
     if (dataMonth) {
       let startMonth = this.props.dateStartMonthMain;
       let endMonth = this.props.dateEndMonthMain;
@@ -69,8 +83,20 @@ class MainGraph extends PureComponent {
         var date = new Date(a.name);
         return date >= startMonth && date <= endMonth;
       });
+      returndata.push(dateAfterFilter);
+    } else {
+      returndata.push({
+        Deaths: 0,
+        Hospital: 0,
+        Infected: 0,
+        Maintenance: 0,
+        Susceptible: 0,
+        Vaccine1: 0,
+        Vaccine2: 0,
+        name: "nodata",
+      });
     }
-    return dateAfterFilter;
+    return returndata;
   };
 
   // removeProperty = (coviddata) => {
