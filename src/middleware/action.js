@@ -21,7 +21,7 @@ export const SET_LIST_FOR_REMOVE = "SET_LIST_FOR_REMOVE";
 export const GET_DATA_VS_MONTH = "GET_DATA_VS_MONTH";
 export const GET_DATA_VS_DAY = "GET_DATA_VS_DAY";
 export const CONFIG_TYPE_VS = "CONFIG_TYPE_VS";
-export const GET_USERID = "GET_USERID";
+export const SET_USERID = "SET_USERID";
 
 const maxAndMinDate = (data) => {
   const newDates = [];
@@ -93,10 +93,10 @@ export const configTypeVS = (payload) => ({
   payload,
 });
 
-export const getRealDataMount = () => {
+export const getRealDataMount = (id) => {
   return async (dispatch) => {
     return axios
-      .get(`https://covid-data-123.herokuapp.com/coviddata/month`)
+      .get(`https://covid-data-123.herokuapp.com/coviddata/month/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -117,10 +117,10 @@ export const getRealDataMount = () => {
   };
 };
 
-export const getRealDataDay = () => {
+export const getRealDataDay = (id) => {
   return async (dispatch) => {
     return axios
-      .get(`https://covid-data-123.herokuapp.com/coviddata/day`)
+      .get(`https://covid-data-123.herokuapp.com/coviddata/day/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -142,7 +142,7 @@ export const getRealDataDay = () => {
   };
 };
 
-export const getModelDataMount = () => {
+export const getModelDataMount = (id) => {
   return async (dispatch) => {
     // var tempdata = getMonth();
     // console.log("tempdata getMonth", tempdata);
@@ -160,7 +160,7 @@ export const getModelDataMount = () => {
     // });
 
     return axios
-      .get(`https://covid-data-123.herokuapp.com/covidmodel/month`)
+      .get(`https://covid-data-123.herokuapp.com/covidmodel/month/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -181,7 +181,7 @@ export const getModelDataMount = () => {
   };
 };
 
-export const getModelDataDay = () => {
+export const getModelDataDay = (id) => {
   return async (dispatch) => {
     // var tempdata = getDay();
     // //  return tempdata;
@@ -200,7 +200,7 @@ export const getModelDataDay = () => {
     // });
 
     return axios
-      .get(`https://covid-data-123.herokuapp.com/covidmodel/day`)
+      .get(`https://covid-data-123.herokuapp.com/covidmodel/day/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -220,10 +220,10 @@ export const getModelDataDay = () => {
       });
   };
 };
-export const getVSDataMount = () => {
+export const getVSDataMount = (id) => {
   return async (dispatch) => {
     return axios
-      .get(`https://covid-data-123.herokuapp.com/vsdata/month`)
+      .get(`https://covid-data-123.herokuapp.com/vsdata/month/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
           console.log("fdsdsdsadad");
@@ -247,10 +247,10 @@ export const getVSDataMount = () => {
   };
 };
 
-export const getVSDataDay = () => {
+export const getVSDataDay = (id) => {
   return async (dispatch) => {
     return axios
-      .get(`https://covid-data-123.herokuapp.com/vsdata/day`)
+      .get(`https://covid-data-123.herokuapp.com/vsdata/day/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -283,20 +283,21 @@ export const getDailyData = () => {
       });
   };
 };
-export const getUserID = () => {
-  return async (dispatch) => {
-    return axios
-      .get(`https://covid-data-123.herokuapp.com/createuserid`)
-      .then((res) => {
-        console.log("getUserID : ", res);
-        sessionStorage.setItem("id", res.id);
-        // dispatch({
-        //   type: "GET_USERID",
-        //   payload: res.data.id,
-        // });
-      });
-  };
-};
+// export const getUserID = () => {
+//   return async (dispatch) => {
+//     console.log("getUserID first : ");
+//     return axios
+//       .get(`https://covid-data-123.herokuapp.com/createuserid`)
+//       .then((res) => {
+//         console.log("getUserID return : ", res);
+//         sessionStorage.setItem("id", res.id);
+//         // dispatch({
+//         //   type: "GET_USERID",
+//         //   payload: res.data.id,
+//         // });
+//       });
+//   };
+// };
 
 export const setListForRemove = (payload) => ({
   type: "SET_LIST_FOR_REMOVE",

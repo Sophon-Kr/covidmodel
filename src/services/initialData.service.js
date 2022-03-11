@@ -1,20 +1,33 @@
 const axios = require("axios");
 
-export async function getAllInitial() {
+export async function getAllInitial(id) {
   return axios
-    .get(`https://covid-data-123.herokuapp.com/covidmodel`)
+    .get(`https://covid-data-123.herokuapp.com/covidmodel/${id}`)
     .then((res) => {
       console.log("res", res.data.initial_default);
       return res.data.initial_default;
     });
 }
 
-export async function resetInitial() {
+export async function resetInitial(id) {
   return axios
-    .get(`https://covid-data-123.herokuapp.com/covidmodel/reset`)
+    .get(`https://covid-data-123.herokuapp.com/covidmodel/reset/${id}`)
     .then((res) => {
       console.log("res", res);
       return res.data;
+    });
+}
+export async function getUserID(id) {
+  return axios
+    .get(`https://covid-data-123.herokuapp.com/createuserid`)
+    .then((res) => {
+      console.log("getUserID return : ", res);
+      sessionStorage.setItem("id", res.data.id);
+      // store.dispatch({
+      //   type: EDIT_COLOR,
+      //   payload: purple[600],
+      // });
+      return res.data.id;
     });
 }
 
@@ -32,6 +45,7 @@ export async function editInitialByDate({
   omega3,
   zetah,
   zetas,
+  id,
 }) {
   console.log(
     "editInitialByDate",
@@ -50,7 +64,7 @@ export async function editInitialByDate({
     zetas
   );
   return axios
-    .put(`https://covid-data-123.herokuapp.com/covidmodel`, {
+    .put(`https://covid-data-123.herokuapp.com/covidmodel${id}`, {
       start_date: start_date,
       alpha: alpha,
       beta: beta,

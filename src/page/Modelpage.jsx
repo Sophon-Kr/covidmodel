@@ -100,7 +100,7 @@ const modelDisplay = [
     pic: <img src={I} alt="Infection" width="100%" height="auto" />,
     color: "#f44336",
   },
-  
+
   {
     id: "6",
     name: "Hospital Class : H",
@@ -132,8 +132,11 @@ const modelDisplay = [
 
 export const Modelpage = (props) => {
   React.useEffect(() => {
-    resetInitial();
-  }, []);
+    const getNewID = sessionStorage.getItem("id");
+    console.log(getNewID);
+    resetInitial(getNewID);
+  }, [props.userID]);
+
   return (
     <Container
       maxWidth="xxl"
@@ -238,7 +241,11 @@ export const Modelpage = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => {
+  return {
+    userID: state.reducer.userID,
+  };
+};
 
 const mapDispatchToProps = {};
 

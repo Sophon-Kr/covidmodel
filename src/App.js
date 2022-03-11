@@ -10,21 +10,21 @@ import UpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "./middleware/store";
-import * as actions from "../src/middleware/action";
+import { getUserID } from "../src/services/initialData.service";
+import { SET_USERID } from "../src/middleware/action";
 
 function App() {
-  // const [id, setID] = React.useState(sessionStorage.getItem("id"));
-  // const [store, setStore] = useState(
-  //   createStore(rootReducer, applyMiddleware(thunk))
-  // );
-  // const [store, setStore] = useState(configureStore());
+  const store = configureStore();
   async function fetchID() {
-    // console.log(actions);
-    // GET_USERID
     const id = sessionStorage.getItem("id");
     console.log("id : sessionStorage: ", id);
     if (!id) {
-      await actions.getUserID();
+      const newID = await getUserID();
+      console.log("newid : : ", newID);
+      store.dispatch({
+        type: SET_USERID,
+        payload: newID,
+      });
     }
   }
   React.useEffect(() => {
@@ -32,7 +32,7 @@ function App() {
     fetchID();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const store = configureStore();
+
   const ScrollToTop = () => {
     window.scrollTo({
       top: 0,
