@@ -41,7 +41,7 @@ export const TableModel = (props) => {
         var date = new Date(a.name);
         return date >= startDate && date <= endDateNext;
       });
-      returndata.push(dateAfterFilter);
+      returndata = dateAfterFilter;
     } else {
       returndata.push({
         Deaths: 0,
@@ -67,7 +67,7 @@ export const TableModel = (props) => {
         var date = new Date(a.name);
         return date >= startMonth && date <= endMonth;
       });
-      returndata.push(dateAfterFilter);
+      returndata = dateAfterFilter;
     } else {
       returndata.push({
         Deaths: 0,
@@ -89,11 +89,11 @@ export const TableModel = (props) => {
       if (props.mainperiod === "day") {
         let tempDataTable1 = filterRangeByDate(props.mainTempData);
         await setData(tempDataTable1);
-        console.log(tempDataTable1);
+        // console.log(tempDataTable1);
       } else {
         let tempDataTable2 = monthFilter(props.mainTempData);
         await setData(tempDataTable2);
-        console.log(tempDataTable2);
+        // console.log(tempDataTable2);
       }
     }
     fetchData();

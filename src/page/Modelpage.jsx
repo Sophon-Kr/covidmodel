@@ -133,7 +133,7 @@ const modelDisplay = [
 export const Modelpage = (props) => {
   React.useEffect(() => {
     const getNewID = sessionStorage.getItem("id");
-    console.log(getNewID);
+    console.log("getNewID Modelpage",getNewID);
     resetInitial(getNewID);
   }, [props.userID]);
 

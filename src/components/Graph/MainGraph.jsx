@@ -57,7 +57,7 @@ class MainGraph extends PureComponent {
         var date = new Date(a.name);
         return date >= startDate && date <= endDateNext;
       });
-      returndata.push(dateAfterFilter);
+      returndata = dateAfterFilter;
     } else {
       returndata.push({
         Deaths: 0,
@@ -74,6 +74,9 @@ class MainGraph extends PureComponent {
   };
 
   monthFilter = (dataMonth) => {
+    // console.log("dataMonth ++++", dataMonth);
+    // console.log("dataMonth ++++", this.props.dateStartMonthMain);
+    // console.log("dataMonth ++++", this.props.dateEndMonthMain);
     var returndata = [];
     if (dataMonth) {
       let startMonth = this.props.dateStartMonthMain;
@@ -83,7 +86,8 @@ class MainGraph extends PureComponent {
         var date = new Date(a.name);
         return date >= startMonth && date <= endMonth;
       });
-      returndata.push(dateAfterFilter);
+
+      returndata = dateAfterFilter;
     } else {
       returndata.push({
         Deaths: 0,
@@ -96,6 +100,7 @@ class MainGraph extends PureComponent {
         name: "nodata",
       });
     }
+    //console.log("returndata +++", returndata);
     return returndata;
   };
 
@@ -108,6 +113,7 @@ class MainGraph extends PureComponent {
   // };
 
   componentDidUpdate(prevProps) {
+    // console.log("state console", this.state.covidData, this.state.dataFilterd);
     if (prevProps.mainSStatus !== this.props.mainSStatus) {
       this.setState({
         mainSStatus: this.props.mainSStatus,
@@ -146,7 +152,7 @@ class MainGraph extends PureComponent {
       });
     }
     if (prevProps.mainTempData !== this.props.mainTempData) {
-      console.log("mainTempData change :", this.state.covidData);
+      // console.log("mainTempData change :", this.state.covidData);
       this.setState({
         covidData: this.props.mainTempData,
       });

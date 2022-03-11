@@ -58,7 +58,6 @@ class MainGraphFull extends PureComponent {
     });
   };
 
-  
   filterRangeByDate = (data) => {
     var returndata = [];
     if (data) {
@@ -69,7 +68,7 @@ class MainGraphFull extends PureComponent {
         var date = new Date(a.name);
         return date >= startDate && date <= endDateNext;
       });
-      returndata.push(dateAfterFilter);
+      returndata = dateAfterFilter;
     } else {
       returndata.push({
         Deaths: 0,
@@ -95,7 +94,7 @@ class MainGraphFull extends PureComponent {
         var date = new Date(a.name);
         return date >= startMonth && date <= endMonth;
       });
-      returndata.push(dateAfterFilter);
+      returndata = dateAfterFilter;
     } else {
       returndata.push({
         Deaths: 0,
@@ -238,7 +237,7 @@ class MainGraphFull extends PureComponent {
                 activeDot={{ r: 8 }}
               />
             ) : null}
-            
+
             {this.state.mainHStatus ? (
               <Line
                 type="monotone"

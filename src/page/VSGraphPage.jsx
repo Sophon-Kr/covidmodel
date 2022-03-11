@@ -300,6 +300,7 @@ export const VSGraphPage = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    userID: state.reducer.userID,
     initialMinDate: state.reducer.initialMinDate,
     initialMaxDate: state.reducer.initialMaxDate,
     maindateStartMain: state.reducer.dateStartMain,

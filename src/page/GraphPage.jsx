@@ -42,8 +42,6 @@ import {
   editInitialByDate,
 } from "../services/initialData.service";
 
-// import { getMonthModel } from "../services/rawData.service";
-
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -167,13 +165,6 @@ export const GraphPage = (props) => {
       status: props.mainIStatus,
       handle: (e) => setIStatus(e.target.checked),
     },
-    // {
-    //   id: 6,
-    //   data: "Recovery",
-    //   color: "green",
-    //   status: props.mainRStatus,
-    //   handle: (e) => setRStatus(e.target.checked),
-    // },
     {
       id: 7,
       data: "Hospital",
@@ -219,13 +210,6 @@ export const GraphPage = (props) => {
       status: props.mainIStatus,
       handle: (e) => setIStatus(e.target.checked),
     },
-    // {
-    //   id: 5,
-    //   data: "Recovery",
-    //   color: "green",
-    //   status: props.mainRStatus,
-    //   handle: (e) => setRStatus(e.target.checked),
-    // },
     {
       id: 6,
       data: "Hospital",
@@ -243,23 +227,26 @@ export const GraphPage = (props) => {
   ];
 
   async function fetchDataMonth() {
+    const getNewID = sessionStorage.getItem("id");
     if (props.mainperiod === "month" && props.maintypeData === "real") {
-      await props.getAllRealDataMount();
+      await props.getAllRealDataMount(getNewID);
     } else if (props.mainperiod === "day" && props.maintypeData === "real") {
-      await props.getAllRealDataDay();
+      await props.getAllRealDataDay(getNewID);
     } else if (props.mainperiod === "month" && props.maintypeData === "model") {
-      await props.getAllModelDataMount();
+      await props.getAllModelDataMount(getNewID);
     } else if (props.mainperiod === "day" && props.maintypeData === "model") {
-      await props.getAllModelDataDay();
+      await props.getAllModelDataDay(getNewID);
     }
   }
 
   function filterInitialValue(listAll, InitialDate) {
     //console.log("listAll, InitialDate", listAll, InitialDate);
-    let tempfillter = [];
-    for (let i = 0; i < listAll.length; i++) {
-      if (listAll[i].name === InitialDate) {
-        tempfillter = listAll[i];
+    var tempfillter = [];
+    if (listAll && InitialDate) {
+      for (let i = 0; i < listAll.length; i++) {
+        if (listAll[i].name === InitialDate) {
+          tempfillter = listAll[i];
+        }
       }
     }
     return tempfillter;
@@ -268,15 +255,17 @@ export const GraphPage = (props) => {
   function listForSelectInitialValue(listAll) {
     var tempListInitialSelect = [];
     var tempListInitialSelectReturn = [];
-    for (let i = 0; i < listAll.length; i++) {
-      tempListInitialSelect.push(listAll[i].name);
-    }
-    let data = tempListInitialSelect.sort();
-    for (let i = 0; i < data.length; i++) {
-      tempListInitialSelectReturn.push({
-        label: data[i],
-        value: data[i],
-      });
+    if (listAll) {
+      for (let i = 0; i < listAll.length; i++) {
+        tempListInitialSelect.push(listAll[i].name);
+      }
+      let data = tempListInitialSelect.sort();
+      for (let i = 0; i < data.length; i++) {
+        tempListInitialSelectReturn.push({
+          label: data[i],
+          value: data[i],
+        });
+      }
     }
 
     return tempListInitialSelectReturn;
@@ -370,31 +359,40 @@ export const GraphPage = (props) => {
   ];
 
   async function getAllIntialValue() {
-    let initialTemp = await getAllInitial();
-    console.log("initialTemp", initialTemp);
+    const getNewID = sessionStorage.getItem("id");
+    let initialTemp = await getAllInitial(getNewID);
+    // console.log("initialTemp", initialTemp);
     setListAllInitialDate(initialTemp);
+
     const tempListInitialDate = listForSelectInitialValue(initialTemp);
+    // console.log("tempListInitialDate", tempListInitialDate);
     setListInitialDate(tempListInitialDate);
     setInitialDateForSet(tempListInitialDate[0].value);
   }
 
   useEffect(() => {
-    getAllIntialValue();
+    const getNewID = sessionStorage.getItem("id");
+    if (getNewID) {
+      getAllIntialValue();
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [checkFetchStatus]);
-  useEffect(() => {
-    getAllIntialValue();
+  }, [checkFetchStatus, props.userID]);
+  // useEffect(() => {
+  //   const getNewID = sessionStorage.getItem("id");
+  //   if (getNewID) {
+  //     getAllIntialValue();
+  //   }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   async function parameterChange() {
     const tempConfig = filterInitialValue(
       listAllInitialDate,
       initialDateForSet
     );
-    console.log("tempConfig", tempConfig);
+    // console.log("tempConfig", tempConfig);
     setAlpha(tempConfig.alpha);
     setBeta(tempConfig.beta);
     setEpsilon1(tempConfig.epsilon1);
@@ -412,9 +410,6 @@ export const GraphPage = (props) => {
   useEffect(() => {
     parameterChange();
 
-    // setInitialDateForSet;
-    // setListInitialDate;
-    // setListAllInitialDate;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialDateForSet, listAllInitialDate, checkFetchStatus]);
 
@@ -427,12 +422,12 @@ export const GraphPage = (props) => {
   };
 
   const handleResetDefault = async () => {
+    const getNewID = sessionStorage.getItem("id");
     setDialogStatus(false);
     setResettingStatus(true);
-    await resetInitial();
+    await resetInitial(getNewID);
     await getAllIntialValue();
     await parameterChange();
-
     await setCheckFetchStatus(!checkFetchStatus);
     await fetchDataMonth();
     await setResettingStatus(false);
@@ -443,7 +438,7 @@ export const GraphPage = (props) => {
       listAllInitialDate,
       initialDateForSet
     );
-    console.log("tempConfig", tempConfig);
+    // console.log("tempConfig", tempConfig);
     setAlpha(tempConfig.alpha);
     setBeta(tempConfig.beta);
     setEpsilon1(tempConfig.epsilon1);
@@ -472,7 +467,6 @@ export const GraphPage = (props) => {
   };
 
   const handleDateStart = (newDate) => {
-    // bug day -1
     setDateStart(newDate);
 
     props.configDateStartMain(newDate);
@@ -484,13 +478,13 @@ export const GraphPage = (props) => {
     props.configDateEndMain(newDate);
   };
   const handleMonthStart = (newMonth) => {
-    console.log("newMonth", newMonth);
+    // console.log("newMonth", newMonth);
     setMonthStart(newMonth);
 
     props.configDateStartMonthMain(newMonth);
   };
   const handleMonthEnd = (newMonth) => {
-    console.log("newMonth", newMonth);
+    // console.log("newMonth", newMonth);
     setMonthEnd(newMonth);
 
     props.configDateEndMonthMain(newMonth);
@@ -527,11 +521,12 @@ export const GraphPage = (props) => {
 
     var checkDataInitialChangeReturn =
       JSON.stringify(checkDataInitialChange) === JSON.stringify(tempConfig);
-    console.log("checkDataInitialChangeReturn", checkDataInitialChangeReturn);
+    // console.log("checkDataInitialChangeReturn", checkDataInitialChangeReturn);
     return checkDataInitialChangeReturn;
   }
 
   async function editInitialValueByDate() {
+    const getNewID = sessionStorage.getItem("id");
     editInitialByDate({
       start_date: initialDateForSet,
       alpha: alpha,
@@ -546,6 +541,7 @@ export const GraphPage = (props) => {
       omega3: omega3,
       zetah: zetaH,
       zetas: zetaS,
+      id: getNewID,
     });
   }
 
@@ -567,16 +563,18 @@ export const GraphPage = (props) => {
       listAllInitialDate,
       initialDateForSet
     );
+    //const getNewID = sessionStorage.getItem("id");
     if (!checkChange) {
       setEdittingStatus(true);
       await editInitialValueByDate();
       await getAllIntialValue();
       await parameterChange();
-      await setCheckFetchStatus(!checkFetchStatus);
-      const fetchDataAfterEdit = await fetchDataMonth();
-      await console.log("edit fetchDataMonth", fetchDataAfterEdit);
+      // await setCheckFetchStatus(!checkFetchStatus);
+      // const fetchDataAfterEdit =
+      await fetchDataMonth();
+      // await console.log("edit fetchDataMonth", fetchDataAfterEdit);
       await setEdittingStatus(false);
-      await setCheckFetchStatus(!checkFetchStatus);
+      // await setCheckFetchStatus(!checkFetchStatus);
     }
   };
 
@@ -588,37 +586,40 @@ export const GraphPage = (props) => {
     props.mainperiod,
     checkFetchStatus,
     listAllInitialDate,
+    props.userID,
   ]);
 
-  useEffect(() => {
-    async function fetchDailyData() {
-      await props.getAllDailyData();
-    }
-    fetchDailyData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    fetchDataMonth();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   fetchDataMonth();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   useEffect(() => {
     setDateStart(new Date(props.maindateStartMain));
     setDateEnd(new Date(props.maindateEndMain));
     setMonthStart(new Date(props.dateStartMonthMain));
     setMonthEnd(new Date(props.dateEndMonthMain));
+    // console.log("check dateEndMonthMain+++", new Date(props.dateEndMonthMain));
   }, [
     props.maindateEndMain,
     props.maindateStartMain,
     props.dateEndMonthMain,
     props.dateStartMonthMain,
   ]);
+
+  // useEffect(() => {
+  //   setDateStart(props.maindateStartMain);
+  //   setDateEnd(props.maindateEndMain);
+  //   setMonthStart(props.dateStartMonthMain);
+  //   setMonthEnd(props.dateEndMonthMain);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
   useEffect(() => {
-    setDateStart(props.maindateStartMain);
-    setDateEnd(props.maindateEndMain);
-    setMonthStart(props.dateStartMonthMain);
-    setMonthEnd(props.dateEndMonthMain);
+    async function fetchDailyData() {
+      await props.getAllDailyData();
+    }
+    fetchDailyData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -1160,6 +1161,7 @@ export const GraphPage = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    userID: state.reducer.userID,
     mainperiod: state.reducer.periodMain,
     maintypeData: state.reducer.typeData,
     mainSStatus: state.reducer.SStatus,
@@ -1203,17 +1205,17 @@ const mapDispatchToProps = (dispatch) => {
       return dispatch(actions.configPeriodMain(datatype));
     },
 
-    getAllRealDataMount: () => {
-      return dispatch(actions.getRealDataMount());
+    getAllRealDataMount: (id) => {
+      return dispatch(actions.getRealDataMount(id));
     },
-    getAllRealDataDay: () => {
-      return dispatch(actions.getRealDataDay());
+    getAllRealDataDay: (id) => {
+      return dispatch(actions.getRealDataDay(id));
     },
-    getAllModelDataMount: () => {
-      return dispatch(actions.getModelDataMount());
+    getAllModelDataMount: (id) => {
+      return dispatch(actions.getModelDataMount(id));
     },
-    getAllModelDataDay: () => {
-      return dispatch(actions.getModelDataDay());
+    getAllModelDataDay: (id) => {
+      return dispatch(actions.getModelDataDay(id));
     },
     getAllDailyData: () => {
       return dispatch(actions.getDailyData());
