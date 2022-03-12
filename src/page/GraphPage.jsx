@@ -491,6 +491,7 @@ export const GraphPage = (props) => {
   };
 
   const handleTypeData = async (event, newTypedata) => {
+    console.log("newPeriod ++", newTypedata);
     setTypeData(newTypedata);
     props.configDataTypeGraph(newTypedata);
   };
@@ -582,6 +583,7 @@ export const GraphPage = (props) => {
     fetchDataMonth();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
+    // typeData,
     props.maintypeData,
     props.mainperiod,
     checkFetchStatus,
