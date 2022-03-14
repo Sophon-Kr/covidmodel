@@ -1,6 +1,4 @@
 import axios from "axios";
-//import { getDay, getMonth } from "./dataday";
-
 export const CONFIG_GRAPH_DISPLAY = "CONFIG_GRAPH_DISPLAY";
 export const CONFIG_DATA_TYPE = "CONFIG_DATA_TYPE";
 export const GET_DATA_REAL_MONTH = "GET_DATA_REAL_MONTH";
@@ -29,12 +27,56 @@ const maxAndMinDate = (data) => {
     for (let i = 0; i < data.length; i++) {
       newDates.push(new Date(data[i].name.split("-").join(" ")));
     }
-    // console.log("newDates", newDates);
   }
   const maxDate = new Date(Math.max.apply(null, newDates));
   const minDate = new Date(Math.min.apply(null, newDates));
+  // ====================================================
+  // function getMax(dateArray, filler) {
+  //   filler = filler ? filler : "";
+  //   if (!dateArray.length) {
+  //     return filler;
+  //   }
+  //   var max = "";
+  //   dateArray.forEach(function (date) {
+  //     if (date) {
+  //       var d = new Date(date);
+  //       if (max && d.valueOf() > max.valueOf()) {
+  //         max = d;
+  //       } else if (!max) {
+  //         max = d;
+  //       }
+  //     }
+  //   });
+  //   return max;
+  // }
+  // console.log(getMax([], "NA"));
+  // console.log(getMax(newDates, "NA"));
+  // console.log(getMax(newDates));
 
-   console.log("maxDate:", maxDate, "minDate:", minDate);
+  // function getMin(dateArray, filler) {
+  //   filler = filler ? filler : "";
+  //   if (!dateArray.length) {
+  //     return filler;
+  //   }
+  //   var min = "";
+  //   dateArray.forEach(function (date) {
+  //     if (date) {
+  //       var d = new Date(date);
+  //       if (min && d.valueOf() < min.valueOf()) {
+  //         min = d;
+  //       } else if (!min) {
+  //         min = d;
+  //       }
+  //     }
+  //   });
+  //   return min;
+  // }
+
+  // console.log(getMin([], "NA"));
+  // console.log(getMin(newDates, "NA"));
+  // console.log(getMin(newDates));
+  // // ========================================
+  console.log("maxDate:", maxDate, "minDate:", minDate);
   return [maxDate, minDate];
 };
 
@@ -103,10 +145,13 @@ export const getRealDataMount = (id) => {
             type: "GET_DATA_REAL_MONTH",
             payload: res.data.data,
           });
-          let findDate = maxAndMinDate(res.data.data);
-          let maxDate = findDate[0];
-          let minDate = findDate[1];
-          // console.log("findDate", maxDate, minDate);
+          // let findDate = maxAndMinDate(res.data.data);
+          // let maxDate = findDate[0];
+          // let minDate = findDate[1];
+
+          let maxDate = new Date("02 / 01 / 2022");
+          let minDate = new Date("01 / 01 / 2021");
+          console.log("findDate +++", maxDate, minDate);
 
           dispatch({
             type: "SET_DATE_MAX_MIN",
@@ -167,10 +212,14 @@ export const getModelDataMount = (id) => {
             type: "GET_DATA_MODEL_MONTH",
             payload: res.data.data,
           });
-          let findDate = maxAndMinDate(res.data.data);
-          let maxDate = findDate[0];
-          let minDate = findDate[1];
-          console.log("findDate", maxDate, minDate);
+          // let findDate = maxAndMinDate(res.data.data);
+          // let maxDate = findDate[0];
+          // let minDate = findDate[1];
+          // console.log("findDate", maxDate, minDate);
+
+          let maxDate = new Date("02 / 01 / 2022");
+          let minDate = new Date("01 / 01 / 2021");
+          console.log("findDate +++", maxDate, minDate);
 
           dispatch({
             type: "SET_DATE_MAX_MIN",
@@ -233,10 +282,13 @@ export const getVSDataMount = (id) => {
             payload: res.data.data,
           });
 
-          let findDate = maxAndMinDate(res.data.data);
-          let maxDate = findDate[0];
-          let minDate = findDate[1];
+          // let findDate = maxAndMinDate(res.data.data);
+          // let maxDate = findDate[0];
+          // let minDate = findDate[1];
           // console.log("findDate", maxDate, minDate);
+          let maxDate = new Date("02 / 01 / 2022");
+          let minDate = new Date("01 / 01 / 2021");
+          console.log("findDate +++", maxDate, minDate);
 
           dispatch({
             type: "SET_DATE_MAX_MIN",

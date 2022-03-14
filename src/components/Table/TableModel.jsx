@@ -64,7 +64,7 @@ export const TableModel = (props) => {
       let endMonth = props.dateEndMonthMain;
 
       var dateAfterFilter = dataMonth.filter((a) => {
-        var date = new Date(a.name);
+        var date = new Date("1-" + a.name.split("-").join(" "));
         return date >= startMonth && date <= endMonth;
       });
       returndata = dateAfterFilter;

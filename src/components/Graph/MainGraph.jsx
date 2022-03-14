@@ -83,7 +83,8 @@ class MainGraph extends PureComponent {
       let endMonth = this.props.dateEndMonthMain;
 
       var dateAfterFilter = dataMonth.filter((a) => {
-        var date = new Date(a.name);
+        var date = new Date("1-" + (a.name.split("-").join(" ")));
+        // console.log("````date````:", date);
         return date >= startMonth && date <= endMonth;
       });
 
@@ -100,7 +101,7 @@ class MainGraph extends PureComponent {
         name: "nodata",
       });
     }
-    //console.log("returndata +++", returndata);
+    console.log("returndata +++", returndata);
     return returndata;
   };
 
