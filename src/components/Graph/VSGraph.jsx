@@ -51,6 +51,7 @@ class VSGraph extends PureComponent {
   };
 
   filterRangeByDate = (data) => {
+    console.log("data filter:", data);
     var returndata = [];
     if (data) {
       var startDate = new Date(this.props.maindateStartMain);
@@ -62,28 +63,31 @@ class VSGraph extends PureComponent {
       });
       returndata.push(dateAfterFilter);
     } else {
-      returndata.push({
-        DeathModelData: 0,
-        DeathRawData: 0,
-        HospitalizeModelData: 0,
-        HospitalizeRawData: 0,
-        InfectionModelData: 0,
-        InfectionRawData: 0,
-        MaintenanceShotModelData: 0,
-        MaintenanceShotRawData: 0,
-        SusceptibleModelData: 0,
-        SusceptibleRawData: 0,
-        Vaccines1ModelData: 0,
-        Vaccines1RawData: 0,
-        Vaccines2ModelData: 0,
-        Vaccines2RawData: 0,
-        name: "nodata",
-      });
+      returndata.push([
+        {
+          DeathModelData: 0,
+          DeathRawData: 0,
+          HospitalizeModelData: 0,
+          HospitalizeRawData: 0,
+          InfectionModelData: 0,
+          InfectionRawData: 0,
+          MaintenanceShotModelData: 0,
+          MaintenanceShotRawData: 0,
+          SusceptibleModelData: 0,
+          SusceptibleRawData: 0,
+          Vaccines1ModelData: 0,
+          Vaccines1RawData: 0,
+          Vaccines2ModelData: 0,
+          Vaccines2RawData: 0,
+          name: "nodata",
+        },
+      ]);
     }
-    return returndata;
+    return returndata[0];
   };
 
   monthFilter = (dataMonth) => {
+    console.log("data filter:", dataMonth);
     var returndata = [];
     if (dataMonth) {
       let startMonth = this.props.dateStartMonthMain;
@@ -95,25 +99,27 @@ class VSGraph extends PureComponent {
       });
       returndata.push(dateAfterFilter);
     } else {
-      returndata.push({
-        DeathModelData: 0,
-        DeathRawData: 0,
-        HospitalizeModelData: 0,
-        HospitalizeRawData: 0,
-        InfectionModelData: 0,
-        InfectionRawData: 0,
-        MaintenanceShotModelData: 0,
-        MaintenanceShotRawData: 0,
-        SusceptibleModelData: 0,
-        SusceptibleRawData: 0,
-        Vaccines1ModelData: 0,
-        Vaccines1RawData: 0,
-        Vaccines2ModelData: 0,
-        Vaccines2RawData: 0,
-        name: "nodata",
-      });
+      returndata.push([
+        {
+          DeathModelData: 0,
+          DeathRawData: 0,
+          HospitalizeModelData: 0,
+          HospitalizeRawData: 0,
+          InfectionModelData: 0,
+          InfectionRawData: 0,
+          MaintenanceShotModelData: 0,
+          MaintenanceShotRawData: 0,
+          SusceptibleModelData: 0,
+          SusceptibleRawData: 0,
+          Vaccines1ModelData: 0,
+          Vaccines1RawData: 0,
+          Vaccines2ModelData: 0,
+          Vaccines2RawData: 0,
+          name: "nodata",
+        },
+      ]);
     }
-    return returndata;
+    return returndata[0];
   };
 
   componentDidUpdate(prevProps) {
@@ -144,7 +150,7 @@ class VSGraph extends PureComponent {
             margin={{
               top: 5,
               right: 30,
-              left: 20,
+              left: 35,
               bottom: 5,
             }}
           >

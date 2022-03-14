@@ -634,7 +634,16 @@ export const GraphPage = (props) => {
       <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Grid container justifyContent="center" spacing={3}>
           {setdailyDataTemplate.map((data) => (
-            <Grid key={data.id} item xs={12} sm={6} md={3} lg={3} xl={3}>
+            <Grid
+              key={data.id}
+              item
+              xs={12}
+              sm={6}
+              md={3}
+              lg={3}
+              xl={3}
+              style={{ marginBottom: "50px" }}
+            >
               <Paper
                 style={{
                   //minHeight: 230,
@@ -710,6 +719,7 @@ export const GraphPage = (props) => {
                 style={{
                   minHeight: 100,
                   padding: 30,
+                  height: "100%",
                 }}
                 variant="outlined"
                 square
@@ -770,7 +780,12 @@ export const GraphPage = (props) => {
                   </Grid>
                 </Grid>
               </Paper>
-              <Divider style={{ backgroundColor: data.color, padding: 2 }} />
+              <Divider
+                style={{
+                  backgroundColor: data.color,
+                  padding: 2,
+                }}
+              />
             </Grid>
           ))}
         </Grid>

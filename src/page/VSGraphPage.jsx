@@ -29,7 +29,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export const VSGraphPage = (props) => {
   const [fullGraph, setFullGraph] = useState(false);
   const [period, setPeriod] = React.useState("month");
-
   const [dateStart, setDateStart] = React.useState(props.maindateStartMain);
   const [dateEnd, setDateEnd] = React.useState(props.maindateEndMain);
   const [monthStart, setMonthStart] = React.useState(props.dateStartVS);
@@ -64,11 +63,12 @@ export const VSGraphPage = (props) => {
   ];
 
   const handlePeriod = (event, newPeriod) => {
+    const getNewID = sessionStorage.getItem("id");
     setPeriod(newPeriod);
     if (newPeriod === "day") {
-      props.getVSDataDay();
+      props.getVSDataDay(getNewID);
     } else if (newPeriod === "month") {
-      props.getVSDataMount();
+      props.getVSDataMount(getNewID);
     }
   };
 
@@ -112,7 +112,8 @@ export const VSGraphPage = (props) => {
   ]);
 
   useEffect((period) => {
-    props.getVSDataMount();
+    const getNewID = sessionStorage.getItem("id");
+    props.getVSDataMount(getNewID);
     props.configTypeVS("S");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -315,11 +316,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getVSDataDay: () => {
-      return dispatch(actions.getVSDataDay());
+    getVSDataDay: (id) => {
+      return dispatch(actions.getVSDataDay(id));
     },
-    getVSDataMount: () => {
-      return dispatch(actions.getVSDataMount());
+    getVSDataMount: (id) => {
+      return dispatch(actions.getVSDataMount(id));
     },
     configTypeVS: (type) => {
       return dispatch(actions.configTypeVS(type));

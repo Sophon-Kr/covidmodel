@@ -62,25 +62,27 @@ export const TableVS = (props) => {
       });
       returndata.push(dateAfterFilter);
     } else {
-      returndata.push({
-        DeathModelData: 0,
-        DeathRawData: 0,
-        HospitalizeModelData: 0,
-        HospitalizeRawData: 0,
-        InfectionModelData: 0,
-        InfectionRawData: 0,
-        MaintenanceShotModelData: 0,
-        MaintenanceShotRawData: 0,
-        SusceptibleModelData: 0,
-        SusceptibleRawData: 0,
-        Vaccines1ModelData: 0,
-        Vaccines1RawData: 0,
-        Vaccines2ModelData: 0,
-        Vaccines2RawData: 0,
-        name: "nodata",
-      });
+      returndata.push([
+        {
+          DeathModelData: 0,
+          DeathRawData: 0,
+          HospitalizeModelData: 0,
+          HospitalizeRawData: 0,
+          InfectionModelData: 0,
+          InfectionRawData: 0,
+          MaintenanceShotModelData: 0,
+          MaintenanceShotRawData: 0,
+          SusceptibleModelData: 0,
+          SusceptibleRawData: 0,
+          Vaccines1ModelData: 0,
+          Vaccines1RawData: 0,
+          Vaccines2ModelData: 0,
+          Vaccines2RawData: 0,
+          name: "nodata",
+        },
+      ]);
     }
-    return returndata;
+    return returndata[0];
   };
   // const monthFilter = (dataMonth) => {
   //   let startMonth = props.dateStartMonthMain;
@@ -106,25 +108,27 @@ export const TableVS = (props) => {
       });
       returndata.push(dateAfterFilter);
     } else {
-      returndata.push({
-        DeathModelData: 0,
-        DeathRawData: 0,
-        HospitalizeModelData: 0,
-        HospitalizeRawData: 0,
-        InfectionModelData: 0,
-        InfectionRawData: 0,
-        MaintenanceShotModelData: 0,
-        MaintenanceShotRawData: 0,
-        SusceptibleModelData: 0,
-        SusceptibleRawData: 0,
-        Vaccines1ModelData: 0,
-        Vaccines1RawData: 0,
-        Vaccines2ModelData: 0,
-        Vaccines2RawData: 0,
-        name: "nodata",
-      });
+      returndata.push([
+        {
+          DeathModelData: 0,
+          DeathRawData: 0,
+          HospitalizeModelData: 0,
+          HospitalizeRawData: 0,
+          InfectionModelData: 0,
+          InfectionRawData: 0,
+          MaintenanceShotModelData: 0,
+          MaintenanceShotRawData: 0,
+          SusceptibleModelData: 0,
+          SusceptibleRawData: 0,
+          Vaccines1ModelData: 0,
+          Vaccines1RawData: 0,
+          Vaccines2ModelData: 0,
+          Vaccines2RawData: 0,
+          name: "nodata",
+        },
+      ]);
     }
-    return returndata;
+    return returndata[0];
   };
 
   useEffect(() => {
