@@ -220,8 +220,8 @@ export const getModelDataDay = (id) => {
           // let findDate = maxAndMinDate(res.data.data, "day");
           // let maxDate = findDate[0];
           // let minDate = findDate[1];
-          let maxDate = new Date("02 / 01 / 2022");
-          let minDate = new Date("01 / 01 / 2021");
+          let maxDate = new Date("02-01-2022");
+          let minDate = new Date("01-01-2021");
           console.log("findDate", maxDate, minDate);
 
           dispatch({

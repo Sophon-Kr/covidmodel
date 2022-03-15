@@ -835,7 +835,7 @@ export const GraphPage = (props) => {
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      openTo="day"
+                      // openTo="day"
                       views={["day", "month", "year"]}
                       label="Start Date"
                       // inputFormat="dd/MM/yyyy"
@@ -844,14 +844,14 @@ export const GraphPage = (props) => {
                       maxDate={new Date(props.initialMaxDate)}
                       onChange={handleDateStart}
                       renderInput={(params) => (
-                        <TextField size="small" {...params} />
+                        <TextField size="small" {...params} helperText={null} />
                       )}
                     />
                   </Grid>
                   <Grid item>
                     <DatePicker
                       autoOk={true}
-                      openTo="day"
+                      // openTo="day"
                       views={["day", "month", "year"]}
                       minDate={new Date(props.initialMinDate)}
                       maxDate={new Date(props.initialMaxDate)}
@@ -860,7 +860,7 @@ export const GraphPage = (props) => {
                       value={dateEnd}
                       onChange={handleDateEnd}
                       renderInput={(params) => (
-                        <TextField size="small" {...params} />
+                        <TextField size="small" {...params} helperText={null} />
                       )}
                     />
                   </Grid>
