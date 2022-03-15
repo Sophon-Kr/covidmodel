@@ -34,6 +34,7 @@ const maxAndMinDate = (data, type) => {
       }
     }
   }
+  console.log("newDates ---||", newDates);
   const maxDate = new Date(Math.max.apply(null, newDates));
   const minDate = new Date(Math.min.apply(null, newDates));
 
@@ -217,12 +218,12 @@ export const getModelDataDay = (id) => {
             type: "GET_DATA_MODEL_DAY",
             payload: res.data.data,
           });
-          // let findDate = maxAndMinDate(res.data.data, "day");
-          // let maxDate = findDate[0];
-          // let minDate = findDate[1];
-          let maxDate = new Date("02 01 2022");
-          let minDate = new Date("01 01 2021");
-          console.log("findDate", maxDate, minDate);
+          let findDate = maxAndMinDate(res.data.data, "day");
+          let maxDate = findDate[0];
+          let minDate = findDate[1];
+          // let maxDate = new Date("02 01 2022");
+          // let minDate = new Date("01 01 2021");
+          // console.log("findDate", maxDate, minDate);
 
           dispatch({
             type: "SET_DATE_MAX_MIN",
