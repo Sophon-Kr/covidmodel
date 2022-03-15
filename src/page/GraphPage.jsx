@@ -575,7 +575,7 @@ export const GraphPage = (props) => {
       await fetchDataMonth();
       // await console.log("edit fetchDataMonth", fetchDataAfterEdit);
       await setEdittingStatus(false);
-      // await setCheckFetchStatus(!checkFetchStatus);
+      await setCheckFetchStatus(!checkFetchStatus);
     }
   };
 
