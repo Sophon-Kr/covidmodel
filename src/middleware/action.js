@@ -21,61 +21,22 @@ export const GET_DATA_VS_DAY = "GET_DATA_VS_DAY";
 export const CONFIG_TYPE_VS = "CONFIG_TYPE_VS";
 export const SET_USERID = "SET_USERID";
 
-const maxAndMinDate = (data) => {
+const maxAndMinDate = (data, type) => {
   const newDates = [];
   if (data) {
-    for (let i = 0; i < data.length; i++) {
-      newDates.push(new Date(data[i].name.split("-").join(" ")));
+    if (type === "month") {
+      for (let i = 0; i < data.length; i++) {
+        newDates.push(new Date("1-" + data[i].name.split("-").join(" ")));
+      }
+    } else {
+      for (let i = 0; i < data.length; i++) {
+        newDates.push(new Date(data[i].name.split("-").join(" ")));
+      }
     }
   }
   const maxDate = new Date(Math.max.apply(null, newDates));
   const minDate = new Date(Math.min.apply(null, newDates));
-  // ====================================================
-  // function getMax(dateArray, filler) {
-  //   filler = filler ? filler : "";
-  //   if (!dateArray.length) {
-  //     return filler;
-  //   }
-  //   var max = "";
-  //   dateArray.forEach(function (date) {
-  //     if (date) {
-  //       var d = new Date(date);
-  //       if (max && d.valueOf() > max.valueOf()) {
-  //         max = d;
-  //       } else if (!max) {
-  //         max = d;
-  //       }
-  //     }
-  //   });
-  //   return max;
-  // }
-  // console.log(getMax([], "NA"));
-  // console.log(getMax(newDates, "NA"));
-  // console.log(getMax(newDates));
 
-  // function getMin(dateArray, filler) {
-  //   filler = filler ? filler : "";
-  //   if (!dateArray.length) {
-  //     return filler;
-  //   }
-  //   var min = "";
-  //   dateArray.forEach(function (date) {
-  //     if (date) {
-  //       var d = new Date(date);
-  //       if (min && d.valueOf() < min.valueOf()) {
-  //         min = d;
-  //       } else if (!min) {
-  //         min = d;
-  //       }
-  //     }
-  //   });
-  //   return min;
-  // }
-
-  // console.log(getMin([], "NA"));
-  // console.log(getMin(newDates, "NA"));
-  // console.log(getMin(newDates));
-  // // ========================================
   console.log("maxDate:", maxDate, "minDate:", minDate);
   return [maxDate, minDate];
 };
@@ -145,12 +106,12 @@ export const getRealDataMount = (id) => {
             type: "GET_DATA_REAL_MONTH",
             payload: res.data.data,
           });
-          // let findDate = maxAndMinDate(res.data.data);
-          // let maxDate = findDate[0];
-          // let minDate = findDate[1];
+          let findDate = maxAndMinDate(res.data.data, "month");
+          let maxDate = findDate[0];
+          let minDate = findDate[1];
 
-          let maxDate = new Date("02 / 01 / 2022");
-          let minDate = new Date("01 / 01 / 2021");
+          // let maxDate = new Date("02 / 01 / 2022");
+          // let minDate = new Date("01 / 01 / 2021");
           console.log("findDate +++", maxDate, minDate);
 
           dispatch({
@@ -173,7 +134,7 @@ export const getRealDataDay = (id) => {
             payload: res.data.data,
           });
 
-          let findDate = maxAndMinDate(res.data.data);
+          let findDate = maxAndMinDate(res.data.data, "day");
           let maxDate = findDate[0];
           let minDate = findDate[1];
           // console.log("findDate", maxDate, minDate);
@@ -212,13 +173,13 @@ export const getModelDataMount = (id) => {
             type: "GET_DATA_MODEL_MONTH",
             payload: res.data.data,
           });
-          // let findDate = maxAndMinDate(res.data.data);
-          // let maxDate = findDate[0];
-          // let minDate = findDate[1];
+          let findDate = maxAndMinDate(res.data.data, "month");
+          let maxDate = findDate[0];
+          let minDate = findDate[1];
           // console.log("findDate", maxDate, minDate);
 
-          let maxDate = new Date("02 / 01 / 2022");
-          let minDate = new Date("01 / 01 / 2021");
+          // let maxDate = new Date("02 / 01 / 2022");
+          // let minDate = new Date("01 / 01 / 2021");
           console.log("findDate +++", maxDate, minDate);
 
           dispatch({
@@ -256,7 +217,7 @@ export const getModelDataDay = (id) => {
             type: "GET_DATA_MODEL_DAY",
             payload: res.data.data,
           });
-          let findDate = maxAndMinDate(res.data.data);
+          let findDate = maxAndMinDate(res.data.data, "day");
           let maxDate = findDate[0];
           let minDate = findDate[1];
           // console.log("findDate", maxDate, minDate);
@@ -275,19 +236,18 @@ export const getVSDataMount = (id) => {
       .get(`https://covid-data-123.herokuapp.com/vsdata/month/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
-          console.log("fdsdsdsadad");
           dispatch({
             type: "GET_DATA_VS_MONTH",
 
             payload: res.data.data,
           });
 
-          // let findDate = maxAndMinDate(res.data.data);
-          // let maxDate = findDate[0];
-          // let minDate = findDate[1];
+          let findDate = maxAndMinDate(res.data.data, "month");
+          let maxDate = findDate[0];
+          let minDate = findDate[1];
           // console.log("findDate", maxDate, minDate);
-          let maxDate = new Date("02 / 01 / 2022");
-          let minDate = new Date("01 / 01 / 2021");
+          // let maxDate = new Date("02 / 01 / 2022");
+          // let minDate = new Date("01 / 01 / 2021");
           console.log("findDate +++", maxDate, minDate);
 
           dispatch({
@@ -309,7 +269,7 @@ export const getVSDataDay = (id) => {
             type: "GET_DATA_VS_DAY",
             payload: res.data.data,
           });
-          let findDate = maxAndMinDate(res.data.data);
+          let findDate = maxAndMinDate(res.data.data,"day");
           let maxDate = findDate[0];
           let minDate = findDate[1];
           // console.log("findDate", maxDate, minDate);

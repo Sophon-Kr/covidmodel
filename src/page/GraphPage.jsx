@@ -872,6 +872,8 @@ export const GraphPage = (props) => {
                       autoOk={true}
                       views={["month", "year"]}
                       label="Start Month"
+                      // minDate={new Date("01 / 01 / 2021")}
+                      // maxDate={new Date("02 / 01 / 2022")}
                       minDate={new Date(props.initialMinDate)}
                       maxDate={new Date(props.initialMaxDate)}
                       value={monthStart}
@@ -887,6 +889,8 @@ export const GraphPage = (props) => {
                       autoOk={true}
                       views={["month", "year"]}
                       label="End Month"
+                      // minDate={new Date("01 / 01 / 2021")}
+                      // maxDate={new Date("02 / 01 / 2022")}
                       minDate={new Date(props.initialMinDate)}
                       maxDate={new Date(props.initialMaxDate)}
                       value={monthEnd}
