@@ -30,7 +30,7 @@ const maxAndMinDate = (data, type) => {
       }
     } else {
       for (let i = 0; i < data.length; i++) {
-        newDates.push(new Date(data[i].name.split("-").join(" ")));
+        newDates.push(new Date(data[i].name.split("-").join("/")));
       }
     }
   }
