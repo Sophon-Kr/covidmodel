@@ -171,8 +171,8 @@ export const VSGraphPage = (props) => {
                       label="Start Date"
                       inputFormat="dd/MM/yyyy"
                       value={dateStart}
-                      minDate={props.initialMinDate}
-                      maxDate={props.initialMaxDate}
+                      minDate={new Date(props.initialMinDate)}
+                      maxDate={new Date(props.initialMaxDate)}
                       onChange={handleDateStart}
                       renderInput={(params) => (
                         <TextField size="small" {...params} />
@@ -185,8 +185,8 @@ export const VSGraphPage = (props) => {
                       autoOk={true}
                       openTo="day"
                       views={["day", "month", "year"]}
-                      minDate={props.initialMinDate}
-                      maxDate={props.initialMaxDate}
+                      minDate={new Date(props.initialMinDate)}
+                      maxDate={new Date(props.initialMaxDate)}
                       label="End Date"
                       inputFormat="dd/MM/yyyy"
                       value={dateEnd}
@@ -204,8 +204,8 @@ export const VSGraphPage = (props) => {
                       autoOk={true}
                       views={["month", "year"]}
                       label="Start Month"
-                      minDate={props.initialMinDate}
-                      maxDate={props.initialMaxDate}
+                      minDate={new Date(props.initialMinDate)}
+                      maxDate={new Date(props.initialMaxDate)}
                       value={monthStart}
                       onChange={handleMonthStart}
                       renderInput={(params) => (
@@ -219,8 +219,8 @@ export const VSGraphPage = (props) => {
                       autoOk={true}
                       views={["month", "year"]}
                       label="End Month"
-                      minDate={props.initialMinDate}
-                      maxDate={props.initialMaxDate}
+                      minDate={new Date(props.initialMinDate)}
+                      maxDate={new Date(props.initialMaxDate)}
                       value={monthEnd}
                       onChange={handleMonthEnd}
                       renderInput={(params) => (
