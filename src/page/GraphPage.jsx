@@ -966,7 +966,7 @@ export const GraphPage = (props) => {
               alignItems="center"
             >
               {listData.map((data) => (
-                <Grid item key={data.key}>
+                <Grid item key={data.id}>
                   <FormControlLabel
                     value="end"
                     control={
@@ -995,7 +995,7 @@ export const GraphPage = (props) => {
               alignItems="center"
             >
               {listData2.map((data) => (
-                <Grid item key={data.name}>
+                <Grid item key={data.id}>
                   <FormControlLabel
                     value="end"
                     control={

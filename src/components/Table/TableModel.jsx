@@ -181,6 +181,7 @@ export const TableModel = (props) => {
                     ? [
                         props.mainMStatus ? (
                           <TableCell
+                            key={props.mainMStatus}
                             align="left"
                             style={{ backgroundColor: "#8c9eff" }}
                           >
@@ -188,6 +189,7 @@ export const TableModel = (props) => {
                           </TableCell>
                         ) : (
                           <TableCell
+                            key={props.mainMStatus}
                             align="left"
                             style={{ backgroundColor: "#e0e0e0" }}
                           >
@@ -247,7 +249,7 @@ export const TableModel = (props) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {data.map((row) => (
+                {data.map((row, index) => (
                   <TableRow
                     key={row.name}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

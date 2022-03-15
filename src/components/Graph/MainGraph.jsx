@@ -83,7 +83,7 @@ class MainGraph extends PureComponent {
       let endMonth = this.props.dateEndMonthMain;
 
       var dateAfterFilter = dataMonth.filter((a) => {
-        var date = new Date("1-" + (a.name.split("-").join(" ")));
+        var date = new Date("1-" + a.name.split("-").join(" "));
         // console.log("````date````:", date);
         return date >= startMonth && date <= endMonth;
       });
@@ -291,6 +291,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {};
+// const mapDispatchToProps = (dispatch) => {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainGraph);
+export default connect(mapStateToProps, null)(MainGraph);
