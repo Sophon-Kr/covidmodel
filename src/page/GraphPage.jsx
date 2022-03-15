@@ -838,7 +838,7 @@ export const GraphPage = (props) => {
                       openTo="day"
                       views={["day", "month", "year"]}
                       label="Start Date"
-                      inputFormat="dd/MM/yyyy"
+                      // inputFormat="dd/MM/yyyy"
                       value={dateStart}
                       minDate={new Date(props.initialMinDate)}
                       maxDate={new Date(props.initialMaxDate)}
@@ -856,7 +856,7 @@ export const GraphPage = (props) => {
                       minDate={new Date(props.initialMinDate)}
                       maxDate={new Date(props.initialMaxDate)}
                       label="End Date"
-                      inputFormat="dd/MM/yyyy"
+                      // inputFormat="dd/MM/yyyy"
                       value={dateEnd}
                       onChange={handleDateEnd}
                       renderInput={(params) => (
