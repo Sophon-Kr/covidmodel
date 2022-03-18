@@ -48,7 +48,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export const GraphPage = (props) => {
-  //const [tempDataService, setTempData] = useState([]);
   const [dialogStatus, setDialogStatus] = useState(false);
   const [fullGraph, setFullGraph] = useState(false);
   const [period, setPeriod] = React.useState(props.mainperiod);
@@ -1165,40 +1164,51 @@ export const GraphPage = (props) => {
           ) : null}
         </DialogContent>
         <DialogActions>
-          {typeData === "model" ? (
-            <Grid item style={{ flexGrow: 1 }}>
+          <Grid
+            container
+            spacing={1}
+            justifyContent="space-around"
+            alignItems="center"
+          >
+            {typeData === "model" ? (
+              <Grid item>
+                <Button
+                  onClick={handleResetDefault}
+                  variant="contained"
+                  style={{
+                    color: "white",
+                    backgroundColor: "grey",
+                    width: "280px",
+                  }}
+                >
+                  Reset Default Value
+                </Button>
+              </Grid>
+            ) : null}
+
+            <Grid item>
               <Button
-                onClick={handleResetDefault}
+                onClick={handleDialogClose}
                 variant="contained"
                 style={{
                   color: "white",
-                  backgroundColor: "grey",
+                  backgroundColor: "#ef5350",
                 }}
               >
-                Reset Default Value
+                Cancel Config
+              </Button>
+              <Button
+                onClick={handleCheck}
+                variant="contained"
+                style={{
+                  color: "white",
+                  backgroundColor: "#0091ea",
+                  marginLeft: 10,
+                }}
+              >
+                Save Config
               </Button>
             </Grid>
-          ) : null}
-
-          <Grid item>
-            <Button
-              onClick={handleDialogClose}
-              variant="contained"
-              style={{ color: "white", backgroundColor: "#ef5350" }}
-            >
-              Cancel Config
-            </Button>
-            <Button
-              onClick={handleCheck}
-              variant="contained"
-              style={{
-                color: "white",
-                backgroundColor: "#0091ea",
-                marginLeft: 10,
-              }}
-            >
-              Save Config
-            </Button>
           </Grid>
         </DialogActions>
       </Dialog>

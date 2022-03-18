@@ -99,12 +99,16 @@ export const VSGraphPage = (props) => {
     setMonthEnd(newMonth);
     props.configDateEndMonthMain(newMonth);
   };
-
-  useEffect(() => {
+  const setAllDate = () => {
     setDateStart(props.maindateStartMain);
     setDateEnd(props.maindateEndMain);
     setMonthStart(props.dateStartVS);
     setMonthEnd(props.dateEndVS);
+  };
+
+  useEffect(() => {
+    setAllDate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     props.maindateEndMain,
     props.maindateStartMain,
@@ -146,7 +150,13 @@ export const VSGraphPage = (props) => {
                 style={{ backgroundColor: "#EBF5FB" }}
               />
             ) : (
-              <Grid container justifyContent="end" spacing={3}>
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-end"
+                alignItems="center"
+                spacing={3}
+              >
                 <Grid item style={{ flexGrow: 1, paddingLeft: 35 }}>
                   <Typography variant="h5" color="initial">
                     Comparison Graph

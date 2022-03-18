@@ -35,11 +35,11 @@ const maxAndMinDate = (data, type) => {
       }
     }
   }
-  console.log("newDates ---||", newDates);
+  // console.log("newDates ---||", newDates);
   const maxDate = new Date(Math.max.apply(null, newDates));
   const minDate = new Date(Math.min.apply(null, newDates));
 
-  console.log("maxDate:", maxDate, "minDate:", minDate);
+  // console.log("maxDate:", maxDate, "minDate:", minDate);
   return [maxDate, minDate];
 };
 

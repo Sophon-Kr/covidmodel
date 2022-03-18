@@ -85,7 +85,7 @@ export const TableModel = (props) => {
 
   useEffect(() => {
     async function fetchData() {
-      await setData([]);
+      // await setData([]);
       if (props.mainperiod === "day") {
         let tempDataTable1 = filterRangeByDate(props.mainTempData);
         await setData(tempDataTable1);
