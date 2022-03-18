@@ -4,7 +4,7 @@ export async function getAllInitial(id) {
   return axios
     .get(`https://covid-data-123.herokuapp.com/covidmodel/${id}`)
     .then((res) => {
-      // console.log("res", res.data.initial_default);
+      console.log("res getAllInitial", res.data.initial_default);
       return res.data.initial_default;
     });
 }
@@ -60,7 +60,7 @@ export async function editInitialByDate({
   //   zetas
   // );
   return axios
-    .put(`https://covid-data-123.herokuapp.com/covidmodel${id}`, {
+    .put(`https://covid-data-123.herokuapp.com/covidmodel/${id}`, {
       start_date: start_date,
       alpha: alpha,
       beta: beta,
@@ -76,7 +76,7 @@ export async function editInitialByDate({
       zetas: zetas,
     })
     .then((res) => {
-      // console.log("res editInitialByDate", res.data.initial_value);
+      console.log("res editInitialByDate", res.data.initial_value);
       return res.data.initial_value;
     });
 }

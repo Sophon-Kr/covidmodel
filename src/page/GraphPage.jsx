@@ -561,7 +561,7 @@ export const GraphPage = (props) => {
       await editInitialValueByDate();
       await getAllIntialValue();
       await parameterChange();
-      // await setCheckFetchStatus(!checkFetchStatus);
+      await setCheckFetchStatus(!checkFetchStatus);
       // const fetchDataAfterEdit =
       await fetchDataMonth();
       // await console.log("edit fetchDataMonth", fetchDataAfterEdit);
@@ -598,8 +598,6 @@ export const GraphPage = (props) => {
     props.dateEndMonthMain,
     props.dateStartMonthMain,
   ]);
-
-
 
   useEffect(() => {
     async function fetchDailyData() {
@@ -1248,7 +1246,10 @@ export const GraphPage = (props) => {
         </Box>
       </Backdrop>
       <Backdrop
-        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 100 }}
+        sx={{
+          color: "#fff",
+          zIndex: (theme) => theme.zIndex.drawer + 100,
+        }}
         open={edittingStatus}
       >
         <Box sx={{ width: "30%" }}>
