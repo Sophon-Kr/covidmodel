@@ -133,7 +133,7 @@ const modelDisplay = [
 export const Modelpage = (props) => {
   React.useEffect(() => {
     const getNewID = sessionStorage.getItem("id");
-    console.log("getNewID Modelpage",getNewID);
+    console.log("getNewID Modelpage", getNewID);
     resetInitial(getNewID);
   }, [props.userID]);
 
@@ -247,6 +247,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {};
+// const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modelpage);
+export default connect(mapStateToProps, null)(Modelpage);

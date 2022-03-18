@@ -64,11 +64,12 @@ export const DescriptionPicCenter = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+// const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = {};
+// const mapDispatchToProps = {};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DescriptionPicCenter);
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(DescriptionPicCenter);
+export default DescriptionPicCenter;

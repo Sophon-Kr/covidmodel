@@ -120,11 +120,12 @@ export const DescriptionEquationTable = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+// const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = {};
+// const mapDispatchToProps = {};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DescriptionEquationTable);
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(DescriptionEquationTable);
+export default DescriptionEquationTable;

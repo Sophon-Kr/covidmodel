@@ -612,6 +612,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {};
+// const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(TableVS);
+export default connect(mapStateToProps, null)(TableVS);

@@ -21,7 +21,6 @@ import { CONFIG_TYPE_VS } from "./action";
 import { SET_USERID } from "./action";
 import { SET_LOADING_SKELETON } from "./action";
 
-
 const initialState = {
   periodMain: "month",
   periodVS: "month",
@@ -87,21 +86,11 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case GET_DATA_REAL_MONTH:
       console.log(type, payload);
-      // var max = payload.reduce(function (a, b) {
-      //   return a > b ? a : b;
-      // });
-      // console.log("max ==== ", max.name);
-      // var min = payload.reduce(function (a, b) {
-      //   return a < b ? b : a;
-      // });
-      // console.log("min ==== ", min.name);
 
       return {
         ...state,
         realDataMonth: payload,
         tempData: payload,
-        // minDateMonth: new Date(min),
-        // maxDateMonth: new Date(max),
       };
 
     case GET_DATA_REAL_DAY:
@@ -114,21 +103,11 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case GET_DATA_MODEL_MONTH:
       console.log(type, payload);
-      // var max = payload.reduce(function (a, b) {
-      //   return a > b ? a : b;
-      // });
-      // console.log("max ==== ", new Date(max.name));
-      // var min = payload.reduce(function (a, b) {
-      //   return a < b ? b : a;
-      // });
-      // console.log("min ==== ", new Date(min.name));
 
       return {
         ...state,
         modelDataMonth: payload,
         tempData: payload,
-        // minDateMonth: new Date(min.name),
-        // maxDateMonth: new Date(max.name),
       };
 
     case GET_DATA_MODEL_DAY:
@@ -144,7 +123,6 @@ const reducer = (state = initialState, { type, payload }) => {
 
       return {
         ...state,
-        //modelDataMonth: payload,
         vsData: payload,
       };
 
@@ -152,7 +130,6 @@ const reducer = (state = initialState, { type, payload }) => {
       console.log(type, payload);
       return {
         ...state,
-        // modelDataDay: payload,
         vsData: payload,
       };
 

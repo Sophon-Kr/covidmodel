@@ -152,8 +152,9 @@ export const CoAdviser = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+// const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = {};
+// const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoAdviser);
+// export default connect(mapStateToProps, mapDispatchToProps)(CoAdviser);
+export default CoAdviser;

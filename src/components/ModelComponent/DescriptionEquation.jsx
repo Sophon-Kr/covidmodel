@@ -87,7 +87,7 @@ const equationCovid = [
       </span>
     ),
   },
- 
+
   {
     id: "7",
     node: "D",
@@ -148,11 +148,12 @@ export const DescriptionEquation = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+// const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = {};
+// const mapDispatchToProps = {};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DescriptionEquation);
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(DescriptionEquation);
+export default DescriptionEquation;

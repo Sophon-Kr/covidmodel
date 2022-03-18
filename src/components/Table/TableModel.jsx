@@ -301,6 +301,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {};
+// const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(TableModel);
+export default connect(mapStateToProps, null)(TableModel);

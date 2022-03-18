@@ -62,7 +62,6 @@ export const ContactForm = (props) => {
     const testsend = await sendEmail(forSend);
     console.log("testsend", testsend);
     handleOpenSnackbar(testsend);
-  
   };
 
   return (
@@ -311,8 +310,9 @@ export const ContactForm = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+// const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = {};
+// const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
+// export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
+export default ContactForm;

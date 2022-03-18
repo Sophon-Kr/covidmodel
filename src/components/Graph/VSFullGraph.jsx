@@ -289,6 +289,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {};
+// const mapDispatchToProps = (dispatch) => {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(VSFullGraph);
+export default connect(mapStateToProps, null)(VSFullGraph);
