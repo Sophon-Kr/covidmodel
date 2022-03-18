@@ -185,7 +185,7 @@ class MainGraphFull extends PureComponent {
             margin={{
               top: 5,
               right: 30,
-              left: 35,
+              left: 38,
               bottom: 5,
             }}
           >

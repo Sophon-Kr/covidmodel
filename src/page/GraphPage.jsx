@@ -33,7 +33,6 @@ import Skeleton from "@mui/material/Skeleton";
 
 import MainGraphFull from "../components/Graph/MainGraphFull";
 import TableModel from "../components/Table/TableModel";
-import MaingraphSkeleton from "../components/Skeleton/MaingraphSkeleton";
 import covid from "../assets/virusicon.png";
 import lung from "../assets/lungicon.png";
 import flight from "../assets/airplaneicon.png";
@@ -795,162 +794,254 @@ export const GraphPage = (props) => {
       {/* =================Main Graph Arear============= */}
       <Container maxWidth="xxl" style={{ paddingTop: 30 }}>
         <Paper variant="outlined" square style={{ padding: 35 }}>
-          <Grid
-            container
-            style={{
-              padding: 10,
-              marginBottom: 35,
-            }}
-          >
+          {props.loadSkeleton ? (
+            <Skeleton
+              variant="text"
+              animation="wave"
+              width="100%"
+              height={80}
+              style={{ backgroundColor: "#EBF5FB" }}
+            />
+          ) : (
             <Grid
               container
-              direction="row"
-              justifyContent="flex-end"
-              alignItems="center"
-              spacing={3}
+              style={{
+                padding: 10,
+                marginBottom: 35,
+              }}
             >
-              <Grid item style={{ flexGrow: 1, paddingLeft: 35 }}>
-                <Typography variant="h5" color="initial">
-                  COVID-19 Graph
-                </Typography>
-              </Grid>
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-end"
+                alignItems="center"
+                spacing={3}
+              >
+                <Grid item style={{ flexGrow: 1, paddingLeft: 35 }}>
+                  <Typography variant="h5" color="initial">
+                    COVID-19 Graph
+                  </Typography>
+                </Grid>
 
-              <Grid item>
-                <ToggleButtonGroup
-                  size="small"
-                  color="primary"
-                  value={period}
-                  exclusive
-                  onChange={handlePeriod}
-                >
-                  <ToggleButton value="day">
-                    <CalendarTodayIcon /> &nbsp; Day &nbsp;
-                  </ToggleButton>
-                  <ToggleButton value="month">
-                    <EventNoteIcon />
-                    &nbsp;Month&nbsp;
-                  </ToggleButton>
-                </ToggleButtonGroup>
-              </Grid>
-              {props.mainperiod === "day" ? (
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                  <Grid item>
-                    <DatePicker
-                      autoOk={true}
-                      // openTo="day"
-                      views={["day", "month", "year"]}
-                      label="Start Date"
-                      // inputFormat="dd/MM/yyyy"
-                      value={dateStart}
-                      minDate={new Date(props.initialMinDate)}
-                      maxDate={new Date(props.initialMaxDate)}
-                      onChange={handleDateStart}
-                      renderInput={(params) => (
-                        <TextField size="small" {...params} helperText={null} />
-                      )}
-                    />
-                  </Grid>
-                  <Grid item>
-                    <DatePicker
-                      autoOk={true}
-                      // openTo="day"
-                      views={["day", "month", "year"]}
-                      minDate={new Date(props.initialMinDate)}
-                      maxDate={new Date(props.initialMaxDate)}
-                      label="End Date"
-                      // inputFormat="dd/MM/yyyy"
-                      value={dateEnd}
-                      onChange={handleDateEnd}
-                      renderInput={(params) => (
-                        <TextField size="small" {...params} helperText={null} />
-                      )}
-                    />
-                  </Grid>
-                </LocalizationProvider>
-              ) : props.mainperiod === "month" ? (
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                  <Grid item>
-                    <DatePicker
-                      autoOk={true}
-                      views={["month", "year"]}
-                      label="Start Month"
-                      // minDate={new Date("01 / 01 / 2021")}
-                      // maxDate={new Date("02 / 01 / 2022")}
-                      minDate={new Date(props.initialMinDate)}
-                      maxDate={new Date(props.initialMaxDate)}
-                      value={monthStart}
-                      onChange={handleMonthStart}
-                      renderInput={(params) => (
-                        <TextField size="small" {...params} helperText={null} />
-                      )}
-                    />
-                  </Grid>
+                <Grid item>
+                  <ToggleButtonGroup
+                    size="small"
+                    color="primary"
+                    value={period}
+                    exclusive
+                    onChange={handlePeriod}
+                  >
+                    <ToggleButton value="day">
+                      <CalendarTodayIcon /> &nbsp; Day &nbsp;
+                    </ToggleButton>
+                    <ToggleButton value="month">
+                      <EventNoteIcon />
+                      &nbsp;Month&nbsp;
+                    </ToggleButton>
+                  </ToggleButtonGroup>
+                </Grid>
+                {props.mainperiod === "day" ? (
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item>
+                      <DatePicker
+                        autoOk={true}
+                        // openTo="day"
+                        views={["day", "month", "year"]}
+                        label="Start Date"
+                        // inputFormat="dd/MM/yyyy"
+                        value={dateStart}
+                        minDate={new Date(props.initialMinDate)}
+                        maxDate={new Date(props.initialMaxDate)}
+                        onChange={handleDateStart}
+                        renderInput={(params) => (
+                          <TextField
+                            size="small"
+                            {...params}
+                            helperText={null}
+                          />
+                        )}
+                      />
+                    </Grid>
+                    <Grid item>
+                      <DatePicker
+                        autoOk={true}
+                        // openTo="day"
+                        views={["day", "month", "year"]}
+                        minDate={new Date(props.initialMinDate)}
+                        maxDate={new Date(props.initialMaxDate)}
+                        label="End Date"
+                        // inputFormat="dd/MM/yyyy"
+                        value={dateEnd}
+                        onChange={handleDateEnd}
+                        renderInput={(params) => (
+                          <TextField
+                            size="small"
+                            {...params}
+                            helperText={null}
+                          />
+                        )}
+                      />
+                    </Grid>
+                  </LocalizationProvider>
+                ) : props.mainperiod === "month" ? (
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item>
+                      <DatePicker
+                        autoOk={true}
+                        views={["month", "year"]}
+                        label="Start Month"
+                        // minDate={new Date("01 / 01 / 2021")}
+                        // maxDate={new Date("02 / 01 / 2022")}
+                        minDate={new Date(props.initialMinDate)}
+                        maxDate={new Date(props.initialMaxDate)}
+                        value={monthStart}
+                        onChange={handleMonthStart}
+                        renderInput={(params) => (
+                          <TextField
+                            size="small"
+                            {...params}
+                            helperText={null}
+                          />
+                        )}
+                      />
+                    </Grid>
 
-                  <Grid item>
-                    <DatePicker
-                      autoOk={true}
-                      views={["month", "year"]}
-                      label="End Month"
-                      // minDate={new Date("01 / 01 / 2021")}
-                      // maxDate={new Date("02 / 01 / 2022")}
-                      minDate={new Date(props.initialMinDate)}
-                      maxDate={new Date(props.initialMaxDate)}
-                      value={monthEnd}
-                      // todayText="Today"
-                      onChange={handleMonthEnd}
-                      renderInput={(params) => (
-                        <TextField size="small" {...params} helperText={null} />
-                      )}
-                    />
-                  </Grid>
-                </LocalizationProvider>
-              ) : null}
+                    <Grid item>
+                      <DatePicker
+                        autoOk={true}
+                        views={["month", "year"]}
+                        label="End Month"
+                        // minDate={new Date("01 / 01 / 2021")}
+                        // maxDate={new Date("02 / 01 / 2022")}
+                        minDate={new Date(props.initialMinDate)}
+                        maxDate={new Date(props.initialMaxDate)}
+                        value={monthEnd}
+                        // todayText="Today"
+                        onChange={handleMonthEnd}
+                        renderInput={(params) => (
+                          <TextField
+                            size="small"
+                            {...params}
+                            helperText={null}
+                          />
+                        )}
+                      />
+                    </Grid>
+                  </LocalizationProvider>
+                ) : null}
 
-              <Grid item>
-                <ToggleButtonGroup
-                  size="small"
-                  color="error"
-                  value={typeData}
-                  exclusive
-                  onChange={handleTypeData}
-                >
-                  <ToggleButton value="real">&nbsp;Raw Data&nbsp;</ToggleButton>
-                  <ToggleButton value="model">
-                    &nbsp;Model Data&nbsp;
-                  </ToggleButton>
-                </ToggleButtonGroup>
-              </Grid>
+                <Grid item>
+                  <ToggleButtonGroup
+                    size="small"
+                    color="error"
+                    value={typeData}
+                    exclusive
+                    onChange={handleTypeData}
+                  >
+                    <ToggleButton value="real">
+                      &nbsp;Raw Data&nbsp;
+                    </ToggleButton>
+                    <ToggleButton value="model">
+                      &nbsp;Model Data&nbsp;
+                    </ToggleButton>
+                  </ToggleButtonGroup>
+                </Grid>
 
-              <Grid item>
-                <Button
-                  variant="contained"
-                  style={{ backgroundColor: "#AED6F1", color: "black" }}
-                  onClick={handleFullGraphOpen}
-                >
-                  <FullscreenRoundedIcon />
-                </Button>
-              </Grid>
-              <Grid item>
-                <Button
-                  variant="contained"
-                  style={{ backgroundColor: "#AED6F1", color: "black" }}
-                  onClick={handleDialogOpen}
-                  startIcon={<SettingsIcon />}
-                >
-                  Config Graph
-                </Button>
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    style={{ backgroundColor: "#AED6F1", color: "black" }}
+                    onClick={handleFullGraphOpen}
+                  >
+                    <FullscreenRoundedIcon />
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    style={{ backgroundColor: "#AED6F1", color: "black" }}
+                    onClick={handleDialogOpen}
+                    startIcon={<SettingsIcon />}
+                  >
+                    Config Graph
+                  </Button>
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
+          )}
           {/* ======================maingraph=================== */}
           {props.loadSkeleton ? (
-            <Skeleton variant="rectangular" animation="wave" width="100%" height={445} />
+            <Skeleton
+              variant="rectangular"
+              animation="wave"
+              width="100%"
+              height={445}
+              style={{ backgroundColor: "#EBF5FB" }}
+            />
           ) : (
             <MainGraph />
           )}
         </Paper>
       </Container>
-      <TableModel />
+      {props.loadSkeleton ? (
+        <Container maxWidth="xxl" style={{ paddingBottom: 30 }}>
+          <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
+            <Paper
+              style={{
+                minHeight: 100,
+                padding: 30,
+              }}
+              variant="outlined"
+              square
+            >
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={100}
+              />
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={65}
+              />
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={65}
+              />
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={65}
+              />
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={65}
+              />
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={65}
+              />
+            </Paper>
+          </Container>
+        </Container>
+      ) : (
+        <TableModel />
+      )}
 
       {/* ==================== dialog setting =========================== */}
       <Dialog maxWidth="md" onClose={handleDialogClose} open={dialogStatus}>

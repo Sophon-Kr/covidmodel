@@ -100,6 +100,10 @@ export const configTypeVS = (payload) => ({
 
 export const getRealDataMount = (id) => {
   return async (dispatch) => {
+    dispatch({
+      type: "SET_LOADING_SKELETON",
+      payload: true,
+    });
     return axios
       .get(`https://covid-data-123.herokuapp.com/coviddata/month/${id}`)
       .then((res) => {
@@ -120,6 +124,10 @@ export const getRealDataMount = (id) => {
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
           });
+          dispatch({
+            type: "SET_LOADING_SKELETON",
+            payload: false,
+          });
         }
       });
   };
@@ -127,6 +135,10 @@ export const getRealDataMount = (id) => {
 
 export const getRealDataDay = (id) => {
   return async (dispatch) => {
+    dispatch({
+      type: "SET_LOADING_SKELETON",
+      payload: true,
+    });
     return axios
       .get(`https://covid-data-123.herokuapp.com/coviddata/day/${id}`)
       .then((res) => {
@@ -144,6 +156,10 @@ export const getRealDataDay = (id) => {
           dispatch({
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
+          });
+          dispatch({
+            type: "SET_LOADING_SKELETON",
+            payload: false,
           });
         }
       });
@@ -224,6 +240,10 @@ export const getModelDataDay = (id) => {
 };
 export const getVSDataMount = (id) => {
   return async (dispatch) => {
+    dispatch({
+      type: "SET_LOADING_SKELETON",
+      payload: true,
+    });
     return axios
       .get(`https://covid-data-123.herokuapp.com/vsdata/month/${id}`)
       .then((res) => {
@@ -246,6 +266,10 @@ export const getVSDataMount = (id) => {
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
           });
+          dispatch({
+            type: "SET_LOADING_SKELETON",
+            payload: false,
+          });
         }
       });
   };
@@ -253,6 +277,10 @@ export const getVSDataMount = (id) => {
 
 export const getVSDataDay = (id) => {
   return async (dispatch) => {
+    dispatch({
+      type: "SET_LOADING_SKELETON",
+      payload: true,
+    });
     return axios
       .get(`https://covid-data-123.herokuapp.com/vsdata/day/${id}`)
       .then((res) => {
@@ -269,6 +297,10 @@ export const getVSDataDay = (id) => {
           dispatch({
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
+          });
+          dispatch({
+            type: "SET_LOADING_SKELETON",
+            payload: false,
           });
         }
       });
@@ -287,21 +319,6 @@ export const getDailyData = () => {
       });
   };
 };
-// export const getUserID = () => {
-//   return async (dispatch) => {
-//     console.log("getUserID first : ");
-//     return axios
-//       .get(`https://covid-data-123.herokuapp.com/createuserid`)
-//       .then((res) => {
-//         console.log("getUserID return : ", res);
-//         sessionStorage.setItem("id", res.id);
-//         // dispatch({
-//         //   type: "GET_USERID",
-//         //   payload: res.data.id,
-//         // });
-//       });
-//   };
-// };
 
 export const setListForRemove = (payload) => ({
   type: "SET_LIST_FOR_REMOVE",
