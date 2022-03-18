@@ -21,6 +21,7 @@ import VSFullGraph from "../components/Graph/VSFullGraph";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
+import Skeleton from "@mui/material/Skeleton";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -136,133 +137,219 @@ export const VSGraphPage = (props) => {
               marginBottom: 35,
             }}
           >
-            <Grid container justifyContent="end" spacing={3}>
-              <Grid item style={{ flexGrow: 1, paddingLeft: 35 }}>
-                <Typography variant="h5" color="initial">
-                  Comparison Graph
-                </Typography>
+            {props.loadSkeleton ? (
+              <Skeleton
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={80}
+                style={{ backgroundColor: "#EBF5FB" }}
+              />
+            ) : (
+              <Grid container justifyContent="end" spacing={3}>
+                <Grid item style={{ flexGrow: 1, paddingLeft: 35 }}>
+                  <Typography variant="h5" color="initial">
+                    Comparison Graph
+                  </Typography>
+                </Grid>
+
+                <Grid item>
+                  <ToggleButtonGroup
+                    size="small"
+                    color="primary"
+                    value={period}
+                    exclusive
+                    onChange={handlePeriod}
+                  >
+                    <ToggleButton value="day">
+                      <CalendarTodayIcon /> &nbsp; Day &nbsp;
+                    </ToggleButton>
+                    <ToggleButton value="month">
+                      <EventNoteIcon />
+                      &nbsp;Month&nbsp;
+                    </ToggleButton>
+                  </ToggleButtonGroup>
+                </Grid>
+
+                {period === "day" ? (
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item>
+                      <DatePicker
+                        autoOk={true}
+                        openTo="day"
+                        views={["day", "month", "year"]}
+                        label="Start Date"
+                        inputFormat="dd/MM/yyyy"
+                        value={dateStart}
+                        minDate={new Date(props.initialMinDate)}
+                        maxDate={new Date(props.initialMaxDate)}
+                        onChange={handleDateStart}
+                        renderInput={(params) => (
+                          <TextField size="small" {...params} />
+                        )}
+                      />
+                    </Grid>
+
+                    <Grid item>
+                      <DatePicker
+                        autoOk={true}
+                        openTo="day"
+                        views={["day", "month", "year"]}
+                        minDate={new Date(props.initialMinDate)}
+                        maxDate={new Date(props.initialMaxDate)}
+                        label="End Date"
+                        inputFormat="dd/MM/yyyy"
+                        value={dateEnd}
+                        onChange={handleDateEnd}
+                        renderInput={(params) => (
+                          <TextField size="small" {...params} />
+                        )}
+                      />
+                    </Grid>
+                  </LocalizationProvider>
+                ) : period === "month" ? (
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item>
+                      <DatePicker
+                        autoOk={true}
+                        views={["month", "year"]}
+                        label="Start Month"
+                        minDate={new Date(props.initialMinDate)}
+                        maxDate={new Date(props.initialMaxDate)}
+                        value={monthStart}
+                        onChange={handleMonthStart}
+                        renderInput={(params) => (
+                          <TextField
+                            size="small"
+                            {...params}
+                            helperText={null}
+                          />
+                        )}
+                      />
+                    </Grid>
+
+                    <Grid item>
+                      <DatePicker
+                        autoOk={true}
+                        views={["month", "year"]}
+                        label="End Month"
+                        minDate={new Date(props.initialMinDate)}
+                        maxDate={new Date(props.initialMaxDate)}
+                        value={monthEnd}
+                        onChange={handleMonthEnd}
+                        renderInput={(params) => (
+                          <TextField
+                            size="small"
+                            {...params}
+                            helperText={null}
+                          />
+                        )}
+                      />
+                    </Grid>
+                  </LocalizationProvider>
+                ) : null}
+
+                <Grid item>
+                  <TextField
+                    select
+                    label="Comparison node"
+                    size="small"
+                    value={nodeData}
+                    onChange={handleNodeData}
+                    style={{ minWidth: 130 }}
+                  >
+                    {nodeDataComparison.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Grid>
+
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    style={{ backgroundColor: "#AED6F1", color: "black" }}
+                    onClick={handleFullGraphOpen}
+                  >
+                    <FullscreenRoundedIcon />
+                  </Button>
+                </Grid>
               </Grid>
-
-              <Grid item>
-                <ToggleButtonGroup
-                  size="small"
-                  color="primary"
-                  value={period}
-                  exclusive
-                  onChange={handlePeriod}
-                >
-                  <ToggleButton value="day">
-                    <CalendarTodayIcon /> &nbsp; Day &nbsp;
-                  </ToggleButton>
-                  <ToggleButton value="month">
-                    <EventNoteIcon />
-                    &nbsp;Month&nbsp;
-                  </ToggleButton>
-                </ToggleButtonGroup>
-              </Grid>
-
-              {period === "day" ? (
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                  <Grid item>
-                    <DatePicker
-                      autoOk={true}
-                      openTo="day"
-                      views={["day", "month", "year"]}
-                      label="Start Date"
-                      inputFormat="dd/MM/yyyy"
-                      value={dateStart}
-                      minDate={new Date(props.initialMinDate)}
-                      maxDate={new Date(props.initialMaxDate)}
-                      onChange={handleDateStart}
-                      renderInput={(params) => (
-                        <TextField size="small" {...params} />
-                      )}
-                    />
-                  </Grid>
-
-                  <Grid item>
-                    <DatePicker
-                      autoOk={true}
-                      openTo="day"
-                      views={["day", "month", "year"]}
-                      minDate={new Date(props.initialMinDate)}
-                      maxDate={new Date(props.initialMaxDate)}
-                      label="End Date"
-                      inputFormat="dd/MM/yyyy"
-                      value={dateEnd}
-                      onChange={handleDateEnd}
-                      renderInput={(params) => (
-                        <TextField size="small" {...params} />
-                      )}
-                    />
-                  </Grid>
-                </LocalizationProvider>
-              ) : period === "month" ? (
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                  <Grid item>
-                    <DatePicker
-                      autoOk={true}
-                      views={["month", "year"]}
-                      label="Start Month"
-                      minDate={new Date(props.initialMinDate)}
-                      maxDate={new Date(props.initialMaxDate)}
-                      value={monthStart}
-                      onChange={handleMonthStart}
-                      renderInput={(params) => (
-                        <TextField size="small" {...params} helperText={null} />
-                      )}
-                    />
-                  </Grid>
-
-                  <Grid item>
-                    <DatePicker
-                      autoOk={true}
-                      views={["month", "year"]}
-                      label="End Month"
-                      minDate={new Date(props.initialMinDate)}
-                      maxDate={new Date(props.initialMaxDate)}
-                      value={monthEnd}
-                      onChange={handleMonthEnd}
-                      renderInput={(params) => (
-                        <TextField size="small" {...params} helperText={null} />
-                      )}
-                    />
-                  </Grid>
-                </LocalizationProvider>
-              ) : null}
-
-              <Grid item>
-                <TextField
-                  select
-                  label="Comparison node"
-                  size="small"
-                  value={nodeData}
-                  onChange={handleNodeData}
-                  style={{ minWidth: 130 }}
-                >
-                  {nodeDataComparison.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Grid>
-
-              <Grid item>
-                <Button
-                  variant="contained"
-                  style={{ backgroundColor: "#AED6F1", color: "black" }}
-                  onClick={handleFullGraphOpen}
-                >
-                  <FullscreenRoundedIcon />
-                </Button>
-              </Grid>
-            </Grid>
+            )}
           </Grid>
-          <VSGraph period={period} />
+          {props.loadSkeleton ? (
+            <Skeleton
+              variant="rectangular"
+              animation="wave"
+              width="100%"
+              height={445}
+              style={{ backgroundColor: "#EBF5FB" }}
+            />
+          ) : (
+            <VSGraph period={period} />
+          )}
         </Paper>
       </Container>
-      <TableVS period={period} />
+      {props.loadSkeleton ? (
+        <Container maxWidth="xxl" style={{ paddingBottom: 30 }}>
+          <Container maxWidth="xxl" style={{ paddingTop: 30 }} disableGutters>
+            <Paper
+              style={{
+                minHeight: 100,
+                padding: 30,
+              }}
+              variant="outlined"
+              square
+            >
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={100}
+              />
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={65}
+              />
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={65}
+              />
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={65}
+              />
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={65}
+              />
+              <Skeleton
+                style={{ backgroundColor: "#EBF5FB" }}
+                variant="text"
+                animation="wave"
+                width="100%"
+                height={65}
+              />
+            </Paper>
+          </Container>
+        </Container>
+      ) : (
+        <TableVS period={period} />
+      )}
 
       {/* ======================full graph ====================== */}
       <Dialog
@@ -311,6 +398,8 @@ const mapStateToProps = (state) => {
 
     dateStartVS: state.reducer.dateStartVS,
     dateEndVS: state.reducer.dateEndVS,
+
+    loadSkeleton: state.reducer.loadSkeleton,
   };
 };
 

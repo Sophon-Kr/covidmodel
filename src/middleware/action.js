@@ -124,10 +124,12 @@ export const getRealDataMount = (id) => {
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
           });
-          dispatch({
-            type: "SET_LOADING_SKELETON",
-            payload: false,
-          });
+          if (maxDate !== "Invalid Date" && minDate !== "Invalid Date") {
+            dispatch({
+              type: "SET_LOADING_SKELETON",
+              payload: false,
+            });
+          }
         }
       });
   };
@@ -157,10 +159,12 @@ export const getRealDataDay = (id) => {
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
           });
-          dispatch({
-            type: "SET_LOADING_SKELETON",
-            payload: false,
-          });
+          if (maxDate !== "Invalid Date" && minDate !== "Invalid Date") {
+            dispatch({
+              type: "SET_LOADING_SKELETON",
+              payload: false,
+            });
+          }
         }
       });
   };
@@ -194,10 +198,12 @@ export const getModelDataMount = (id) => {
             payload: [maxDate, minDate],
           });
 
-          dispatch({
-            type: "SET_LOADING_SKELETON",
-            payload: false,
-          });
+          if (maxDate !== "Invalid Date" && minDate !== "Invalid Date") {
+            dispatch({
+              type: "SET_LOADING_SKELETON",
+              payload: false,
+            });
+          }
         }
       });
   };
@@ -230,10 +236,12 @@ export const getModelDataDay = (id) => {
             payload: [maxDate, minDate],
           });
 
-          dispatch({
-            type: "SET_LOADING_SKELETON",
-            payload: false,
-          });
+          if (maxDate !== "Invalid Date" && minDate !== "Invalid Date") {
+            dispatch({
+              type: "SET_LOADING_SKELETON",
+              payload: false,
+            });
+          }
         }
       });
   };
