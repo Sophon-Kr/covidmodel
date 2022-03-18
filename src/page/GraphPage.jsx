@@ -240,7 +240,6 @@ export const GraphPage = (props) => {
   }
 
   function filterInitialValue(listAll, InitialDate) {
-    //console.log("listAll, InitialDate", listAll, InitialDate);
     var tempfillter = [];
     if (listAll && InitialDate) {
       for (let i = 0; i < listAll.length; i++) {
@@ -361,11 +360,9 @@ export const GraphPage = (props) => {
   async function getAllIntialValue() {
     const getNewID = sessionStorage.getItem("id");
     let initialTemp = await getAllInitial(getNewID);
-    // console.log("initialTemp", initialTemp);
     setListAllInitialDate(initialTemp);
 
     const tempListInitialDate = listForSelectInitialValue(initialTemp);
-    // console.log("tempListInitialDate", tempListInitialDate);
     setListInitialDate(tempListInitialDate);
     setInitialDateForSet(tempListInitialDate[0].value);
   }
@@ -392,7 +389,6 @@ export const GraphPage = (props) => {
       listAllInitialDate,
       initialDateForSet
     );
-    // console.log("tempConfig", tempConfig);
     setAlpha(tempConfig.alpha);
     setBeta(tempConfig.beta);
     setEpsilon1(tempConfig.epsilon1);
@@ -438,7 +434,6 @@ export const GraphPage = (props) => {
       listAllInitialDate,
       initialDateForSet
     );
-    // console.log("tempConfig", tempConfig);
     setAlpha(tempConfig.alpha);
     setBeta(tempConfig.beta);
     setEpsilon1(tempConfig.epsilon1);
@@ -478,20 +473,17 @@ export const GraphPage = (props) => {
     props.configDateEndMain(newDate);
   };
   const handleMonthStart = (newMonth) => {
-    // console.log("newMonth", newMonth);
     setMonthStart(newMonth);
 
     props.configDateStartMonthMain(newMonth);
   };
   const handleMonthEnd = (newMonth) => {
-    // console.log("newMonth", newMonth);
     setMonthEnd(newMonth);
 
     props.configDateEndMonthMain(newMonth);
   };
 
   const handleTypeData = async (event, newTypedata) => {
-    console.log("newPeriod ++", newTypedata);
     setTypeData(newTypedata);
     props.configDataTypeGraph(newTypedata);
   };
@@ -522,7 +514,6 @@ export const GraphPage = (props) => {
 
     var checkDataInitialChangeReturn =
       JSON.stringify(checkDataInitialChange) === JSON.stringify(tempConfig);
-    // console.log("checkDataInitialChangeReturn", checkDataInitialChangeReturn);
     return checkDataInitialChangeReturn;
   }
 
@@ -601,7 +592,6 @@ export const GraphPage = (props) => {
     setDateEnd(new Date(props.maindateEndMain));
     setMonthStart(new Date(props.dateStartMonthMain));
     setMonthEnd(new Date(props.dateEndMonthMain));
-    // console.log("check dateEndMonthMain+++", new Date(props.dateEndMonthMain));
   }, [
     props.maindateEndMain,
     props.maindateStartMain,
@@ -609,13 +599,7 @@ export const GraphPage = (props) => {
     props.dateStartMonthMain,
   ]);
 
-  // useEffect(() => {
-  //   setDateStart(props.maindateStartMain);
-  //   setDateEnd(props.maindateEndMain);
-  //   setMonthStart(props.dateStartMonthMain);
-  //   setMonthEnd(props.dateEndMonthMain);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+
 
   useEffect(() => {
     async function fetchDailyData() {

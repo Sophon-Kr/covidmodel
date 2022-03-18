@@ -4,7 +4,7 @@ export async function getAllInitial(id) {
   return axios
     .get(`https://covid-data-123.herokuapp.com/covidmodel/${id}`)
     .then((res) => {
-      console.log("res", res.data.initial_default);
+      // console.log("res", res.data.initial_default);
       return res.data.initial_default;
     });
 }
@@ -13,7 +13,7 @@ export async function resetInitial(id) {
   return axios
     .get(`https://covid-data-123.herokuapp.com/covidmodel/reset/${id}`)
     .then((res) => {
-      console.log("res", res);
+      // console.log("res", res);
       return res.data;
     });
 }
@@ -21,12 +21,8 @@ export async function getUserID(id) {
   return axios
     .get(`https://covid-data-123.herokuapp.com/createuserid`)
     .then((res) => {
-      console.log("getUserID return : ", res);
+      // console.log("getUserID return : ", res);
       sessionStorage.setItem("id", res.data.id);
-      // store.dispatch({
-      //   type: EDIT_COLOR,
-      //   payload: purple[600],
-      // });
       return res.data.id;
     });
 }
@@ -47,22 +43,22 @@ export async function editInitialByDate({
   zetas,
   id,
 }) {
-  console.log(
-    "editInitialByDate",
-    start_date,
-    alpha,
-    beta,
-    epsilon1,
-    epsilon2,
-    lambdah,
-    lambdas,
-    mu,
-    omega1,
-    omega2,
-    omega3,
-    zetah,
-    zetas
-  );
+  // console.log(
+  //   "editInitialByDate",
+  //   start_date,
+  //   alpha,
+  //   beta,
+  //   epsilon1,
+  //   epsilon2,
+  //   lambdah,
+  //   lambdas,
+  //   mu,
+  //   omega1,
+  //   omega2,
+  //   omega3,
+  //   zetah,
+  //   zetas
+  // );
   return axios
     .put(`https://covid-data-123.herokuapp.com/covidmodel${id}`, {
       start_date: start_date,
@@ -80,7 +76,7 @@ export async function editInitialByDate({
       zetas: zetas,
     })
     .then((res) => {
-      console.log("res editInitialByDate", res.data.initial_value);
+      // console.log("res editInitialByDate", res.data.initial_value);
       return res.data.initial_value;
     });
 }

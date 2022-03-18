@@ -51,7 +51,6 @@ class VSFullGraph extends PureComponent {
   };
 
   filterRangeByDate = (data) => {
-    console.log("data filter:", data);
     var returndata = [];
     if (data) {
       var startDate = new Date(this.props.maindateStartMain);
@@ -87,7 +86,6 @@ class VSFullGraph extends PureComponent {
   };
 
   monthFilter = (dataMonth) => {
-    console.log("data filter:", dataMonth);
     var returndata = [];
     if (dataMonth) {
       let startMonth = this.props.dateStartMonthMain;

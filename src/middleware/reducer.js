@@ -64,7 +64,7 @@ const initialState = {
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case CONFIG_GRAPH_DISPLAY:
-      console.log(type, payload);
+      // //  console.log(type, payload);
       return {
         ...state,
         SStatus: payload.S,
@@ -78,14 +78,14 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case CONFIG_DATA_TYPE:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         typeData: payload,
       };
 
     case GET_DATA_REAL_MONTH:
-      console.log(type, payload);
+      //  console.log(type, payload);
 
       return {
         ...state,
@@ -94,7 +94,7 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case GET_DATA_REAL_DAY:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         realDataDay: payload,
@@ -102,7 +102,7 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case GET_DATA_MODEL_MONTH:
-      console.log(type, payload);
+      //  console.log(type, payload);
 
       return {
         ...state,
@@ -111,7 +111,7 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case GET_DATA_MODEL_DAY:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         modelDataDay: payload,
@@ -119,7 +119,7 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case GET_DATA_VS_MONTH:
-      console.log(type, payload);
+      //  console.log(type, payload);
 
       return {
         ...state,
@@ -127,83 +127,83 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case GET_DATA_VS_DAY:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         vsData: payload,
       };
 
     case GET_DATA_DAILY:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         dailyData: payload,
       };
 
     case CONFIG_DATE_START_MONTH_MAIN:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         dateStartMonthMain: payload,
       };
 
     case CONFIG_DATE_END_MONTH_MAIN:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         dateEndMonthMain: payload,
       };
 
     case CONFIG_PERIOD_MAIN:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         periodMain: payload,
       };
 
     case CONFIG_PERIOD_VS:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         periodVS: payload,
       };
     case CONFIG_TYPE_VS:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         VS: payload,
       };
 
     case CONFIG_DATE_START_MAIN:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         dateStartMain: payload,
       };
 
     case CONFIG_DATE_END_MAIN:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         dateEndMain: payload,
       };
 
     case CONFIG_DATE_START_VS:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         dateStartVS: payload,
       };
 
     case CONFIG_DATE_END_VS:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         dateEndVS: payload,
       };
 
     case SET_DATE_MAX_MIN:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         initialMaxDate: payload[0],
@@ -219,19 +219,19 @@ const reducer = (state = initialState, { type, payload }) => {
         dateEndVS: payload[0],
       };
     case SET_LIST_FOR_REMOVE:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         listForRemove: payload,
       };
     case SET_USERID:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         userID: payload,
       };
     case SET_LOADING_SKELETON:
-      console.log(type, payload);
+      //  console.log(type, payload);
       return {
         ...state,
         loadSkeleton: payload,

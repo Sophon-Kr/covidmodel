@@ -10,7 +10,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 export const TableVS = (props) => {
-  // const [data, setData] = useState(props.mainVsData);
   const [data, setData] = useState([]);
   // const [data, setData] = useState(
   //   props.mainVsData === null ||
@@ -69,7 +68,6 @@ export const TableVS = (props) => {
 
   const filterRangeByDate = (data) => {
     var returndata = [];
-    console.log("data", data);
     if (data) {
       var startDate = new Date(props.maindateStartMain);
       var endDate = new Date(props.maindateEndMain);
@@ -102,20 +100,9 @@ export const TableVS = (props) => {
     }
     return returndata[0];
   };
-  // const monthFilter = (dataMonth) => {
-  //   let startMonth = props.dateStartMonthMain;
-  //   let endMonth = props.dateEndMonthMain;
-
-  //   var dateAfterFilter = dataMonth.filter((a) => {
-  //     var date = new Date(a.name);
-  //     return date >= startMonth && date <= endMonth;
-  //   });
-  //   return dateAfterFilter;
-  // };
 
   const monthFilter = (dataMonth) => {
     var returndata = [];
-    console.log("data", data);
     if (dataMonth) {
       let startMonth = props.dateStartMonthMain;
       let endMonth = props.dateEndMonthMain;
@@ -155,11 +142,9 @@ export const TableVS = (props) => {
       if (props.period === "day") {
         let tempDataTable1 = filterRangeByDate(props.mainVsData);
         await setData(tempDataTable1);
-        console.log(tempDataTable1);
       } else {
         let tempDataTable2 = monthFilter(props.mainVsData);
         await setData(tempDataTable2);
-        console.log(tempDataTable2);
       }
     }
     fetchData();
