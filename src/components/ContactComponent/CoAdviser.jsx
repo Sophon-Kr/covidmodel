@@ -8,16 +8,19 @@ import ta from "../../assets/ta.png";
 
 const coAdviser = [
   {
+    id: 1,
     name: "ผศ.ดร.วศิน สุทธิฉายา",
     type: "อาจารย์ที่ปรึกษา",
     pic: va,
   },
   {
+    id: 2,
     name: "ผศ.ธนดล ปริตรานันท์",
     type: "อาจารย์ที่ปรึกษาร่วม",
     pic: ta,
   },
   {
+    id: 3,
     name: "รศ.ดร.รังสิพรรณ มฤคทัต",
     type: "อาจารย์ที่ปรึกษาร่วม",
     pic: ra,
@@ -33,7 +36,7 @@ export const CoAdviser = (props) => {
       style={{ marginBottom: 50 }}
     >
       {coAdviser.map((CoAdvisorData) => (
-        <div>
+        <div key={CoAdvisorData.id}>
           <Grid
             container
             direction="row"

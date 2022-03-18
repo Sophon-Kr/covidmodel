@@ -186,10 +186,10 @@ export const VSGraphPage = (props) => {
                     <Grid item>
                       <DatePicker
                         autoOk={true}
-                        openTo="day"
+                        // openTo="day"
                         views={["day", "month", "year"]}
                         label="Start Date"
-                        inputFormat="dd/MM/yyyy"
+                        // inputFormat="dd/MM/yyyy"
                         value={dateStart}
                         minDate={new Date(props.initialMinDate)}
                         maxDate={new Date(props.initialMaxDate)}
@@ -203,12 +203,12 @@ export const VSGraphPage = (props) => {
                     <Grid item>
                       <DatePicker
                         autoOk={true}
-                        openTo="day"
+                        // openTo="day"
                         views={["day", "month", "year"]}
                         minDate={new Date(props.initialMinDate)}
                         maxDate={new Date(props.initialMaxDate)}
                         label="End Date"
-                        inputFormat="dd/MM/yyyy"
+                        // inputFormat="dd/MM/yyyy"
                         value={dateEnd}
                         onChange={handleDateEnd}
                         renderInput={(params) => (

@@ -72,7 +72,7 @@ export const ContactForm = (props) => {
         alignItems="center"
       >
         <Grid
-          item
+          item={true}
           xs={4}
           sm={4}
           md={4}
@@ -94,7 +94,7 @@ export const ContactForm = (props) => {
           <img src={contactPic} alt="contact" width="150%" height="auto" />
         </Grid>
         <Grid
-          item
+          item={true}
           xs={4}
           sm={4}
           md={4}
@@ -116,7 +116,7 @@ export const ContactForm = (props) => {
           <img src={contactPic} alt="contact" width="300%" height="auto" />
         </Grid>
         <Grid
-          item
+          item={true}
           xs={12}
           sm={12}
           md={12}
@@ -161,7 +161,7 @@ export const ContactForm = (props) => {
                 Your Email
               </Typography>
             </Grid>
-            <Grid xs={12} sm={12} md={9} lg={9} xl={9}>
+            <Grid item={true} xs={12} sm={12} md={9} lg={9} xl={9}>
               <TextField
                 variant="outlined"
                 label="Your Email"
@@ -190,7 +190,7 @@ export const ContactForm = (props) => {
                 Subject
               </Typography>
             </Grid>
-            <Grid xs={12} sm={12} md={9} lg={9} xl={9}>
+            <Grid item={true} xs={12} sm={12} md={9} lg={9} xl={9}>
               <TextField
                 variant="outlined"
                 label="Subject"
@@ -219,7 +219,7 @@ export const ContactForm = (props) => {
                 Details
               </Typography>
             </Grid>
-            <Grid xs={12} sm={12} md={9} lg={9} xl={9}>
+            <Grid item={true} xs={12} sm={12} md={9} lg={9} xl={9}>
               <TextField
                 variant="outlined"
                 label="Details"
@@ -244,6 +244,7 @@ export const ContactForm = (props) => {
               lg={9}
               xl={9}
               container
+              item
               justifyContent="space-around"
               alignItems="center"
             >

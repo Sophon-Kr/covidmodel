@@ -9,21 +9,25 @@ import be from "../../assets/be.png";
 
 const studentData = [
   {
+    id: 1,
     name: "นาย กฤษฎา อาทิตย์กวิน",
     type: "นักศึกษา",
     pic: ba,
   },
   {
+    id: 2,
     name: "นางสาว พรรษมน บุญชนะชัย",
     type: "นักศึกษา",
     pic: be,
   },
   {
+    id: 3,
     name: <span> &nbsp;&nbsp;นางสาว แพรวฟ้า สันทิฐิกวงศ์</span>,
     type: "นักศึกษา",
     pic: pr,
   },
   {
+    id: 4,
     name: (
       <span>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;นาย โศภณ ไกรพินิจ &nbsp;&nbsp;</span>
     ),
@@ -42,7 +46,15 @@ export const Student = (props) => {
       style={{ marginBottom: 50 }}
     >
       {studentData.map((studentData) => (
-        <Grid item sx={12} sm={6} md={6} lg={3} xl={3}>
+        <Grid
+          item={true}
+          xs={12}
+          sm={6}
+          md={6}
+          lg={3}
+          xl={3}
+          key={studentData.id}
+        >
           <Grid
             container
             direction="row"
