@@ -107,7 +107,7 @@ export const getRealDataMount = (id) => {
       payload: true,
     });
     return axios
-      .get(`https://covid-data-123.herokuapp.com/coviddata/month/${id}`)
+      .get(`https://covid-data-123.herokuapp.com/coviddata/month`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -140,7 +140,7 @@ export const getRealDataDay = (id) => {
       payload: true,
     });
     return axios
-      .get(`https://covid-data-123.herokuapp.com/coviddata/day/${id}`)
+      .get(`https://covid-data-123.herokuapp.com/coviddata/day`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
