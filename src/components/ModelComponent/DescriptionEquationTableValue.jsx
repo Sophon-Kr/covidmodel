@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { styled } from "@mui/material/styles";
 import { tableCellClasses } from "@mui/material/TableCell";
 import Table from "@mui/material/Table";

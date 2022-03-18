@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import CoAdviser from "../components/ContactComponent/CoAdviser";

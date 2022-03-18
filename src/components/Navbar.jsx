@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import Lightlogo from "../Covid-logo-light.png";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";

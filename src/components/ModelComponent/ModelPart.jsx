@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 
 import modelFlow from "../../assets/covidflow.png";
