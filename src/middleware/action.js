@@ -20,6 +20,7 @@ export const GET_DATA_VS_MONTH = "GET_DATA_VS_MONTH";
 export const GET_DATA_VS_DAY = "GET_DATA_VS_DAY";
 export const CONFIG_TYPE_VS = "CONFIG_TYPE_VS";
 export const SET_USERID = "SET_USERID";
+export const SET_LOADING_SKELETON = "SET_LOADING_SKELETON";
 
 const maxAndMinDate = (data, type) => {
   const newDates = [];
@@ -151,21 +152,10 @@ export const getRealDataDay = (id) => {
 
 export const getModelDataMount = (id) => {
   return async (dispatch) => {
-    // var tempdata = getMonth();
-    // console.log("tempdata getMonth", tempdata);
-
-    // dispatch({
-    //   type: "GET_DATA_MODEL_MONTH",
-    //   payload: tempdata,
-    // });
-    // let findDate = maxAndMinDate(tempdata);
-    // let maxDate = findDate[0];
-    // let minDate = findDate[1];
-    // dispatch({
-    //   type: "SET_DATE_MAX_MIN",
-    //   payload: [maxDate, minDate],
-    // });
-
+    dispatch({
+      type: "SET_LOADING_SKELETON",
+      payload: true,
+    });
     return axios
       .get(`https://covid-data-123.herokuapp.com/covidmodel/month/${id}`)
       .then((res) => {
@@ -187,6 +177,11 @@ export const getModelDataMount = (id) => {
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
           });
+
+          dispatch({
+            type: "SET_LOADING_SKELETON",
+            payload: false,
+          });
         }
       });
   };
@@ -194,21 +189,10 @@ export const getModelDataMount = (id) => {
 
 export const getModelDataDay = (id) => {
   return async (dispatch) => {
-    // var tempdata = getDay();
-    // //  return tempdata;
-    // dispatch({
-    //   type: "GET_DATA_MODEL_DAY",
-    //   payload: tempdata,
-    // });
-    // let findDate = maxAndMinDate(tempdata);
-    // let maxDate = findDate[0];
-    // let minDate = findDate[1];
-    // // console.log("findDate", maxDate, minDate);
-
-    // dispatch({
-    //   type: "SET_DATE_MAX_MIN",
-    //   payload: [maxDate, minDate],
-    // });
+    dispatch({
+      type: "SET_LOADING_SKELETON",
+      payload: true,
+    });
 
     return axios
       .get(`https://covid-data-123.herokuapp.com/covidmodel/day/${id}`)
@@ -228,6 +212,11 @@ export const getModelDataDay = (id) => {
           dispatch({
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
+          });
+
+          dispatch({
+            type: "SET_LOADING_SKELETON",
+            payload: false,
           });
         }
       });

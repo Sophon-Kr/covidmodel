@@ -29,9 +29,11 @@ import DatePicker from "@mui/lab/DatePicker";
 import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
 import Backdrop from "@mui/material/Backdrop";
+import Skeleton from "@mui/material/Skeleton";
 
 import MainGraphFull from "../components/Graph/MainGraphFull";
 import TableModel from "../components/Table/TableModel";
+import MaingraphSkeleton from "../components/Skeleton/MaingraphSkeleton";
 import covid from "../assets/virusicon.png";
 import lung from "../assets/lungicon.png";
 import flight from "../assets/airplaneicon.png";
@@ -940,9 +942,12 @@ export const GraphPage = (props) => {
               </Grid>
             </Grid>
           </Grid>
-          <MainGraph
-          // tempDataService={tempDataService}
-          />
+          {/* ======================maingraph=================== */}
+          {props.loadSkeleton ? (
+            <Skeleton variant="rectangular" animation="wave" width="100%" height={445} />
+          ) : (
+            <MainGraph />
+          )}
         </Paper>
       </Container>
       <TableModel />
@@ -1210,6 +1215,8 @@ const mapStateToProps = (state) => {
 
     dateStartMonthMain: state.reducer.dateStartMonthMain,
     dateEndMonthMain: state.reducer.dateEndMonthMain,
+
+    loadSkeleton: state.reducer.loadSkeleton,
   };
 };
 

@@ -19,6 +19,8 @@ import { GET_DATA_VS_MONTH } from "./action";
 import { GET_DATA_VS_DAY } from "./action";
 import { CONFIG_TYPE_VS } from "./action";
 import { SET_USERID } from "./action";
+import { SET_LOADING_SKELETON } from "./action";
+
 
 const initialState = {
   periodMain: "month",
@@ -57,6 +59,7 @@ const initialState = {
   listForRemove: [],
   vsData: [],
   userID: 1000000,
+  loadSkeleton: false,
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -249,6 +252,12 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         userID: payload,
+      };
+    case SET_LOADING_SKELETON:
+      console.log(type, payload);
+      return {
+        ...state,
+        loadSkeleton: payload,
       };
 
     default:
