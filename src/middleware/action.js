@@ -43,6 +43,10 @@ const maxAndMinDate = (data, type) => {
   return [maxDate, minDate];
 };
 
+function isValidDate(d) {
+  return d instanceof Date && !isNaN(d);
+}
+
 export const configGraphLine = (payload) => ({
   type: "CONFIG_GRAPH_DISPLAY",
   payload,
@@ -124,7 +128,7 @@ export const getRealDataMount = (id) => {
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
           });
-          if (maxDate !== "Invalid Date" && minDate !== "Invalid Date") {
+          if (isValidDate(maxDate) && isValidDate(minDate)) {
             dispatch({
               type: "SET_LOADING_SKELETON",
               payload: false,
@@ -159,7 +163,7 @@ export const getRealDataDay = (id) => {
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
           });
-          if (maxDate !== "Invalid Date" && minDate !== "Invalid Date") {
+          if (isValidDate(maxDate) && isValidDate(minDate)) {
             dispatch({
               type: "SET_LOADING_SKELETON",
               payload: false,
@@ -198,7 +202,7 @@ export const getModelDataMount = (id) => {
             payload: [maxDate, minDate],
           });
 
-          if (maxDate !== "Invalid Date" && minDate !== "Invalid Date") {
+          if (isValidDate(maxDate) && isValidDate(minDate)) {
             dispatch({
               type: "SET_LOADING_SKELETON",
               payload: false,
@@ -236,7 +240,7 @@ export const getModelDataDay = (id) => {
             payload: [maxDate, minDate],
           });
 
-          if (maxDate !== "Invalid Date" && minDate !== "Invalid Date") {
+          if (isValidDate(maxDate) && isValidDate(minDate)) {
             dispatch({
               type: "SET_LOADING_SKELETON",
               payload: false,
@@ -274,10 +278,12 @@ export const getVSDataMount = (id) => {
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
           });
-          dispatch({
-            type: "SET_LOADING_SKELETON",
-            payload: false,
-          });
+          if (isValidDate(maxDate) && isValidDate(minDate)) {
+            dispatch({
+              type: "SET_LOADING_SKELETON",
+              payload: false,
+            });
+          }
         }
       });
   };
@@ -306,10 +312,12 @@ export const getVSDataDay = (id) => {
             type: "SET_DATE_MAX_MIN",
             payload: [maxDate, minDate],
           });
-          dispatch({
-            type: "SET_LOADING_SKELETON",
-            payload: false,
-          });
+          if (isValidDate(maxDate) && isValidDate(minDate)) {
+            dispatch({
+              type: "SET_LOADING_SKELETON",
+              payload: false,
+            });
+          }
         }
       });
   };
