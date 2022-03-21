@@ -457,8 +457,10 @@ export const GraphPage = (props) => {
   };
 
   const handlePeriod = async (event, newPeriod) => {
-    await setPeriod(newPeriod);
-    await props.configPeriodMainData(newPeriod);
+    if (newPeriod !== period) {
+      await setPeriod(newPeriod);
+      await props.configPeriodMainData(newPeriod);
+    }
   };
 
   const handleDateStart = (newDate) => {

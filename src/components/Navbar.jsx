@@ -63,7 +63,7 @@ export const Navbar = (props) => {
                   fontWeight: "600",
                 }}
               >
-                COVID MODEL
+                SV1V2MIHD MODEL
               </Typography>
             </Box>
 

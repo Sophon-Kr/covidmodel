@@ -65,7 +65,9 @@ export const VSGraphPage = (props) => {
 
   const handlePeriod = (event, newPeriod) => {
     const getNewID = sessionStorage.getItem("id");
-    setPeriod(newPeriod);
+    if (newPeriod !== period) {
+      setPeriod(newPeriod);
+    }
     if (newPeriod === "day") {
       props.getVSDataDay(getNewID);
     } else if (newPeriod === "month") {
