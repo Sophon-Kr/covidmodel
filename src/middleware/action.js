@@ -107,7 +107,7 @@ export const getRealDataMount = (id) => {
       payload: true,
     });
     return axios
-      .get(`https://covid-data-123.herokuapp.com/coviddata/month`)
+      .get(`http://ec2-18-141-25-127.ap-southeast-1.compute.amazonaws.com:5000/coviddata/month`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -140,7 +140,7 @@ export const getRealDataDay = (id) => {
       payload: true,
     });
     return axios
-      .get(`https://covid-data-123.herokuapp.com/coviddata/day`)
+      .get(`http://ec2-18-141-25-127.ap-southeast-1.compute.amazonaws.com:5000/coviddata/day`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -174,7 +174,7 @@ export const getModelDataMount = (id) => {
       payload: true,
     });
     return axios
-      .get(`https://covid-data-123.herokuapp.com/covidmodel/month/${id}`)
+      .get(`http://ec2-18-141-25-127.ap-southeast-1.compute.amazonaws.com:5000/covidmodel/month/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -209,7 +209,7 @@ export const getModelDataDay = (id) => {
     });
 
     return axios
-      .get(`https://covid-data-123.herokuapp.com/covidmodel/day/${id}`)
+      .get(`http://ec2-18-141-25-127.ap-southeast-1.compute.amazonaws.com:5000/covidmodel/day/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -242,7 +242,7 @@ export const getVSDataMount = (id) => {
       payload: true,
     });
     return axios
-      .get(`https://covid-data-123.herokuapp.com/vsdata/month/${id}`)
+      .get(`http://ec2-18-141-25-127.ap-southeast-1.compute.amazonaws.com:5000/vsdata/month/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({
@@ -277,7 +277,7 @@ export const getVSDataDay = (id) => {
       payload: true,
     });
     return axios
-      .get(`https://covid-data-123.herokuapp.com/vsdata/day/${id}`)
+      .get(`http://ec2-18-141-25-127.ap-southeast-1.compute.amazonaws.com:5000/vsdata/day/${id}`)
       .then((res) => {
         if (res !== false || res !== "false") {
           dispatch({

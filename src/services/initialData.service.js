@@ -2,7 +2,7 @@ const axios = require("axios");
 
 export async function getAllInitial(id) {
   return axios
-    .get(`https://covid-data-123.herokuapp.com/covidmodel/${id}`)
+    .get(`http://ec2-18-141-25-127.ap-southeast-1.compute.amazonaws.com:5000/covidmodel/${id}`)
     .then((res) => {
       // console.log("res getAllInitial", res.data.initial_default);
       return res.data.initial_default;
@@ -11,7 +11,7 @@ export async function getAllInitial(id) {
 
 export async function resetInitial(id) {
   return axios
-    .get(`https://covid-data-123.herokuapp.com/covidmodel/reset/${id}`)
+    .get(`http://ec2-18-141-25-127.ap-southeast-1.compute.amazonaws.com:5000/covidmodel/reset/${id}`)
     .then((res) => {
       // console.log("res", res);
       return res.data;
@@ -19,7 +19,7 @@ export async function resetInitial(id) {
 }
 export async function getUserID(id) {
   return axios
-    .get(`https://covid-data-123.herokuapp.com/createuserid`)
+    .get(`http://ec2-18-141-25-127.ap-southeast-1.compute.amazonaws.com:5000/createuserid`)
     .then((res) => {
       // console.log("getUserID return : ", res);
       sessionStorage.setItem("id", res.data.id);
@@ -60,7 +60,7 @@ export async function editInitialByDate({
   //   zetas
   // );
   return axios
-    .put(`https://covid-data-123.herokuapp.com/covidmodel/${id}`, {
+    .put(`http://ec2-18-141-25-127.ap-southeast-1.compute.amazonaws.com:5000/covidmodel/${id}`, {
       start_date: start_date,
       alpha: alpha,
       beta: beta,
