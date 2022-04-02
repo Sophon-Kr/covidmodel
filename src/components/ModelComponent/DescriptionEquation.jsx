@@ -147,12 +147,4 @@ export const DescriptionEquation = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => ({});
-
-// const mapDispatchToProps = {};
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(DescriptionEquation);
 export default DescriptionEquation;

@@ -63,9 +63,4 @@ export const ModelPart = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => ({});
-
-// const mapDispatchToProps = {};
-
-// export default connect(mapStateToProps, mapDispatchToProps)(ModelPart);
 export default ModelPart;

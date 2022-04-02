@@ -110,14 +110,6 @@ class MainGraphFull extends PureComponent {
     return returndata;
   };
 
-  // removeProperty = (coviddata) => {
-  //   for (let i = 0; i < coviddata.length; i++) {
-  //     let newcoviddata = coviddata[i];
-  //     this.props.listForRemove.forEach((e) => delete newcoviddata[e]);
-  //   }
-  //   return coviddata;
-  // };
-
   componentDidUpdate(prevProps) {
     if (prevProps.mainSStatus !== this.props.mainSStatus) {
       this.setState({

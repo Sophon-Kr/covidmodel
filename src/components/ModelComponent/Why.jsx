@@ -60,9 +60,4 @@ export const Why = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => ({});
-
-// const mapDispatchToProps = {};
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Why);
 export default Why;

@@ -375,14 +375,6 @@ export const GraphPage = (props) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checkFetchStatus, props.userID]);
-  // useEffect(() => {
-  //   const getNewID = sessionStorage.getItem("id");
-  //   if (getNewID) {
-  //     getAllIntialValue();
-  //   }
-
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   async function parameterChange() {
     const tempConfig = filterInitialValue(
@@ -557,16 +549,14 @@ export const GraphPage = (props) => {
       listAllInitialDate,
       initialDateForSet
     );
-    //const getNewID = sessionStorage.getItem("id");
+
     if (!checkChange) {
       setEdittingStatus(true);
       await editInitialValueByDate();
       await getAllIntialValue();
       await parameterChange();
       await setCheckFetchStatus(!checkFetchStatus);
-      // const fetchDataAfterEdit =
       await fetchDataMonth();
-      // await console.log("edit fetchDataMonth", fetchDataAfterEdit);
       await setEdittingStatus(false);
       await setCheckFetchStatus(!checkFetchStatus);
     }
@@ -576,18 +566,12 @@ export const GraphPage = (props) => {
     fetchDataMonth();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
-    // typeData,
     props.maintypeData,
     props.mainperiod,
     checkFetchStatus,
     listAllInitialDate,
     props.userID,
   ]);
-
-  // useEffect(() => {
-  //   fetchDataMonth();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   useEffect(() => {
     setDateStart(new Date(props.maindateStartMain));

@@ -17,10 +17,8 @@ function App() {
   const store = configureStore();
   async function fetchID() {
     const id = sessionStorage.getItem("id");
-    // console.log("id : sessionStorage: ", id);
     if (!id) {
       const newID = await getUserID();
-      // console.log("newid : : ", newID);
       store.dispatch({
         type: SET_USERID,
         payload: newID,
@@ -28,7 +26,6 @@ function App() {
     }
   }
   React.useEffect(() => {
-    // console.log("getUserID");
     fetchID();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

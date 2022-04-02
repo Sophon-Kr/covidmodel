@@ -8,13 +8,10 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import contactPic from "../../assets/contactPic.png";
-
-// import EmailUtil from "../../services/sendemail.service";
 import { sendEmail } from "../../services/sendemail.service";
-// import { getRawDataMonth } from "../../services/rawData.service";
+
 
 export const ContactForm = (props) => {
-  // const [contact, setContact] = React.useState(0);
   const [subjectData, setSubjectData] = React.useState("");
   const [sendFrom, setSendFrom] = React.useState("");
   const [sendText, setSendText] = React.useState("");
@@ -57,7 +54,6 @@ export const ContactForm = (props) => {
       subjectData,
       sendText,
     };
-    //console.log("testsend", forSend);
     const testsend = await sendEmail(forSend);
     console.log("testsend", testsend);
     handleOpenSnackbar(testsend);
@@ -310,9 +306,4 @@ export const ContactForm = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => ({});
-
-// const mapDispatchToProps = {};
-
-// export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
 export default ContactForm;

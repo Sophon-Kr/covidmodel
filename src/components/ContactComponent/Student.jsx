@@ -172,9 +172,5 @@ export const Student = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => ({});
 
-// const mapDispatchToProps = {};
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Student);
 export default Student;

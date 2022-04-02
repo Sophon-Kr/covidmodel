@@ -21,7 +21,7 @@ import M from "../assets/M.png";
 import I from "../assets/I.png";
 import H from "../assets/H.png";
 import D from "../assets/D.png";
-import { resetInitial } from "../services/initialData.service";
+// import { resetInitial } from "../services/initialData.service";
 
 const modelDisplay = [
   {
@@ -131,12 +131,6 @@ const modelDisplay = [
 ];
 
 export const Modelpage = (props) => {
-  React.useEffect(() => {
-    const getNewID = sessionStorage.getItem("id");
-    // console.log("getNewID Modelpage", getNewID);
-    resetInitial(getNewID);
-  }, [props.userID]);
-
   return (
     <Container
       maxWidth="xxl"

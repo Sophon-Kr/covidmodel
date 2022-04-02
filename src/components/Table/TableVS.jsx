@@ -11,32 +11,6 @@ import TableRow from "@mui/material/TableRow";
 
 export const TableVS = (props) => {
   const [data, setData] = useState([]);
-  // const [data, setData] = useState(
-  //   props.mainVsData === null ||
-  //     props.mainVsData === false ||
-  //     props.mainVsData === undefined ||
-  //     props.mainVsData === "false"
-  //     ? [
-  //         {
-  //           DeathModelData: 0,
-  //           DeathRawData: 0,
-  //           HospitalizeModelData: 0,
-  //           HospitalizeRawData: 0,
-  //           InfectionModelData: 0,
-  //           InfectionRawData: 0,
-  //           MaintenanceShotModelData: 0,
-  //           MaintenanceShotRawData: 0,
-  //           SusceptibleModelData: 0,
-  //           SusceptibleRawData: 0,
-  //           Vaccines1ModelData: 0,
-  //           Vaccines1RawData: 0,
-  //           Vaccines2ModelData: 0,
-  //           Vaccines2RawData: 0,
-  //           name: "nodata",
-  //         },
-  //       ]
-  //     : props.mainVsData
-  // );
   useEffect(() => {
     setData(
       props.mainVsData === null ||
@@ -138,7 +112,6 @@ export const TableVS = (props) => {
 
   useEffect(() => {
     async function fetchData() {
-      // await setData([]);
       if (props.period === "day") {
         let tempDataTable1 = filterRangeByDate(props.mainVsData);
         await setData(tempDataTable1);
