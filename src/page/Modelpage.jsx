@@ -21,7 +21,6 @@ import M from "../assets/M.png";
 import I from "../assets/I.png";
 import H from "../assets/H.png";
 import D from "../assets/D.png";
-// import { resetInitial } from "../services/initialData.service";
 
 const modelDisplay = [
   {
@@ -61,10 +60,9 @@ const modelDisplay = [
       <div>
         &emsp; &emsp; &emsp;คือ
         จำนวนประชากรในประเทศไทยที่ได้รับภูมิต้านทานจากการฉีดวัคซีนในโดสที่สอง
-        เพื่อให้มีภูมิต้านทานที่เพิ่มขึ้น
-        โดยการฉีดวัคซีนครบ 2 เข็มจะถือว่าเป็นการได้รับวัคซีนครบโดสแล้ว
-        ซึ่งถูกรวบรวมโดย กลุ่ม The Researcher
-        (https://www.facebook.com/researcher.th)
+        เพื่อให้มีภูมิต้านทานที่เพิ่มขึ้น โดยการฉีดวัคซีนครบ 2
+        เข็มจะถือว่าเป็นการได้รับวัคซีนครบโดสแล้ว ซึ่งถูกรวบรวมโดย กลุ่ม The
+        Researcher (https://www.facebook.com/researcher.th)
       </div>
     ),
     pic: <img src={V2} alt="Vaccines2" width="100%" height="auto" />,
@@ -205,7 +203,6 @@ export const Modelpage = (props) => {
           <DescriptionEquation />
           <DescriptionEquationTable />
           <DescriptionEquationTableValue />
-          {/* <ExampleFlow /> */}
           <div align="center">
             <NavLink
               to="/graphpage"
@@ -240,7 +237,5 @@ const mapStateToProps = (state) => {
     userID: state.reducer.userID,
   };
 };
-
-// const mapDispatchToProps = {};
 
 export default connect(mapStateToProps, null)(Modelpage);

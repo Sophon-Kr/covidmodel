@@ -1,7 +1,6 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-
-import modelFlow from "../../assets/covidflow.png";
+import covidflow from "../../assets/covidflow.png";
 
 export const ModelPart = (props) => {
   return (
@@ -22,7 +21,7 @@ export const ModelPart = (props) => {
             textAlign: "center",
           }}
         >
-          <img src={modelFlow} alt="" width="100%" height="auto" />
+          <img src={covidflow} alt="" width="100%" height="auto" />
         </Grid>
       </Grid>
       <Grid
