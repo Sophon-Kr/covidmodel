@@ -21,11 +21,11 @@ describe("<Add /> rendering", () => {
   });
 });
 
-describe("<Modelpage /> rendering", () => {
-  it("should render one <h1>", () => {
-    const store = configureStore();
-    // eslint-disable-next-line no-undef
-    let wrapper = shallow(<Modelpage store={store} />);
-    expect(wrapper.children("h1")).toHaveLength(1);
-  });
-});
+// describe("<Modelpage /> rendering", () => {
+//   it("should render one <h1>", () => {
+//     const store = configureStore();
+//     // eslint-disable-next-line no-undef
+//     let wrapper = shallow(<Modelpage store={store} />);
+//     expect(wrapper.children("h1")).toHaveLength(1);
+//   });
+// });
