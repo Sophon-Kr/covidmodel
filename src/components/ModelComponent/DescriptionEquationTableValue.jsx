@@ -41,18 +41,22 @@ const equationCovid = [
     reference:
       "ราชกิจจานุเบกษา เรื่อง จำนวนราษฎรทั่วราชอาณาจักร ตามหลักฐานการทะเบียนราษฎร ปี 2563",
   },
-  {
-    name: "eta",
-    symbol: <span>&eta;</span>,
-    value: "0.09 - 0.21",
-    reference:
-      "Recurrent COVID-19 infection in a health care worker : a case report",
-  },
+  // {
+  //   name: "eta",
+  //   symbol: <span>&eta;</span>,
+  //   value: "0.09 - 0.21",
+  //   reference:
+  //     "Recurrent COVID-19 infection in a health care worker : a case report",
+  // },
 
   {
     name: "beta",
     symbol: <span>&beta;</span>,
-    value: "2.27",
+    value: (
+      <span>
+        1x10<sup>-9</sup> - 5.5x10<sup>-9</sup>
+      </span>
+    ),
     reference:
       "https://scii.chula.ac.th/blog/thailand-tops-the-world-in-covid-reproduction-rate/",
   },
@@ -61,8 +65,9 @@ const equationCovid = [
     symbol: <span>&omega; </span>,
     value: (
       <span>
-        &omega;<sub>1</sub> = 0.004, &omega;<sub>2</sub> = 0.001, &omega;
-        <sub>3</sub> = 0.0001
+        &omega;<sub>1</sub> = 0.0003 - 0.03, &omega;<sub>2</sub> = 0.0035 -
+        0.04, &omega;
+        <sub>3</sub> = 0 - 0.008
       </span>
     ),
     reference:
@@ -73,10 +78,10 @@ const equationCovid = [
     symbol: <span>&epsilon;</span>,
     value: (
       <div>
-        <div>Pf(1) = 0.52 / Pf(2) = 0.92 / Pf(3)=N/A</div>
-        <div>AZ(1)=0.641 / AZ(2) = 0.704 / AZ(3) =N/A</div>
-        <div>Coronavac (1) =N/A / Coronavac(2)= 0.504 / Coronavac (3) =N/A</div>
-        <div>Sinopharm (1) =N/A / Sinopharm (2)= 0.79 / Sinopharm (3) =N/A</div>
+        <div>Pf(1) = 0.52, Pf(2) = 0.92 </div>
+        <div>AZ(1)= 0.641, AZ(2) = 0.704 </div>
+        <div>Coronavac (1) = 0.641, Coronavac(2)= 0.504</div>
+        <div>Sinopharm (1) = 0.641, Sinopharm (2)= 0.79</div>
       </div>
     ),
     reference: "ประสิทธิภาพของวัคซีน",
@@ -84,21 +89,31 @@ const equationCovid = [
   {
     name: "alpha",
     symbol: <span>&alpha;</span>,
-    value: "0.2",
+    value: "0.0009 - 0.09",
     reference:
       "A Mathematical Model of COVID-19 Pandemic: A Case Study of Bangkok, Thailand",
   },
   {
     name: "lambda",
     symbol: <span>&lambda;</span>,
-    value: "0.1",
+    value: (
+      <span>
+        &lambda;<sub>1</sub> = 0.015 - 0.1, &lambda;<sub>2</sub> = 0.0001 -
+        0.07
+      </span>
+    ),
     reference:
       "A Mathematical Model of COVID-19 Pandemic: A Case Study of Bangkok, Thailand",
   },
   {
     name: "zeta",
     symbol: <span>&zeta;</span>,
-    value: "0.015",
+    value: (
+      <span>
+        &zeta;<sub>1</sub>= 0.0002 - 0.0009, &zeta;<sub>2</sub>= 0.00001 -
+        0.0005
+      </span>
+    ),
     reference:
       "A Mathematical Model of COVID-19 Pandemic: A Case Study of Bangkok, Thailand",
   },

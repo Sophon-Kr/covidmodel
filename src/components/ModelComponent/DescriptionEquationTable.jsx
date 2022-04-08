@@ -40,12 +40,12 @@ const equationCovid = [
     meaningEN: "Total Population",
     meaningTH: "ประชากรทั้งหมด",
   },
-  {
-    name: "eta",
-    symbol: <span>&eta;</span>,
-    meaningEN: "The recurrent infections rate for who was recovery",
-    meaningTH: "อัตราการติดซ้้าของผู้ที่หายจากการติดเชื้อ",
-  },
+  // {
+  //   name: "eta",
+  //   symbol: <span>&eta;</span>,
+  //   meaningEN: "The recurrent infections rate for who was recovery",
+  //   meaningTH: "อัตราการติดซ้้าของผู้ที่หายจากการติดเชื้อ",
+  // },
 
   {
     name: "beta",
