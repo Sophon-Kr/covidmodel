@@ -118,12 +118,17 @@ export const VSGraphPage = (props) => {
     props.dateEndVS,
   ]);
 
-  useEffect((period) => {
-    const getNewID = sessionStorage.getItem("id");
-    props.getVSDataMount(getNewID);
-    props.configTypeVS("S");
+  useEffect(
+    (period) => {
+      const getNewID = sessionStorage.getItem("id");
+      props.getVSDataMount(getNewID);
+      props.configTypeVS("S");
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    },
+    // []
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    [props.userID]
+  );
 
   const [nodeData, setNodeData] = React.useState("S");
 
