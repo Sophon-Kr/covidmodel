@@ -39,8 +39,9 @@ import flight from "../assets/airplaneicon.png";
 import vaccine from "../assets/maskicon.png";
 import {
   getAllInitial,
-  resetInitial,
+  // resetInitial,
   editInitialByDate,
+  replaceID,
 } from "../services/initialData.service";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -410,16 +411,23 @@ export const GraphPage = (props) => {
   };
 
   const handleResetDefault = async () => {
-    const getNewID = sessionStorage.getItem("id");
-    setDialogStatus(false);
     setResettingStatus(true);
-    await resetInitial(getNewID);
-    await getAllIntialValue();
-    await parameterChange();
-    await setCheckFetchStatus(!checkFetchStatus);
-    await fetchDataMonth();
+    let newID = await replaceID();
+    await props.replaceEditID(newID);
     await setResettingStatus(false);
+    await setDialogStatus(false);
   };
+  // const handleResetDefault = async () => {
+  //   const getNewID = sessionStorage.getItem("id");
+  //   setDialogStatus(false);
+  //   setResettingStatus(true);
+  //   await resetInitial(getNewID);
+  //   await getAllIntialValue();
+  //   await parameterChange();
+  //   await setCheckFetchStatus(!checkFetchStatus);
+  //   await fetchDataMonth();
+  //   await setResettingStatus(false);
+  // };
 
   const handleDialogClose = () => {
     const tempConfig = filterInitialValue(
@@ -1337,6 +1345,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setListForRemove: (list) => {
       return dispatch(actions.setListForRemove(list));
+    },
+    replaceEditID: (id) => {
+      return dispatch(actions.replaceNewID(id));
     },
   };
 };

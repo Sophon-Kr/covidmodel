@@ -320,3 +320,8 @@ export const setListForRemove = (payload) => ({
   type: "SET_LIST_FOR_REMOVE",
   payload,
 });
+export const replaceNewID = (payload) => ({
+  type: "SET_USERID",
+  payload,
+});
+

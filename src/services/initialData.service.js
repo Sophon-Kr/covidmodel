@@ -23,6 +23,15 @@ export async function getUserID(id) {
       return res.data.id;
     });
 }
+export async function replaceID(id) {
+  return axios
+    .get(`https://covidmodelproject.software/createuserid`)
+    .then((res) => {
+      sessionStorage.setItem("id", res.data.id);
+      console.log(res.data.id);
+      return res.data.id;
+    });
+}
 
 export async function editInitialByDate({
   start_date,
