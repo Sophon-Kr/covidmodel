@@ -4,6 +4,7 @@ import {
   LineChart,
   Line,
   XAxis,
+  Label,
   YAxis,
   CartesianGrid,
   Tooltip,
@@ -148,15 +149,40 @@ class VSGraph extends PureComponent {
             margin={{
               top: 5,
               right: 30,
-              left: 38,
-              bottom: 5,
+              left: 45,
+              bottom: 25,
             }}
+            // padding={{ bottom: 25 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
+            <XAxis dataKey="name">
+              <Label
+                value="Date"
+                offset={10}
+                position="bottom"
+                style={{ fontSize: "16px", fontWeight: "bold" }}
+              />
+            </XAxis>
+
+            <YAxis
+              label={{
+                value: "Population",
+                angle: -90,
+                offset: -35,
+                position: "insideLeft",
+                fontSize: "16px",
+                fontWeight: "bold",
+                textAnchor: "middle",
+              }}
+            />
             <Tooltip />
-            <Legend />
+            <Legend
+              verticalAlign="top"
+              layout="horizontal"
+              wrapperStyle={{
+                paddingBottom: "15px",
+              }}
+            />
             {this.state.mainVS === "S" ? (
               <Line
                 type="monotone"
@@ -300,6 +326,5 @@ const mapStateToProps = (state) => {
     mainVsData: state.reducer.vsData,
   };
 };
-
 
 export default connect(mapStateToProps, null)(VSGraph);
